@@ -30,7 +30,9 @@ Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']
 Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
 Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
+Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin']);
 Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);
+Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
 Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
 

@@ -6,6 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Form content box start -->
+                @if(Session::has('flash_messages'))
+                        <div class="alert alert-{!! Session::get('flash_level') !!}" style="width: 50%; margin: 10px auto; text-align: center;">
+                            {!! Session::get('flash_messages') !!}
+                        </div>
+                 @endif
                 <div class="form-content-box">
                     <!-- details -->
                     <div class="details">
@@ -14,7 +19,8 @@
                             <h1><span>Signup</span></h1>
                         </div>
                         <!-- Form start-->
-                        <form action="index.html" method="GET">
+                        <form action="{!! route('postregister') !!}" method="post">
+                            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
                                 <input type="text" name="fullname" class="input-text" placeholder="Full Name">
                             </div>

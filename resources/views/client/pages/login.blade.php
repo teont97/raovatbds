@@ -6,6 +6,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Form content box start -->
+                
+                @if(session('mesage'))
+                
+		            <p class="alert alert-warning">
+			            {!! session('mesage') !!}
+		             </p>
+                
+		        @endif
                 <div class="form-content-box">
                     <!-- details -->
                     <div class="details">
@@ -14,7 +22,8 @@
                             <h1>Login</h1>
                         </div>
                         <!-- Form start -->
-                        <form action="index.html" method="GET">
+                        <form action="{!! route('postlogin') !!}" method="post">
+                            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
                                 <input type="email" name="email" class="input-text" placeholder="Email Address">
                             </div>
