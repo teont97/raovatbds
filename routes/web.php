@@ -11,6 +11,32 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('login',['as'=>'admin.login','uses'=>'UserController@GetLogin']);
+    Route::get('dashboard',['as'=>'admin.dashboard','uses'=>'DashboardController@GetDashboard']);
+    Route::group(['prefix'=>'customer'],function(){
+        Route::get('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+    });
+    Route::group(['prefix'=>'newpost'],function(){
+        Route::get('list',['as'=>'admin.newpost.getlist','uses'=>'NewPostController@getList']);
+    });
+});
+
+Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
+Route::get('product',['as'=>'getproduct','uses'=>'PageController@getproduct']);
+Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
+Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
+Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
+Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
+Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);
+Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
+Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
+
+Route::group(['prefix'=>'personal'],function(){
+    Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
+    Route::get('my-post',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
+    Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
+    Route::get('change-password',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
 });
