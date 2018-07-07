@@ -43,12 +43,17 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown active">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Trang Chủ <span class="caret"></span>
+                            Cần Cho Thuê <span class="caret"></span>
                         </a>
+                        <ul class="dropdown-menu">
+                                    <li><a href="properties-details.html">Property Detail 1</a></li>
+                                    <li><a href="properties-details-2.html">Property Detail 2</a></li>
+                                    <li><a href="properties-details-3.html">Property Detail 3</a></li>
+                        </ul>
                     </li>
                     <li class="dropdown">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Properties<span class="caret"></span>
+                            Cần Thuê<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-submenu">
