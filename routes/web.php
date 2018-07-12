@@ -35,10 +35,13 @@ Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']
 Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
 Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
-
+Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 Route::group(['prefix'=>'personal'],function(){
     Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
     Route::get('my-post',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
     Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
     Route::get('change-password',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
+});
+Route::group(['prefix'=>'ajax'],function(){
+    Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);
 });

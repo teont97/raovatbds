@@ -10,12 +10,21 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <ul class="top-social-media pull-right">
+                @if(!isset($user))
                     <li>
                         <a href="{!!  route('getlogin') !!}" class="sign-in"><i class="fa fa-sign-in"></i>  Đăng Nhập</a>
                     </li>
                     <li>
                         <a href="{!!  route('getregister') !!}" class="sign-in"><i class="fa fa-user"></i> Đăng Ký</a>
                     </li>
+                @else
+                <li>
+                        <a href="{!!  route('personal.profile') !!}" class="sign-in"> <i class="fa fa-user"></i> {!! $user->name !!}</a>
+                    </li>
+                    <li>
+                        <a href="{!!  route('logoutUser') !!}" class="sign-in"> <i class="fa fa-sign-in"></i> Đăng Xuất</a>
+                    </li>
+                @endif
                 </ul>
             </div>
         </div>
@@ -41,139 +50,18 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown active">
+                @foreach($hinhthuc as $iteam_hinhthuc)        
+                    <li class="dropdown ">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Cần Cho Thuê <span class="caret"></span>
+                            {!! $iteam_hinhthuc->name !!} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                                    <li><a href="properties-details.html">Property Detail 1</a></li>
-                                    <li><a href="properties-details-2.html">Property Detail 2</a></li>
-                                    <li><a href="properties-details-3.html">Property Detail 3</a></li>
+                                @foreach($iteam_hinhthuc->loaitin as $iteam_chothue)
+                                    <li><a href="properties-details.html">{!! $iteam_chothue->name !!}</a></li>
+                                @endforeach
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Cần Thuê<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">List Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-list-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-list-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-list-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Grid Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-grid-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-grid-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-grid-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Map View</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-map-leftside-list.html">Map List 1</a></li>
-                                    <li><a href="properties-map-rightside-list.html">Map List 2</a></li>
-                                    <li><a href="properties-map-leftside-grid.html">Map Grid 1</a></li>
-                                    <li><a href="properties-map-rightside-grid.html">Map Grid 2</a></li>
-                                    <li><a href="properties-map-full.html">Map FullWidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Property Detail</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-details.html">Property Detail 1</a></li>
-                                    <li><a href="properties-details-2.html">Property Detail 2</a></li>
-                                    <li><a href="properties-details-3.html">Property Detail 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Cần Mua<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">List Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-list-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-list-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-list-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Grid Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-grid-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-grid-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-grid-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Map View</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-map-leftside-list.html">Map List 1</a></li>
-                                    <li><a href="properties-map-rightside-list.html">Map List 2</a></li>
-                                    <li><a href="properties-map-leftside-grid.html">Map Grid 1</a></li>
-                                    <li><a href="properties-map-rightside-grid.html">Map Grid 2</a></li>
-                                    <li><a href="properties-map-full.html">Map FullWidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Property Detail</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-details.html">Property Detail 1</a></li>
-                                    <li><a href="properties-details-2.html">Property Detail 2</a></li>
-                                    <li><a href="properties-details-3.html">Property Detail 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Cần Bán<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">List Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-list-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-list-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-list-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Grid Layout</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-grid-rightside.html">Right Sidebar</a></li>
-                                    <li><a href="properties-grid-leftside.html">Left Sidebar</a></li>
-                                    <li><a href="properties-grid-fullwidth.html">Fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Map View</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-map-leftside-list.html">Map List 1</a></li>
-                                    <li><a href="properties-map-rightside-list.html">Map List 2</a></li>
-                                    <li><a href="properties-map-leftside-grid.html">Map Grid 1</a></li>
-                                    <li><a href="properties-map-rightside-grid.html">Map Grid 2</a></li>
-                                    <li><a href="properties-map-full.html">Map FullWidth</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="0">Property Detail</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="properties-details.html">Property Detail 1</a></li>
-                                    <li><a href="properties-details-2.html">Property Detail 2</a></li>
-                                    <li><a href="properties-details-3.html">Property Detail 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                @endforeach
                  
                     <li class="dropdown">
                         <a  href="{!!  route('getblog') !!}">
@@ -181,9 +69,16 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a  href="{!!  route('getblog') !!}">
-                            Tư Vấn 
+                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                            Tư Vấn <span class="caret"></span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="agent-listing-grid.html">Thiết Kế </a></li>
+                            <li><a href="agent-listing-grid-sidebar.html">Phong Thủy </a></li>
+                            <li><a href="agent-listing-row.html">Tư Pháp </a></li>
+                            <li><a href="agent-listing-row-sidebar.html">Thị Trường </a></li>
+                            <li><a href="agent-single.html">Khác</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right rightside-navbar">

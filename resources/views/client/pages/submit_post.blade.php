@@ -30,32 +30,34 @@
                 <div class="submit-address">
                     <form method="GET">
                         <div class="main-title-2">
-                            <h1><span>Basic</span> Information</h1>
+                            <h1><span>Thông Tin Cơ Bản</span></h1>
                         </div>
                         <div class="search-contents-sidebar mb-30">
                             <div class="form-group">
-                                <label>Property Title</label>
-                                <input type="text" class="input-text" name="your name" placeholder="Property Title">
+                                <label>Tiêu Đề</label>
+                                <input type="text" class="input-text" name="your name" placeholder="Vui Lòng Nhập Vào Tiêu Đề ">
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="selectpicker search-fields" name="for-sale">
-                                            <option>For Sale</option>
-                                            <option>For Rent</option>
+                                        <label>Hình Thức</label>
+                                        <select class="selectpicker search-fields"  id="hinhthuc" data-live-search="true" data-live-search-placeholder="Search value">
+                                            <option>Chọn Hình Thức</option>
+                                            @foreach($data_hinhthuc as $iteam_hinhthuc)
+                                            <option value="{!! $iteam_hinhthuc->id !!}">{!! $iteam_hinhthuc->name !!}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Type</label>
-                                        <select class="selectpicker search-fields" name="apartment">
-                                            <option>Apartment</option>
-                                            <option>House</option>
-                                            <option>Commercial</option>
-                                            <option>Garage</option>
-                                            <option>Lot</option>
+                                    <div class="form-group" >
+                                        <label>Loại</label>
+                                        <select class="selectpicker search-fields"  id="loaitin" >
+                                            <option>Thể Loại </option>
+                                        {{-- @foreach($data_theloai as $iteam_theloai)
+                                            <option value="{!! $iteam_theloai->id !!}">{!! $iteam_theloai->name !!}</option>
+                                        @endforeach
+                                        --}}
                                         </select>
                                     </div>
                                 </div>
@@ -63,65 +65,51 @@
                             <div class="row">
                                 <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
-                                        <label>Price</label>
-                                        <input type="text" class="input-text" name="your name" placeholder="USD">
+                                        <label>Giá</label>
+                                        <input type="text" class="input-text" name="gia" >
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
-                                        <label>Area/Location</label>
-                                        <input type="text" class="input-text" name="your name" placeholder="SqFt">
+                                        <label>Diện Tích</label>
+                                        <input type="text" class="input-text" name="dientich">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
-                                        <label>Rooms</label>
-                                        <select class="selectpicker search-fields" name="1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
+                                        <label>Phòng Ngủ</label>
+                                        <input type="text" class="input-text" name="phongngu">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
-                                        <label>Bathroom</label>
-                                        <select class="selectpicker search-fields" name="1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                        </select>
+                                        <label>Phòng Tắm</label>
+                                        <input type="text" class="input-text" name="phongtam">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="main-title-2">
-                            <h1><span>Property</span> Gallery</h1>
+                            <h1><span>Hình Ảnh Và Video</span></h1>
                         </div>
                         <div id="myDropZone" class="dropzone dropzone-design mb-50">
-                            <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                            <div class="dz-default dz-message"><span>Click để tải ảnh hoặc video</span></div>
                         </div>
 
                         <div class="main-title-2">
-                            <h1><span>Location</span></h1>
+                            <h1><span>Vị Trí</span></h1>
                         </div>
                         <div class="row mb-30 ">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="input-text" name="address"  placeholder="Address">
+                                    <label>Địa Chỉ</label>
+                                    <input type="text" class="input-text" name="address" >
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>City</label>
+                                    <label>Tỉnh/Thành Phố</label>
                                     <select class="selectpicker search-fields" name="choose-city" data-live-search="true" data-live-search-placeholder="Search value">
                                         <option>Choose City</option>
                                         <option>New York</option>
@@ -143,7 +131,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>State</label>
+                                    <label>Quận/Huyện</label>
                                     <select class="selectpicker search-fields" name="choose-state" data-live-search="true" data-live-search-placeholder="Search value">
                                         <option>Choose State</option>
                                         <option>Alabama</option>
@@ -162,149 +150,100 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="text" class="input-text" name="zip"  placeholder="Postal Code">
+                                    <label>Phường/Xã</label>
+                                    <select class="selectpicker search-fields" name="choose-state" data-live-search="true" data-live-search-placeholder="Search value">
+                                        <option>Choose State</option>
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>Arizona</option>
+                                        <option>Arkansas</option>
+                                        <option>California</option>
+                                        <option>Colorado</option>
+                                        <option>Connecticut</option>
+                                        <option>Delaware</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Hawaii</option>
+                                    </select>
                                 </div>
-                            </div>
+                            </div>      
                         </div>
 
                         <div class="main-title-2">
-                            <h1><span>Detailed</span> Information</h1>
+                            <h1><span>Mô Tả Chi Tiết </span> </h1>
                         </div>
 
                         <div class="row mb-30">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Detailed Information</label>
-                                    <textarea class="input-text" name="message" placeholder="Detailed Information"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-30">
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label>Building Age <span>(optional)</span></label>
-                                    <select class="selectpicker search-fields" name="years">
-                                        <option>0-1 Years</option>
-                                        <option>0-5 Years</option>
-                                        <option>0-10 Years</option>
-                                        <option>0-20 Years</option>
-                                        <option>0-40 Years</option>
-                                        <option>40+Years</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label>Bedrooms (optional)</label>
-                                    <select class="selectpicker search-fields" name="1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label>Bathrooms (optional)</label>
-                                    <select class="selectpicker search-fields" name="1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <label class="margin-t-10">Features (optional)</label>
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-4 col-xs-12">
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox1" type="checkbox">
-                                            <label for="checkbox1">
-                                                Free Parking
-                                            </label>
-                                        </div>
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox2" type="checkbox">
-                                            <label for="checkbox2">
-                                                Air Condition
-                                            </label>
-                                        </div>
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox3" type="checkbox">
-                                            <label for="checkbox3">
-                                                Places to seat
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-xs-12">
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox4" type="checkbox">
-                                            <label for="checkbox4">
-                                                Swimming Pool
-                                            </label>
-                                        </div>
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox5" type="checkbox">
-                                            <label for="checkbox5">
-                                                Laundry Room
-                                            </label>
-                                        </div>
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox6" type="checkbox">
-                                            <label for="checkbox6">
-                                                Window Covering
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-4 col-xs-12">
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox7" type="checkbox">
-                                            <label for="checkbox7">
-                                                Central Heating
-                                            </label>
-                                        </div>
-                                        <div class="checkbox checkbox-theme checkbox-circle">
-                                            <input id="checkbox8" type="checkbox">
-                                            <label for="checkbox8">
-                                                Alarm
-                                            </label>
-                                        </div>
-                                    </div>
+                                <div class="form-group">   
+                                    <textarea class="input-text" name="message" ></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="main-title-2">
-                            <h1><span>Contact</span> Details</h1>
+                            <h1><span>Thông Tin Khác</span></h1>
+                        </div>
+                        <div class="row mb-30 ">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Mặt Tiền</label>
+                                    <input type="text" class="input-text"     >
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Đường Vào (m)</label>
+                                    <input type="text" class="input-text">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Hướng Nhà</label>
+                                    <select class="selectpicker search-fields" name="choose-state" data-live-search="true" data-live-search-placeholder="Search value">
+                                            <option>Không Xác Định </option>
+                                        @foreach($data_huong as $iteam_huong)
+                                            <option value="{!! $iteam_huong->id !!}">{!! $iteam_huong->name !!} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Số Tầng </label>
+                                    <input type="text" class="input-text">
+                                </div>
+                            </div> 
+                            <div class="col-md-12">
+                                <div class="form-group">   
+                                    <label>Nội Thất</label>
+                                    <textarea class="input-text" name="message" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-title-2">
+                            <h1><span>Thông Tin Liên Hệ </span> </h1>
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="input-text" name="name" placeholder="Name">
+                                    <label>Họ Và Tên</label>
+                                    <input type="text" class="input-text" name="name">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="input-text" name="email" placeholder="Email">
+                                    <input type="email" class="input-text" name="email" >
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
-                                    <label>Phone (optional)</label>
-                                    <input type="text" class="input-text" name="phone"  placeholder="Phone">
+                                    <label>Số Điện Thoại</label>
+                                    <input type="text" class="input-text" name="phone"  >
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="#" class="btn button-md button-theme">Preview</a>
+                                <a href="#" class="btn button-md button-theme">Đăng Tin </a>
                             </div>
                         </div>
                     </form>

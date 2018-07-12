@@ -4,7 +4,7 @@
     <title>The Nest - Real Estate HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/animate.min.css') }}">
@@ -186,6 +186,6 @@
 <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
 <!-- Custom javascript -->
 <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
-
+<script src="{{ url('public/client/js/myapp.js') }}"></script>
 </body>
 </html>

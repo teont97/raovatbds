@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use Auth;
+use DB;
 class PageController extends Controller
 {
-
+  
     public function postregister(Request $request){
             $User = new User();
             $User->name = $request->fullname;
@@ -25,13 +26,16 @@ class PageController extends Controller
             'password'=> $request->Password
         );
         if(Auth::attempt($login)){
-            return redirect()->route('gethome');
+            return redirect()->route('personal.profile');
         }
         else{
             return redirect('login')->with('mesage','Đăng Nhập Không Thành Công . Vui Lòng Đăng Nhập Lại !!! ');
         }
     }
-
+    public function logoutUser(){
+        Auth::logout(); // giúp logout để xóa session . 
+        return redirect()->back();
+    }
     public function gethome(){
         return view('client.pages.home');
     }
@@ -57,7 +61,9 @@ class PageController extends Controller
         return view('client.pages.404');
     }
     public function getsubmitpost(){
-        return view('client.pages.submit_post');
+        $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
+        $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
+        $data_huong=DB::table('huong')->select('id','name')->get();
+        return view('client.pages.submit_post',compact('data_hinhthuc','data_theloai','data_huong'));
     }
-  
 }

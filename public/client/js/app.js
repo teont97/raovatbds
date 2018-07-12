@@ -156,7 +156,7 @@ $(function () {
     });
 
     // Select picket
-    $('.selectpicker').selectpicker();
+    $('.selectpicker').selectpicker('refresh');
 
     // Search option's icon toggle
     $('.search-options-btn').click(function () {

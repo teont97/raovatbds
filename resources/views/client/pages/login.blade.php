@@ -6,14 +6,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Form content box start -->
-                
                 @if(session('mesage'))
-                
 		            <p class="alert alert-warning">
 			            {!! session('mesage') !!}
 		             </p>
+                @endif
                 
-		        @endif
                 <div class="form-content-box">
                     <!-- details -->
                     <div class="details">
