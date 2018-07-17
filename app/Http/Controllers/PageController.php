@@ -143,6 +143,7 @@ class PageController extends Controller
          $post->description=$request->message;
          $post->id_uptin=1;
          $post->id_user=Auth::user()->id;
+         $post->status=0;
          $post->save(); 
          $post_id=$post->id;
         if ($request->hasFile('file')) {
