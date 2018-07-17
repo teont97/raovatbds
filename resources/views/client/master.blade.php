@@ -41,6 +41,7 @@
     <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <script type="text/javascript" src="js/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
 
@@ -187,5 +188,6 @@
 <!-- Custom javascript -->
 <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
 <script src="{{ url('public/client/js/myapp.js') }}"></script>
+
 </body>
 </html>

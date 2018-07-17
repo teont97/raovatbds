@@ -17,6 +17,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+   
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,4 +27,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function post(){
+    	return $this->hasMany('App\post','id_user','id');
+    }
+    public function lienhe(){
+    	return $this->hasMany('App\lienhe','id_user','id');
+    }
 }

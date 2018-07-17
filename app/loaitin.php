@@ -10,4 +10,7 @@ class loaitin extends Model
     public function type_products(){
     	return $this->belongsTo('App\hinhthuc','id_hinhthuc','id');
     }
+    public function post(){
+    	return $this->hasMany('App\post','id_loaitin','id');
+    }
 }

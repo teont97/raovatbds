@@ -57,7 +57,7 @@
                         </a>
                         <ul class="dropdown-menu">
                                 @foreach($iteam_hinhthuc->loaitin as $iteam_chothue)
-                                    <li><a href="properties-details.html">{!! $iteam_chothue->name !!}</a></li>
+                                    <li><a href="{!!  route('getproduct',$iteam_chothue->id) !!}">{!! $iteam_chothue->name !!}</a></li>
                                 @endforeach
                         </ul>
                     </li>

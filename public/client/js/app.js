@@ -209,11 +209,62 @@ $(function () {
 
     // Dropzone initialization
     Dropzone.autoDiscover = false;
-    $(function () {
-        $("div#myDropZone").dropzone({
-            url: "/file-upload"
-        });
-    });
+      var myDropZone = new Dropzone("#myDropZone",{
+        url: '/personal/post-submit',
+        headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        autoProcessQueue: false,
+        uploadMultiple:true,
+        parallelUploads: 16,
+        maxFilesize: 8,
+        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        dictFileTooBig: 'Image is bigger than 5MB',
+        addRemoveLinks: true,
+        previewsContaniner : null,
+        hiddenInputContainer: "body",
+        init: function(){
+            var myDropzone = this; // Makes sure that 'this' is understood inside the functions below.
+
+            // for Dropzone to process the queue (instead of default form behavior):
+            document.getElementById("submit").addEventListener("click", function(e) {
+                // Make sure that the form isn't actually being sent.
+                e.preventDefault();
+                e.stopPropagation();
+                myDropzone.processQueue();
+            });
+            this.on("sendingmultiple", function(data, xhr, formData) {
+                formData.append("txttitle",jQuery("#txttitle").val());
+                formData.append("slhinhthuc",jQuery("#hinhthuc") .val());
+                formData.append("slloaitin",jQuery("#loaitin") .val());
+                formData.append("txtgia",jQuery("#txtgia").val());
+                formData.append("txtdientich",jQuery("#dientich") .val());
+                formData.append("txtphongngu",jQuery("#txtphongngu") .val());
+                formData.append("txtphongtam" ,jQuery("#phongtam").val());
+                formData.append("txtdiachi" ,jQuery("#diachi").val());
+                formData.append("sltinh" ,jQuery("#tinh").val());
+                formData.append("slhuyen" ,jQuery("#huyen").val());
+                formData.append("slphuong" ,jQuery("#phuong").val());
+                formData.append("message" ,jQuery("#message").val());
+                formData.append("txtname" ,jQuery("#txtname").val());
+                formData.append("txtemail" ,jQuery("#txtemail").val());
+                formData.append("txtphone" ,jQuery("#txtphone").val());
+            });
+            this.on("successmultiple", function(files, response) {
+                //myDropzone.options.autoProcessQueue = true; 
+                //hat.processQueue();
+                location.href ="/personal/my-post";
+              });
+            this.on("errormultiple", function(files, response) {
+                // Gets triggered when there was an error sending the files.
+                // Maybe show form again, and notify user of error
+                location.reload();
+                alert('bạn nhập còn thiếu dữ liệu , vui lòng nhập lại đầy đủ thông tin ');
+                });
+             }
+         });
+    
+
 
 
     // SO something in mega menu
@@ -305,3 +356,7 @@ $(function () {
         }
         }).trigger("resize");
 })(jQuery);
+
+$(document).ready(function(){
+    console.log('ok');
+});

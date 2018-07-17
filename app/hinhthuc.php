@@ -10,4 +10,7 @@ class hinhthuc extends Model
     public function loaitin(){
     	return $this->hasMany('App\loaitin','id_hinhthuc','id');
     }
+    public function post(){
+    	return $this->hasMany('App\post','id_hinhthuc','id');
+    }
 }

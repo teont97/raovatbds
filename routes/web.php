@@ -25,7 +25,8 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
-Route::get('product',['as'=>'getproduct','uses'=>'PageController@getproduct']);
+Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getproduct']);
+Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
 Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
@@ -34,9 +35,12 @@ Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin'])
 Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);
 Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
-Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
+Route::post('delete_file_upload',['as'=>'post.deletefile','uses'=>'PageController@deletefile']);
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
-Route::group(['prefix'=>'personal'],function(){
+
+Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
+    Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
+    Route::post('post-submit',['as'=>'post.submitpost','uses'=>'PageController@postsubmitpost']);
     Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
     Route::get('my-post',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
     Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
@@ -44,4 +48,9 @@ Route::group(['prefix'=>'personal'],function(){
 });
 Route::group(['prefix'=>'ajax'],function(){
     Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);
+    Route::get('huyen/{id_tinh}',['as'=>'ajax.huyen','uses'=>'AjaxController@gethuyen']);
+    Route::get('phuong/{id_huyen}',['as'=>'ajax.phuong','uses'=>'AjaxController@getphuong']);
 });
+
+
+

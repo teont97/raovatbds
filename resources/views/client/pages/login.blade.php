@@ -10,8 +10,7 @@
 		            <p class="alert alert-warning">
 			            {!! session('mesage') !!}
 		             </p>
-                @endif
-                
+                @endif          
                 <div class="form-content-box">
                     <!-- details -->
                     <div class="details">
@@ -32,7 +31,7 @@
                                 <div class="ez-checkbox pull-left">
                                     <label>
                                         <input type="checkbox" class="ez-hide">
-                                        Remember me
+                                            Remember me
                                     </label>
                                 </div>
                                 <a href="forgot-password.html" class="link-not-important pull-right">Forgot Password</a>

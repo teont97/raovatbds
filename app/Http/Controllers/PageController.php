@@ -7,6 +7,9 @@ use App\User;
 use Hash;
 use Auth;
 use DB;
+use App\post;
+use App\post_images;
+use App\lienhe;
 class PageController extends Controller
 {
   
@@ -37,10 +40,22 @@ class PageController extends Controller
         return redirect()->back();
     }
     public function gethome(){
-        return view('client.pages.home');
+        $data_post=post::orderBy('id','DESC')->get()->take(6);
+        $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
+        $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
+       // $data_huong=DB::table('huong')->select('id','name')->get();
+        $data_tinh=DB::table('tinh')->select('id','name')->get();
+        //dd($data_post);
+        return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh'));
     }
-    public function getproduct(){
-        return view('client.pages.products');
+    public function getproduct($id_type){
+        $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
+        return view('client.pages.products',compact('data_post','images'));
+    }
+    public function getproductdetail($id_product){
+        $post_detail=post::where('id',$id_product)->first();
+        //dd($post_detail);
+        return view('client.pages.product_detail',compact('post_detail'));
     }
     public function getcustomer(){
         return view('client.pages.customer');
@@ -64,6 +79,99 @@ class PageController extends Controller
         $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
         $data_huong=DB::table('huong')->select('id','name')->get();
-        return view('client.pages.submit_post',compact('data_hinhthuc','data_theloai','data_huong'));
+        $data_tinh=DB::table('tinh')->select('id','name')->get();
+        return view('client.pages.submit_post',compact('data_hinhthuc','data_theloai','data_huong','data_tinh'));
+    }
+    public function postsubmitpost(Request $request){
+        /*
+         $this->validate($request,[
+            'txttitle'=>'required',
+            'slhinhthuc'=>'required',
+            'slloaitin'=>'required',
+            'txtgia'=>'required',
+            'txtdientich'=>'required',
+            'txtphongngu'=>'required',
+             'txtphongtam'=>'required',
+            'txtdiachi'=>'required',
+             'sltinh'=>'required',
+             'slhuyen'=>'required',
+             'slphuong'=>'required',
+             'message'=>'required',
+             'txtmattien'=>'required',
+             'txtduongvao'=>'required',
+             'slhuong'=>'required',
+             'textnoithat'=>'required',
+             'txtname'=>'required',
+            'txtemail'=>'required|email',
+             'txtphone'=>'required'
+         ],
+         [
+             "txttitle.required"=>"vui lòng nhập  tiêu đề  !!!",
+             "slhinhthuc.required"=>"vui lòng chọn hình thức đăng bài  !!!",
+             "slloaitin.required"=>"vui lòng chọn thể loại  !!!",
+                "txtgia.required"=>"vui lòng nhập giá sản phẩm  !!!",
+             "txtdientich.required"=>"vui lòng nhập diện tích !!!",
+             "txtphongngu.required"=>"vui lòng nhập số lượng phòng ngủ !!!",
+             "txtphongtam.required"=>"vui lòng nhập số lượng phòng tắm !!!",
+             "txtdiachi.required"=>"vui lòng nhập địa chỉ  !!!",
+             "sltinh.required"=>"vui lòng chọn tỉnh / thành phố !!!",
+             "slhuyen.required"=>"vui lòng chọn quận / huyện   !!!",
+             "slphuong.required"=>"vui lòng chọn phường / xã   !!!",
+             "message.required"=>"vui lòng nhập vào mô tả chi tiết !!!",
+             "txtmattien.required"=>"vui lòng nhập số mặt tiền  !!!",
+             "txtduongvao.required"=>"vui lòng nhập diện tích đường vào hẻm !!!",
+             "textnoithat.required"=>"vui lòng nhập nội thất  !!!",
+             "txtname.required"=>"vui lòng nhập tên liên hệ !!!",
+             "txtemail.required"=>"vui lòng nhập địa chỉ email  !!!",
+             "txtphone.required"=>"vui lòng nhập số điện thoại !!!",
+             "txtemail.email"=>"định dạng email không chính xác !!!"
+         ]);
+         */
+         $post= new post();
+         $post->title=$request->txttitle;
+         $post->id_hinhthuc=$request->slhinhthuc;
+         $post->id_theloai=$request->slloaitin;
+         $post->price=$request->txtgia;
+         $post->area=$request->txtdientich;
+         $post->room=1;
+         $post->bathroom=$request->txtphongtam;
+         $post->images='haha';
+         $post->address=$request->txtdiachi;
+         $post->id_tinh=$request->sltinh;
+         $post->id_huyen=$request->slhuyen;
+         $post->id_duong=$request->slphuong;
+         $post->description=$request->message;
+         $post->id_uptin=1;
+         $post->id_user=Auth::user()->id;
+         $post->save(); 
+         $post_id=$post->id;
+        if ($request->hasFile('file')) {
+            foreach ($request->file('file') as  $file ) {
+                if ($file->isValid()) {
+                    $name = $file->getClientOriginalName();
+                    $type = $file->getClientOriginalExtension();
+                    $path = $file->storeAs('public/upload/images', $name);
+                    $post_images = new post_images();
+			        $post_images->images = $file->getClientOriginalName();
+			        $post_images->id_post = $post_id;
+                    $post_images->save();
+                    
+                }
+            }
+        }
+        $user=Auth::user()->id;
+        $lienhe= new lienhe();
+        $lienhe->hoten=$request->txtname;
+        $lienhe->email=$request->txtemail;
+        $lienhe->sodienthoai=$request->txtphone;
+        $lienhe->id_post=$post_id;
+        $lienhe->id_user=$user;
+        $lienhe->save();
+        return response()->json(['status'=>true,'message'=>'ok']);
+    }
+    public function deletefile(Request $request)
+    {
+
+
     }
 }

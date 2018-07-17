@@ -67,45 +67,42 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Area From</option>
-                                    <option>1000</option>
-                                    <option>800</option>
-                                    <option>600</option>
-                                    <option>400</option>
-                                    <option>200</option>
-                                    <option>100</option>
+                                    <option>Diện Tích   </option>
+                                    <option value="1000">1000 m2</option>
+                                    <option value="800">800 m2</option>
+                                    <option value="600">600 m2</option>
+                                    <option value="400">400 m2</option>
+                                    <option value="200">200 m2</option>
+                                    <option value="100">100 m2</option>
+                                    <option value="50">50 m2</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Property Status</option>
-                                    <option>For Sale</option>
-                                    <option>For Rent</option>
+                                <select class="selectpicker search-fields" id="home_hinhthuc" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
+                                    <option>Hình Thức </option>
+                                    @foreach($data_hinhthuc as $iteam_hinhthuc)
+                                    <option value="{!! $iteam_hinhthuc->id !!}">{!! $iteam_hinhthuc->name !!}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Location</option>
-                                    <option>United States</option>
-                                    <option>United Kingdom</option>
-                                    <option>American Samoa</option>
-                                    <option>Belgium</option>
-                                    <option>Cameroon</option>
-                                    <option>Canada</option>
+                                <select class="selectpicker search-fields" id="home_theloai" name="location" data-live-search="true" data-live-search-placeholder="Search value">
+                                    <option>Thể Loại  </option>
+                
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Property Types</option>
-                                    <option>Residential</option>
-                                    <option>Commercial</option>
-                                    <option>Land</option>
+                                    <option>Khu Vực</option>
+                                    @foreach($data_tinh as $iteam_tinh)
+                                    <option value="{!! $iteam_tinh->id !!}">{!! $iteam_tinh->name !!}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -114,7 +111,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="bedrooms" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Bedrooms</option>
+                                    <option>Phòng Ngủ</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -128,7 +125,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="bathrooms" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Bathrooms</option>
+                                    <option>WC</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -149,7 +146,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
                             <div class="form-group">
-                                <button class="search-button">Search</button>
+                                <button class="search-button">Tìm Kiếm </button>
                             </div>
                         </div>
                     </div>
@@ -165,7 +162,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Featured Properties</h1>
+            <h1>Bất Động Sản Hot </h1>
         </div>
         <ul class="list-inline-listing filters filters-listing-navigation">
             <li class="active btn filtr-button filtr" data-filter="all">All</li>
@@ -176,456 +173,87 @@
         </ul>
         <div class="row">
             <div class="filtr-container">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1, 2, 3">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
+                @foreach($data_post as $iteam_post)
+                    <?php 
+                    $data=$iteam_post->post_images->shift();
+                    //dd($data); 
+                    ?>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1, 2, 3">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag button alt featured">Hot</div>
+                                <div class="property-tag button sale">{{ $iteam_post->id_hinhthuc }}</div>
+                                <div class="property-price">{{ $iteam_post->price }} VND </div>
+                                <img src={!! asset('storage\app\public\upload\images/'.$data['images']) !!} alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="{!! route('getproductdetail',$iteam_post->id) !!}" class="overlay-link">
+                                        <i class="fa fa-link"></i>
                                     </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Property content -->
+                            <div class="property-content">
+                                <!-- title -->
+                                <h1 class="title">
+                                    <a href={!! route('getproductdetail',$iteam_post->id) !!}>{{ $iteam_post->title }}</a>
+                                </h1>
+                                <!-- Property address -->
+                                <h3 class="property-address">
+                                    <a href="properties-details.html">
+                                        <i class="fa fa-map-marker"></i>{{ $iteam_post->address }}
+                                    </a>
+                                </h3>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                        <span>{{ $iteam_post->area }}</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-bed"></i>
+                                        <span>{{ $iteam_post->room }} Beds</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-monitor"></i>
+                                        <span>TV </span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-holidays"></i>
+                                        <span>{{ $iteam_post->bathroom }} Baths</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-vehicle"></i>
+                                        <span>1 Garage</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-building"></i>
+                                        <span> 3 Balcony</span>
+                                    </li>
+                                </ul>
+                                <!-- Property footer -->
+                                <div class="property-footer">
+                                    <span class="left">
+                                        <a href="#"><i class="fa fa-user"></i>{!! $iteam_post->User['name']; !!}</a>
+                                    </span>
+                                    <span class="right">
+                                        <i class="fa fa-calendar"></i>{!! $iteam_post->created_at  !!}
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Beautiful Single Home</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Modern Family Home</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="2, 3">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Sweet Family Home</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="3, 4">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Big Head House</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="4">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Park Avenue</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1">
-                    <div class="property">
-                        <!-- Property img -->
-                        <div class="property-img">
-                            <div class="property-tag button alt featured">Featured</div>
-                            <div class="property-tag button sale">For Sale</div>
-                            <div class="property-price">$150,000</div>
-                            <img src="http://placehold.it/360x240" alt="fp" class="img-responsive">
-                            <div class="property-overlay">
-                                <a href="properties-details.html" class="overlay-link">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                                <a class="overlay-link property-video" title="Lexus GS F">
-                                    <i class="fa fa-video-camera"></i>
-                                </a>
-                                <div class="property-magnify-gallery">
-                                    <a href="http://placehold.it/750x540" class="overlay-link">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property content -->
-                        <div class="property-content">
-                            <!-- title -->
-                            <h1 class="title">
-                                <a href="properties-details.html">Masons Villas</a>
-                            </h1>
-                            <!-- Property address -->
-                            <h3 class="property-address">
-                                <a href="properties-details.html">
-                                    <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                </a>
-                            </h3>
-                            <!-- Facilities List -->
-                            <ul class="facilities-list clearfix">
-                                <li>
-                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                    <span>4800 sq ft</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    <span>3 Beds</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    <span>TV </span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-holidays"></i>
-                                    <span> 2 Baths</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-vehicle"></i>
-                                    <span>1 Garage</span>
-                                </li>
-                                <li>
-                                    <i class="flaticon-building"></i>
-                                    <span> 3 Balcony</span>
-                                </li>
-                            </ul>
-                            <!-- Property footer -->
-                            <div class="property-footer">
-                                <span class="left">
-                                    <a href="#"><i class="fa fa-user"></i>Jhon Doe</a>
-                                </span>
-                                <span class="right">
-                                    <i class="fa fa-calendar"></i>5 Days ago
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -637,7 +265,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>What are you</span> looking for?</h1>
+            <h1><span>Bạn Đang Tìm Kiếm </span> Thứ Gì ?</h1>
         </div>
 
         <div class="row mgn-btm wow">

@@ -24,97 +24,36 @@
 
              <div class="col-lg-8 col-md-8 col-sm-12">
                  <div class="main-title-2">
-                     <h1><span>My</span> Properties</h1>
+                     <h1>Bài Viết Của Tôi </h1>
                  </div>
                 <!-- table start -->
+                
                 <table class="manage-table responsive-table">
                     <tbody>
-
+                    @foreach($data_mypost as $iteam_mypost)
                     <tr>
+                        <?php $data=$iteam_mypost->post_images->shift();  ?>
                         <td class="title-container">
-                            <img src="http://placehold.it/130x90" alt="my-properties-1" class="img-responsive hidden-xs">
+                            <img src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="my-properties-1" class="img-responsive hidden-xs">
                             <div class="title">
-                                <h4><a href="#">beautiful  Family  home </a></h4>
-                                <span><i class="fa fa-map-marker"></i> 123 Kathal St. Tampa City, </span>
-                                <span class="table-property-price">$900 / monthly</span>
+                                <h4><a href="{!! route('getproductdetail',$iteam_mypost->id) !!}">{!! $iteam_mypost->title !!} </a></h4>
+                                <span><i class="fa fa-map-marker"></i> {!! $iteam_mypost->address !!} </span>
+                                <span class="table-property-price">{!! $iteam_mypost->price !!} / monthly</span>
                             </div>
                         </td>
-                        <td class="expire-date hidden-xs">December 17 2017</td>
+                        <td class="expire-date hidden-xs">{!! $iteam_mypost->created_at !!}</td>
+                        @if($iteam_mypost->status==0)
+                        <td class="text-danger"> Chưa Duyệt </td>
+                        @else
+                        <td class="text-success"> Đã Duyệt </td>
+                        @endif
                         <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
+                            <a href="#"><i class="fa fa-pencil"></i> Sửa</a>
+                            <a href="#"><i class="fa  fa-eye-slash"></i> Ẩn</a>
+                            <a href="#" class="delete"><i class="fa fa-remove"></i> Xóa</a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td class="title-container">
-                            <img src="http://placehold.it/130x90" alt="my-properties-2" class="img-responsive hidden-xs">
-                            <div class="title">
-                                <h4><a href="#">beautiful  Family  home </a></h4>
-                                <span><i class="fa fa-map-marker"></i> 123 Kathal St. Tampa City, </span>
-                                <span class="table-property-price">$900 / monthly</span>
-                            </div>
-                        </td>
-                        <td class="expire-date hidden-xs">December 17 2017</td>
-                        <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="title-container">
-                            <img src="http://placehold.it/130x90" alt="my-properties-3" class="img-responsive hidden-xs">
-                            <div class="title">
-                                <h4><a href="#">beautiful  Family  home </a></h4>
-                                <span><i class="fa fa-map-marker"></i> 123 Kathal St. Tampa City, </span>
-                                <span class="table-property-price">$900 / monthly</span>
-                            </div>
-                        </td>
-                        <td class="expire-date hidden-xs">December 17 2017</td>
-                        <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="title-container">
-                            <img src="http://placehold.it/130x90" alt="my-properties-4" class="img-responsive hidden-xs">
-                            <div class="title">
-                                <h4><a href="#">beautiful  Family  home </a></h4>
-                                <span><i class="fa fa-map-marker"></i> 123 Kathal St. Tampa City, </span>
-                                <span class="table-property-price">$900 / monthly</span>
-                            </div>
-                        </td>
-                        <td class="expire-date hidden-xs">December 17 2017</td>
-                        <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="title-container">
-                            <img src="http://placehold.it/130x90" alt="my-properties-5" class="img-responsive hidden-xs">
-                            <div class="title">
-                                <h4><a href="#">beautiful  Family  home </a></h4>
-                                <span><i class="fa fa-map-marker"></i> 123 Kathal St. Tampa City, </span>
-                                <span class="table-property-price">$900 / monthly</span>
-                            </div>
-                        </td>
-                        <td class="expire-date hidden-xs">December 17 2017</td>
-                        <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                        </td>
-                    </tr>
-
+                    @endforeach
                     </tbody>
                 </table>
                 <!-- table end -->

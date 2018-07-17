@@ -23,19 +23,25 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <!-- Header -->
                 <div class="heading-properties clearfix sidebar-widget">
-                    <div class="pull-left">
-                        <h3>Sweet Family Home</h3>
+                    <div class="pull-left" style="max-width: 75%;">
+                        <h3>{{ $post_detail['title'] }}</h3>
                         <p>
-                            <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
+                            <i class="fa fa-map-marker"></i>{{ $post_detail['address'] }}
                         </p>
                     </div>
                     <div class="pull-right">
-                        <h3><span>$362,100</span></h3>
+                        <h3><span>{{ $post_detail['price'] }}</span></h3>
                         <h5>
                             Per Manth
                         </h5>
                     </div>
                 </div>
+                <?php 
+                $data=$post_detail->post_images->shift();
+                 //dd($data);   
+                // $data1=$post_detail->post_images;
+                 //dd($data1);
+                 ?>
                 <!-- Properties details section start -->
                 <div class="Properties-details-section sidebar-widget">
                     <!-- Properties detail slider start -->
@@ -44,29 +50,13 @@
                             <div class="carousel-outer">
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
+                                    @foreach($post_detail->post_images as $iteam)
                                     <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                        <img src={{ asset('storage\app\public\upload\images/'.$iteam->images) }} class="thumb-preview" alt="Chevrolet Impala">
                                     </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
-                                    </div>
+                                    @endforeach
                                     <div class="item active">
-                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                        <img src={{ asset('storage\app\public\upload\images/'.$data->images) }}  class="thumb-preview" alt="Chevrolet Impala">
                                     </div>
                                 </div>
                                 <!-- Controls -->
@@ -85,14 +75,11 @@
                             </div>
                             <!-- Indicators -->
                             <ol class="carousel-indicators thumbs visible-lg visible-md">
-                                <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="2" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="3" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="4" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="5" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="6" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
-                                <li data-target="#carousel-custom" data-slide-to="7" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                    
+                                @foreach($post_detail->post_images as $iteam)
+                                    <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="{{ asset('storage\app\public\upload\images/'.$iteam->images) }}" alt="Chevrolet Impala"></li>
+                                @endforeach 
+                                <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="{{ asset('storage\app\public\upload\images/'.$data->images) }}" alt="Chevrolet Impala"></li>
                             </ol>
                         </div>
                     </div>
@@ -221,7 +208,7 @@
                     <!-- Property description start -->
                     <div class="panel-box properties-panel-box Property-description">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1default" data-toggle="tab" aria-expanded="true">Description</a></li>
+                            <li class="active"><a href="#tab1default" data-toggle="tab" aria-expanded="true">Thông Tin </a></li>
                             <li class=""><a href="#tab2default" data-toggle="tab" aria-expanded="false">Condition</a></li>
                             <li class=""><a href="#tab3default" data-toggle="tab" aria-expanded="false">Amenities</a></li>
                             <li class=""><a href="#tab4default" data-toggle="tab" aria-expanded="false">Floor Plans</a></li>
@@ -232,11 +219,11 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="tab1default">
                                         <div class="main-title-2">
-                                            <h1><span>Description</span></h1>
+                                            <h1><span>Thông Tin Chi Tiết </span></h1>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra a. Aliquam pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod fringilla. Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet tristique augue. Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
-                                        <br>
-                                        <p>Nam mattis lobortis felis eu blandit. Morbi tellus ligula, interdum sit amet ipsum et, viverra hendrerit lectus. Nunc efficitur sem vel est laoreet, sed bibendum eros viverra. Vestibulum finibus, ligula sed euismod tincidunt, lacus libero lobortis ligula, sit amet molestie ipsum purus ut tortor. Nunc varius, dui et sollicitudin facilisis, erat felis imperdiet felis, et iaculis dui magna vitae diam. Donec mattis diam nisl, quis ullamcorper enim malesuada non. Curabitur lobortis eu mauris nec vestibulum. Nam efficitur, ex ac semper malesuada nisi odio consequat dui, hendrerit vulputate odio dui vitae massa. Aliquam tortor urna, tincidunt</p>
+                                        <p>
+                                        {!! $post_detail['description'] !!}
+                                        </p>
                                     </div>
                                     <div class="tab-pane fade features" id="tab2default">
                                         <!-- Properties condition start -->
