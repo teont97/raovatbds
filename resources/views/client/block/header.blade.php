@@ -64,13 +64,8 @@
                 @endforeach
                  
                     <li class="dropdown">
-                        <a  href="{!!  route('getblog') !!}">
-                            Tin Tức
-                        </a>
-                    </li>
-                    <li class="dropdown">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Tư Vấn <span class="caret"></span>
+                            Dự Án <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="agent-listing-grid.html">Thiết Kế </a></li>
@@ -80,11 +75,17 @@
                             <li><a href="agent-single.html">Khác</a></li>
                         </ul>
                     </li>
+                    
+                    <li class="dropdown">
+                            <a  href="{!!  route('getblog') !!}">
+                                Tin Tức
+                            </a>
+                        </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right rightside-navbar">
                     <li>
                         <a href="{!!  route('getsubmitpost') !!}" class="button">
-                            Đăng Tin Rao
+                            Đăng Tin 
                         </a>
                     </li>
                 </ul>

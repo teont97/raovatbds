@@ -357,6 +357,3 @@ $(function () {
         }).trigger("resize");
 })(jQuery);
 
-$(document).ready(function(){
-    console.log('ok');
-});

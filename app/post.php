@@ -17,7 +17,7 @@ class post extends Model
     	return $this->belongsTo('App\User','id_user','id');
     }
     public function loaitin(){
-    	return $this->belongsTo('App\loaitin','id_loaitin','id');
+    	return $this->belongsTo('App\loaitin','id_theloai','id');
     }
     public function loaiuptin(){
     	return $this->belongsTo('App\loaiuptin','id_uptin','id');

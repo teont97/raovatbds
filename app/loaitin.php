@@ -11,6 +11,6 @@ class loaitin extends Model
     	return $this->belongsTo('App\hinhthuc','id_hinhthuc','id');
     }
     public function post(){
-    	return $this->hasMany('App\post','id_loaitin','id');
+    	return $this->hasMany('App\post','id_theloai','id');
     }
 }
