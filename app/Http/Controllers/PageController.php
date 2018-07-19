@@ -40,7 +40,7 @@ class PageController extends Controller
         return redirect()->back();
     }
     public function gethome(){
-        $data_post=post::orderBy('id','DESC')->get()->take(6);
+        $data_post=post::where('status','1')->orderBy('id','DESC')->get()->take(6);
         $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
        // $data_huong=DB::table('huong')->select('id','name')->get();

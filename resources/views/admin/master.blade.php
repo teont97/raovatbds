@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>AdminLTE 2 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -35,7 +36,8 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <!-- My Skin CSS -->
+  <link rel="stylesheet" href="{{ url('public/admin/dist/css/skins/myskin.css') }}">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!-- JavaScript -->
@@ -79,6 +81,7 @@
 <!-- DataTables -->
 <script src="{{ url('public/admin/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('public/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ url('public/admin/dist/js/myapp.js') }}"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -390,7 +393,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Danh Sách Bài Viết </a></li>
+            <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Danh Sách Bài Viết </a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -441,12 +444,10 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0.1
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018 Nguyễn Công Chí  </strong>
   </footer>
-
 
 <!-- ./wrapper -->
 

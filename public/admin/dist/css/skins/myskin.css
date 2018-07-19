@@ -1,0 +1,21 @@
+.Modal{
+    background: none;
+    border: none;
+    margin: 0;
+    margin-left: 5px;
+    padding: 0;
+    font-size:18px;
+    padding: 0px 2px 0px 2px;
+}
+.edit{
+    color: #f78d26;
+}
+.eye {
+    color: #859669;
+}
+.trash {
+    color: #eb532a;
+}
+.modal-header .close{
+    margin-top: -25px;
+}

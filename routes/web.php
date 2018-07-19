@@ -17,9 +17,13 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('login',['as'=>'admin.login','uses'=>'UserController@GetLogin']);
     Route::get('dashboard',['as'=>'admin.dashboard','uses'=>'DashboardController@GetDashboard']);
     Route::group(['prefix'=>'customer'],function(){
+       // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+       // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
     });
     Route::group(['prefix'=>'newpost'],function(){
+        Route::post('update',['as'=>'admin.newpost.update','uses'=>'NewPostController@postupdate']);
+        Route::post('delete',['as'=>'admin.newpost.delete','uses'=>'NewPostController@postdelete']);
         Route::get('list',['as'=>'admin.newpost.getlist','uses'=>'NewPostController@getList']);
     });
 });
