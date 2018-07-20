@@ -7298,4 +7298,8 @@ table.manage-table .title-container .title span {
     height: 44px;
     border-radius: 2px;
 }
+.twitter-typeahead{
+    width:100%;
+}
+
 

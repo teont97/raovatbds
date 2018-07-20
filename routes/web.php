@@ -40,6 +40,8 @@ Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']
 Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
 Route::post('delete_file_upload',['as'=>'post.deletefile','uses'=>'PageController@deletefile']);
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
+Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){

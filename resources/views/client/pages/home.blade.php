@@ -62,12 +62,11 @@
     <div class="container">
         <div class="search-area-inner">
             <div class="search-contents ">
-                <form method="GET">
-               
+                <form method="GET" role="search" action="{!! route('getseacrh') !!}" >
                     <div class="row">
                         <div class="col-lg-9 col-md-9 col-sm-7 col-xs-7 ">
                             <div class="form-group">
-                                <input type="text" class="input-text search" placeholder="Tìm Kiếm" >
+                                <input type="text"  id="search" name="key" class="input-text search" placeholder="Tìm Kiếm" >
                             </div>
                         </div>
                         

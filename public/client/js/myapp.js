@@ -31,34 +31,35 @@ $("#home_hinhthuc").change(function(){
     });
 });
 
-jQuery(document).ready(function($) {
-    var engine = new Bloodhound({
-        remote: {
-            url: 'search/products?value=%QUERY%',
-            wildcard: '%QUERY%'
-        },
-        datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace
-    });
-    $(".search").typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-    }, {
-        source: engine.ttAdapter(),
-        name: 'products_list',
-        templates: {
-            empty: [
-                '<div class="list-group search-results-dropdown"><div class="list-group-item">Không có kết quả phù hợp.</div></div>'
-            ],
-            header: [
-                '<div class="list-group search-results-dropdown">'
-            ],
-            suggestion: function (data) {
-                return '<a href="products-detail/' + data.id + '" class="list-group-item">' + data.name + '</a>'
-      }
-        }
-    });
+var engine = new Bloodhound({
+    remote: {
+        url: 'autocomplete?key=%QUERY%',
+        wildcard: '%QUERY%'
+    },
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
 });
 
+$(".search").typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1
+}, {
+    source: engine.ttAdapter(),
+    name: 'post_list',
+    display: function(data) {
+        return data.title  //Input value to be set when you select a suggestion. 
+    },
+    templates: {
+        empty: [
+            '<div class="list-group search-results-dropdown"><div class="list-group-item">Không Tìm Kiếm Được Kết Quả Như Mong Muốn  </div></div>'
+        ],
+        header: [
+            
+        ],
+        suggestion: function (data) {
+            return '<a href="product-detail/' + data.id + '" class="list-group-item"> <span>'+ data.title + '</span>  </li>'
+    }
+    }
+});
 

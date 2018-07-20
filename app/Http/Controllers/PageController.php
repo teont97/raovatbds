@@ -175,4 +175,13 @@ class PageController extends Controller
 
 
     }
+    public function autocomplete(Request $request){
+        $result = post::where('title', 'like', '%' . $request->key . '%')->get();
+        return response()->json($result);
+    }
+    public function getsearch(Request $request){
+        $data_search=$request->key;
+        $result_search = post::where('title', 'like', '%' . $request->key .'%')->get();
+        return view('client.pages.search',compact('result_search','data_search'));
+    }
 }
