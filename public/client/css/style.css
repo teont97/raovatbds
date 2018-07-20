@@ -1265,6 +1265,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .property-content .title {
+    min-height: 44px;
     max-height: 44px;
     font-size: 20px;
     font-weight: 600;
@@ -3136,6 +3137,7 @@ footer .footer-item .newsletter {
 .img-responsive {
     width: 100%;
     max-height:240px; 
+    min-height: 240px;
     overflow:hidden;
 }
 
@@ -7286,5 +7288,14 @@ table.manage-table .title-container .title span {
 .img-inside-map {
     height: 220px;
 }
-
+.search-contents form .input-text{
+    width: 100%;
+    padding: 10px 17px;
+    font-size: 13px;
+    border: 1px solid #e8e7e7;
+    outline: none;
+    color: #6c6c6c;
+    height: 44px;
+    border-radius: 2px;
+}
 

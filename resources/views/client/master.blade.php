@@ -182,11 +182,15 @@
 <script src="{{ url('public/client/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ url('public/client/js/maps.js') }}"></script>
 <script src="{{ url('public/client/js/app.js') }}"></script>
+<script src="{{ url('public/client/js/bloodhound.min.js') }}"></script>
+<script src="{{ url('public/client/js/typeahead.bundle.min.js') }}"></script>
+<script src="{{ url('public/client/js/typeahead.jquery.min.js') }}"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
 <!-- Custom javascript -->
 <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
+
 <script src="{{ url('public/client/js/myapp.js') }}"></script>
 
 </body>

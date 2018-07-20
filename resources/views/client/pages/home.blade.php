@@ -6,7 +6,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item banner-max-height active">
-                <img src="http://placehold.it/2200x1200" alt="banner-slider-1" class="img-responsive">
+                <img src="{!! asset('public/client/img/01.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Find your </span> Dream House</h1>
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="item banner-max-height">
-                <img src="http://placehold.it/2200x1200" alt="banner-slider-1" class="img-responsive">
+                <img src="{!! asset('public/client/img/02.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-1s"><span>Sweet Home For</span> Small Family</h1>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="item banner-max-height">
-                <img src="http://placehold.it/2200x1200" alt="banner-slider-1" class="img-responsive">
+                <img src="{!! asset('public/client/img/03.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInLeft delay-05s"><span>Best Place To</span> Find Home</h1>
@@ -63,90 +63,17 @@
         <div class="search-area-inner">
             <div class="search-contents ">
                 <form method="GET">
+               
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-9 col-md-9 col-sm-7 col-xs-7 ">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Diện Tích   </option>
-                                    <option value="1000">1000 m2</option>
-                                    <option value="800">800 m2</option>
-                                    <option value="600">600 m2</option>
-                                    <option value="400">400 m2</option>
-                                    <option value="200">200 m2</option>
-                                    <option value="100">100 m2</option>
-                                    <option value="50">50 m2</option>
-                                </select>
+                                <input type="text" class="input-text search" placeholder="Tìm Kiếm" >
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5 ">
                             <div class="form-group">
-                                <select class="selectpicker search-fields" id="home_hinhthuc" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Hình Thức </option>
-                                    @foreach($data_hinhthuc as $iteam_hinhthuc)
-                                    <option value="{!! $iteam_hinhthuc->id !!}">{!! $iteam_hinhthuc->name !!}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" id="home_theloai" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Thể Loại  </option>
-                
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Khu Vực</option>
-                                    @foreach($data_tinh as $iteam_tinh)
-                                    <option value="{!! $iteam_tinh->id !!}">{!! $iteam_tinh->name !!}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="bedrooms" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Phòng Ngủ</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="bathrooms" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>WC</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <div class="form-group">
-                                <div class="range-slider">
-                                    <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
-                            <div class="form-group">
-                                <button class="search-button">Tìm Kiếm </button>
+                                <button class="search-button">Tìm Kiếm  </button>
                             </div>
                         </div>
                     </div>
@@ -271,34 +198,34 @@
         <div class="row mgn-btm wow">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
-                    <i class="flaticon-apartment"></i>
-                    <h4>Apartments</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                    <i class="flaticon-shape"></i>
+                    <h4>Tin Rao Vip</h4>
+                    <p>Tổng hợp những bài đăng Vip nhất theo tuần </P>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
                     <i class="flaticon-internet"></i>
-                    <h4>Houses</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                    <h4>BDS Mới Nhất</h4>
+                    <p>Tin rao BDS mới nhất trong vòng 3 ngày </P>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
                 <div class="content">
-                    <i class="flaticon-vehicle"></i>
-                    <h4>Garages</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                    <i class="flaticon-apartment"></i> 
+                    <h4>BDS Đang Hot</h4>
+                    <p>Những dự án BDS đang được quý nhà đầu từ quan tâm nhất </P>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
                 <div class="content">
-                    <i class="flaticon-symbol"></i>
-                    <h4>Commercial</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et</P>
+                    <i class="fa fa-search"></i>
+                    <h4>Top View</h4>
+                    <p>Tin rao mua bán , cho thuê BDS được truy cập và tìm kiếm nhiều nhất</P>
                 </div>
             </div>
         </div>
-        <a href="#" class="btn button-md button-theme">Read More</a>
+        <a href="#" class="btn button-md button-theme">Xem Thêm</a>
     </div>
 </div>
 <!-- Our service end -->
@@ -308,7 +235,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>Recently</span> Properties</h1>
+            <h1><span>Bất Động Sản </span> Thường</h1>
         </div>
         <div class="row">
             <div class="carousel our-partners slide" id="ourPartners2">

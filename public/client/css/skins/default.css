@@ -563,7 +563,10 @@ table.manage-table td.action a:hover{
 .dropzone-design:hover {
     border: 2px dashed #95c41f;
 }
-
+.carousel-inner{
+    
+    max-height: 610px;
+}
 @media (max-width: 768px) {
     .navbar-default .navbar-toggle .icon-bar {
         background: #95c41f;

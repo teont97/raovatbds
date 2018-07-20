@@ -31,5 +31,34 @@ $("#home_hinhthuc").change(function(){
     });
 });
 
-  
+jQuery(document).ready(function($) {
+    var engine = new Bloodhound({
+        remote: {
+            url: 'search/products?value=%QUERY%',
+            wildcard: '%QUERY%'
+        },
+        datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace
+    });
+    $(".search").typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    }, {
+        source: engine.ttAdapter(),
+        name: 'products_list',
+        templates: {
+            empty: [
+                '<div class="list-group search-results-dropdown"><div class="list-group-item">Không có kết quả phù hợp.</div></div>'
+            ],
+            header: [
+                '<div class="list-group search-results-dropdown">'
+            ],
+            suggestion: function (data) {
+                return '<a href="products-detail/' + data.id + '" class="list-group-item">' + data.name + '</a>'
+      }
+        }
+    });
+});
+
 
