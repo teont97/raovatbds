@@ -79,7 +79,7 @@
                                 @foreach($post_detail->post_images as $iteam)
                                     <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="{{ asset('storage\app\public\upload\images/'.$iteam->images) }}" alt="Chevrolet Impala"></li>
                                 @endforeach 
-                                <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="{{ asset('storage\app\public\upload\images/'.$data->images) }}" alt="Chevrolet Impala"></li>
+                                    <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="{{ asset('storage\app\public\upload\images/'.$data->images) }}" alt="Chevrolet Impala"></li>
                             </ol>
                         </div>
                     </div>
@@ -718,48 +718,23 @@
                         <div class="main-title-2">
                             <h1><span>Recently</span> Properties</h1>
                         </div>
+                    @foreach($post_random as $iteam_random)
+                    <?php $data=$iteam_random->post_images->shift(); ?>
                         <div class="media">
                             <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
+                                <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
                             </div>
                             <div class="media-body">
                                 <h3 class="media-heading">
-                                    <a href="properties-details.html">Sweet Family Home</a>
+                                    <a href="properties-details.html">{!! $iteam_random->title !!}</a>
                                 </h3>
-                                <p>February 27, 2018</p>
+                                <p>{{ $iteam_random->created_at }}</p>
                                 <div class="price">
-                                    $734,000
+                                    {{$iteam_random->price}} VND
                                 </div>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Modern Family Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Beautiful Single Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
 
                     <!-- Category posts start -->

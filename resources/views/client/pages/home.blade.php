@@ -4,7 +4,7 @@
 <div class="banner">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner banner" role="listbox">
             <div class="item banner-max-height active">
                 <img src="{!! asset('public/client/img/01.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
@@ -109,7 +109,7 @@
                             <!-- Property img -->
                             <div class="property-img">
                                 <div class="property-tag button alt featured">Hot</div>
-                                <div class="property-tag button sale">{{ $iteam_post->id_hinhthuc }}</div>
+                                <div class="property-tag button sale">{{ $iteam_post->hinhthuc['name'] }}</div>
                                 <div class="property-price">{{ $iteam_post->price }} VND </div>
                                 <img src={!! asset('storage\app\public\upload\images/'.$data['images']) !!} alt="fp" class="img-responsive">
                                 <div class="property-overlay">

@@ -5356,6 +5356,7 @@ mark, .mark {
     width: 100%;
     padding: 0;
     border: none;
+    
 }
 
 #carousel-custom .carousel-indicators li {
@@ -5368,11 +5369,13 @@ mark, .mark {
     width: 12.50%;
     border: none;
     float: left;
+
 }
 
 #carousel-custom .carousel-indicators li img {
     display: block;
     opacity: 0.5;
+    height:59px;
 }
 
 #carousel-custom .carousel-indicators li.active img {
@@ -5389,8 +5392,9 @@ mark, .mark {
 
 .thumb-preview {
     width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
-
 .thumbs {
     width: 100%;
     margin: 12px auto;
@@ -5526,6 +5530,7 @@ table.manage-table .title-container img {
     width: 20% !important;
     flex: 1.1;
     margin-right: 26px;
+    height: 85px;
 }
 
 table.manage-table .title-container {
@@ -6830,7 +6835,7 @@ table.manage-table .title-container .title span {
     }
 
     .banner .item img {
-        min-height: 250px;
+        min-height: 200px;
     }
 
     .banner-content {
@@ -7302,4 +7307,7 @@ table.manage-table .title-container .title span {
     width:100%;
 }
 
-
+.images-random{
+    width: 90px;
+    height: 63px;
+}

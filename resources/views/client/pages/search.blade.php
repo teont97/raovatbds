@@ -124,9 +124,9 @@
                             <h1>Not Found</h1>
                             <h2>Không Tìm Thấy Kết Quả  Với Từ Khóa "{!! $data_search !!} "</h2>
                             <p> Hãy thử các từ khóa khác nhau hoặc xóa bộ lọc tìm kiếm</p>
-                            <form action="index.html" method="post">
-                                <button type="submit" class="button-sm out-line-btn">Back to home page</button>
-                            </form>
+                            <a href="{!! route('gethome') !!}">
+                                <button type="submit" class="button-sm out-line-btn">Quay Lại Trang Chủ</button>
+                            </a>
                         
                         <!-- Error404 content end -->
                     </div>

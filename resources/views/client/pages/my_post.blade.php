@@ -34,7 +34,7 @@
                     <tr>
                         <?php $data=$iteam_mypost->post_images->shift();  ?>
                         <td class="title-container">
-                            <img src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="my-properties-1" class="img-responsive hidden-xs">
+                            <img src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="my-properties-1" class="hidden-xs">
                             <div class="title">
                                 <h4><a href="{!! route('getproductdetail',$iteam_mypost->id) !!}">{!! $iteam_mypost->title !!} </a></h4>
                                 <span><i class="fa fa-map-marker"></i> {!! $iteam_mypost->address !!} </span>

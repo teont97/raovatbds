@@ -55,7 +55,10 @@ class PageController extends Controller
     public function getproductdetail($id_product){
         $post_detail=post::where('id',$id_product)->first();
         //dd($post_detail);
-        return view('client.pages.product_detail',compact('post_detail'));
+        $post_random=post::orderByRaw("RAND()")->take(3)->get();
+        //dd($post_random);
+        //dd($post_random);
+        return view('client.pages.product_detail',compact('post_detail','post_random'));
     }
     public function getcustomer(){
         return view('client.pages.customer');

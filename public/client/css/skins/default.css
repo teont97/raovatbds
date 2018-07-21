@@ -564,8 +564,20 @@ table.manage-table td.action a:hover{
     border: 2px dashed #95c41f;
 }
 .carousel-inner{
-    
-    max-height: 610px;
+    width: 100%;
+    height: 474px;
+}
+.carousel-outer .carousel-inner .active{
+    height: 100%;
+}
+.carousel-outer .carousel-inner .active img{
+    height: 100%;
+}
+.banner{
+    max-height: 614px;
+}
+.banner .item img{
+    height: 474px;
 }
 @media (max-width: 768px) {
     .navbar-default .navbar-toggle .icon-bar {
@@ -587,5 +599,8 @@ table.manage-table td.action a:hover{
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         background: #eee;
+    }
+    .carousel-inner{
+        height: 200px;
     }
 }
