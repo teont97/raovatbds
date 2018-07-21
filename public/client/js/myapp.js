@@ -55,11 +55,12 @@ $(".search").typeahead({
             '<div class="list-group search-results-dropdown"><div class="list-group-item">Không Tìm Kiếm Được Kết Quả Như Mong Muốn  </div></div>'
         ],
         header: [
-            
         ],
         suggestion: function (data) {
             return '<a href="product-detail/' + data.id + '" class="list-group-item"> <span>'+ data.title + '</span>  </li>'
-    }
+        }
     }
 });
+
+
 

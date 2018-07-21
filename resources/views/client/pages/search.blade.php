@@ -127,12 +127,9 @@
                             <a href="{!! route('gethome') !!}">
                                 <button type="submit" class="button-sm out-line-btn">Quay Lại Trang Chủ</button>
                             </a>
-                        
                         <!-- Error404 content end -->
                     </div>
-                    
                 </div>
-                
             @endif
                 <!-- Page navigation start -->
                 <nav aria-label="Page navigation">

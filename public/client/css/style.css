@@ -6834,10 +6834,6 @@ table.manage-table .title-container .title span {
         margin: 2px 4px 2px 0;
     }
 
-    .banner .item img {
-        min-height: 200px;
-    }
-
     .banner-content {
         max-width: 80%;
     }
@@ -7306,7 +7302,6 @@ table.manage-table .title-container .title span {
 .twitter-typeahead{
     width:100%;
 }
-
 .images-random{
     width: 90px;
     height: 63px;

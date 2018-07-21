@@ -716,7 +716,7 @@
                     <!-- Popular posts start -->
                     <div class="sidebar-widget popular-posts">
                         <div class="main-title-2">
-                            <h1><span>Recently</span> Properties</h1>
+                            <h1><span>Tin BDS</span> Đang Hot</h1>
                         </div>
                     @foreach($post_random as $iteam_random)
                     <?php $data=$iteam_random->post_images->shift(); ?>
