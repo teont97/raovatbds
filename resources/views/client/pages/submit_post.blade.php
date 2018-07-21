@@ -102,7 +102,7 @@
                             <h1><span>Hình Ảnh Và Video</span></h1>
                         </div>
                         <div id="myDropZone" class="dropzone dropzone-design mb-50" name="myDropzone" >
-                            <div class="dz-default dz-message"><span>Click để tải ảnh hoặc video</span></div>
+                            <div class="dz-default dz-message"><span>Click để tải ảnh kích cỡ ảnh 750 x 500 </span></div>
                         </div>
 
                         <div class="main-title-2">

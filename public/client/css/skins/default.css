@@ -589,9 +589,6 @@ table.manage-table td.action a:hover{
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         background: #eee;
     }
-    .carousel-inner{
-        height: 200px;
-    }
     .banner .item img {
         height: 200px;
     }

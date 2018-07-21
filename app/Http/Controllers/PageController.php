@@ -10,6 +10,7 @@ use DB;
 use App\post;
 use App\post_images;
 use App\lienhe;
+use App\loaitin;
 class PageController extends Controller
 {
   
@@ -50,7 +51,13 @@ class PageController extends Controller
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
-        return view('client.pages.products',compact('data_post','images'));
+        $post_random=post::orderByRaw("RAND()")->take(3)->get();
+        $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
+        //$data_random=count($loaitin_random->post);
+       // dd($data_random);
+       // $loaitin_random=loaitin::orderBy('id','DESC')->get();
+        //dd($loaitin_random);
+        return view('client.pages.products',compact('data_post','loaitin_random','post_random'));
     }
     public function getproductdetail($id_product){
         $post_detail=post::where('id',$id_product)->first();

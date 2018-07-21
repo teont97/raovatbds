@@ -59,7 +59,7 @@
                                 <?php 
                                     $data=$iteam_post->post_images->shift(); 
                                 ?>
-                                <div class="property-tag button alt featured">Featured</div>
+                                <div class="property-tag button alt featured">Hot</div>
                                 <div class="property-tag button sale">{!!  $iteam_post->hinhthuc['name']; !!}</div>
                                 <div class="property-price">{!! $iteam_post->price !!}</div>
                                  
@@ -159,20 +159,20 @@
                 <!-- Search contents sidebar start -->
                 <div class="sidebar-widget">
                     <div class="main-title-2">
-                        <h1><span>Advanced</span> Search</h1>
+                        <h1><span>Công Cụ Tìm Kiếm </span>  </h1>
                     </div>
 
                     <form method="GET">
                         <div class="form-group">
                             <select class="selectpicker search-fields" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
-                                <option>Property Status</option>
+                                <option>Hình Thức </option>
                                 <option>For Sale</option>
                                 <option>For Rent</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <select class="selectpicker search-fields" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                                <option>Location</option>
+                                <option>Khu Vực</option>
                                 <option>United States</option>
                                 <option>United Kingdom</option>
                                 <option>American Samoa</option>
@@ -184,7 +184,7 @@
 
                         <div class="form-group">
                             <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
-                                <option>Property Types</option>
+                                <option>Thể Loại </option>
                                 <option>Residential</option>
                                 <option>Commercial</option>
                                 <option>Land</option>
@@ -193,7 +193,7 @@
 
                         <div class="form-group">
                             <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
-                                <option>Area From</option>
+                                <option>Diện Tích</option>
                                 <option>1000</option>
                                 <option>800</option>
                                 <option>600</option>
@@ -207,7 +207,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="bedrooms">
-                                        <option>Bedrooms</option>
+                                        <option>Phòng Ngủ</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -219,7 +219,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="bathroom">
-                                        <option>Bathroom</option>
+                                        <option>WC</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -234,7 +234,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="balcony">
-                                        <option>Balcony</option>
+                                        <option>Ban Công </option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -246,7 +246,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" data-live-search="true" name="garage">
-                                        <option>Garage</option>
+                                        <option>Nhà Để Xe</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -258,19 +258,19 @@
                         </div>
 
                         <div class="range-slider">
-                            <label>Area</label>
+                            <label>Diện Tích</label>
                             <div data-min="0" data-max="10000" data-unit="Sq ft" data-min-name="min_area" data-max-name="max_area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                             <div class="clearfix"></div>
                         </div>
 
                         <div class="range-slider">
-                            <label>Price</label>
+                            <label>Giá Tiền </label>
                             <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                             <div class="clearfix"></div>
                         </div>
 
                         <a class="show-more-options" data-toggle="collapse" data-target="#options-content">
-                            <i class="fa fa-plus-circle"></i> Show More Options
+                            <i class="fa fa-plus-circle"></i> Hiển Thị Thêm Tùy Chọn 
                         </a>
                         <div id="options-content" class="collapse">
                             <label class="margin-t-10">Features</label>
@@ -325,7 +325,7 @@
                         </div>
 
                         <div class="form-group mb-0">
-                            <button class="search-button">Search</button>
+                            <button class="search-button">Tìm Kiếm </button>
                         </div>
                     </form>
                 </div>
@@ -333,88 +333,64 @@
                 <!-- Category posts start -->
                 <div class="sidebar-widget category-posts">
                     <div class="main-title-2">
-                        <h1><span>popular</span> Category</h1>
+                        <h1><span>Danh Mục Phổ Biến  </span></h1>
                     </div>
                     <ul class="list-unstyled list-cat">
-                        <li><a href="#">Single Family </a> <span>(45)  </span></li>
-                        <li><a href="#">Apartment  </a> <span>(21)  </span></li>
-                        <li><a href="#">Condo </a> <span>(23)  </span></li>
-                        <li><a href="#">Multi Family </a> <span>(19)  </span></li>
-                        <li><a href="#">Villa </a> <span>(19)  </span></li>
-                        <li><a href="#">Other  </a> <span>(22)  </span></li>
+                        @foreach($loaitin_random as $iteam_loaitin)
+                            <?php $data_loaitin=DB::table('post')->where('id_theloai',$iteam_loaitin->id)->get();
+                                   $sl=count($data_loaitin);
+                                  // dd($sl);
+                             ?>
+                            <li><a href="{!!  route('getproduct',$iteam_loaitin->id) !!}">{!! $iteam_loaitin->name !!} </a> <span>({!! $sl !!})  </span></li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <!-- Popular posts start -->
                 <div class="sidebar-widget popular-posts">
                     <div class="main-title-2">
-                        <h1><span>Recent</span> Properties</h1>
+                        <h1><span>Tin BDS</span> Đang Hót </h1>
                     </div>
+                @foreach($post_random as $iteam_random)    
+                <?php $data=$iteam_random->post_images->shift(); ?>
                     <div class="media">
                         <div class="media-left">
-                            <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
+                            <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">
-                                <a href="properties-details.html">Modern Family Home</a>
+                                <a href="{!! route('getproductdetail',$iteam_random->id) !!}">{!! $iteam_random->title !!}</a>
                             </h3>
-                            <p>February 27, 2018</p>
+                            <p>{!! $iteam_random->created_at !!}</p>
                             <div class="price">
-                                $734,000
+                                {!!$iteam_random->price!!} VND
                             </div>
                         </div>
                     </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">
-                                <a href="properties-details.html">Modern Family Home</a>
-                            </h3>
-                            <p>February 27, 2018</p>
-                            <div class="price">
-                                $734,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">
-                                <a href="properties-details.html">Beautiful Single Home</a>
-                            </h3>
-                            <p>February 27, 2018</p>
-                            <div class="price">
-                                $734,000
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
 
                 <!-- Helping box Start -->
                 <div class="sidebar-widget helping-box clearfix">
                     <div class="main-title-2">
-                        <h1><span>Helping</span> Center</h1>
+                        <h1><span>Trung Tâm </span> Trợ Giúp </h1>
                     </div>
                     <div class="helping-center">
                         <div class="icon"><i class="fa fa-map-marker"></i></div>
-                        <h4>Address</h4>
-                        <p>123 Kathal St. Tampa City,</p>
+                        <h4>Địa Chỉ</h4>
+                        <p>179/1 Ngô Đến - Nha Trang</p>
                     </div>
                     <div class="helping-center">
                         <div class="icon"><i class="fa fa-phone"></i></div>
-                        <h4>Phone</h4>
-                        <p><a href="tel:+55-417-634-7071">+55 417 634 7071</a> </p>
+                        <h4>Số Điện Thoại </h4>
+                        <p><a href="tel:+55-417-634-7071">01222424097</a> </p>
                     </div>
                 </div>
 
                 <!-- Latest reviews start -->
                 <div class="sidebar-widget latest-reviews mb-0">
                     <div class="main-title-2">
-                        <h1><span>Latest</span> Reviews</h1>
+                        <h1><span>Những Đánh Giá</span> Gần Đây </h1>
                     </div>
                     <div class="media">
                         <div class="media-left">
