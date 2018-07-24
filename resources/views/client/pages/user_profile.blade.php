@@ -25,20 +25,19 @@
                 <!-- My address start-->
                 <div class="my-address">
                     <div class="main-title-2">
-                        <h1><span>Advanced</span> Search</h1>
+                        <h1><span>Cập Nhật Lại Thông Tin Cá Nhân </span> </h1>
                     </div>
-
                     <form action="index.html" method="GET">
                         <div class="form-group">
-                            <label>Your Name</label>
+                            <label>Họ Và Tên</label>
                             <input type="text" class="input-text" name="your name" placeholder="John Antony">
                         </div>
                         <div class="form-group">
-                            <label>Your Title</label>
+                            <label>Tên Thường Gọi</label>
                             <input type="text" class="input-text" name="agent" placeholder="Your title">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>Số Điện Thoại</label>
                             <input type="text" class="input-text" name="phone" placeholder="+55 4XX-634-7071">
                         </div>
                         <div class="form-group">
@@ -46,7 +45,7 @@
                             <input type="email" class="input-text" name="email" placeholder="johndoe@gmail.com">
                         </div>
                         <div class="form-group">
-                            <label>About Me</label>
+                            <label>Cơ Bản Về Bạn</label>
                             <textarea class="input-text" name="message" placeholder="Etiam luctus malesuada quam eu aliquet. Donec eget mollis tortor. Donec pellentesque eros a nisl euismod, ut congue orci ultricies. Fusce aliquet metus non arcu varius ullamcorper a sit amet nunc. Donec in lacus neque. Vivamus ullamcorper sed ligula vitae "></textarea>
                         </div>
                         <a href="#" class="btn button-md button-theme">Save Changes</a>

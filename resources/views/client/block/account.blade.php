@@ -2,18 +2,21 @@
                 <!-- User account box start -->
                 <div class="user-account-box">
                     <div class="header clearfix">
-                        <div class="edit-profile-photo">
-                            <img src="http://placehold.it/150x150" alt="agent-1" class="img-responsive">
-                            <div class="change-photo-btn">
-                                <div class="photoUpload">
-                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
-                                    <input type="file" class="upload">
+                        <form enctype="multipart/form-data" action="/personal/upload-avatar" method="POST">
+                            <div class="edit-profile-photo">
+                                <img src="/public/client/img/avatar/{{ Auth::user()->avatar }}" alt="agent-1" class="img-avatar">
+                                <div class="change-photo-btn">
+                                    <div class="photoUpload">
+                                        <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                        <input type="file" class="upload" name="avatar">  
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <h3>John Doe</h3>
-                        <p>johndoe@gmail.com</p>
-
+                            <input type="submit" class="btn btn-sm btn-primary">
+                        </form>
+                        <h3>{{  Auth::user()->name }}</h3>
+                        <p>{{Auth::user()->email}}</p>
                         <ul class="social-list clearfix">
                             <li>
                                 <a href="#" class="facebook">
@@ -47,32 +50,32 @@
                         <ul>
                             <li>
                                 <a href="{!!  route('personal.profile') !!}">
-                                    <i class="flaticon-social"></i>Profile
+                                    <i class="flaticon-social"></i>Thông Tin Cá Nhân
                                 </a>
                             </li>
                             <li>
                                 <a href="{!!  route('personal.mypost') !!}">
-                                    <i class="flaticon-apartment"></i>My Properties
+                                    <i class="flaticon-apartment"></i>Bài Viết Của Tôi
                                 </a>
                             </li>
                             <li>
                                 <a href="{!!  route('personal.myfavorited') !!}" class="active">
-                                    <i class="fa fa-heart"></i>Favorited Properties
+                                    <i class="fa fa-heart"></i>Bài Viết Yêu Thích
                                 </a>
                             </li>
                             <li>
                                 <a href="{!!  route('getsubmitpost') !!}">
-                                    <i class="fa fa-plus"></i>Submit New Property
+                                    <i class="fa fa-plus"></i>Đăng Tin Mới 
                                 </a>
                             </li>
                             <li>
                                 <a href="{!!  route('personal.changepassword') !!}">
-                                    <i class="flaticon-security"></i>Change Password
+                                    <i class="flaticon-security"></i>Thay Đổi Mật Khẩu
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="flaticon-sign-out-option"></i>Log Out
+                                <a href="{!!  route('logoutUser') !!}">
+                                    <i class="flaticon-sign-out-option"></i>Đăng Xuất
                                 </a>
                             </li>
                         </ul>

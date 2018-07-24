@@ -1253,11 +1253,12 @@ input[type=checkbox]:checked + label:before {
     border-radius: 2px;
     color: white;
     border: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:#84ad1d;
     text-transform: uppercase;
     letter-spacing: 1px;
     display: inline-block;
     z-index: 20;
+    margin-bottom:10px;
 }
 
 .property-content {
@@ -4681,7 +4682,7 @@ a:hover {
 
 /** SUB BANNER AREA START **/
 .sub-banner {
-    background: url(http://placehold.it/1920x280) top left repeat;
+    background: url('../img/sub01.jpg') top left repeat;
     background-size: cover;
     height: 280px;
     background-position: center center;
@@ -4909,7 +4910,7 @@ a:hover {
     position: relative;
     border: none;
     margin: 0;
-    background: url(http://placehold.it/360x372);
+    background: url(../img/background.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

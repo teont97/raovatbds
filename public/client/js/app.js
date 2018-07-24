@@ -225,7 +225,6 @@ $(function () {
         hiddenInputContainer: "body",
         init: function(){
             var myDropzone = this; // Makes sure that 'this' is understood inside the functions below.
-
             // for Dropzone to process the queue (instead of default form behavior):
             document.getElementById("submit").addEventListener("click", function(e) {
                 // Make sure that the form isn't actually being sent.
@@ -245,27 +244,35 @@ $(function () {
                 formData.append("sltinh" ,jQuery("#tinh").val());
                 formData.append("slhuyen" ,jQuery("#huyen").val());
                 formData.append("slphuong" ,jQuery("#phuong").val());
-                formData.append("message" ,jQuery("#message").val());
+                formData.append("message" ,CKEDITOR.instances["editor"].getData());
                 formData.append("txtname" ,jQuery("#txtname").val());
                 formData.append("txtemail" ,jQuery("#txtemail").val());
                 formData.append("txtphone" ,jQuery("#txtphone").val());
+                
             });
             this.on("successmultiple", function(files, response) {
                 //myDropzone.options.autoProcessQueue = true; 
                 //hat.processQueue();
-                location.href ="/personal/my-post";
+               location.href ="/personal/my-post";
               });
-            this.on("errormultiple", function(files, response) {
+            this.on("errormultiple", function(files, response, errors) {
                 // Gets triggered when there was an error sending the files.
                 // Maybe show form again, and notify user of error
-                location.reload();
+                //location.reload();
+                //alert(files);
                 alert('bạn nhập còn thiếu dữ liệu , vui lòng nhập lại đầy đủ thông tin ');
                 });
              }
          });
     
-
-
+         $( function() {
+            $( ".datepicker" ).datepicker({
+                format: 'dd/mm/yyyy',
+            });
+          });
+        $('.datepicker').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+        });
 
     // SO something in mega menu
     jQuery(document).on('click', '.mega-dropdown', function(e) {

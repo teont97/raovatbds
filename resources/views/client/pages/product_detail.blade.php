@@ -30,7 +30,7 @@
                         </p>
                     </div>
                     <div class="pull-right">
-                        <h3><span>{{ $post_detail['price'] }}</span></h3>
+                        <h3><span>{!! $post_detail['price'] !!}</span></h3>
                         <h5>
                             Per Manth
                         </h5>
@@ -39,6 +39,7 @@
                 <?php 
                 $data=$post_detail->post_images->shift();
                  //dd($data);   
+                 //dd($data);
                 // $data1=$post_detail->post_images;
                  //dd($data1);
                  ?>
@@ -209,7 +210,7 @@
                     <div class="panel-box properties-panel-box Property-description">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1default" data-toggle="tab" aria-expanded="true">Thông Tin </a></li>
-                            <li class=""><a href="#tab2default" data-toggle="tab" aria-expanded="false">Condition</a></li>
+                            <li class=""><a href="#tab2default" data-toggle="tab" aria-expanded="false">Liên Hệ</a></li>
                             <li class=""><a href="#tab3default" data-toggle="tab" aria-expanded="false">Amenities</a></li>
                             <li class=""><a href="#tab4default" data-toggle="tab" aria-expanded="false">Floor Plans</a></li>
                             <li class=""><a href="#tab5default" data-toggle="tab" aria-expanded="false">Video</a></li>
@@ -222,46 +223,38 @@
                                             <h1><span>Thông Tin Chi Tiết </span></h1>
                                         </div>
                                         <p>
-                                        {!! $post_detail['description'] !!}
+                                            {!! $post_detail['description'] !!}
                                         </p>
                                     </div>
                                     <div class="tab-pane fade features" id="tab2default">
                                         <!-- Properties condition start -->
                                         <div class="properties-condition">
                                             <div class="main-title-2">
-                                                <h1><span>Condition</span></h1>
+                                                <h1><span>Liên Hệ </span></h1>
                                             </div>
+                                            <?php $lienhe=$post_detail->lienhe->first();//dd($lienhe);  ?>
                                             <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <ul class="condition">
                                                         <li>
-                                                            <i class="fa fa-check-square"></i>3 Beds
+                                                           <span> Họ Tên </span> : {!! $lienhe['hoten']!!}
                                                         </li>
                                                         <li>
-                                                            <i class="fa fa-check-square"></i>Bathroom
+                                                            <span> Số Điện Thoại </span> : {!! $lienhe['email']!!}
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <ul class="condition">
                                                         <li>
-                                                            <i class="fa fa-check-square"></i>4800 sq ft
+                                                          <span> Email </span>: {{$lienhe['sodienthoai']}}
                                                         </li>
                                                         <li>
-                                                            <i class="fa fa-check-square"></i>TV
-                                                        </li>
+                                                            <span> Địa Chỉ  </span> :
+                                                        </li>           
                                                     </ul>
                                                 </div>
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <ul class="condition">
-                                                        <li>
-                                                            <i class="fa fa-check-square"></i>1 Garage
-                                                        </li>
-                                                        <li>
-                                                            <i class="fa fa-check-square"></i>Balcony
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                        
                                             </div>
                                         </div>
                                         <!-- Properties condition end -->
@@ -594,161 +587,84 @@
                 <!-- Sidebar start -->
                 <div class="sidebar right">
                     <!-- Search contents sidebar start -->
-                    <div class="sidebar-widget hidden-xs hidden-sm">
-                        <div class="main-title-2">
-                            <h1><span>Advanced</span> Search</h1>
+                    <div class="sidebar-widget contact-1 mortgage-calculator">
+                            <div class="main-title-2">
+                                <h1><span>Mortgage</span> Calculator</h1>
+                            </div>
+                            <div class="contact-form">
+                                <form id="agent_form" action="index.html" method="GET" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Property Price</label>
+                                                <input type="text" class="input-text" placeholder="$87.000">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Interest Rate (%)</label>
+                                                <input type="text" class="input-text" placeholder="10%">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Period In Months</label>
+                                                <input type="text" class="input-text" placeholder="10 Months">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Down Payment</label>
+                                                <input type="text" class="input-text" placeholder="$36,300">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-0">
+                                                <button class="search-button">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-
-                        <form method="GET">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Property Status</option>
-                                    <option>For Sale</option>
-                                    <option>For Rent</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Location</option>
-                                    <option>United States</option>
-                                    <option>United Kingdom</option>
-                                    <option>American Samoa</option>
-                                    <option>Belgium</option>
-                                    <option>Cameroon</option>
-                                    <option>Canada</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Property Types</option>
-                                    <option>Residential</option>
-                                    <option>Commercial</option>
-                                    <option>Land</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Area From</option>
-                                    <option>1000</option>
-                                    <option>800</option>
-                                    <option>600</option>
-                                    <option>400</option>
-                                    <option>200</option>
-                                    <option>100</option>
-                                </select>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="bedrooms">
-                                            <option>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="bathroom">
-                                            <option>Bathroom</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="balcony">
-                                            <option>Balcony</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" data-live-search="true" name="garage">
-                                            <option>Garage</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="range-slider">
-                                <label>Area</label>
-                                <div data-min="0" data-max="10000" data-unit="Sq ft" data-min-name="min_area" data-max-name="max_area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="range-slider">
-                                <label>Price</label>
-                                <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="form-group mb-0">
-                                <button class="search-button">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Search contents sidebar end -->
 
                     <!-- Popular posts start -->
                     <div class="sidebar-widget popular-posts">
                         <div class="main-title-2">
                             <h1><span>Tin BDS</span> Đang Hot</h1>
                         </div>
-                    @foreach($post_random as $iteam_random)
-                    <?php $data=$iteam_random->post_images->shift(); ?>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">{!! $iteam_random->title !!}</a>
-                                </h3>
-                                <p>{{ $iteam_random->created_at }}</p>
-                                <div class="price">
-                                    {{$iteam_random->price}} VND
+                        @foreach($post_random as $iteam_random)
+                        <?php $data=$iteam_random->post_images->shift(); ?>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">
+                                        <a href="{!! route('getproductdetail',$iteam_random->id) !!}">{!! $iteam_random->title !!}</a>
+                                    </h3>
+                                    <p>{{ $iteam_random->created_at }}</p>
+                                    <div class="price">
+                                        {{$iteam_random->price}} VND
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
                     </div>
 
                     <!-- Category posts start -->
                     <div class="sidebar-widget category-posts">
                         <div class="main-title-2">
-                            <h1><span>Popular</span> Category</h1>
+                            <h1><span>Danh Mục</span> Phổ Biến</h1>
                         </div>
                         <ul class="list-unstyled list-cat">
-                            <li><a href="#">Single Family </a> <span>(45)  </span></li>
-                            <li><a href="#">Apartment  </a> <span>(21)  </span></li>
-                            <li><a href="#">Condo </a> <span>(23)  </span></li>
-                            <li><a href="#">Multi Family </a> <span>(19)  </span></li>
-                            <li><a href="#">Villa </a> <span>(19)  </span></li>
-                            <li><a href="#">Other  </a> <span>(22)  </span></li>
+                            @foreach($loaitin_random as $iteam_ltrandom)
+                            <?php $data_loaitin=DB::table('post')->where('id_theloai',$iteam_ltrandom->id)->get();
+                            $sl=count($data_loaitin);
+                           // dd($sl);
+                            ?>
+                            <li><a href="{!!  route('getproduct',$iteam_ltrandom->id) !!}">{!! $iteam_ltrandom->name!!} </a> <span>({!! $sl !!})  </span></li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -769,46 +685,7 @@
                     </div>
 
                     <!-- Mortgage calculator start -->
-                    <div class="sidebar-widget contact-1 mortgage-calculator">
-                        <div class="main-title-2">
-                            <h1><span>Mortgage</span> Calculator</h1>
-                        </div>
-                        <div class="contact-form">
-                            <form id="agent_form" action="index.html" method="GET" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-label">Property Price</label>
-                                            <input type="text" class="input-text" placeholder="$87.000">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-label">Interest Rate (%)</label>
-                                            <input type="text" class="input-text" placeholder="10%">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-label">Period In Months</label>
-                                            <input type="text" class="input-text" placeholder="10 Months">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="form-label">Down Payment</label>
-                                            <input type="text" class="input-text" placeholder="$36,300">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-0">
-                                            <button class="search-button">Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                   
                 </div>
                 <!-- Sidebar end -->
             </div>

@@ -41,7 +41,7 @@ class PageController extends Controller
         return redirect()->back();
     }
     public function gethome(){
-        $data_post=post::where('status','1')->orderBy('id','DESC')->get()->take(6);
+        $data_post=post::where('status','1')->orderBy('id','DESC')->take(6) ->get();
         $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
        // $data_huong=DB::table('huong')->select('id','name')->get();
@@ -62,10 +62,12 @@ class PageController extends Controller
     public function getproductdetail($id_product){
         $post_detail=post::where('id',$id_product)->first();
         //dd($post_detail);
+        //dd($post_detail);
         $post_random=post::orderByRaw("RAND()")->take(3)->get();
+        $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //dd($post_random);
         //dd($post_random);
-        return view('client.pages.product_detail',compact('post_detail','post_random'));
+        return view('client.pages.product_detail',compact('post_detail','post_random','loaitin_random'));
     }
     public function getcustomer(){
         return view('client.pages.customer');
@@ -90,7 +92,8 @@ class PageController extends Controller
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
         $data_huong=DB::table('huong')->select('id','name')->get();
         $data_tinh=DB::table('tinh')->select('id','name')->get();
-        return view('client.pages.submit_post',compact('data_hinhthuc','data_theloai','data_huong','data_tinh'));
+        $data_uptin=DB::table('loaiuptin')->select('id','name','value')->get();
+        return view('client.pages.submit_post',compact('data_hinhthuc','data_theloai','data_huong','data_tinh','data_uptin'));
     }
     public function postsubmitpost(Request $request){
         /*
@@ -151,6 +154,8 @@ class PageController extends Controller
          $post->id_huyen=$request->slhuyen;
          $post->id_duong=$request->slphuong;
          $post->description=$request->message;
+         //dd($request->message);
+         $data=$request->message;
          $post->id_uptin=1;
          $post->id_user=Auth::user()->id;
          $post->status=0;
@@ -166,7 +171,6 @@ class PageController extends Controller
 			        $post_images->images = $file->getClientOriginalName();
 			        $post_images->id_post = $post_id;
                     $post_images->save();
-                    
                 }
             }
         }
@@ -178,7 +182,7 @@ class PageController extends Controller
         $lienhe->id_post=$post_id;
         $lienhe->id_user=$user;
         $lienhe->save();
-        return response()->json(['status'=>true,'message'=>'ok']);
+        return response()->json(['status'=>true,'message'=>$data]);
     }
     public function deletefile(Request $request)
     {

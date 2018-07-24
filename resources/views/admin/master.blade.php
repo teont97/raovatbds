@@ -337,7 +337,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{!! Route('admin.logout')!!}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -421,7 +421,7 @@
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle-o"></i> Mô Giới</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Khách Hàng Chính Chủ </a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Tài Khoản </a></li>
+            <li><a href="{!! Route('admin.user.getlist')!!}"><i class="fa fa-circle-o"></i> Tài Khoản </a></li>
           </ul>
         </li>
       </ul>

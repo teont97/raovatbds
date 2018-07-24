@@ -1,5 +1,6 @@
 @extends('client.master')
 @section('content')
+
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="overlay">
@@ -151,7 +152,7 @@
                         <div class="row mb-30">
                             <div class="col-md-12">
                                 <div class="form-group">   
-                                    <textarea class="input-text" name="message"  id="message"></textarea>
+                                    <textarea class="input-text" rows="10"  name="message"  id="editor"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -217,6 +218,33 @@
                                     <input type="text" class="input-text" id="txtphone" name="txtphone"  >
                                 </div>
                             </div>
+                        </div>
+                        <div class="main-title-2">
+                            <h1><span>Lịch Đăng Tin  </span> </h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label>Loai Tin Đăng </label>
+                                    <select class="selectpicker search-fields"  name="slhuong" data-live-search="true" data-live-search-placeholder="Search value">
+                                        @foreach($data_uptin as $iteam_uptin)
+                                            <option value="{!! $iteam_uptin->id !!}">{!! $iteam_uptin->name !!} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label>Ngày Bắt Đầu </label>
+                                    <input type="text" class="input-text datepicker" name="dateStart" >
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label>Ngày Kết Thúc </label>
+                                    <input type="text" class="input-text datepicker" name="dateEnd"  >
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <button class="btn button-md button-theme" id="submit" type="submit">Đăng Tin </button>
                             </div>
@@ -227,4 +255,7 @@
         </div>
     </div>
 </div>
+<script>
+        CKEDITOR.replace( 'editor' );
+</script>
 @endsection

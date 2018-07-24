@@ -26,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
             $hinhthuc=hinhthuc::all();
             $view->with('hinhthuc',$hinhthuc);
         });
+        view()->composer('client.block.account',function($view){
+            if(Auth::check()){
+                $view->with('user',Auth::user());
+            }
+        });
     }
 
     /**

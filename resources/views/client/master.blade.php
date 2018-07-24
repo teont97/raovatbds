@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css"  href="{{ url('public/client/css/jquery.mCustomScrollbar.css') }}">
     <link rel="stylesheet" type="text/css"  href="{{ url('public/client/css/dropzone.css') }}">
     <link rel="stylesheet" type="text/css"  href="{{ url('public/client/css/magnific-popup.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
 
     <!-- Custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/style.css') }}">
@@ -41,6 +42,35 @@
     <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <script type="text/javascript" src="js/respond.min.js"></script>
     <![endif]-->
+    <script src="{{ url('public/client/js/jquery-2.2.0.min.js') }}"></script>
+    <script src="{{ url('public/client/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('public/client/js/bootstrap-submenu.js') }}"></script>
+    <script src="{{ url('public/client/js/rangeslider.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.mb.YTPlayer.js') }}"></script>
+    <script src="{{ url('public/client/js/wow.min.js') }}"></script>
+    <script src="{{ url('public/client/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.scrollUp.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url('public/client/js/leaflet.js') }}"></script>
+    <script src="{{ url('public/client/js/leaflet-providers.js') }}"></script>
+    <script src="{{ url('public/client/js/leaflet.markercluster.js') }}"></script>
+    <script src="{{ url('public/client/js/dropzone.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.filterizr.js') }}"></script>
+    <script src="{{ url('public/client/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url('public/client/js/maps.js') }}"></script>
+    <script src="{{ url('public/client/js/app.js') }}"></script>
+    <script src="{{ url('public/client/js/bloodhound.min.js') }}"></script>
+    <script src="{{ url('public/client/js/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ url('public/client/js/typeahead.jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
+    <!-- Custom javascript -->
+    <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ url('public/client/js/myapp.js') }}"></script>
+
 
 </head>
 <body>
@@ -164,34 +194,6 @@
     </div>
 </div>
 
-<script src="{{ url('public/client/js/jquery-2.2.0.min.js') }}"></script>
-<script src="{{ url('public/client/js/bootstrap.min.js') }}"></script>
-<script src="{{ url('public/client/js/bootstrap-submenu.js') }}"></script>
-<script src="{{ url('public/client/js/rangeslider.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.mb.YTPlayer.js') }}"></script>
-<script src="{{ url('public/client/js/wow.min.js') }}"></script>
-<script src="{{ url('public/client/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.easing.1.3.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.scrollUp.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ url('public/client/js/leaflet.js') }}"></script>
-<script src="{{ url('public/client/js/leaflet-providers.js') }}"></script>
-<script src="{{ url('public/client/js/leaflet.markercluster.js') }}"></script>
-<script src="{{ url('public/client/js/dropzone.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.filterizr.js') }}"></script>
-<script src="{{ url('public/client/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ url('public/client/js/maps.js') }}"></script>
-<script src="{{ url('public/client/js/app.js') }}"></script>
-<script src="{{ url('public/client/js/bloodhound.min.js') }}"></script>
-<script src="{{ url('public/client/js/typeahead.bundle.min.js') }}"></script>
-<script src="{{ url('public/client/js/typeahead.jquery.min.js') }}"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
-<!-- Custom javascript -->
-<script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
-
-<script src="{{ url('public/client/js/myapp.js') }}"></script>
 
 </body>
 </html>

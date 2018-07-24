@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\post;
 use Auth;
+use Image;
 class PersonalController extends Controller
 {
     public function getprofile(){
@@ -21,5 +22,16 @@ class PersonalController extends Controller
     }
     public function changepassword(){
         return view('client.pages.change_password');
+    }
+    public function postuploadavatar(Request $request){
+        if($request->hasFile('avatar')){
+    		$avatar = $request->file('avatar');
+    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
+    		Image::make($avatar)->resize(150,150)->save(public_path('/client/img/avatar/' . $filename ) );
+    		$user = Auth::user();
+    		$user->avatar = $filename;
+    		$user->save();
+    	}
+    	return redirect()->route('personal.profile');
     }
 }

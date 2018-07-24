@@ -12,9 +12,10 @@
 */
 
 
-
-Route::group(['prefix'=>'admin'],function(){
-    Route::get('login',['as'=>'admin.login','uses'=>'UserController@GetLogin']);
+Route::get('admin/login',['as'=>'admin.login','uses'=>'UserController@GetLogin']);
+Route::get('logout-admin',['as'=>'admin.logout','uses'=>'UserController@AdminLogout']);
+Route::post('admin-login',['as'=>'admin.postlogin','uses'=>'UserController@PostLogin']);
+Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     Route::get('dashboard',['as'=>'admin.dashboard','uses'=>'DashboardController@GetDashboard']);
     Route::group(['prefix'=>'customer'],function(){
        // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
@@ -25,6 +26,11 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('update',['as'=>'admin.newpost.update','uses'=>'NewPostController@postupdate']);
         Route::post('delete',['as'=>'admin.newpost.delete','uses'=>'NewPostController@postdelete']);
         Route::get('list',['as'=>'admin.newpost.getlist','uses'=>'NewPostController@getList']);
+    });
+    Route::group(['prefix'=>'user'],function(){
+        Route::post('update',['as'=>'admin.user.update','uses'=>'UserController@postupdate']);
+        Route::post('delete',['as'=>'admin.user.delete','uses'=>'UserController@postdelete']);
+        Route::get('list',['as'=>'admin.user.getlist','uses'=>'UserController@getList']);
     });
 });
 
@@ -45,6 +51,7 @@ Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'))
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
+    Route::post('upload-avatar', ['as'=>'post.upload.avatar','uses'=>'PersonalController@postuploadavatar']);
     Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
     Route::post('post-submit',['as'=>'post.submitpost','uses'=>'PageController@postsubmitpost']);
     Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);

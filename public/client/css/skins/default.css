@@ -563,10 +563,14 @@ table.manage-table td.action a:hover{
     border: 2px dashed #95c41f;
 }
 .carousel-outer .carousel-inner .active img{
-    height: 474px;
+    width: 100%;
+    height: auto;
 }
 .banner .item img{
     height: 600px;
+}
+ul li span{
+
 }
 @media (max-width: 768px) {
     .navbar-default .navbar-toggle .icon-bar {
