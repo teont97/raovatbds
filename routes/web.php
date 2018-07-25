@@ -30,7 +30,15 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     Route::group(['prefix'=>'user'],function(){
         Route::post('update',['as'=>'admin.user.update','uses'=>'UserController@postupdate']);
         Route::post('delete',['as'=>'admin.user.delete','uses'=>'UserController@postdelete']);
+        Route::post('create',['as'=>'admin.user.postcreate','uses'=>'UserController@postcreate']);
+        Route::get('get-create',['as'=>'admin.user.getcreate','uses'=>'UserController@getcreate']);
         Route::get('list',['as'=>'admin.user.getlist','uses'=>'UserController@getList']);
+    });
+    Route::group(['prefix'=>'general'],function(){
+        Route::get('list-hinhthuc',['as'=>'admin.general.listhinhthuc','uses'=>'GeneralController@getListHinhThuc']);
+        Route::get('list-theloai',['as'=>'admin.general.listtheloai','uses'=>'GeneralController@getlisttheloai']);
+        Route::get('list-uptin',['as'=>'admin.general.listuptin','uses'=>'GeneralController@getlistuptin']);
+        Route::get('list-huongnha',['as'=>'admin.general.listhuongnha','uses'=>'GeneralController@getlisthuongnha']);
     });
 });
 

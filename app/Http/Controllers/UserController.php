@@ -36,4 +36,10 @@ class UserController extends Controller
         $data_user=User::orderBy('id','DESC')->get();
         return view('admin.users.list',compact('data_user'));
     }
+    public function postcreate(){
+
+    }
+    public function getcreate(){
+        return view('admin.users.create');
+    }
 }

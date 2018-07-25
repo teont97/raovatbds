@@ -226,7 +226,7 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label>Loai Tin Đăng </label>
-                                    <select class="selectpicker search-fields"  name="slhuong" data-live-search="true" data-live-search-placeholder="Search value">
+                                    <select class="selectpicker search-fields"  id="sluptin" name="sluptin" data-live-search="true" data-live-search-placeholder="Search value">
                                         @foreach($data_uptin as $iteam_uptin)
                                             <option value="{!! $iteam_uptin->id !!}">{!! $iteam_uptin->name !!} </option>
                                         @endforeach

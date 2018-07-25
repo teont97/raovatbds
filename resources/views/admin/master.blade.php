@@ -310,7 +310,6 @@
               <!-- User image -->
               <li class="user-header">
                 <img src="{{ url('public/admin/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-
                 <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
@@ -383,10 +382,10 @@
             <i class="fa fa-dashboard"></i> <span>BẢNG THỐNG KÊ</span>
           </a>
         </li>
-        <li class="header">QUẢN LÝ </li>
+        <li class="header">TỔNG QUAN  </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-edit"></i>
             <span>BÀI VIẾT </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -398,7 +397,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-user-plus"></i>
             <span>KHÁCH HÀNG</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -410,9 +409,21 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Danh Sách Khách Hàng</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-comments"></i>
+            <span>Bình Luận </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Danh Sách Bài Viết </a></li>
+          </ul>
+        </li>
         <li class="treeview"  >
         <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-users"></i>
             <span>THÀNH VIÊN</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -423,6 +434,48 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Khách Hàng Chính Chủ </a></li>
             <li><a href="{!! Route('admin.user.getlist')!!}"><i class="fa fa-circle-o"></i> Tài Khoản </a></li>
           </ul>
+        </li>
+        <li class="header">QUẢN LÝ </li>
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-firefox"></i>
+              <span>Bài Đăng BDS </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{!! route('admin.general.listhinhthuc') !!}"><i class="fa fa-circle-o"></i> Hình Thức </a></li>
+              <li><a href="{!! route('admin.general.listtheloai') !!}"><i class="fa fa-circle-o"></i> Thể Loại </a></li>
+              <li><a href="{!! route('admin.general.listuptin') !!}"><i class="fa fa-circle-o"></i> Gói Up Tin </a></li>
+              <li><a href="{!! route('admin.general.listhuongnha') !!}"><i class="fa fa-circle-o"></i> Hướng Nhà </a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-cloud"></i>
+              <span>Blog </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Thể Loại  </a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-address-card"></i>
+              <span>Địa Chỉ </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Tỉnh Thành  </a></li>
+              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Quận Huyện  </a></li>
+              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Phường Xã  </a></li>
+            </ul>
         </li>
       </ul>
     </section>

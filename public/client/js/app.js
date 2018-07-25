@@ -248,7 +248,7 @@ $(function () {
                 formData.append("txtname" ,jQuery("#txtname").val());
                 formData.append("txtemail" ,jQuery("#txtemail").val());
                 formData.append("txtphone" ,jQuery("#txtphone").val());
-                
+                formData.append("sluptin" ,jQuery("#sluptin").val());
             });
             this.on("successmultiple", function(files, response) {
                 //myDropzone.options.autoProcessQueue = true; 

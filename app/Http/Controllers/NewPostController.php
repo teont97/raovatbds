@@ -9,6 +9,7 @@ class NewPostController extends Controller
 {
     public function getList(){
         $data_post=post::orderBy('id','DESC')->get();
+        //dd($data_post);
         return view('admin.newpost.list',compact('data_post'));
     }
     public function postupdate(Request $request){

@@ -156,7 +156,7 @@ class PageController extends Controller
          $post->description=$request->message;
          //dd($request->message);
          $data=$request->message;
-         $post->id_uptin=1;
+         $post->id_uptin=$request->sluptin;
          $post->id_user=Auth::user()->id;
          $post->status=0;
          $post->save(); 
