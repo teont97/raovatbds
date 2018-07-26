@@ -51,7 +51,7 @@ class PageController extends Controller
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
-        $post_random=post::orderByRaw("RAND()")->take(3)->get();
+        $post_random=post::orderByRaw("RAND()")->take(5)->get();
         $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //$data_random=count($loaitin_random->post);
        // dd($data_random);
@@ -63,7 +63,7 @@ class PageController extends Controller
         $post_detail=post::where('id',$id_product)->first();
         //dd($post_detail);
         //dd($post_detail);
-        $post_random=post::orderByRaw("RAND()")->take(3)->get();
+        $post_random=post::orderByRaw("RAND()")->take(5)->get();
         $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //dd($post_random);
         //dd($post_random);

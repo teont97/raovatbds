@@ -88,7 +88,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Bất Động Sản Hot </h1>
+            <h1>Bất Động Sản Vip </h1>
         </div>
         <ul class="list-inline-listing filters filters-listing-navigation">
             <li class="active btn filtr-button filtr" data-filter="all">All</li>
@@ -172,8 +172,9 @@
                                     <span class="left">
                                         <a href="#"><i class="fa fa-user"></i>{!! $iteam_post->User['name']; !!}</a>
                                     </span>
+                                    <?php $datalh=$iteam_post->lienhe->shift(); ?>
                                     <span class="right">
-                                        <i class="fa fa-calendar"></i>{!! $iteam_post->created_at  !!}
+                                        <i class="fa fa-phone" style="color:#95c41f;"></i>{!! $datalh['sodienthoai']  !!}
                                     </span>
                                 </div>
                             </div>
@@ -234,7 +235,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>Bất Động Sản </span> Thường</h1>
+            <h1><span>Dự Án Đầu Tư Nổi Bật </span>  </h1>
         </div>
         <div class="row">
             <div class="carousel our-partners slide" id="ourPartners2">
@@ -617,7 +618,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Our Agent</h1>
+            <h1>Nhà Mô Giới Tiêu Biểu</h1>
         </div>
         <div class="row">
             <div class="carousel our-partners slide" id="ourPartners3">
@@ -1013,7 +1014,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>Our</span> Blog</h1>
+            <h1><span>Tin Tức</span> Mới</h1>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInLeft delay-04s">
@@ -1102,7 +1103,7 @@
 <!-- Partners block start -->
 <div class="partners-block">
     <div class="container">
-        <h3>Brands & Partners</h3>
+        <h3>Thông Tin Chủ Đầu Tư</h3>
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel our-partners slide" id="ourPartners">
