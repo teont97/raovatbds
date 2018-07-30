@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\loaitin;
 use App\huyen;
 use App\phuong;
+use App\typeblog;
 class AjaxController extends Controller
 {
     public function getloaitin($id_hinhthuc){
@@ -26,6 +27,13 @@ class AjaxController extends Controller
         foreach($phuong as $iteam_phuong ){
             echo '<option value="' .$iteam_phuong->id.'">'.$iteam_phuong->name.'</option>';
          }
+    }
+    public function gettheloai($id_parent){
+        $data_theloai = typeblog::where('id_parent',$id_parent)->get();
+        foreach($data_theloai as $iteam_theloai ){
+            echo '<option value="' .$iteam_theloai->id.'">'.$iteam_theloai->name.'</option>';
+         }
+
     }
 
 }

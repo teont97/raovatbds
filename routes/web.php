@@ -40,6 +40,15 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
         Route::get('list-uptin',['as'=>'admin.general.listuptin','uses'=>'GeneralController@getlistuptin']);
         Route::get('list-huongnha',['as'=>'admin.general.listhuongnha','uses'=>'GeneralController@getlisthuongnha']);
     });
+    Route::group(['prefix'=>'blog'],function(){
+        Route::get('list-type-blog',['as'=>'admin.blog.listTypeBlog','uses'=>'BlogController@getListTypeBlog']);
+        Route::get('list-blog',['as'=>'admin.blog.listBlog','uses'=>'BlogController@getListBlog']);
+        Route::get('get-create-blog',['as'=>'admin.blog.getBlog','uses'=>'BlogController@getBlog']);
+        Route::post('create-blog',['as'=>'admin.blog.postBlog','uses'=>'BlogController@postBlog']);
+    });
+    Route::group(['prefix'=>'ajax'],function(){
+        Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);
+    });
 });
 
 Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
@@ -47,6 +56,7 @@ Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getpr
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
 Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
+Route::get('blog-detail/{id_blog}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
 Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
 Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin']);

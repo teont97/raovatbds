@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="{!!  route('gethome') !!}" class="logo1">
-                    <img src="{!! url('public/client/img/logos/logo1.png') !!}" alt="logo">
+                    <img src="{!! url('public/client/img/logos/logo01.png') !!}" alt="logo">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

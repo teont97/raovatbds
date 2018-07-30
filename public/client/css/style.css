@@ -3946,6 +3946,13 @@ a:hover {
 .blog-box-2 .detail p {
     margin-bottom: 15px;
     font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 4;
+    height: 100px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 /** SIDEBAR WIDGET AREA START **/
@@ -6272,7 +6279,14 @@ table.manage-table .title-container .title span {
 .font-awesome-icons .text-muted {
     display: none;
 }
-
+.logo1{
+    padding: 7px 0;
+    float: left;
+    margin-right: 20px;
+}
+.logo1 img{
+    height:65px;
+}
 /** MEDIA QUERY **/
 @media (max-width: 1200px) {
     .agent-2 .agent-content {
@@ -6331,9 +6345,12 @@ table.manage-table .title-container .title span {
 
 @media (max-width: 995px) {
 
-    .logo {
+    .logo1 {
         margin-right: 30px;
         padding: 22px 0 21px;
+    }
+    .logo1 img {
+       height: 50px;    
     }
 
     .property-2 .facilities-list li {

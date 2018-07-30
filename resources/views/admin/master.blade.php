@@ -82,6 +82,7 @@
 <script src="{{ url('public/admin/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('public/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ url('public/admin/dist/js/myapp.js') }}"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -461,6 +462,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Thể Loại  </a></li>
+              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Viết Bài Mới  </a></li>
             </ul>
         </li>
         <li class="treeview">

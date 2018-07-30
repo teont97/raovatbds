@@ -33,4 +33,7 @@ class User extends Authenticatable
     public function lienhe(){
     	return $this->hasMany('App\lienhe','id_user','id');
     }
+    public function blog(){
+    	return $this->hasMany('App\blog','id_user','id');
+    }
 }

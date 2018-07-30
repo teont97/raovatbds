@@ -11,6 +11,7 @@ use App\post;
 use App\post_images;
 use App\lienhe;
 use App\loaitin;
+use App\blog;
 class PageController extends Controller
 {
   
@@ -46,8 +47,10 @@ class PageController extends Controller
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
        // $data_huong=DB::table('huong')->select('id','name')->get();
         $data_tinh=DB::table('tinh')->select('id','name')->get();
+        $data_duan=blog::where('id_parent','1')->orderBy('id','DESC')->get();
+        $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->get();
         //dd($data_post);
-        return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh'));
+        return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh','data_duan','data_tintuc'));
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
@@ -74,6 +77,11 @@ class PageController extends Controller
     }
     public function getblog(){
         return view('client.pages.blog');
+    }
+    public function getblogdetail($id_blog){
+        $data_tintuc=blog::where('id',$id_blog)->first();
+        dd($data_tintuc);
+        return view('client.pages.blog_detail');
     }
     public function getcontact(){
         return view('client.pages.contact');

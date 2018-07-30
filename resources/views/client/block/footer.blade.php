@@ -121,20 +121,20 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-item">
                         <div class="main-title-2">
-                            <h1>Subscribe</h1>
+                            <h1>NHẬN THÔNG TIN DỰ ÁN MỚI  </h1>
                         </div>
                         <div class="newsletter clearfix">
                             <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                Vui lòng để lại địa chỉ email , chúng tôi sẽ gửi tới quý khách những thông tin quan trọng của các dự án đang được giới đầu tư quan tâm .
                             </p>
 
                             <form action="#" method="post">
                                 <div class="form-group">
-                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your Email Address" required="">
+                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Nhập email của bạn" required="">
                                 </div>
                                 <div class="form-group mb-0">
                                     <button type="submit" class="button-sm button-theme btn-block">
-                                        Subscribe
+                                        Gửi
                                     </button>
                                 </div>
                             </form>

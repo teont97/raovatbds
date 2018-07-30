@@ -244,294 +244,123 @@
                     <a class="right carousel-control" href="#ourPartners2" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
                 </div>
                 <div class="carousel-inner">
+                    <?php $data_first=$data_duan->shift(); ?>
                     <div class="item active">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <!-- Property 2 start -->
-                            <div class="property-2">
+                             <div class="property-2">
                                 <!-- Property img -->
-                                <div class="property-img">
+                                 <div class="property-img">
                                     <div class="featured">
-                                        Featured
-                                    </div>
-                                    <div class="price-ratings">
-                                        <div class="price">$150,000</div>
-                                        <div class="ratings">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
+                                                Featured
+                                            </div>
+                                            <div class="price-ratings">
+                                                <div class="price">$150,000</div>
+                                                <div class="ratings">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                            </div>
+                                            <img src="{!! asset('public/admin/dist/img/'.$data_first['images']) !!}" alt="rp" style="max-height:175px; width:100%;">
+                                            <div class="property-overlay">
+                                                <a href="properties-details.html" class="overlay-link">
+                                                    <i class="fa fa-link"></i>
+                                                </a>
+                                                <a class="overlay-link property-video" title="Lexus GS F">
+                                                    <i class="fa fa-video-camera"></i>
+                                                </a>
+                                                <div class="property-magnify-gallery">
+                                                    <a href="http://placehold.it/750x540" class="overlay-link">
+                                                        <i class="fa fa-expand"></i>
+                                                    </a>
+                                                    <a href="http://placehold.it/750x540" class="hidden"></a>
+                                                    <a href="http://placehold.it/750x540" class="hidden"></a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img src="http://placehold.it/262x175" alt="rp" class="img-responsive">
-                                    <div class="property-overlay">
-                                        <a href="properties-details.html" class="overlay-link">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                        <a class="overlay-link property-video" title="Lexus GS F">
-                                            <i class="fa fa-video-camera"></i>
-                                        </a>
-                                        <div class="property-magnify-gallery">
-                                            <a href="http://placehold.it/750x540" class="overlay-link">
-                                                <i class="fa fa-expand"></i>
-                                            </a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <!-- content -->
+                                        <div class="content">
+                                            <!-- title -->
+                                            <h4 class="title">
+                                                <a href="properties-details.html">{{$data_first['title']}}</a>
+                                            </h4>
+                                            <!-- Property address -->
+                                            <h3 class="property-address">
+                                                <a href="properties-details.html">
+                                                    <i class="fa fa-map-marker"></i>{{$data_first['address']}}
+                                                </a>
+                                            </h3>
                                         </div>
+                                        <!-- Facilities List -->
+                                        <ul class="facilities-list clearfix">
+                                                {{$data_first['host']}}
+                                        </ul>
                                     </div>
+                                    <!-- Property 2 end -->
                                 </div>
-                                <!-- content -->
-                                <div class="content">
-                                    <!-- title -->
-                                    <h4 class="title">
-                                        <a href="properties-details.html">Big Head House</a>
-                                    </h4>
-                                    <!-- Property address -->
-                                    <h3 class="property-address">
-                                        <a href="properties-details.html">
-                                            <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                        </a>
-                                    </h3>
-                                </div>
-                                <!-- Facilities List -->
-                                <ul class="facilities-list clearfix">
-                                    <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>4800 sq ft</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>3</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>2</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Property 2 end -->
-                        </div>
                     </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Property 2 start -->
-                            <div class="property-2">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <div class="featured">
-                                        Featured
-                                    </div>
-                                    <div class="price-ratings">
-                                        <div class="price">$150,000</div>
-                                        <div class="ratings">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
+                    @foreach($data_duan as $iteam_duan )
+                        <div class="item">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <!-- Property 2 start -->
+                                <div class="property-2">
+                                    <!-- Property img -->
+                                    <div class="property-img">
+                                        <div class="featured">
+                                            Featured
                                         </div>
-                                    </div>
-                                    <img src="http://placehold.it/262x175" alt="rp" class="img-responsive">
-                                    <div class="property-overlay">
-                                        <a href="properties-details.html" class="overlay-link">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                        <a class="overlay-link property-video" title="Lexus GS F">
-                                            <i class="fa fa-video-camera"></i>
-                                        </a>
-                                        <div class="property-magnify-gallery">
-                                            <a href="http://placehold.it/750x540" class="overlay-link">
-                                                <i class="fa fa-expand"></i>
+                                        <div class="price-ratings">
+                                            <div class="price">$150,000</div>
+                                            <div class="ratings">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+                                        </div>
+                                        <img src="{!! asset('public/admin/dist/img/'.$iteam_duan->images) !!}" alt="rp" style="max-height:175px; width:100%;">
+                                        <div class="property-overlay">
+                                            <a href="properties-details.html" class="overlay-link">
+                                                <i class="fa fa-link"></i>
                                             </a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- content -->
-                                <div class="content">
-                                    <!-- title -->
-                                    <h4 class="title">
-                                        <a href="properties-details.html">Masons Villas</a>
-                                    </h4>
-                                    <!-- Property address -->
-                                    <h3 class="property-address">
-                                        <a href="properties-details.html">
-                                            <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                        </a>
-                                    </h3>
-                                </div>
-                                <!-- Facilities List -->
-                                <ul class="facilities-list clearfix">
-                                    <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>4800 sq ft</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>3</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>2</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Property 2 end -->
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Property 2 start -->
-                            <div class="property-2">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <div class="featured">
-                                        Featured
-                                    </div>
-                                    <div class="price-ratings">
-                                        <div class="price">$150,000</div>
-                                        <div class="ratings">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <img src="http://placehold.it/262x175" alt="rp" class="img-responsive">
-                                    <div class="property-overlay">
-                                        <a href="properties-details.html" class="overlay-link">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                        <a class="overlay-link property-video" title="Lexus GS F">
-                                            <i class="fa fa-video-camera"></i>
-                                        </a>
-                                        <div class="property-magnify-gallery">
-                                            <a href="http://placehold.it/750x540" class="overlay-link">
-                                                <i class="fa fa-expand"></i>
+                                            <a class="overlay-link property-video" title="Lexus GS F">
+                                                <i class="fa fa-video-camera"></i>
                                             </a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                            <div class="property-magnify-gallery">
+                                                <a href="http://placehold.it/750x540" class="overlay-link">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                                <a href="http://placehold.it/750x540" class="hidden"></a>
+                                                <a href="http://placehold.it/750x540" class="hidden"></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- content -->
-                                <div class="content">
-                                    <!-- title -->
-                                    <h4 class="title">
-                                        <a href="properties-details.html">Park Avenue</a>
-                                    </h4>
-                                    <!-- Property address -->
-                                    <h3 class="property-address">
-                                        <a href="properties-details.html">
-                                            <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                        </a>
-                                    </h3>
-                                </div>
-                                <!-- Facilities List -->
-                                <ul class="facilities-list clearfix">
-                                    <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>4800 sq ft</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>3</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>2</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Property 2 end -->
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Property 2 start -->
-                            <div class="property-2">
-                                <!-- Property img -->
-                                <div class="property-img">
-                                    <div class="featured">
-                                        Featured
-                                    </div>
-                                    <div class="price-ratings">
-                                        <div class="price">$150,000</div>
-                                        <div class="ratings">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <img src="http://placehold.it/262x175" alt="rp" class="img-responsive">
-                                    <div class="property-overlay">
-                                        <a href="properties-details.html" class="overlay-link">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                        <a class="overlay-link property-video" title="Lexus GS F">
-                                            <i class="fa fa-video-camera"></i>
-                                        </a>
-                                        <div class="property-magnify-gallery">
-                                            <a href="http://placehold.it/750x540" class="overlay-link">
-                                                <i class="fa fa-expand"></i>
+                                    <!-- content -->
+                                    <div class="content">
+                                        <!-- title -->
+                                        <h4 class="title">
+                                            <a href="properties-details.html">{!! $iteam_duan->title !!}</a>
+                                        </h4>
+                                        <!-- Property address -->
+                                        <h3 class="property-address">
+                                            <a href="properties-details.html">
+                                                <i class="fa fa-map-marker"></i>{{$iteam_duan->address}}
                                             </a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                            <a href="http://placehold.it/750x540" class="hidden"></a>
-                                        </div>
+                                        </h3>
                                     </div>
+                                    <!-- Facilities List -->
+                                    <ul class="facilities-list clearfix">
+                                        {!! $iteam_duan->host !!}
+                                    </ul>
                                 </div>
-                                <!-- content -->
-                                <div class="content">
-                                    <!-- title -->
-                                    <h4 class="title">
-                                        <a href="properties-details.html">Sweet Family Home</a>
-                                    </h4>
-                                    <!-- Property address -->
-                                    <h3 class="property-address">
-                                        <a href="properties-details.html">
-                                            <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                        </a>
-                                    </h3>
-                                </div>
-                                <!-- Facilities List -->
-                                <ul class="facilities-list clearfix">
-                                    <li>
-                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>4800 sq ft</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>3</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>2</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1</span>
-                                    </li>
-                                </ul>
+                                <!-- Property 2 end -->
                             </div>
-                            <!-- Property 2 end -->
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -614,200 +443,44 @@
 <!-- Categories end-->
 
 <!-- Agent section start -->
-<div class="mb-70 agent-section chevron-icon">
-    <div class="container">
-        <!-- Main title -->
-        <div class="main-title">
-            <h1>Nhà Mô Giới Tiêu Biểu</h1>
-        </div>
-        <div class="row">
-            <div class="carousel our-partners slide" id="ourPartners3">
-                <div class="col-lg-12 mrg-btm-30">
-                    <a class="right carousel-control" href="#ourPartners3" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
-                    <a class="right carousel-control" href="#ourPartners3" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
-                </div>
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Agent 1 start -->
-                            <div class="agent-1">
-                                <!-- Agent img -->
-                                <a href="properties-details.html" class="agent-img">
-                                    <img src="http://placehold.it/262x200" alt="team-1" class="img-responsive">
-                                </a>
-                                <!-- Agent content -->
-                                <div class="agent-content">
-                                    <h5><a href="agent-single.html">John Antony</a></h5>
-                                    <h6>Web Developer</h6>
-                                    <ul class="social-list clearfix">
-                                        <li>
-                                            <a href="#" class="facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="linkedin">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="google">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rss">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Agent 1 end -->
+<div class="blog mb-70">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1><span>Tin Tức</span> Mới</h1>
+            </div>
+            <div class="row">
+                @foreach($data_tintuc as $iteam_tintuc)
+                <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInLeft delay-04s">
+                    <div class="thumbnail blog-box-2 clearfix">
+                        <div class="blog-photo">
+                            <img src="{!! asset('public/admin/dist/img/'.$iteam_tintuc->images) !!}" alt="blog-1" class="img-responsive">
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Agent 1 start -->
-                            <div class="agent-1">
-                                <!-- Agent img -->
-                                <a href="properties-details.html" class="agent-img">
-                                    <img src="http://placehold.it/262x200" alt="team-2" class="img-responsive">
-                                </a>
-                                <!-- Agent content -->
-                                <div class="agent-content">
-                                    <h5><a href="agent-single.html">Karen Paran</a></h5>
-                                    <h6>Creative Director</h6>
-                                    <ul class="social-list clearfix">
-                                        <li>
-                                            <a href="#" class="facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="linkedin">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="google">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rss">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Agent 1 end -->
+                        <div class="post-meta">
+                            <ul>
+                                <li class="profile-user">
+                                    <img src={!! asset('public/client/img/avatar/'.$iteam_tintuc->User['avatar']) !!} alt="user-blog">
+                                </li>
+                            <li><span>{{ $iteam_tintuc->User['name'] }}</span></li>
+                                <li><i class="fa fa-calendar"></i></li>
+                                <li><i class="fa fa-comments"></i></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Agent 1 start -->
-                            <div class="agent-1">
-                                <!-- Agent img -->
-                                <a href="properties-details.html" class="agent-img">
-                                    <img src="http://placehold.it/262x200" alt="team-3" class="img-responsive">
-                                </a>
-                                <!-- Agent content -->
-                                <div class="agent-content">
-                                    <h5><a href="agent-single.html">John Maikel</a></h5>
-                                    <h6>Office Manager</h6>
-                                    <ul class="social-list clearfix">
-                                        <li>
-                                            <a href="#" class="facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="linkedin">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="google">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rss">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Agent 1 end -->
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <!-- Agent 1 start -->
-                            <div class="agent-1">
-                                <!-- Agent img -->
-                                <a href="properties-details.html" class="agent-img">
-                                    <img src="http://placehold.it/262x200" alt="team-4" class="img-responsive">
-                                </a>
-                                <!-- Agent content -->
-                                <div class="agent-content">
-                                    <h5><a href="agent-single.html">Eliane Pereira</a></h5>
-                                    <h6>Support Manager</h6>
-                                    <ul class="social-list clearfix">
-                                        <li>
-                                            <a href="#" class="facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="linkedin">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="google">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rss">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Agent 1 end -->
+                        <!-- Detail -->
+                        <div class="caption detail">
+                        <h4><a href="blog-single-sidebar-right.html">{{ $iteam_tintuc->title }}</a></h4>
+                            <!-- paragraph -->
+                            <p>{{ $iteam_tintuc->tomtat }}</p>
+                            <div class="clearfix"></div>
+                            <!-- Btn -->
+                            <a href="blog-single-sidebar-right.html" class="read-more">Xem Chi Tiết</a>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
-</div>
 <!-- Agent section end -->
 
 <!-- Testimonial section start-->
@@ -816,14 +489,14 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div id="carouse3-example-generic" class="carousel slide" data-ride="carousel">
-                    <h1>Our Testimonial</h1>
+                    <h1>VỀ CHÚNG TÔI </h1>
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item content clearfix active">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-1" class="img-responsive">
+                                        <img src="{!! asset('public/client/img/avatar/1532232414.jpg') !!}" alt="avatar-1" >
                                     </div>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -1010,96 +683,202 @@
 <div class="clearfix"></div>
 
 <!-- Blog start -->
-<div class="blog content-area">
-    <div class="container">
-        <!-- Main title -->
-        <div class="main-title">
-            <h1><span>Tin Tức</span> Mới</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInLeft delay-04s">
-                <div class="thumbnail blog-box-2 clearfix">
-                    <div class="blog-photo">
-                        <img src="http://placehold.it/360x200" alt="blog-1" class="img-responsive">
-                    </div>
-                    <div class="post-meta">
-                        <ul>
-                            <li class="profile-user">
-                                <img src="http://placehold.it/75x75" alt="user-blog">
-                            </li>
-                            <li><span>John Doe</span></li>
-                            <li><i class="fa fa-calendar"></i></li>
-                            <li><i class="fa fa-comments"></i></li>
-                        </ul>
-                    </div>
-                    <!-- Detail -->
-                    <div class="caption detail">
-                        <h4><a href="blog-single-sidebar-right.html">Buying a Home</a></h4>
-                        <!-- paragraph -->
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                        <div class="clearfix"></div>
-                        <!-- Btn -->
-                        <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 hidden-sm wow fadeInUp delay-04s">
-                <div class="thumbnail blog-box-2 clearfix">
-                    <div class="blog-photo">
-                        <img src="http://placehold.it/360x200" alt="blog-2" class="img-responsive">
-                    </div>
-                    <div class="post-meta">
-                        <ul>
-                            <li class="profile-user">
-                                <img src="http://placehold.it/75x75" alt="user-blog">
-                            </li>
-                            <li><span>Karen Paran</span></li>
-                            <li><i class="fa fa-calendar"></i></li>
-                            <li><i class="fa fa-comments"></i></li>
-                        </ul>
-                    </div>
-                    <!-- Detail -->
-                    <div class="caption detail">
-                        <h4><a href="blog-single-sidebar-right.html">Why Live in New York</a></h4>
-                        <!-- paragraph -->
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                        <div class="clearfix"></div>
-                        <!-- Btn -->
-                        <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInRight delay-04s">
-                <div class="thumbnail blog-box-2 clearfix">
-                    <div class="blog-photo">
-                        <img src="http://placehold.it/360x200" alt="blog-3" class="img-responsive">
-                    </div>
-                    <div class="post-meta">
-                        <ul>
-                            <li class="profile-user">
-                                <img src="http://placehold.it/75x75" alt="user-blog">
-                            </li>
-                            <li><span>John Antony</span></li>
-                            <li><i class="fa fa-calendar"></i></li>
-                            <li><i class="fa fa-comments"></i></li>
-                        </ul>
-                    </div>
-                    <!-- Detail -->
-                    <div class="caption detail">
-                        <h4><a href="blog-single-sidebar-right.html">Selling Your Home</a></h4>
-                        <!-- paragraph -->
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                        <div class="clearfix"></div>
-                        <!-- Btn -->
-                        <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Blog end -->
 
+<!-- Blog end -->
+<div class="content-area agent-section chevron-icon">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Nhà Mô Giới Tiêu Biểu</h1>
+            </div>
+            <div class="row">
+                <div class="carousel our-partners slide" id="ourPartners3">
+                    <div class="col-lg-12 mrg-btm-30">
+                        <a class="right carousel-control" href="#ourPartners3" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
+                        <a class="right carousel-control" href="#ourPartners3" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <!-- Agent 1 start -->
+                                <div class="agent-1">
+                                    <!-- Agent img -->
+                                    <a href="properties-details.html" class="agent-img">
+                                        <img src="http://placehold.it/262x200" alt="team-1" class="img-responsive">
+                                    </a>
+                                    <!-- Agent content -->
+                                    <div class="agent-content">
+                                        <h5><a href="agent-single.html">John Antony</a></h5>
+                                        <h6>Web Developer</h6>
+                                        <ul class="social-list clearfix">
+                                            <li>
+                                                <a href="#" class="facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="linkedin">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="google">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rss">
+                                                    <i class="fa fa-rss"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Agent 1 end -->
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <!-- Agent 1 start -->
+                                <div class="agent-1">
+                                    <!-- Agent img -->
+                                    <a href="properties-details.html" class="agent-img">
+                                        <img src="http://placehold.it/262x200" alt="team-2" class="img-responsive">
+                                    </a>
+                                    <!-- Agent content -->
+                                    <div class="agent-content">
+                                        <h5><a href="agent-single.html">Karen Paran</a></h5>
+                                        <h6>Creative Director</h6>
+                                        <ul class="social-list clearfix">
+                                            <li>
+                                                <a href="#" class="facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="linkedin">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="google">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rss">
+                                                    <i class="fa fa-rss"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Agent 1 end -->
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <!-- Agent 1 start -->
+                                <div class="agent-1">
+                                    <!-- Agent img -->
+                                    <a href="properties-details.html" class="agent-img">
+                                        <img src="http://placehold.it/262x200" alt="team-3" class="img-responsive">
+                                    </a>
+                                    <!-- Agent content -->
+                                    <div class="agent-content">
+                                        <h5><a href="agent-single.html">John Maikel</a></h5>
+                                        <h6>Office Manager</h6>
+                                        <ul class="social-list clearfix">
+                                            <li>
+                                                <a href="#" class="facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="linkedin">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="google">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rss">
+                                                    <i class="fa fa-rss"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Agent 1 end -->
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <!-- Agent 1 start -->
+                                <div class="agent-1">
+                                    <!-- Agent img -->
+                                    <a href="properties-details.html" class="agent-img">
+                                        <img src="http://placehold.it/262x200" alt="team-4" class="img-responsive">
+                                    </a>
+                                    <!-- Agent content -->
+                                    <div class="agent-content">
+                                        <h5><a href="agent-single.html">Eliane Pereira</a></h5>
+                                        <h6>Support Manager</h6>
+                                        <ul class="social-list clearfix">
+                                            <li>
+                                                <a href="#" class="facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="linkedin">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="google">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rss">
+                                                    <i class="fa fa-rss"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Agent 1 end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 <!-- Partners block start -->
 <div class="partners-block">
     <div class="container">

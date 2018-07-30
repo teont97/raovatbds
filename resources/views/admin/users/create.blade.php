@@ -49,7 +49,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>PassWord </label>
-                            <input type="text" class="form-control" id="diachi" name="txtdiachi" >
+                            <textarea  class="form-control" id="editor" name="txtdiachi" > </textarea>
                         </div>
                     </div>
                 </div>
@@ -66,8 +66,23 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-</section>
+    </section>
 
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ),{
+        ckfinder: {
+			// eslint-disable-next-line max-len
+            uploadUrl: '/public/admin/bower_components/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+		}
+    } )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+</script>
 @endsection
 
 
