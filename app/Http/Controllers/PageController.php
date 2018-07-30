@@ -76,15 +76,18 @@ class PageController extends Controller
         return view('client.pages.customer');
     }
     public function getblog(){
-        return view('client.pages.blog');
+        $data_blog=blog::orderBy('id','DESC')->get();
+        return view('client.pages.blog',compact('data_blog'));
     }
     public function getblogdetail($id_blog){
-        $data_tintuc=blog::where('id',$id_blog)->first();
-        dd($data_tintuc);
-        return view('client.pages.blog_detail');
+        $data_tintuc_detail=blog::where('id',$id_blog)->first();
+        return view('client.pages.blog_detail',compact('data_tintuc_detail'));
     }
     public function getcontact(){
         return view('client.pages.contact');
+    }
+    public function getabout(){
+        return view('client.pages.about');
     }
     public function getlogin(){
         return view('client.pages.login');

@@ -20,318 +20,34 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 ">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-1" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Doe</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Buying a Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-2" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>Karen Paran</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Why Live in New York</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
+                    @foreach($data_blog as $iteam_blog)
+                        <div class="col-lg-6 col-md-6 col-sm-6 ">
+                            <div class="thumbnail blog-box-2 clearfix">
+                                <div class="blog-photo">
+                                    <img src="{!! asset('public/admin/dist/img/'.$iteam_blog->images) !!}" alt="blog-1" class="img-responsive">
+                                </div>
+                                <div class="post-meta">
+                                    <ul>
+                                        <li class="profile-user">
+                                            <img src="{!! asset('public/client/img/avatar/'.$iteam_blog->User['avatar']) !!}" alt="user-blog">
+                                        </li>
+                                        <li><span>{!! $iteam_blog->User['name'] !!}</span></li>
+                                        <li><i class="fa fa-calendar"></i></li>
+                                        <li><i class="fa fa-comments"></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Detail -->
+                                <div class="caption detail">
+                                    <h4><a href="{!! URL::route('getblog.detail',$iteam_blog['id']) !!}">{!! $iteam_blog->title !!}</a></h4>
+                                    <!-- paragraph -->
+                                    <p>{!! $iteam_blog->tomtat !!}</p>
+                                    <div class="clearfix"></div>
+                                    <!-- Btn -->
+                                    <a href="{!! URL::route('getblog.detail',$iteam_blog['id']) !!}" class="read-more">Xem Chi Tiết </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-3" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Antony</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Selling Your Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-1" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Doe</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Buying a Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-2" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>Karen Paran</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Why Live in New York</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-3" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Antony</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Selling Your Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-1" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Doe</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Buying a Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-2" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>Karen Paran</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Why Live in New York</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-3" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Antony</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Selling Your Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 ">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-1" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Doe</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Buying a Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-2" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>Karen Paran</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Why Live in New York</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="thumbnail blog-box-2 clearfix">
-                            <div class="blog-photo">
-                                <img src="http://placehold.it/360x200" alt="blog-3" class="img-responsive">
-                            </div>
-                            <div class="post-meta">
-                                <ul>
-                                    <li class="profile-user">
-                                        <img src="http://placehold.it/75x75" alt="user-blog">
-                                    </li>
-                                    <li><span>John Antony</span></li>
-                                    <li><i class="fa fa-calendar"></i></li>
-                                    <li><i class="fa fa-comments"></i></li>
-                                </ul>
-                            </div>
-                            <!-- Detail -->
-                            <div class="caption detail">
-                                <h4><a href="blog-single-sidebar-right.html">Selling Your Home</a></h4>
-                                <!-- paragraph -->
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-                                <div class="clearfix"></div>
-                                <!-- Btn -->
-                                <a href="blog-single-sidebar-right.html" class="read-more">Read More...</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <!-- Blog box end -->
 

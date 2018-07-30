@@ -21,37 +21,27 @@
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <!-- Blog box start -->
                 <div class="thumbnail blog-box clearfix">
-                    <img src="http://placehold.it/750x416" alt="blog-1" class="img-responsive">
+                    <img src="{!! asset('public/admin/dist/img/'.$data_tintuc_detail['images']) !!}" alt="blog-1" class="img-blog-detail">
                     <!-- detail -->
+                    <div class="clearfix"></div>
+                    <blockquote>
+                       {{$data_tintuc_detail->tomtat}}
+                    </blockquote>
+               
                     <div class="caption detail">
                         <!--Main title -->
                         <h3 class="title">
-                            <a href="blog-single-sidebar-right.html">Find your Dream House</a>
+                        <a href="blog-single-sidebar-right.html">{{$data_tintuc_detail->title}}</a>
                         </h3>
                         <!-- Post meta -->
                         <div class="post-meta">
-                            <span><a href="#"><i class="fa fa-user"></i>John Antony</a></span>
-                            <span><a><i class="fa fa-calendar "></i>May 27, 2018</a></span>
-                            <span><a href="#"><i class="fa fa-bars"></i> The Nest</a></span>
+                            <span><a href="#"><i class="fa fa-user"></i>{{$data_tintuc_detail->User['name']}}</a></span>
+                            <span><a><i class="fa fa-calendar "></i>{{$data_tintuc_detail->created_at}}</a></span>
+                            <span><a href="#"><i class="fa fa-bars"></i>{{$data_tintuc_detail->typeblog['name']}}</a></span>
                             <span><a href="#"><i class="fa fa-comments"></i>7 Comment</a></span>
                         </div>
                         <!-- paragraph -->
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.more recently with desktop publishing</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.more recently with desktop publishing</p>
-                        <div class="row mrg-btm-30">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <p>But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.more recently with desktop </p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <img src="http://placehold.it/330x220" alt="properties-3" class="img-responsive">
-                            </div>
-                        </div>
-                        <blockquote>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        </blockquote>
-                        <h3>This is another Sub-Heading</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. But also the leap into electronic typesetting, remaining essentially unchanged. It was</p>
-
+                        {!! $data_tintuc_detail->content !!}
                         <div class="row clearfix t-s">
                             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                 <!-- Tags box start -->

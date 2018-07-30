@@ -2122,19 +2122,20 @@ input[type=checkbox]:checked + label:before {
 }
 
 .cat-1-bg{
-    background-image: url(http://placehold.it/321x200);
+    background-image: url(../img/background/01.jpg);
 }
 
 .cat-2-bg{
-    background-image: url(http://placehold.it/321x200);
+    background-image: url(../img/background/02.jpg);
 }
 
 .cat-3-bg{
-    background-image: url(http://placehold.it/662x200);
+    background-image: url(../img/background/04.jpg);
 }
 
 .cat-4-bg{
-    background-image: url(http://placehold.it/467x420);
+    background-image: url(../img/background/06.jpg);
+    background-repeat: repeat-y;
 }
 
 .category:hover .category_bg_box {
@@ -2147,7 +2148,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .category .category-overlay {
-    background-color: rgba(0, 0, 0, 0.30);
+   /* background-color: rgba(0, 0, 0, 0.30); */ 
     border-radius: 3px;
     bottom: 0;
     left: 0;
@@ -5084,6 +5085,7 @@ a:hover {
 }
 
 blockquote {
+
     padding: 10px 20px;
     margin: 0 0 20px;
     font-size: 14px;
@@ -6286,6 +6288,14 @@ table.manage-table .title-container .title span {
 }
 .logo1 img{
     height:65px;
+}
+.image img {
+    width: 100%;
+}
+.clearfix .img-blog-detail{
+    width: 100%;
+    height:auto;
+    max-height:420px;
 }
 /** MEDIA QUERY **/
 @media (max-width: 1200px) {

@@ -56,8 +56,9 @@ Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getpr
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
 Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
-Route::get('blog-detail/{id_blog}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
+Route::get('blog-detail/{id}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
+Route::get('about',['as'=>'getabout','uses'=>'PageController@getabout']);
 Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
 Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin']);
 Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);

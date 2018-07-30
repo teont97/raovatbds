@@ -336,6 +336,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 blockquote {
+    margin-top:25px;
     border-left: 5px solid #95c41f;
 }
 

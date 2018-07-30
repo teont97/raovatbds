@@ -244,7 +244,9 @@
                     <a class="right carousel-control" href="#ourPartners2" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
                 </div>
                 <div class="carousel-inner">
-                    <?php $data_first=$data_duan->shift(); ?>
+                    <?php $data_first=$data_duan->shift();
+                    //dd($data_first);
+                     ?>
                     <div class="item active">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <!-- Property 2 start -->
@@ -266,7 +268,7 @@
                                             </div>
                                             <img src="{!! asset('public/admin/dist/img/'.$data_first['images']) !!}" alt="rp" style="max-height:175px; width:100%;">
                                             <div class="property-overlay">
-                                                <a href="properties-details.html" class="overlay-link">
+                                                <a href="#" class="overlay-link">
                                                     <i class="fa fa-link"></i>
                                                 </a>
                                                 <a class="overlay-link property-video" title="Lexus GS F">
@@ -285,11 +287,11 @@
                                         <div class="content">
                                             <!-- title -->
                                             <h4 class="title">
-                                                <a href="properties-details.html">{{$data_first['title']}}</a>
+                                                <a href="{!! URL::route('getblog.detail',$data_first['id']) !!}">{{$data_first['title']}}</a>
                                             </h4>
                                             <!-- Property address -->
                                             <h3 class="property-address">
-                                                <a href="properties-details.html">
+                                                <a href="{!! URL::route('getblog.detail',$data_first['id']) !!}">
                                                     <i class="fa fa-map-marker"></i>{{$data_first['address']}}
                                                 </a>
                                             </h3>
@@ -324,7 +326,7 @@
                                         </div>
                                         <img src="{!! asset('public/admin/dist/img/'.$iteam_duan->images) !!}" alt="rp" style="max-height:175px; width:100%;">
                                         <div class="property-overlay">
-                                            <a href="properties-details.html" class="overlay-link">
+                                            <a href="{!! URL::route('getblog.detail',$iteam_duan['id']) !!}" class="overlay-link">
                                                 <i class="fa fa-link"></i>
                                             </a>
                                             <a class="overlay-link property-video" title="Lexus GS F">
@@ -343,11 +345,11 @@
                                     <div class="content">
                                         <!-- title -->
                                         <h4 class="title">
-                                            <a href="properties-details.html">{!! $iteam_duan->title !!}</a>
+                                            <a href="{!! URL::route('getblog.detail',$iteam_duan['id']) !!}">{!! $iteam_duan->title !!}</a>
                                         </h4>
                                         <!-- Property address -->
                                         <h3 class="property-address">
-                                            <a href="properties-details.html">
+                                            <a href="{!! URL::route('getblog.detail',$iteam_duan['id']) !!}">
                                                 <i class="fa fa-map-marker"></i>{{$iteam_duan->address}}
                                             </a>
                                         </h3>
@@ -468,12 +470,12 @@
                         </div>
                         <!-- Detail -->
                         <div class="caption detail">
-                        <h4><a href="blog-single-sidebar-right.html">{{ $iteam_tintuc->title }}</a></h4>
+                        <h4><a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}">{{ $iteam_tintuc->title }}</a></h4>
                             <!-- paragraph -->
                             <p>{{ $iteam_tintuc->tomtat }}</p>
                             <div class="clearfix"></div>
                             <!-- Btn -->
-                            <a href="blog-single-sidebar-right.html" class="read-more">Xem Chi Tiết</a>
+                            <a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}" class="read-more">Xem Chi Tiết</a>
                         </div>
                     </div>
                 </div>

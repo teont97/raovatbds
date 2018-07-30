@@ -62,25 +62,18 @@
                         </ul>
                     </li>
                 @endforeach
-                 
-                    <li class="dropdown">
+                @foreach($parent as $iteam_parent)      
+                    <li class="dropdown ">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                            Dự Án <span class="caret"></span>
+                            {!! $iteam_parent->name !!} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="agent-listing-grid.html">Thiết Kế </a></li>
-                            <li><a href="agent-listing-grid-sidebar.html">Phong Thủy </a></li>
-                            <li><a href="agent-listing-row.html">Tư Pháp </a></li>
-                            <li><a href="agent-listing-row-sidebar.html">Thị Trường </a></li>
-                            <li><a href="agent-single.html">Khác</a></li>
+                                @foreach($iteam_parent->typeblog as $iteam_typeblog)
+                                    <li><a href="{!!  route('getproduct',$iteam_typeblog->id) !!}">{!! $iteam_typeblog->name !!}</a></li>
+                                @endforeach
                         </ul>
                     </li>
-                    
-                    <li class="dropdown">
-                            <a  href="{!!  route('getblog') !!}">
-                                Tin Tức
-                            </a>
-                        </li>
+                @endforeach
                 </ul>
                 <ul class="nav navbar-nav navbar-right rightside-navbar">
                     <li>
