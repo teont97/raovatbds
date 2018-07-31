@@ -55,7 +55,7 @@ Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
 Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getproduct']);
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
-Route::get('blog',['as'=>'getblog','uses'=>'PageController@getblog']);
+Route::get('blog/{id_type}',['as'=>'getblog','uses'=>'PageController@getblog']);
 Route::get('blog-detail/{id}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
 Route::get('about',['as'=>'getabout','uses'=>'PageController@getabout']);

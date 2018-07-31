@@ -6282,12 +6282,12 @@ table.manage-table .title-container .title span {
     display: none;
 }
 .logo1{
-    padding: 7px 0;
+    padding: 19px 0;
     float: left;
     margin-right: 20px;
 }
 .logo1 img{
-    height:65px;
+    height:45px;
 }
 .image img {
     width: 100%;
@@ -6356,11 +6356,13 @@ table.manage-table .title-container .title span {
 @media (max-width: 995px) {
 
     .logo1 {
-        margin-right: 30px;
-        padding: 22px 0 21px;
+            margin-right: 30px;
+        /*  padding: 22px 0 21px; */
+            padding: 10px 0;
+            
     }
     .logo1 img {
-       height: 50px;    
+       height: 40px;    
     }
 
     .property-2 .facilities-list li {

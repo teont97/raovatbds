@@ -75,8 +75,8 @@ class PageController extends Controller
     public function getcustomer(){
         return view('client.pages.customer');
     }
-    public function getblog(){
-        $data_blog=blog::orderBy('id','DESC')->get();
+    public function getblog($id_type){
+        $data_blog=blog::where('id_type',$id_type)->orderBy('id','DESC')->get();
         return view('client.pages.blog',compact('data_blog'));
     }
     public function getblogdetail($id_blog){

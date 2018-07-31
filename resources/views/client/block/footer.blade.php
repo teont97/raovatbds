@@ -44,10 +44,10 @@
                                 <a href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About Us</a>
+                                <a href="{{ route('getabout') }}">Về Chúng Tôi</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact Us</a>
+                                <a href="{{ route('getcontact') }}">Liên Hệ</a>
                             </li>
                             <li>
                                 <a href="blog-single-sidebar-right.html">Blog</a>

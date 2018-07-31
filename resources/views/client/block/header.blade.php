@@ -69,7 +69,7 @@
                         </a>
                         <ul class="dropdown-menu">
                                 @foreach($iteam_parent->typeblog as $iteam_typeblog)
-                                    <li><a href="{!!  route('getproduct',$iteam_typeblog->id) !!}">{!! $iteam_typeblog->name !!}</a></li>
+                                    <li><a href="{!!  route('getblog',$iteam_typeblog->id) !!}">{!! $iteam_typeblog->name !!}</a></li>
                                 @endforeach
                         </ul>
                     </li>
