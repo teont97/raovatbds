@@ -36,4 +36,11 @@ class User extends Authenticatable
     public function blog(){
     	return $this->hasMany('App\blog','id_user','id');
     }
+    public function comment_post(){
+    	return $this->hasMany('App\comment_post','id_user','id');
+    }
+    public function comment_blog(){
+    	return $this->hasMany('App\comment_blog','id_user','id');
+    }
+
 }

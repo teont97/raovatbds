@@ -70,7 +70,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix group-btn-footer">
-                    <a href="{{ route('admin.user.getcreate') }}" class="btn btn-success" > Thêm Mới Tài Khoản </a>
+                    <a href="{{ route('admin.blog.getTypeBlog') }}" class="btn btn-success" > Thêm Mới Tài Khoản </a>
              </div>
           </div>
           <!-- /.box -->

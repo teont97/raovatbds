@@ -10,4 +10,7 @@ class parent_type extends Model
     public function typeblog(){
     	return $this->hasMany('App\typeblog','id_parent','id');
     }
+    public function blog(){
+    	return $this->hasMany('App\blog','id_parent','id');
+    }
 }

@@ -22,6 +22,14 @@
                 <!-- Blog box start -->
                 <div class="thumbnail blog-box clearfix">
                     <img src="{!! asset('public/admin/dist/img/'.$data_tintuc_detail['images']) !!}" alt="blog-1" class="img-blog-detail">
+                    <input type="hidden" id="id_blog" value="{{ $data_tintuc_detail->id }}">
+                    <?php
+                        if(!isset($user))
+                        $data_user=0;
+                        else
+                        $data_user=$user->id;
+                     ?>
+                    <input type="hidden" id="id_user" value="{{ $data_user}} ">
                     <!-- detail -->
                     <div class="clearfix"></div>
                     <blockquote>
@@ -74,384 +82,59 @@
                     </div>
                 </div>
                 <!-- Blog box end -->
+                     @if(!isset($user))
+                    <div class="contact-1 sidebar-widget">
+                        <h4 class="title comment-blog"> Vui Lòng<a href="{{ route('getlogin') }}"> Đăng Nhập </a> Hoặc  <a href="{{ route('getregister') }}"> Tạo Tài Khoản Mới </a>  Để Có Thể Bình Luận </h3>
+                    </div>
+                    @else
+                     <!-- Contact 1 start -->
+                     <div class="contact-1 sidebar-widget">
 
+                            <div class="main-title-2">
+                                <h1> <span>Bình Luận</span> Trao Đổi</h1>
+                            </div>
+                            <div class="contact-form">
+                            <form id="contact_form_blog" action="{{ route('post.comment.blog') }}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                                <input type="hidden" id="IdBlog"  name="IdBlog" value="{!! $data_tintuc_detail->id !!}">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                                        <div class="form-group message">
+                                            <textarea class="input-text"  id="message" name="message" placeholder="Write message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group send-btn mb-0 pull-right">
+                                            <button type="submit" class="button-md button-theme">Bình Luận</button>
+                                     </div>
+                                </div>
+                            </div>
+                         </form>
+                        
+                    </div>
+                    </div>
+                @endif
+                <!-- Contact end -->
                 <!-- Comments section start -->
+  
                 <div class="comments-section sidebar-widget">
-                    <!-- Main Title 2 -->
+                    <!-- Main Title 2
                     <div class="main-title-2">
                         <h1><span>Comments </span> Section</h1>
                     </div>
-
+                     -->
                     <ul class="comments">
-                        <li>
-                            <div class="comment">
-                                <div class="comment-author">
-                                    <a href="#">
-                                        <img src="http://placehold.it/60x60" alt="avatar-5">
-                                    </a>
-                                </div>
-                                <div class="comment-content">
-                                    <div class="comment-meta">
-                                        <div class="comment-meta-author">
-                                            Jane Doe
-                                        </div>
-                                        <div class="comment-meta-reply">
-                                            <a href="#">Reply</a>
-                                        </div>
-                                        <div class="comment-meta-date">
-                                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="comment-body">
-                                        <div class="comment-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum. Suspendisse rhoncus fringilla ipsum quis porta.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="http://placehold.it/60x60" alt="avatar-5">
-                                            </a>
-                                        </div>
-
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <div class="comment-meta-author">
-                                                    Jane Doe
-                                                </div>
-
-                                                <div class="comment-meta-reply">
-                                                    <a href="#">Reply</a>
-                                                </div>
-
-                                                <div class="comment-meta-date">
-                                                    <span class="hidden-xs">8:42 PM 3/3/2017</span>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="comment-body">
-                                                <div class="comment-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="comment">
-                                <div class="comment-author">
-                                    <a href="#">
-                                        <img src="http://placehold.it/60x60" alt="avatar-5">
-                                    </a>
-                                </div>
-                                <div class="comment-content">
-                                    <div class="comment-meta">
-                                        <div class="comment-meta-author">
-                                            Jane Doe
-                                        </div>
-                                        <div class="comment-meta-reply">
-                                            <a href="#">Reply</a>
-                                        </div>
-                                        <div class="comment-meta-date">
-                                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="comment-body">
-                                        <div class="comment-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="comment comment-mrg-bdr-nane">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="http://placehold.it/60x60" alt="avatar-5">
-                                            </a>
-                                        </div>
-
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <div class="comment-meta-author">
-                                                    Jane Doe
-                                                </div>
-
-                                                <div class="comment-meta-reply">
-                                                    <a href="#">Reply</a>
-                                                </div>
-
-                                                <div class="comment-meta-date">
-                                                    <span class="hidden-xs">8:42 PM 3/3/2017</span>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="comment-body">
-                                                <div class="comment-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel, dapibus tempus nulla. Donec vel nulla dui.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                        <!--  Nơi Hứng List Cmt  Ajax  Đổ Về  -->
                     </ul>
                 </div>
+   
                 <!-- Comments section end -->
 
-                <!-- Contact 1 start -->
-                <div class="contact-1 sidebar-widget">
-                    <div class="main-title-2">
-                        <h1> <span>Leave</span> a Comment</h1>
-                    </div>
-                    <div class="contact-form">
-                        <form id="contact_form" action="index.html" method="GET" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group fullname">
-                                        <input type="text" name="full-name" class="input-text" placeholder="Full Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group enter-email">
-                                        <input type="email" name="email" class="input-text" placeholder="Enter email">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group subject">
-                                        <input type="text" name="subject" class="input-text" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group number">
-                                        <input type="text" name="phone" class="input-text" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
-                                    <div class="form-group message">
-                                        <textarea class="input-text" name="message" placeholder="Write message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group send-btn mb-0">
-                                        <button type="submit" class="button-md button-theme">Send Message</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- Contact end -->
+           
             </div>
-
-            <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="sidebar">
-                    <!-- Search box -->
-                    <div class="sidebar-widget search-box">
-                        <form class="form-inline form-search" method="GET">
-                            <div class="form-group">
-                                <label class="sr-only" for="textsearch2">Search</label>
-                                <input type="text" class="form-control" id="textsearch2" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                    <!-- Category posts -->
-                    <div class="sidebar-widget category-posts">
-                        <div class="main-title-2">
-                            <h1><span>popular</span> Category</h1>
-                        </div>
-                        <ul class="list-unstyled list-cat">
-                            <li><a href="#">Single Family </a> <span>(45)  </span></li>
-                            <li><a href="#">Apartment  </a> <span>(21)  </span></li>
-                            <li><a href="#">Condo </a> <span>(23)  </span></li>
-                            <li><a href="#">Multi Family </a> <span>(19)  </span></li>
-                            <li><a href="#">Villa </a> <span>(19)  </span></li>
-                            <li><a href="#">Other  </a> <span>(22)  </span></li>
-                        </ul>
-                    </div>
-                    <!-- Popular posts -->
-                    <div class="sidebar-widget popular-posts">
-                        <div class="main-title-2">
-                            <h1><span>popular</span> posts</h1>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Sweet Family Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Modern Family Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Beautiful Single Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Archives posts -->
-                    <div class="sidebar-widget archives">
-                        <div class="main-title-2">
-                            <h1><span>Popular</span> Archives</h1>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><a href="#">July 2018</a></li>
-                            <li><a href="#">August 2017</a></li>
-                            <li><a href="#">September 2017</a></li>
-                            <li><a href="#">October 2017</a></li>
-                            <li><a href="#">November 2017</a></li>
-                        </ul>
-                    </div>
-                    <!-- Tags box -->
-                    <div class="sidebar-widget tags-box">
-                        <div class="main-title-2">
-                            <h1><span>popular</span> Tags</h1>
-                        </div>
-                        <ul class="tags">
-                            <li><a href="#">Image</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Typography</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Slideshow</a></li>
-                            <li><a href="#">Post Formats</a></li>
-                            <li><a href="#">Sellers</a></li>
-                            <li><a href="#">WooCommerce</a></li>
-                            <li><a href="#">Shortcodes</a></li>
-                        </ul>
-                    </div>
-                    <!-- Social media -->
-                    <div class="social-media sidebar-widget clearfix">
-                        <!-- Main Title 2 -->
-                        <div class="main-title-2">
-                            <h1><span>Social</span> Media</h1>
-                        </div>
-                        <!-- Social list -->
-                        <ul class="social-list">
-                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Latest reviews -->
-                    <div class="sidebar-widget latest-reviews">
-                        <div class="main-title-2">
-                            <h1><span>Latest</span> Reviews</h1>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="avatar-1">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading"><a href="#">John Antony</a></h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Etiamrisus tortor, accumsan at nisi et,
-                                </p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="http://placehold.it/50x50" alt="avatar-2">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading"><a href="#">Karen Paran</a></h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit.
-                                    Etiamrisus tortor, accumsan at nisi et,
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Latest tweet -->
-                    <div class="sidebar-widget latest-tweet">
-                        <div class="main-title-2">
-                            <h1><span>Latest</span> Tweet</h1>
-                        </div>
-                        <p><a href="#">@Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum </p>
-                        <p>@Lorem ipsum dolor<a href="#">sit amet, consectetur</a> adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum quis orci </p>
-                    </div>
-                </div>
-            </div>
+            <!-- sidebar right start -->
+            @include('client.block.sidebar_blog')
+            <!-- sidebar right end -->
         </div>
     </div>
 </div>
@@ -509,4 +192,54 @@
     </div>
 </div>
 <!-- Partners block end -->
+<script>
+ $.ajaxSetup({  
+       headers: {  
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
+        } 
+    });  
+$('.button-theme').click(function (e) {
+            e.preventDefault();
+            var IdBLog = $('#IdBlog').val();
+            //console.log(IdBLog);
+            //return false;
+            var message = $('#message').val();
+            $.ajax({
+                type: "POST",
+                url: '{{url("/comment-blog")}}',
+                dataType: 'JSON',
+                data: {IdBLog: IdBLog, message: message},
+                success: function(data) {
+        
+                    $('#contact_form_blog')[0].reset();
+                    $(".comments ").empty();
+                    //console.log('ok');
+                    // ok chua bác 
+                    //empty cho nay cung dc
+                    load_commentblog(); // còn đây là khi submit thành công thì nó load lại danh sach
+            
+            },
+            error: function (xhr, textStatus, thrownError) {
+                console.log(xhr.status);
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(thrownError);
+  }
+            });
+    });
+    load_commentblog(); //nay de lam gi v
+    // để load danh sách cmt khi chưa submit đó bác
+    
+    function load_commentblog()
+     {
+            var	IdBLog =$('#id_blog').val();
+            //console.log(IdBLog);
+            //return false;
+            $.get("../ajax/comment-blog/"+IdBLog, function(data){
+                //muon k bi lap phai empty truoc khi append 
+                $(".comments").append(data);
+            });
+    }
+    
+</script>
 @endsection

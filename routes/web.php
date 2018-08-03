@@ -42,9 +42,11 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     });
     Route::group(['prefix'=>'blog'],function(){
         Route::get('list-type-blog',['as'=>'admin.blog.listTypeBlog','uses'=>'BlogController@getListTypeBlog']);
+        Route::get('get-create-Typeblog',['as'=>'admin.blog.getTypeBlog','uses'=>'BlogController@getTypeblog']);
         Route::get('list-blog',['as'=>'admin.blog.listBlog','uses'=>'BlogController@getListBlog']);
         Route::get('get-create-blog',['as'=>'admin.blog.getBlog','uses'=>'BlogController@getBlog']);
         Route::post('create-blog',['as'=>'admin.blog.postBlog','uses'=>'BlogController@postBlog']);
+        Route::post('create-type-blog',['as'=>'admin.blog.postTypeBlog','uses'=>'BlogController@postTypeBlog']);
     });
     Route::group(['prefix'=>'ajax'],function(){
         Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);
@@ -67,6 +69,10 @@ Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
 Route::post('delete_file_upload',['as'=>'post.deletefile','uses'=>'PageController@deletefile']);
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
 Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));
+Route::post('comment-blog',['as'=>'post.comment.blog','uses'=>'PageController@PostCommentBlog']);
+Route::post('comment-post',['as'=>'post.comment.post','uses'=>'PageController@PostCommentPost']);
+Route::post('reply-blog',['as'=>'post.reply.blog','uses'=>'PageController@PostReplyBlog']);
+Route::post('reply-post',['as'=>'post.reply.post','uses'=>'PageController@PostReplyPost']);
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
@@ -82,7 +88,12 @@ Route::group(['prefix'=>'ajax'],function(){
     Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);
     Route::get('huyen/{id_tinh}',['as'=>'ajax.huyen','uses'=>'AjaxController@gethuyen']);
     Route::get('phuong/{id_huyen}',['as'=>'ajax.phuong','uses'=>'AjaxController@getphuong']);
+    Route::get('comment-post/{id_post}',['as'=>'ajax.comment.post','uses'=>'AjaxController@getcmtpost']);
+    Route::get('reply-post/{id_comment}',['as'=>'ajax.reply.post','uses'=>'AjaxController@getreplypost']);
+    Route::get('comment-blog/{id_blog}',['as'=>'ajax.comment.blog','uses'=>'AjaxController@getcmtblog']);
+    Route::get('reply-blog/{id_comment}',['as'=>'ajax.reply.blog','uses'=>'AjaxController@getreplyblog']);
 });
+
 
 
 

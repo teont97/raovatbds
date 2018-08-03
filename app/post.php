@@ -28,4 +28,7 @@ class post extends Model
     public function lienhe(){
     	return $this->hasMany('App\lienhe','id_post','id');
     }
+    public function comment_post(){
+    	return $this->hasMany('App\comment_post','id_post','id');
+    }
 }

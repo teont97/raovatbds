@@ -23,6 +23,7 @@
     <!-- Custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/skins/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/client/css/mystyle.css') }}">
 
     <!-- Favicon icon -->
     <link rel="shortcut icon" href="{{ url('public/client/img/favicon.ico') }}" type="image/x-icon" >

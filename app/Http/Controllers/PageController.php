@@ -12,6 +12,10 @@ use App\post_images;
 use App\lienhe;
 use App\loaitin;
 use App\blog;
+use App\comment_blog;
+use App\comment_post;
+use App\repliesblog;
+use App\repliespost;
 class PageController extends Controller
 {
   
@@ -54,13 +58,11 @@ class PageController extends Controller
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
-        $post_random=post::orderByRaw("RAND()")->take(5)->get();
-        $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //$data_random=count($loaitin_random->post);
        // dd($data_random);
        // $loaitin_random=loaitin::orderBy('id','DESC')->get();
         //dd($loaitin_random);
-        return view('client.pages.products',compact('data_post','loaitin_random','post_random'));
+        return view('client.pages.products',compact('data_post'));
     }
     public function getproductdetail($id_product){
         $post_detail=post::where('id',$id_product)->first();
@@ -70,7 +72,10 @@ class PageController extends Controller
         $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //dd($post_random);
         //dd($post_random);
-        return view('client.pages.product_detail',compact('post_detail','post_random','loaitin_random'));
+        {
+            $user=Auth::user();
+        }
+        return view('client.pages.product_detail',compact('post_detail','user'));
     }
     public function getcustomer(){
         return view('client.pages.customer');
@@ -81,7 +86,11 @@ class PageController extends Controller
     }
     public function getblogdetail($id_blog){
         $data_tintuc_detail=blog::where('id',$id_blog)->first();
-        return view('client.pages.blog_detail',compact('data_tintuc_detail'));
+        if(Auth::check())
+        {
+            $user=Auth::user();
+        }
+        return view('client.pages.blog_detail',compact('data_tintuc_detail','user'));
     }
     public function getcontact(){
         return view('client.pages.contact');
@@ -208,5 +217,37 @@ class PageController extends Controller
         $data_search=$request->key;
         $result_search = post::where('title', 'like', '%' . $request->key .'%')->get();
         return view('client.pages.search',compact('result_search','data_search'));
+    }
+    public function PostCommentBlog(Request $request){
+        $cmt_blog = new comment_blog();
+        $cmt_blog->content = $request->message;
+        $cmt_blog->id_user=Auth::user()->id;
+        $cmt_blog->id_blog =$request->IdBLog;
+        $cmt_blog->save();
+        return response()->json(['success'=>'Data is successfully added']);
+    }
+    public function PostCommentPost(Request $request){
+        $cmt_post = new comment_post();
+        $cmt_post->content = $request->message;
+        $cmt_post->id_user=Auth::user()->id;
+        $cmt_post->id_post = $request->IdPost;
+        $cmt_post->save();
+        return response()->json(['success'=>'Data is successfully added']);
+    }
+    public function PostReplyBlog(Request $request){
+        $rep_blog = new repliesblog();
+        $rep_blog->reply = $request->mesreply;
+        $rep_blog->id_user=Auth::user()->id;
+        $rep_blog->id_cmtblog = $request->comment_id;
+        $rep_blog->save();
+        return response()->json(['success'=>'Data is successfully added']);
+    }
+    public function PostReplyPost(Request $request){
+        $rep_post = new repliespost();
+        $rep_post->rely = $request->mesreply;
+        $rep_post->id_user=Auth::user()->id;
+        $rep_post->id_cmtpost = $request->comment_id;
+        $rep_post->save();
+        return response()->json(['success'=>'Data is successfully added']);
     }
 }

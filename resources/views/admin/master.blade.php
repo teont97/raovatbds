@@ -461,8 +461,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Thể Loại  </a></li>
-              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Viết Bài Mới  </a></li>
+              <li><a href="{!! route('admin.blog.listTypeBlog') !!}"><i class="fa fa-circle-o"></i> Danh Sách Thể Loại  </a></li>
+              <li><a href="{!! route('admin.blog.listBlog') !!}"><i class="fa fa-circle-o"></i> Danh Sách Blog  </a></li>
             </ul>
         </li>
         <li class="treeview">

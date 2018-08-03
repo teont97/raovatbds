@@ -34,43 +34,52 @@
                 <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Tên Loại Blog </th>
-                  <th>Id_Parent</th>
+                  <th>Tiêu Đề </th>
+                  <th>Hình Thức</th>
+                  <th>Thể Loại</th>
+                  <th>View</th>
+                  <th>Người Đăng </th>
                   <th>Ngày Tạo </th>
                   <th>Hành Động</th>              
                 </tr>
                 </thead>
                 <tbody>
                     <?php $stt=0; ?>
-                @foreach($data_typeblog as $iteam_typeblog) 
+                @foreach($data_blog as $iteam_blog) 
                 <?php $stt++ ?>
                   <tr>
                     <td>{!! $stt !!}</td>
-                    <td>{!! $iteam_typeblog->name !!}</td>
-                    <td>{!! $iteam_typeblog->parent_type['name'] !!}</td>
-                    <td>{!! $iteam_typeblog->created_at !!}</td>
+                    <td>{!! $iteam_blog->title !!}</td>
+                    <td>{!! $iteam_blog->parent_type['name'] !!}</td>
+                    <td>{!! $iteam_blog->typeblog['name'] !!}</td>
+                    <td>{!! $iteam_blog->view !!}</td>
+                    <td>{!! $iteam_blog->User['name'] !!}</td>
+                    <td>{!! $iteam_blog->created_at !!}</td>
                     <td>
-                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_blog->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
                         <button type="button" class="Modal eye" > <i class="fa fa-eye"  ></i> </button>
-                        <button type="button" class="Modal trash" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
+                        <button type="button" class="Modal trash" data-catalog="{!!$iteam_blog->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                     </td>
                   </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>STT</th>
-                    <th>Tên Loại Blog </th>
-                    <th>Id_Parent</th>
-                    <th>Ngày Tạo</th>
-                    <th>Hành Động</th> 
+                  <th>STT</th>
+                  <th>Tiêu Đề </th>
+                  <th>Hình Thức</th>
+                  <th>Thể Loại</th>
+                  <th>View</th>
+                  <th>Người Đăng </th>
+                  <th>Ngày Tạo </th>
+                  <th>Hành Động</th>  
                 </tr>
                 </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix group-btn-footer">
-                    <a href="{{ route('admin.user.getcreate') }}" class="btn btn-success" > Thêm Mới Tài Khoản </a>
+                    <a href="{{ route('admin.blog.getBlog') }}" class="btn btn-success" > Viết Bài Mới  </a>
              </div>
           </div>
           <!-- /.box -->

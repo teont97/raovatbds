@@ -362,5 +362,6 @@ $(function () {
             $('.map-content-sidebar').css('height', '100%');
         }
         }).trigger("resize");
+
 })(jQuery);
 

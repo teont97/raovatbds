@@ -1,0 +1,14 @@
+.sub-btn{
+    background: #95c41f;
+    border: 2px solid #95c41f;
+}
+#mesreply{
+    border-radius: 10px;
+}
+.sidebar-widget .comment{
+    color: #61666d;
+}
+.sidebar-widget .comment-blog a{
+    color: #95c41f;
+    line-height:2;
+}

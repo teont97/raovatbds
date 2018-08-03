@@ -13,9 +13,22 @@ class BlogController extends Controller
         $data_typeblog=typeblog::orderBy('id','DESC')->get();
         return view('admin.blog.list_type',compact('data_typeblog'));
     }
+    public function getTypeblog(){
+        $data_parent=parent_type::get();
+        return view('admin.blog.create_typeblog',compact('data_parent'));
+    }
+    public function postTypeBlog(Request $request){
+        $type_blog= new typeblog();
+        $type_blog->name=$request->txtname;
+        $type_blog->alias=utf8tourl(utf8convert($request->txtname));
+        $type_blog->id_parent=$request->slhinhthuc;
+        $type_blog->description=$request->txtdescript;
+        $type_blog->save();
+        return redirect()->route('admin.blog.listTypeBlog')->with(['flash_level'=>'success','flash_messages'=>'Bạn Đã Thêm thành công']);
+    }
     public function getListBlog(){
         $data_blog=blog::get();
-        dd($data_blog);
+        //dd($data_blog);
         return view('admin.blog.list_blog',compact('data_blog'));
     }
     public function getBlog(){
