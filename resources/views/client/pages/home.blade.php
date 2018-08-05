@@ -174,7 +174,7 @@
                                     </span>
                                     <?php $datalh=$iteam_post->lienhe->shift(); ?>
                                     <span class="right">
-                                        <i class="fa fa-phone" style="color:#95c41f;"></i>{!! $datalh['sodienthoai']  !!}
+                                        <i class="fa fa-phone" ></i>{!! $datalh['sodienthoai']  !!}
                                     </span>
                                 </div>
                             </div>
@@ -892,35 +892,35 @@
                         <div class="item active">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner">
+                                    <img src="{!! asset('public/client/img/bussiness/01.png') !!}" alt="partner">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-2">
+                                    <img src="{!! asset('public/client/img/bussiness/02.png') !!}" alt="partner-2">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-3">
+                                    <img src="{!! asset('public/client/img/bussiness/03.png') !!}" alt="partner-3">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-4">
+                                    <img src="{!! asset('public/client/img/bussiness/04.png') !!}" alt="partner-4">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-5">
+                                    <img src="{!! asset('public/client/img/bussiness/06.png') !!}" alt="partner-5">
                                 </a>
                             </div>
                         </div>
@@ -933,4 +933,37 @@
     </div>
 </div>
 <!-- Partners block end -->
+<script>
+    var engine = new Bloodhound({
+    remote: {
+        url: 'autocomplete?key=%QUERY%',
+        wildcard: '%QUERY%'
+    },
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    });
+
+$(".search").typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    }, 
+    {
+        source: engine.ttAdapter(),
+        name: 'post_list',
+        display: function(data) {
+            return data.title  //Input value to be set when you select a suggestion. 
+    },
+    templates: {
+        empty: [
+            '<div class="list-group search-results-dropdown"><div class="list-group-item">Không Tìm Kiếm Được Kết Quả Như Mong Muốn  </div></div>'
+        ],
+        header: [
+        ],
+        suggestion: function (data) {
+            return '<a href="product-detail/' + data.id + '" class="list-group-item"> <span>'+ data.title + '</span>  </li>'
+        }
+    }
+});
+</script>
 @endsection

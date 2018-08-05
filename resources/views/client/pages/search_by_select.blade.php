@@ -132,12 +132,29 @@
                 </div>
             @endif
                 <!-- Page navigation start -->
-               
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="properties-grid-rightside.html">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="properties-grid-leftside.html">2</a></li>
+                        <li><a href="properties-grid-fullwidth.html">3</a></li>
+                        <li>
+                            <a href="properties-grid-fullwidth.html" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
                 <!-- Page navigation end-->
             </div>
-             <!-- sidebar right start -->
-             @include('client.block.sidebar_post')
-             <!-- sidebar right end -->
+        </div>
+        <!-- sidebar right start -->
+            @include('client.block.sidebar_post')
+        <!-- sidebar right end -->
         </div>
     </div>
 </div>

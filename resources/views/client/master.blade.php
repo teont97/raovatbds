@@ -71,6 +71,7 @@
     <!-- Custom javascript -->
     <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ url('public/client/js/myapp.js') }}"></script>
+    <script src="{{ url('public/client/js/main.js') }}"></script>
 
 
 </head>

@@ -2,10 +2,10 @@
     <div class="sidebar">
         <!-- Search box -->
         <div class="sidebar-widget search-box">
-            <form class="form-inline form-search" method="GET">
+        <form  action="{{ route('getseacrh.blog')}}" class="form-inline form-search" method="GET">
                 <div class="form-group">
                     <label class="sr-only" for="textsearch2">Search</label>
-                    <input type="text" class="form-control" id="textsearch2" placeholder="Search">
+                    <input type="text" name="key" class="form-control" id="textsearch2" placeholder="Tìm Kiếm Từ Khóa Tiếng Việt Có Dấu">
                 </div>
                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
             </form>
@@ -13,82 +13,58 @@
         <!-- Category posts -->
         <div class="sidebar-widget category-posts">
             <div class="main-title-2">
-                <h1><span>popular</span> Category</h1>
+                
+                <h1><span>Chuyên Mục</span> Phổ Biến</h1>
+                
             </div>
             <ul class="list-unstyled list-cat">
-                <li><a href="#">Single Family </a> <span>(45)  </span></li>
-                <li><a href="#">Apartment  </a> <span>(21)  </span></li>
-                <li><a href="#">Condo </a> <span>(23)  </span></li>
-                <li><a href="#">Multi Family </a> <span>(19)  </span></li>
-                <li><a href="#">Villa </a> <span>(19)  </span></li>
-                <li><a href="#">Other  </a> <span>(22)  </span></li>
+                @foreach($typeblog_random as $iteam_typeblog)
+                    <li><a href="#">{{$iteam_typeblog->name }}</a> <span> {{ count($iteam_typeblog->blog) }}  </span></li>
+                @endforeach
             </ul>
         </div>
         <!-- Popular posts -->
         <div class="sidebar-widget popular-posts">
             <div class="main-title-2">
-                <h1><span>popular</span> posts</h1>
+                <h1><span>Bài Viết</span> Đề Xuất </h1>
             </div>
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
-                </div>
-                <div class="media-body">
-                    <h3 class="media-heading">
-                        <a href="properties-details.html">Sweet Family Home</a>
-                    </h3>
-                    <p>February 27, 2018</p>
-                    <div class="price">
-                        $734,000
+            @foreach($blog_random as $iteam_blog)
+                <div class="media">
+                    <div class="media-left">
+                        <img class="images-random" src="{!! asset('public/admin/dist/img/'.$iteam_blog['images']) !!}" alt="small-properties-1">
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">
+                            <a href="properties-details.html">{{ $iteam_blog->title }}</a>
+                        </h3>
+                        <p>{{ $iteam_blog->created_at }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                </div>
-                <div class="media-body">
-                    <h3 class="media-heading">
-                        <a href="properties-details.html">Modern Family Home</a>
-                    </h3>
-                    <p>February 27, 2018</p>
-                    <div class="price">
-                        $734,000
-                    </div>
-                </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                </div>
-                <div class="media-body">
-                    <h3 class="media-heading">
-                        <a href="properties-details.html">Beautiful Single Home</a>
-                    </h3>
-                    <p>February 27, 2018</p>
-                    <div class="price">
-                        $734,000
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <!-- Archives posts -->
-        <div class="sidebar-widget archives">
-            <div class="main-title-2">
-                <h1><span>Popular</span> Archives</h1>
-            </div>
-            <ul class="list-unstyled">
-                <li><a href="#">July 2018</a></li>
-                <li><a href="#">August 2017</a></li>
-                <li><a href="#">September 2017</a></li>
-                <li><a href="#">October 2017</a></li>
-                <li><a href="#">November 2017</a></li>
-            </ul>
+        <div class="sidebar-widget popular-posts">
+                <div class="main-title-2">
+                    <h1><span>Dự Án </span>Tiêu Biểu </h1>
+                </div>
+                @foreach($duan_random as $iteam_duan)
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="images-random" src="{!! asset('public/admin/dist/img/'.$iteam_duan['images']) !!}" alt="small-properties-1">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <a href="properties-details.html">{{ $iteam_duan->title }}</a>
+                            </h3>
+                            <p>{{ $iteam_duan->created_at }}</p>
+                        </div>
+                    </div>
+                @endforeach
         </div>
         <!-- Tags box -->
         <div class="sidebar-widget tags-box">
             <div class="main-title-2">
-                <h1><span>popular</span> Tags</h1>
+                <h1><span>Thẻ</span> Tags</h1>
             </div>
             <ul class="tags">
                 <li><a href="#">Image</a></li>

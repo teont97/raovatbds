@@ -193,12 +193,12 @@
 </div>
 <!-- Partners block end -->
 <script>
- $.ajaxSetup({  
-       headers: {  
-               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
-        } 
-    });  
-$('.button-theme').click(function (e) {
+    $.ajaxSetup({  
+        headers: {  
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
+            } 
+        });  
+    $('.button-theme').click(function (e) {
             e.preventDefault();
             var IdBLog = $('#IdBlog').val();
             //console.log(IdBLog);

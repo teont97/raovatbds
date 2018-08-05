@@ -7,42 +7,31 @@
 
         <form method="GET">
             <div class="form-group">
-                <select class="selectpicker search-fields" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
+                <select class="selectpicker search-fields" id="slhinhthuc" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
                     <option>Hình Thức </option>
-                    <option>For Sale</option>
-                    <option>For Rent</option>
+                        @foreach($hinhthuc as $iteam_hinhthuc)
+                            <option value="{{ $iteam_hinhthuc->id }}">{{ $iteam_hinhthuc->name }}</option>
+                        @endforeach
                 </select>
             </div>
+          
             <div class="form-group">
-                <select class="selectpicker search-fields" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                    <option>Khu Vực</option>
-                    <option>United States</option>
-                    <option>United Kingdom</option>
-                    <option>American Samoa</option>
-                    <option>Belgium</option>
-                    <option>Cameroon</option>
-                    <option>Canada</option>
+                <select class="selectpicker search-fields" id="sltheloai" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
+                        <option>Thể Loại  </option>
                 </select>
             </div>
 
             <div class="form-group">
-                <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
-                    <option>Thể Loại </option>
-                    <option>Residential</option>
-                    <option>Commercial</option>
-                    <option>Land</option>
+                <select class="selectpicker search-fields" id="location" name="location" data-live-search="true" data-live-search-placeholder="Search value">
+                    <option>Tỉnh/Thành</option>
+                    @foreach($khuvuc as $iteam_location)
+                        <option value="{{ $iteam_location->id }}">{{ $iteam_location->name }}</option>
+                    @endforeach
                 </select>
             </div>
-
             <div class="form-group">
-                <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
-                    <option>Diện Tích</option>
-                    <option>1000</option>
-                    <option>800</option>
-                    <option>600</option>
-                    <option>400</option>
-                    <option>200</option>
-                    <option>100</option>
+                <select class="selectpicker search-fields" id="slquan" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
+                    <option>Quận Huyện</option>
                 </select>
             </div>
 
@@ -278,3 +267,18 @@
         </div>
     </div>
 </div>
+<script>
+    $("#slhinhthuc").change(function(){
+        var slhinhthuc = $(this).val();
+        $.get("../ajax/loaitin/"+slhinhthuc,function(data){
+            $("#sltheloai").html(data).selectpicker('refresh')
+        });
+    });
+    $("#location").change(function(){
+        var location = $(this).val();
+        $.get("../ajax/huyen/"+location,function(data){
+            $("#slquan").html(data).selectpicker('refresh')
+        });
+    });
+
+</script>

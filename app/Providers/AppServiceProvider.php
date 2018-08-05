@@ -11,6 +11,8 @@ use App\parent_type;
 use App\blog;
 use App\post;
 use App\loaitin;
+use App\typeblog;
+use App\tinh;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -41,6 +43,26 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('client.block.sidebar_post',function($view){
             $post_random=post::orderByRaw("RAND()")->take(5)->get();
             $view->with('post_random',$post_random);
+        });
+        view()->composer('client.block.sidebar_post',function($view){
+            $hinhthuc=hinhthuc::all();
+            $khuvuc=tinh::all();
+            $view->with('hinhthuc',$hinhthuc);
+            $view->with('khuvuc',$khuvuc);
+        });
+        view()->composer('client.block.sidebar_blog',function($view  ){
+            $typeblog_random=typeblog::orderByRaw("RAND()")->take(6)->get();
+            //dd($typeblog_random);
+            $view->with('typeblog_random',$typeblog_random);
+
+        });
+        view()->composer('client.block.sidebar_blog',function($view){
+            $blog_random=blog::where('id_parent','1')->orderByRaw("RAND()")->take(5)->get();
+            $view->with('blog_random',$blog_random);
+        });
+        view()->composer('client.block.sidebar_blog',function($view){
+            $duan_random=blog::where('id_parent','2')->orderByRaw("RAND()")->take(5)->get();
+            $view->with('duan_random',$duan_random);
         });
         view()->composer('client.block.account',function($view){
             if(Auth::check()){

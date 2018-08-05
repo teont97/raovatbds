@@ -31,36 +31,6 @@ $("#home_hinhthuc").change(function(){
     });
 });
 
-var engine = new Bloodhound({
-    remote: {
-        url: 'autocomplete?key=%QUERY%',
-        wildcard: '%QUERY%'
-    },
-    datumTokenizer: Bloodhound.tokenizers.whitespace,
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-});
-
-$(".search").typeahead({
-    hint: true,
-    highlight: true,
-    minLength: 1
-}, {
-    source: engine.ttAdapter(),
-    name: 'post_list',
-    display: function(data) {
-        return data.title  //Input value to be set when you select a suggestion. 
-    },
-    templates: {
-        empty: [
-            '<div class="list-group search-results-dropdown"><div class="list-group-item">Không Tìm Kiếm Được Kết Quả Như Mong Muốn  </div></div>'
-        ],
-        header: [
-        ],
-        suggestion: function (data) {
-            return '<a href="product-detail/' + data.id + '" class="list-group-item"> <span>'+ data.title + '</span>  </li>'
-        }
-    }
-});
 
 
 

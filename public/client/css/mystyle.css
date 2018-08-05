@@ -12,3 +12,12 @@
     color: #95c41f;
     line-height:2;
 }
+.property-2 .content .title{
+    min-height: 52px;
+}
+.property-content .title{
+    height: 56px;
+}
+.our-partners .partner-box img{
+    width: 135px;
+}

@@ -218,6 +218,11 @@ class PageController extends Controller
         $result_search = post::where('title', 'like', '%' . $request->key .'%')->get();
         return view('client.pages.search',compact('result_search','data_search'));
     }
+    public function getsearchblog(Request $request){
+        $data_search=$request->key;
+        $result_search = blog::where('title', 'like', '%' . $request->key .'%')->orWhere('tomtat', 'like', '%' . $request->key .'%')->get();
+        return view('client.pages.search_blog',compact('result_search','data_search'));
+    }
     public function PostCommentBlog(Request $request){
         $cmt_blog = new comment_blog();
         $cmt_blog->content = $request->message;

@@ -73,6 +73,11 @@ Route::post('comment-blog',['as'=>'post.comment.blog','uses'=>'PageController@Po
 Route::post('comment-post',['as'=>'post.comment.post','uses'=>'PageController@PostCommentPost']);
 Route::post('reply-blog',['as'=>'post.reply.blog','uses'=>'PageController@PostReplyBlog']);
 Route::post('reply-post',['as'=>'post.reply.post','uses'=>'PageController@PostReplyPost']);
+Route::get('search-blog',array('as'=>'getseacrh.blog','uses'=>'PageController@getsearchblog'));
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
+Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));
+Route::get('search-by-select',array('as'=>'getseacrh.by.select','uses'=>'PageController@getsearchbyselect'));
+
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
