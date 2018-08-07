@@ -895,7 +895,7 @@ input[type=checkbox]:checked + label:before {
 .banner .banner-slider-inner h1 {
     color: #fff;
     margin: 0 0 20px;
-    font-size: 48px;
+    /* font-size: 48px; */
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -2022,6 +2022,7 @@ input[type=checkbox]:checked + label:before {
 
 /** PARTNERS BLOCK AREA START **/
 .partners-block {
+    margin-top: 100px;
     padding-bottom: 20px;
     text-align: center;
 }
@@ -2938,12 +2939,12 @@ footer .footer-item .newsletter {
     list-style: none;
     display: inline-block;
     color: orange;
-}
+}   
 
 /** TESTIMONIALS 3 **/
 .testimonials-3 {
     padding: 100px 0 130px;
-    background: url(http://placehold.it/1920x500);
+    background: url(../img/background/about.jpg);
     z-index: 0;
     background-position: center center;
     background-repeat: no-repeat;
@@ -2995,6 +2996,7 @@ footer .footer-item .newsletter {
 
 .testimonials-3 .content .avatar img {
     border-radius: 5%;
+    width: 100%;
 }
 
 .testimonials-3 .content {

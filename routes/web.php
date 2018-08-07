@@ -22,6 +22,18 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
        // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
     });
+    Route::group(['prefix'=>'about'],function(){
+        // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+        // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+        Route::get('get-create',['as'=>'admin.about.create','uses'=>'FaqController@getCreate']);
+        Route::get('list',['as'=>'admin.about.getlist','uses'=>'AboutController@getList']);
+     });
+     Route::group(['prefix'=>'faq'],function(){
+        // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+        // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+        Route::get('get-create',['as'=>'admin.faq.create','uses'=>'FaqController@getCreate']);
+        Route::get('list',['as'=>'admin.faq.getlist','uses'=>'FaqController@getList']);
+     });
     Route::group(['prefix'=>'newpost'],function(){
         Route::post('update',['as'=>'admin.newpost.update','uses'=>'NewPostController@postupdate']);
         Route::post('delete',['as'=>'admin.newpost.delete','uses'=>'NewPostController@postdelete']);
@@ -66,6 +78,8 @@ Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin'])
 Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);
 Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
+Route::get('faq',['as'=>'getfaq','uses'=>'PageController@getfaq']);
+Route::get('services',['as'=>'getservices','uses'=>'PageController@getservices']);
 Route::post('delete_file_upload',['as'=>'post.deletefile','uses'=>'PageController@deletefile']);
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
 Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));

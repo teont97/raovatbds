@@ -152,7 +152,7 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-8 col-sm-12">
-                &copy;  2017 <a href="http://themevessel.com/" target="_blank">Theme Vessel</a>. Trademarks and brands are the property of their respective owners.
+                &copy;  2018 Dautubds79.com. All right reserved. Development by Công Chí
             </div>
             <div class="col-md-4 col-sm-12">
                 <ul class="social-list clearfix">

@@ -16,25 +16,25 @@
                     <div class="details">
                         <!-- Main title -->
                         <div class="main-title">
-                            <h1><span>Signup</span></h1>
+                            <h1><span>Đăng Ký Tài Khoản </span></h1>
                         </div>
                         <!-- Form start-->
                         <form action="{!! route('postregister') !!}" method="post">
                             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
-                                <input type="text" name="fullname" class="input-text" placeholder="Full Name">
+                                <input type="text" name="fullname" class="input-text" placeholder="Họ Tên">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" class="input-text" placeholder="Email Address">
+                                <input type="email" name="email" class="input-text" placeholder="Địa Chỉ Email ">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="input-text" placeholder="Password">
+                                <input type="password" name="password" class="input-text" placeholder="Mật Khẩu">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
+                                <input type="password" name="confirm_Password" class="input-text" placeholder="Xác Nhận Mật Khẩu">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="button-md button-theme btn-block">Signup</button>
+                                <button type="submit" class="button-md button-theme btn-block">Đăng Ký</button>
                             </div>
                         </form>
                         <!-- Form end-->
@@ -42,7 +42,7 @@
                     <!-- Footer -->
                     <div class="footer">
                         <span>
-                            I want to <a href="login.html">return to login</a>
+                            Tôi Muốn Quay <a href="{{ route('getlogin') }}">Trở Lại Đăng Nhập</a>
                         </span>
                     </div>
                 </div>

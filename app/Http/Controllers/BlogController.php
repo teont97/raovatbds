@@ -62,8 +62,10 @@ class BlogController extends Controller
         $blog->id_type=$request->sltypeblog;
         $blog->address=$request->txtaddress;
         $blog->host=$request->txthost;
+        $tagString=explode(',',$request->txtkeyword);
         $request->file('fileupload')->move('public/admin/dist/img',$file_name);
         $blog->save();
+        $blog->tag($tagString);
         return redirect()->route('admin.blog.listBlog')->with(['flash_level'=>'success','flash_messages'=>'Bạn Đã Thêm thành công']);
     }
 }

@@ -9,10 +9,10 @@
                 <img src="{!! asset('public/client/img/01.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInDown delay-05s"><span>Find your </span> Dream House</h1>
-                        <p data-animation="animated fadeInUp delay-1s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                        <h1 data-animation="animated fadeInDown delay-05s"><span>Tìm Thấy Ngôi Nhà Trong Mơ Của Bạn </span></h1>
+                        <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn cần trải nghiệm</p>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -20,10 +20,10 @@
                 <img src="{!! asset('public/client/img/02.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInDown delay-1s"><span>Sweet Home For</span> Small Family</h1>
-                        <p data-animation="animated fadeInUp delay-05s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
+                        <h1 data-animation="animated fadeInDown delay-1s"><span>Đầu Tư Hiệu Quả Giúp Bạn Thành Công</span></h1>
+                        <p data-animation="animated fadeInUp delay-05s">Nơi trao giá trị đầu tư sinh lời dành cho tất cả các khách hàng</p>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                 <img src="{!! asset('public/client/img/03.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Best Place To</span> Find Home</h1>
-                        <p data-animation="animated fadeInLeft delay-1s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Get Started Now</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Learn More</a>
+                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Trải Nghiệm Một Nơi Tốt Nhất Tận Hưởng</span></h1>
+                        <p data-animation="animated fadeInLeft delay-1s">Cuộc sống có giá trị khi bạn có cơ hội để trải nghiệm và tận hưởng nó </p>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Bắt Đầu Ngay</a>
+                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -91,11 +91,10 @@
             <h1>Bất Động Sản Vip </h1>
         </div>
         <ul class="list-inline-listing filters filters-listing-navigation">
-            <li class="active btn filtr-button filtr" data-filter="all">All</li>
-            <li data-filter="1" class="btn btn-inline filtr-button filtr">House</li>
-            <li data-filter="2" class="btn btn-inline filtr-button filtr">Office</li>
-            <li data-filter="3" class="btn btn-inline filtr-button filtr">Apartment</li>
-            <li data-filter="4" class="btn btn-inline filtr-button filtr">Residential</li>
+            <li class="active btn filtr-button filtr" data-filter="all">Tất Cả</li>
+            @foreach($data_hinhthuc as $iteam_hinhthuc)
+        <li data-filter="{{ $iteam_hinhthuc->id}}" class="btn btn-inline filtr-button filtr">{{ $iteam_hinhthuc->name }}</li>
+            @endforeach
         </ul>
         <div class="row">
             <div class="filtr-container">
@@ -254,7 +253,7 @@
                                 <!-- Property img -->
                                  <div class="property-img">
                                     <div class="featured">
-                                                Featured
+                                                Nổi Bật
                                             </div>
                                             <div class="price-ratings">
                                                 <div class="price">$150,000</div>
@@ -266,7 +265,7 @@
                                                     <i class="fa fa-star-o"></i>
                                                 </div>
                                             </div>
-                                            <img src="{!! asset('public/admin/dist/img/'.$data_first['images']) !!}" alt="rp" style="max-height:175px; width:100%;">
+                                            <img src="{!! asset('public/admin/dist/img/'.$data_first['images']) !!}" alt="rp" style="height:175px; width:100%;">
                                             <div class="property-overlay">
                                                 <a href="#" class="overlay-link">
                                                     <i class="fa fa-link"></i>
@@ -312,7 +311,7 @@
                                     <!-- Property img -->
                                     <div class="property-img">
                                         <div class="featured">
-                                            Featured
+                                            Nổi Bật
                                         </div>
                                         <div class="price-ratings">
                                             <div class="price">$150,000</div>
@@ -324,7 +323,7 @@
                                                 <i class="fa fa-star-o"></i>
                                             </div>
                                         </div>
-                                        <img src="{!! asset('public/admin/dist/img/'.$iteam_duan->images) !!}" alt="rp" style="max-height:175px; width:100%;">
+                                        <img src="{!! asset('public/admin/dist/img/'.$iteam_duan->images) !!}" alt="rp" style="height:175px; width:100%;">
                                         <div class="property-overlay">
                                             <a href="{!! URL::route('getblog.detail',$iteam_duan['id']) !!}" class="overlay-link">
                                                 <i class="fa fa-link"></i>
@@ -376,7 +375,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Popular Places</h1>
+            <h1>Địa Điểm Phổ Biến </h1>
         </div>
         <div class="clearfix"></div>
         <div class="row wow">
@@ -540,7 +539,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-2" class="img-responsive">
+                                        <img src="http://placehold.it/160x160" alt="avatar-2" >
                                     </div>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -582,7 +581,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-4" class="img-responsive">
+                                        <img src="http://placehold.it/160x160" alt="avatar-4" >
                                     </div>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -624,7 +623,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-3" class="img-responsive">
+                                        <img src="http://placehold.it/160x160" alt="avatar-3" >
                                     </div>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 ">
@@ -687,200 +686,7 @@
 <!-- Blog start -->
 
 <!-- Blog end -->
-<div class="content-area agent-section chevron-icon">
-        <div class="container">
-            <!-- Main title -->
-            <div class="main-title">
-                <h1>Nhà Mô Giới Tiêu Biểu</h1>
-            </div>
-            <div class="row">
-                <div class="carousel our-partners slide" id="ourPartners3">
-                    <div class="col-lg-12 mrg-btm-30">
-                        <a class="right carousel-control" href="#ourPartners3" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
-                        <a class="right carousel-control" href="#ourPartners3" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <!-- Agent 1 start -->
-                                <div class="agent-1">
-                                    <!-- Agent img -->
-                                    <a href="properties-details.html" class="agent-img">
-                                        <img src="http://placehold.it/262x200" alt="team-1" class="img-responsive">
-                                    </a>
-                                    <!-- Agent content -->
-                                    <div class="agent-content">
-                                        <h5><a href="agent-single.html">John Antony</a></h5>
-                                        <h6>Web Developer</h6>
-                                        <ul class="social-list clearfix">
-                                            <li>
-                                                <a href="#" class="facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="twitter">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="linkedin">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="google">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="rss">
-                                                    <i class="fa fa-rss"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Agent 1 end -->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <!-- Agent 1 start -->
-                                <div class="agent-1">
-                                    <!-- Agent img -->
-                                    <a href="properties-details.html" class="agent-img">
-                                        <img src="http://placehold.it/262x200" alt="team-2" class="img-responsive">
-                                    </a>
-                                    <!-- Agent content -->
-                                    <div class="agent-content">
-                                        <h5><a href="agent-single.html">Karen Paran</a></h5>
-                                        <h6>Creative Director</h6>
-                                        <ul class="social-list clearfix">
-                                            <li>
-                                                <a href="#" class="facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="twitter">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="linkedin">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="google">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="rss">
-                                                    <i class="fa fa-rss"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Agent 1 end -->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <!-- Agent 1 start -->
-                                <div class="agent-1">
-                                    <!-- Agent img -->
-                                    <a href="properties-details.html" class="agent-img">
-                                        <img src="http://placehold.it/262x200" alt="team-3" class="img-responsive">
-                                    </a>
-                                    <!-- Agent content -->
-                                    <div class="agent-content">
-                                        <h5><a href="agent-single.html">John Maikel</a></h5>
-                                        <h6>Office Manager</h6>
-                                        <ul class="social-list clearfix">
-                                            <li>
-                                                <a href="#" class="facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="twitter">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="linkedin">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="google">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="rss">
-                                                    <i class="fa fa-rss"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Agent 1 end -->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <!-- Agent 1 start -->
-                                <div class="agent-1">
-                                    <!-- Agent img -->
-                                    <a href="properties-details.html" class="agent-img">
-                                        <img src="http://placehold.it/262x200" alt="team-4" class="img-responsive">
-                                    </a>
-                                    <!-- Agent content -->
-                                    <div class="agent-content">
-                                        <h5><a href="agent-single.html">Eliane Pereira</a></h5>
-                                        <h6>Support Manager</h6>
-                                        <ul class="social-list clearfix">
-                                            <li>
-                                                <a href="#" class="facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="twitter">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="linkedin">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="google">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="rss">
-                                                    <i class="fa fa-rss"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Agent 1 end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+
 <!-- Partners block start -->
 <div class="partners-block">
     <div class="container">

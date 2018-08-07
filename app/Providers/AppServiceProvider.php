@@ -53,7 +53,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('client.block.sidebar_blog',function($view  ){
             $typeblog_random=typeblog::orderByRaw("RAND()")->take(6)->get();
             //dd($typeblog_random);
+            $tags=DB::table('taggable_tags')->select('tag_id','name')->orderByRaw("RAND()")->take(9)->get();
+            //dd($tags);
             $view->with('typeblog_random',$typeblog_random);
+            $view->with('tags',$tags);
 
         });
         view()->composer('client.block.sidebar_blog',function($view){

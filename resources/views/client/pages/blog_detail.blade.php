@@ -1,18 +1,20 @@
 @extends('client.master')
 @section('content')
-<!-- Banner start -->
-<div class="blog-banner">
-    <div class="container">
-        <div class="breadcrumb-area">
-            <h1>Blog Details Right Sidebar</h1>
-            <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Blog Details Right Sidebar</li>
-            </ul>
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <h1>Properties Detail</h1>
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Properties Detail</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-<!-- Banner end -->
+<!-- Sub Banner end -->
 
 <!-- Blog body start -->
 <div class="blog-body content-area">
@@ -56,9 +58,9 @@
                                 <div class="tags-box">
                                     <h2>Tags</h2>
                                     <ul class="tags">
-                                        <li><a href="#">Image</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Slideshow</a></li>
+                                        @foreach($data_tintuc_detail->tags as $tag)
+                                            <li><a href="#">{{ $tag->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <!-- Tags box end -->

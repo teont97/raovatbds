@@ -46,18 +46,24 @@ class PageController extends Controller
         return redirect()->back();
     }
     public function gethome(){
-        $data_post=post::where('status','1')->orderBy('id','DESC')->take(6) ->get();
+        $data_post=post::where('status','1')->orderBy('id','DESC')->take(6)->get();
         $data_hinhthuc=DB::table('hinhthuc')->select('id','name')->get();
         $data_theloai=DB::table('loaitin')->select('id','name','id_hinhthuc')->get();
        // $data_huong=DB::table('huong')->select('id','name')->get();
         $data_tinh=DB::table('tinh')->select('id','name')->get();
         $data_duan=blog::where('id_parent','1')->orderBy('id','DESC')->get();
-        $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->get();
+        $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->take(3)->get();
         //dd($data_post);
         return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh','data_duan','data_tintuc'));
     }
+    public function getfaq(){
+        return view('client.pages.faq');
+    }
+    public function services(){
+        return view('client.pages.services');
+    }
     public function getproduct($id_type){
-        $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->get();
+        $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->paginate(10);
         //$data_random=count($loaitin_random->post);
        // dd($data_random);
        // $loaitin_random=loaitin::orderBy('id','DESC')->get();
@@ -222,6 +228,9 @@ class PageController extends Controller
         $data_search=$request->key;
         $result_search = blog::where('title', 'like', '%' . $request->key .'%')->orWhere('tomtat', 'like', '%' . $request->key .'%')->get();
         return view('client.pages.search_blog',compact('result_search','data_search'));
+    }
+    public function getsearchbyselect(){
+        $data_search=$request->key;
     }
     public function PostCommentBlog(Request $request){
         $cmt_blog = new comment_blog();

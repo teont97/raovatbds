@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Cviebrock\EloquentTaggable\Taggable;
 class blog extends Model
 {
+    use Taggable;
     protected $table = 'blog';
     public function typeblog(){
     	return $this->belongsTo('App\typeblog','id_type','id');
@@ -19,5 +20,4 @@ class blog extends Model
     public function comment_blog(){
     	return $this->hasMany('App\comment_blog','id_blog','id');
     }
-    
 }

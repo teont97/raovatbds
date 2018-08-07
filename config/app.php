@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        App\Conner\Tagging\Providers\TaggingServiceProvider::class,
 
 
         /*

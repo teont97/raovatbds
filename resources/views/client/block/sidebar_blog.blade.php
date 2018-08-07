@@ -67,15 +67,9 @@
                 <h1><span>Thẻ</span> Tags</h1>
             </div>
             <ul class="tags">
-                <li><a href="#">Image</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Typography</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Slideshow</a></li>
-                <li><a href="#">Post Formats</a></li>
-                <li><a href="#">Sellers</a></li>
-                <li><a href="#">WooCommerce</a></li>
-                <li><a href="#">Shortcodes</a></li>
+                @foreach($tags as $tag)
+                    <li><a href="#">{{ $tag->name }}</a></li>
+                @endforeach
             </ul>
         </div>
         <!-- Social media -->
