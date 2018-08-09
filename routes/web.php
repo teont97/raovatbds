@@ -25,13 +25,15 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     Route::group(['prefix'=>'about'],function(){
         // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
-        Route::get('get-create',['as'=>'admin.about.create','uses'=>'FaqController@getCreate']);
+        Route::get('get-create',['as'=>'admin.about.create','uses'=>'AboutController@getCreate']);
         Route::get('list',['as'=>'admin.about.getlist','uses'=>'AboutController@getList']);
+        Route::post('post-create',['as'=>'admin.about.postcreate','uses'=>'AboutController@postcreate']);
      });
      Route::group(['prefix'=>'faq'],function(){
         // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('get-create',['as'=>'admin.faq.create','uses'=>'FaqController@getCreate']);
+        Route::post('post-create',['as'=>'admin.faq.postcreate','uses'=>'FaqController@postcreate']);
         Route::get('list',['as'=>'admin.faq.getlist','uses'=>'FaqController@getList']);
      });
     Route::group(['prefix'=>'newpost'],function(){

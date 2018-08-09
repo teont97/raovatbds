@@ -16,6 +16,8 @@ use App\comment_blog;
 use App\comment_post;
 use App\repliesblog;
 use App\repliespost;
+use App\about;
+use App\faq;
 class PageController extends Controller
 {
   
@@ -53,11 +55,14 @@ class PageController extends Controller
         $data_tinh=DB::table('tinh')->select('id','name')->get();
         $data_duan=blog::where('id_parent','1')->orderBy('id','DESC')->get();
         $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->take(3)->get();
+        $data_about=about::orderBy('id','DESC')->get();
         //dd($data_post);
-        return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh','data_duan','data_tintuc'));
+        return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh','data_duan','data_tintuc','data_about'));
     }
     public function getfaq(){
-        return view('client.pages.faq');
+        $data_faq=faq::orderBy('id','DESC')->get();
+       // dd($data_faq);
+        return view('client.pages.faq',compact('data_faq'));
     }
     public function services(){
         return view('client.pages.services');
@@ -102,7 +107,8 @@ class PageController extends Controller
         return view('client.pages.contact');
     }
     public function getabout(){
-        return view('client.pages.about');
+        $data_about=about::orderBy('id','DESC')->get();
+        return view('client.pages.about',compact('data_about'));
     }
     public function getlogin(){
         return view('client.pages.login');

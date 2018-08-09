@@ -8,27 +8,28 @@
                 <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-item">
                         <div class="main-title-2">
-                            <h1>Contact Us</h1>
+                            <h1>Liên Hệ Chúng Tôi</h1>
                         </div>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printing and
+                            Tư Vấn Đầu Tư : Đoàn Văn Hưng </br>
+                            Vietinbank Khánh Hòa  : 109868316970
                         </p>
                         <ul class="personal-info">
                             <li>
                                 <i class="fa fa-map-marker"></i>
-                                Address: 20/F Green Road, Dhanmondi, Dhaka
+                                Số 48, đường số 4, Lê Hồng Phong 2 Nha Trang
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i>
-                                Email:<a href="mailto:sales@hotelempire.com">info@themevessel.com</a>
+                                Email:<a href="mailto:sales@hotelempire.com">info@dautubds79.com</a>
                             </li>
                             <li>
                                 <i class="fa fa-phone"></i>
-                                Phone: <a href="tel:+55-417-634-7071">+55 4XX-634-7071</a>
+                                Phone: <a href="tel:+55-417-634-7071">0898 382 090 </a>
                             </li>
                             <li>
                                 <i class="fa fa-fax"></i>
-                                Fax: +55 4XX-634-7071
+                                Fax: 0167 9700 665
                             </li>
                         </ul>
                     </div>

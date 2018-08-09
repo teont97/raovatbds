@@ -436,7 +436,7 @@
             <li><a href="{!! Route('admin.user.getlist')!!}"><i class="fa fa-circle-o"></i> Tài Khoản </a></li>
           </ul>
         </li>
-        <li class="header">QUẢN LÝ </li>
+        <li class="header">CHỨC NĂNG</li>
         <li class="treeview">
             <a href="#">
               <i class="fa fa-firefox"></i>
@@ -478,6 +478,32 @@
               <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Quận Huyện  </a></li>
               <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Phường Xã  </a></li>
             </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-address-card"></i>
+            <span>Về Chúng Tôi  </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{!! route('admin.about.getlist') !!}"><i class="fa fa-circle-o"></i> Danh Sách </a></li>
+            <li><a href="{!! route('admin.about.create') !!}"><i class="fa fa-circle-o"></i> Thêm Mới   </a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-address-card"></i>
+            <span>Hỏi Đáp  </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{!! route('admin.faq.getlist') !!}"><i class="fa fa-circle-o"></i>Danh Sách Hỏi Đáp </a></li>
+            <li><a href="{!! route('admin.faq.create') !!}"><i class="fa fa-circle-o"></i> Thêm Câu Hỏi </a></li>
+          </ul>
         </li>
       </ul>
     </section>

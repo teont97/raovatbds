@@ -20,8 +20,8 @@
                 <img src="{!! asset('public/client/img/02.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInDown delay-1s"><span>Đầu Tư Hiệu Quả Giúp Bạn Thành Công</span></h1>
-                        <p data-animation="animated fadeInUp delay-05s">Nơi trao giá trị đầu tư sinh lời dành cho tất cả các khách hàng</p>
+                        <h1 data-animation="animated fadeInDown delay-1s"><span>Giải Pháp Đầu Tư Hiệu Quả</span></h1>
+                        <p data-animation="animated fadeInUp delay-05s">Bạn sẽ tìm thấy cho riêng mình một giải pháp đầu tư cực kỳ hiệu quả mạng lại cho bạn lợi nhuận cũng như chất lượng cuộc sống cao hơn </p>
                         <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
                         <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
@@ -31,14 +31,13 @@
                 <img src="{!! asset('public/client/img/03.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Trải Nghiệm Một Nơi Tốt Nhất Tận Hưởng</span></h1>
-                        <p data-animation="animated fadeInLeft delay-1s">Cuộc sống có giá trị khi bạn có cơ hội để trải nghiệm và tận hưởng nó </p>
+                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Nơi Tốt Nhất Để Tận Hưởng </span></h1>
+                        <p data-animation="animated fadeInLeft delay-1s">Hãy cùng với gia đình bạn, người thân của ban, đối tác của bạn tận hưởng một không gian sống mới đầy tiện nghi và sang trọng </p>
                         <a href="#" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Bắt Đầu Ngay</a>
                         <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -492,175 +491,54 @@
                 <div id="carouse3-example-generic" class="carousel slide" data-ride="carousel">
                     <h1>VỀ CHÚNG TÔI </h1>
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item content clearfix active">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="{!! asset('public/client/img/avatar/1532232414.jpg') !!}" alt="avatar-1" >
+                    <div class="carousel-inner" role="listbox"> 
+                        <?php $data_about_only=$data_about->shift(); ?>
+                            <div class="item content clearfix active">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="avatar">
+                                            <img src="{!! asset('public/admin/dist/img/about/'.$data_about_only['images']) !!}" alt="avatar-1" style="width:100% ; height:160px;" >
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                        <div class="testimonials-info">
+                                            <div class="text">
+                                                <sup>
+                                                    <i class="fa fa-quote-left"></i>
+                                                </sup>
+                                                    {{  $data_about_only['content'] }}
+                                                <sub>
+                                                    <i class="fa fa-quote-right"></i>
+                                                </sub>
+                                            </div>
                                         </div>
-                                        <div class="author-name">
-                                            John Antony
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-2" >
+                        @foreach($data_about as $iteam_about)
+                             <div class="item content clearfix ">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="avatar">
+                                            <img src="{!! asset('public/admin/dist/img/about/'.$iteam_about->images) !!}" alt="avatar-1" style="width:100% ; height:160px;" >
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                        <div class="testimonials-info">
+                                            <div class="text">
+                                                <sup>
+                                                    <i class="fa fa-quote-left"></i>
+                                                </sup>
+                                                    {{  $iteam_about->content }}
+                                                <sub>
+                                                    <i class="fa fa-quote-right"></i>
+                                                </sub>
+                                            </div>
                                         </div>
-                                        <div class="author-name">
-                                            John Mery
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-4" >
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
-                                        </div>
-                                        <div class="author-name">
-                                            John Top
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-3" >
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 ">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sup>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sup>
-                                        </div>
-                                        <div class="author-name">
-                                            John Pitarshon
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carouse3-example-generic" role="button" data-slide="prev">
@@ -690,7 +568,6 @@
 <!-- Partners block start -->
 <div class="partners-block">
     <div class="container">
-        <h3>Thông Tin Chủ Đầu Tư</h3>
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel our-partners slide" id="ourPartners">
@@ -698,35 +575,35 @@
                         <div class="item active">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/01.png') !!}" alt="partner">
+                                    <img src="{!! asset('public/client/img/bussiness/01.png') !!}" alt="partner" style="width:135px ; height:50px;" >
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/02.png') !!}" alt="partner-2">
+                                    <img src="{!! asset('public/client/img/bussiness/02.png') !!}" alt="partner-2" style="width:135px; height:50px;">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/03.png') !!}" alt="partner-3">
+                                    <img src="{!! asset('public/client/img/bussiness/03.png') !!}" alt="partner-3" style="width:135px ; height:50px;">
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/04.png') !!}" alt="partner-4">
+                                    <img src="{!! asset('public/client/img/bussiness/04.png') !!}" alt="partner-4" style="width:135px ; height:50px;" >
                                 </a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
                                 <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/06.png') !!}" alt="partner-5">
+                                    <img src="{!! asset('public/client/img/bussiness/06.png') !!}" alt="partner-5" style="width:135px ; height:50px;">
                                 </a>
                             </div>
                         </div>

@@ -324,134 +324,33 @@
                 <div id="carouse3-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item content clearfix">
-                            <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
-                                <div class="avatar">
-                                    <img src="http://placehold.it/220x220" alt="avatar-1" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                <div class="text">
-                                    Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                </div>
-                                <div class="author-name">
-                                    John Antony
-                                </div>
-                                <ul class="rating">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star-half-full"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php $data_only=$data_about->shift(); ?>
                         <div class="item content active clearfix">
                             <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
                                 <div class="avatar">
-                                    <img src="http://placehold.it/220x220" alt="avatar-2" class="img-responsive">
+                                    <img src="{!! asset('public/admin/dist/img/about/'.$data_only->images) !!}" alt="avatar-2" style="width:220px; height:220px;" >
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
                                 <div class="text">
-                                    Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
+                                    {{ $data_only->content }}
                                 </div>
-                                <div class="author-name">
-                                    John Antony
-                                </div>
-                                <ul class="rating">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star-half-full"></i>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                        <div class="item content clearfix">
-                            <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
-                                <div class="avatar">
-                                    <img src="http://placehold.it/220x220" alt="avatar-3" class="img-responsive">
+                        @foreach($data_about as $iteam_about )
+                            <div class="item content clearfix">
+                                <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+                                    <div class="avatar">
+                                        <img src="{!! asset('public/admin/dist/img/about/'.$iteam_about->images) !!}" alt="avatar-3" style="width:220px; height:220px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="text">
+                                       {{ $iteam_about->content }}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-                                <div class="text">
-                                    Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                </div>
-                                <div class="author-name">
-                                    John Antony
-                                </div>
-                                <ul class="rating">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star-half-full"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
-                                <div class="avatar">
-                                    <img src="http://placehold.it/220x220" alt="avatar-4" class="img-responsive">
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12 ">
-                                <div class="text">
-                                    Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                </div>
-                                <div class="author-name">
-                                    John Antony
-                                </div>
-                                <ul class="rating">
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-star-half-full"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carouse3-example-generic" role="button" data-slide="prev">

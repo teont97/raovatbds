@@ -13,4 +13,14 @@ class AboutController extends Controller
     public function getCreate(){
         return view('admin.about.create');
     }
+    public function postcreate(Request $request){
+        $file_name=$request->file('fileupload1')->getClientOriginalName();
+        $about= new about();
+        $about->content=$request->txtdescript;
+        $about->images=$file_name;
+        $about->role=0;
+        $request->file('fileupload1')->move('public/admin/dist/img/about',$file_name);
+        $about->save();
+        return redirect()->route('admin.about.getlist');
+    }
 }

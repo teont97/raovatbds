@@ -13,4 +13,11 @@ class FaqController extends Controller
     public function getCreate(){
         return view('admin.faq.create');
     }
+    public function postcreate(Request $request){
+        $faq= new faq();
+        $faq->title=$request->txttieude;
+        $faq->content=$request->txtcontent;
+        $faq->save();
+        return redirect()->route('admin.faq.getlist');
+    }
 }

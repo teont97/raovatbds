@@ -52,9 +52,9 @@
                     <td>{!! $iteam_about->role !!}</td>
                     <td>{!! $iteam_about->created_at !!}</td>
                     <td>
-                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_about->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
                         <button type="button" class="Modal eye" > <i class="fa fa-eye"  ></i> </button>
-                        <button type="button" class="Modal trash" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
+                        <button type="button" class="Modal trash" data-catalog="{!!$iteam_about->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                     </td>
                   </tr>
                 @endforeach

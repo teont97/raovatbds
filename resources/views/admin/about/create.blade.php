@@ -19,25 +19,16 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Thêm Thể Loại Mới </h3>
+              <h3 class="box-title">Thêm Nội Dung Mới </h3>
             </div>
-            <form action="{{ route('admin.blog.postTypeBlog') }}" method="POST">
+            <form action="{{ route('admin.about.postcreate') }}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                  <!-- /.box-header -->
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Tên Thể Loại </label>
-                            <input type="text" class="form-control"  name="txtname" >
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Hình Thức</label>
-                            <select class="form-control" name ="slhinhthuc">
-                                <option >Chọn Hình Thức </option>
-                               
-                            </select>
+                            <label>Upload Hình Ảnh </label>
+                            <input type="file" class="upload" name="fileupload1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -50,7 +41,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer clearfix group-btn-footer text-center">
                     
-                        <input type="submit" class="btn btn-success"  value="Thêm Thể Loại" >
+                        <input type="submit" class="btn btn-success"  value="Thêm Mới " >
 
                 </div>
             </form>
