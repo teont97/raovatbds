@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Đăng ký tài khoản ')
 @section('content')
 <!-- Content area start -->
 <div class="content-area">
@@ -25,6 +26,9 @@
                                 <input type="text" name="fullname" class="input-text" placeholder="Họ Tên">
                             </div>
                             <div class="form-group">
+                                    <input type="text" name="phone" class="input-text" placeholder="Số Điện Thoại ">
+                                </div>
+                            <div class="form-group">
                                 <input type="email" name="email" class="input-text" placeholder="Địa Chỉ Email ">
                             </div>
                             <div class="form-group">
@@ -34,8 +38,13 @@
                                 <input type="password" name="confirm_Password" class="input-text" placeholder="Xác Nhận Mật Khẩu">
                             </div>
                             <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="user_type" class="user-type" value="2">Nhà Mô Giới</label>
+                                <label class="radio-inline"><input type="radio" name="user_type" class="user-type" value="0">Chính Chủ</label>
+                            </div>
+                            <div class="form-group">
                                 <button type="submit" class="button-md button-theme btn-block">Đăng Ký</button>
                             </div>
+
                         </form>
                         <!-- Form end-->
                     </div>

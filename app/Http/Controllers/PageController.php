@@ -18,6 +18,8 @@ use App\repliesblog;
 use App\repliespost;
 use App\about;
 use App\faq;
+use App\typeblog;
+use App\hinhthuc;
 class PageController extends Controller
 {
   
@@ -27,7 +29,8 @@ class PageController extends Controller
             $User->email=$request->email;
             $User->password = Hash::make($request->password);
             $User->remember_token=$request->confirm_Password;
-            $User->level=0;
+            $User->level=$request->user_type;
+            $User->phone=$request->phone;
             $User->save();
             return redirect()->route('getregister')->with(['flash_level'=>'success','flash_messages'=>'Bạn Đã Đăng Ký Thành Công Vui Lòng Đăng Nhập Để Sử Dụng']);
     }
@@ -64,16 +67,22 @@ class PageController extends Controller
        // dd($data_faq);
         return view('client.pages.faq',compact('data_faq'));
     }
-    public function services(){
+    public function getservices(){
         return view('client.pages.services');
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->paginate(10);
+        $data_type=loaitin::where('id',$id_type)->first();
         //$data_random=count($loaitin_random->post);
        // dd($data_random);
        // $loaitin_random=loaitin::orderBy('id','DESC')->get();
         //dd($loaitin_random);
-        return view('client.pages.products',compact('data_post'));
+        return view('client.pages.products',compact('data_post','data_type'));
+    }
+    public function getproductparent($id_parent){
+        $data_post_parent=post::where('id_hinhthuc',$id_parent)->orderBy('id','DESC')->paginate(10);
+        $data_parent=hinhthuc::where('id',$id_parent)->first();
+        return view('client.pages.products_by_parent',compact('data_post_parent','data_parent'));
     }
     public function getproductdetail($id_product){
         $post_detail=post::where('id',$id_product)->first();
@@ -92,8 +101,9 @@ class PageController extends Controller
         return view('client.pages.customer');
     }
     public function getblog($id_type){
-        $data_blog=blog::where('id_type',$id_type)->orderBy('id','DESC')->get();
-        return view('client.pages.blog',compact('data_blog'));
+        $data_blog=blog::where('id_type',$id_type)->orderBy('id','DESC')->paginate(10);
+        $data_type=typeblog::where('id',$id_type)->first();
+        return view('client.pages.blog',compact('data_blog','data_type'));
     }
     public function getblogdetail($id_blog){
         $data_tintuc_detail=blog::where('id',$id_blog)->first();

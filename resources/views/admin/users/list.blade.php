@@ -34,6 +34,7 @@
                   <th>STT</th>
                   <th>Họ Tên </th>
                   <th>Email</th>
+                  <th>Số Điện Thoại</th>
                   <th>Level</th>
                   <th>Hành Động </th>
                 </tr>
@@ -46,11 +47,18 @@
                     <td>{!! $stt !!}</td>
                     <td>{!! $iteam_user->name !!}</td>
                     <td>{!! $iteam_user->email !!}</td>
+                    @if(isset($iteam_user->phone))
+                    <td>{!! $iteam_user->phone !!}</td>
+                    @else
+                    <td> None </td>
+                    @endif
                     <?php $level=$iteam_user->level?>
                     @if($level==0)
-                    <td> Thành Viên </td>
+                      <td> Thành Viên </td>
+                    @elseif($level==1)
+                      <td> Admin </td>
                     @else
-                    <td> Admin </td>
+                      <td> Nhà Mô Giới </td>
                     @endif
                     <td>
                       <button type="button"  class="Modal edit" data-catalog="{!!$iteam_user->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="glyphicon glyphicon-ban-circle"   data-toggle="tooltip" data-placement="top" title="Block Tài Khoản" ></i> </button>
@@ -65,6 +73,7 @@
                   <th>STT</th>
                   <th>Họ Tên </th>
                   <th>Email</th>
+                  <th>Số Điện Thoại</th>
                   <th>Level</th>
                   <th>Hành Động </th>
                 </tr>

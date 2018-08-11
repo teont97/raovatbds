@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Trang Không Tồn Tại')
 @section('content')
 <div class="container">
     <div class="row">

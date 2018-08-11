@@ -72,6 +72,10 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('user',Auth::user());
             }
         });
+        view()->composer('client.block.footer',function($view){
+            $post=post::orderByRaw("RAND()")->take(3)->get();
+            $view->with('post',$post);
+        });
     }
 
     /**

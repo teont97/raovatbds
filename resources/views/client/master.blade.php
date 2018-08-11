@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>The Nest - Real Estate HTML Template</title>
+    <title> @yield('title')  - Dautubds79.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">

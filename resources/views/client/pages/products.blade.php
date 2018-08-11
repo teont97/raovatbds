@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$data_type['name'])
 @section('content')
     <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -137,21 +138,7 @@
 
                 <!-- Page navigation start -->
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="properties-grid-rightside.html">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="properties-grid-leftside.html">2</a></li>
-                        <li><a href="properties-grid-fullwidth.html">3</a></li>
-                        <li>
-                            <a href="properties-grid-fullwidth.html" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                    {{ $data_post->links() }}
                 </nav>
                 <!-- Page navigation end-->
             </div>

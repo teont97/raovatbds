@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$post_detail->title)
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -94,133 +95,15 @@
                     </div>
                     <!-- Properties detail slider end -->
 
-                    <!-- Advanced search start -->
-                    <div class="advabced-search hidden-lg hidden-md">
-                        <div class="main-title-2">
-                            <h1><span>Advanced</span> Search</h1>
-                        </div>
 
-                        <form method="GET">
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Property Status</option>
-                                    <option>For Sale</option>
-                                    <option>For Rent</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="location" data-live-search="true" data-live-search-placeholder="Search value">
-                                    <option>Location</option>
-                                    <option>United States</option>
-                                    <option>United Kingdom</option>
-                                    <option>American Samoa</option>
-                                    <option>Belgium</option>
-                                    <option>Cameroon</option>
-                                    <option>Canada</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Property Types</option>
-                                    <option>Residential</option>
-                                    <option>Commercial</option>
-                                    <option>Land</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <select class="selectpicker search-fields" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
-                                    <option>Area From</option>
-                                    <option>1000</option>
-                                    <option>800</option>
-                                    <option>600</option>
-                                    <option>400</option>
-                                    <option>200</option>
-                                    <option>100</option>
-                                </select>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="bedrooms">
-                                            <option>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="bathroom">
-                                            <option>Bathroom</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="balcony">
-                                            <option>Balcony</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" data-live-search="true" name="garage">
-                                            <option>Garage</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="range-slider">
-                                <label>Area</label>
-                                <div data-min="0" data-max="10000" data-unit="Sq ft" data-min-name="min_area" data-max-name="max_area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="range-slider">
-                                <label>Price</label>
-                                <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <button class="search-button">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Advanced search end -->
 
                     <!-- Property description start -->
                     <div class="panel-box properties-panel-box Property-description">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1default" data-toggle="tab" aria-expanded="true">Thông Tin </a></li>
+                            <li class="active"><a href="#tab1default" data-toggle="tab" aria-expanded="true">Mô Tả  </a></li>
+                            <li class=""><a href="#tab3default" data-toggle="tab" aria-expanded="false">Thông Tin Khác</a></li>
                             <li class=""><a href="#tab2default" data-toggle="tab" aria-expanded="false">Liên Hệ</a></li>
-                            <li class=""><a href="#tab3default" data-toggle="tab" aria-expanded="false">Amenities</a></li>
-                            <li class=""><a href="#tab4default" data-toggle="tab" aria-expanded="false">Floor Plans</a></li>
+                            <li class=""><a href="#tab4default" data-toggle="tab" aria-expanded="false">Tiện Ích</a></li>
                             <li class=""><a href="#tab5default" data-toggle="tab" aria-expanded="false">Video</a></li>
                         </ul>
                         <div class="panel with-nav-tabs panel-default">
@@ -372,15 +255,7 @@
                 <!-- Properties details section end -->
 
                 <!-- Location start -->
-                <div class="location sidebar-widget">
-                    <div class="map">
-                        <!-- Main Title 2 -->
-                        <div class="main-title-2">
-                            <h1><span>Bản Đồ </span></h1>
-                        </div>
-                        <div id="map" class="contact-map"></div>
-                    </div>
-                </div>
+
                 <!-- Location end -->
 
                 <!-- Properties details section start -->

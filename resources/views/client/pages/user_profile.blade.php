@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Thông tin tài khoản')
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">

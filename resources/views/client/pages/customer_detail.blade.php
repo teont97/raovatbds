@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title','Danh sách nhà mô giới tiêu biểu')
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">

@@ -38,33 +38,37 @@
                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                     <div class="footer-item">
                         <div class="main-title-2">
-                            <h1>Links</h1>
+                            <h1>Liên Kết </h1>
                         </div>
                         <ul class="links">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{ route('gethome') }}">Trang Chủ </a>
                             </li>
                             <li>
-                                <a href="{{ route('getabout') }}">Về Chúng Tôi</a>
+                                <a href="properties-grid-rightside.html">Bất Động Sản </a>
                             </li>
+                            <li>
+                                <a href="properties-list-rightside.html">Dự Án </a>
+                            </li>
+                            <li>
+                                <a href="blog-single-sidebar-right.html">Tin Tức </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('getabout') }}">Giới Thiệu</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('getservices') }}">Dịch Vụ  </a>
+                            </li>
+                          
                             <li>
                                 <a href="{{ route('getcontact') }}">Liên Hệ</a>
                             </li>
+                            
                             <li>
-                                <a href="blog-single-sidebar-right.html">Blog</a>
+                                <a href="{{ route('getfaq') }}">Hỏi Đáp </a>
                             </li>
-                            <li>
-                                <a href="blog-single-sidebar-right.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="properties-list-rightside.html">properties Listing</a>
-                            </li>
-                            <li>
-                                <a href="properties-grid-rightside.html">properties Grid</a>
-                            </li>
-                            <li>
-                                <a href="properties-details.html">properties Details</a>
-                            </li>
+                
+                   
                         </ul>
                     </div>
                 </div>
@@ -72,50 +76,25 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="footer-item popular-posts">
                         <div class="main-title-2">
-                            <h1>Popular Posts</h1>
+                            <h1>Bài Viết Phổ Biến </h1>
                         </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Sweet Family Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
+                        @foreach($post as $iteam_post )
+                        <?php $data=$iteam_post->post_images->shift(); ?>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading footer">
+                                    <a href="properties-details.html">{{ $iteam_post->title }}</a>
+                                    </h3>
+                                    <p>{{ $iteam_post->created_at }}</p>
+                                    <div class="price">
+                                        {{ $iteam_post->price }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Modern Family Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="properties-details.html">Beautiful Single Home</a>
-                                </h3>
-                                <p>February 27, 2018</p>
-                                <div class="price">
-                                    $734,000
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <!-- Subscribe -->
@@ -153,7 +132,7 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-8 col-sm-12">
-                &copy;  2018 Dautubds79.com. All right reserved. Development by Công Chí
+                &copy;  2018 dautubds79.com. All right reserved. Development by Công Chí
             </div>
             <div class="col-md-4 col-sm-12">
                 <ul class="social-list clearfix">

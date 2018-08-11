@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Đăng bài viết mới')
 @section('content')
 
 <!-- Sub banner start -->

@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$data_search  )
 @section('content')
 <!-- Banner start -->
 <div class="blog-banner">

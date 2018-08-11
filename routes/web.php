@@ -69,6 +69,7 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
 
 Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
 Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getproduct']);
+Route::get('product-parent/{id_parent}',['as'=>'getproduct.parent','uses'=>'PageController@getproductparent']);
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
 Route::get('blog/{id_type}',['as'=>'getblog','uses'=>'PageController@getblog']);

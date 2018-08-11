@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$data_type['name'])
 @section('content')
 <!-- Banner start -->
 <div class="blog-banner">
@@ -12,8 +13,8 @@
         </div>
     </div>
 </div>
-<!-- Banner end -->
 
+<!-- Banner end -->
 <!-- Blog body start -->
 <div class="blog-body content-area">
     <div class="container">
@@ -53,21 +54,7 @@
 
                 <!-- Page navigation start -->
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="blog-columns-2col.html">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="blog-columns-3col.html">2</a></li>
-                        <li><a href="blog-columns-3col.html">3</a></li>
-                        <li>
-                            <a href="blog-columns-3col.html" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                    {{ $data_blog->links() }}
                 </nav>
                 <!-- Page navigation end -->
             </div>

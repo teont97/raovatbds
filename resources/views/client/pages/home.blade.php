@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Trang Chủ')
 @section('content')
 <!-- Banner start -->
 <div class="banner">
@@ -92,7 +93,7 @@
         <ul class="list-inline-listing filters filters-listing-navigation">
             <li class="active btn filtr-button filtr" data-filter="all">Tất Cả</li>
             @foreach($data_hinhthuc as $iteam_hinhthuc)
-        <li data-filter="{{ $iteam_hinhthuc->id}}" class="btn btn-inline filtr-button filtr">{{ $iteam_hinhthuc->name }}</li>
+        <li data-filter="{{ $iteam_hinhthuc->id}}" class="btn btn-inline filtr-button filtr"><a href="{{ route('getproduct.parent',$iteam_hinhthuc->id)}}"> <span> {{ $iteam_hinhthuc->name}} </span>  </a></li>
             @endforeach
         </ul>
         <div class="row">
@@ -181,7 +182,11 @@
                 @endforeach
             </div>
         </div>
+        <div class="col-sm-12 col-xs-12 text-center">
+        <a href="#" class="btn button-md button-theme">Xem Thêm</a>
+        </div>
     </div>
+    
 </div>
 <!-- Featured properties end -->
 
@@ -223,7 +228,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="btn button-md button-theme">Xem Thêm</a>
+
     </div>
 </div>
 <!-- Our service end -->

@@ -221,50 +221,12 @@
     <!-- Latest reviews start -->
     <div class="sidebar-widget latest-reviews mb-0">
         <div class="main-title-2">
-            <h1><span>Những Đánh Giá</span> Gần Đây </h1>
+            <h1><span>fanpage</span> của chúng tôi </h1>
         </div>
         <div class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object" src="http://placehold.it/50x50" alt="avatar-1">
-                </a>
-            </div>
-            <div class="media-body">
-                <h3 class="media-heading"><a href="#">John Antony</a></h3>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Etiamrisus tortor, accumsan at nisi et,
-                </p>
-            </div>
+            <div class="fb-page" data-href="https://www.facebook.com/tintucbatdongsannghiduong" data-tabs="messages" data-width="360" data-height="382" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tintucbatdongsannghiduong" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tintucbatdongsannghiduong">Đoàn Văn Hưng - Bất Động Sản Nghỉ Dưỡng Nha Trang</a></blockquote></div>
         </div>
-        <div class="media mb-0">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object" src="http://placehold.it/50x50" alt="avatar-2">
-                </a>
-            </div>
-            <div class="media-body">
-                <h3 class="media-heading"><a href="#">Karen Paran</a></h3>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Etiamrisus tortor, accumsan at nisi et,
-                </p>
-            </div>
-        </div>
+ 
     </div>
 </div>
 <script>
@@ -280,5 +242,14 @@
             $("#slquan").html(data).selectpicker('refresh')
         });
     });
-
+    
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 </script>

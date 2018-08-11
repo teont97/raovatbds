@@ -136,12 +136,22 @@
             </div>
         </div>
         <!-- Latest tweet -->
-        <div class="sidebar-widget latest-tweet">
+        <div class="sidebar-widget latest-reviews mb-0">
             <div class="main-title-2">
-                <h1><span>Latest</span> Tweet</h1>
+                <h1><span>fanpage</span> của chúng tôi </h1>
             </div>
-            <p><a href="#">@Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum </p>
-            <p>@Lorem ipsum dolor<a href="#">sit amet, consectetur</a> adipiscing elit. Aenean id dignissim justo. Maecenas urna lacus, bibendum quis orci </p>
+            <div class="media">
+                <div class="fb-page" data-href="https://www.facebook.com/tintucbatdongsannghiduong" data-tabs="messages" data-width="360" data-height="382" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tintucbatdongsannghiduong" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tintucbatdongsannghiduong">Đoàn Văn Hưng - Bất Động Sản Nghỉ Dưỡng Nha Trang</a></blockquote></div>
+            </div>
         </div>
     </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>

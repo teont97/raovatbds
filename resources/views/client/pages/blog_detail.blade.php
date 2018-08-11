@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$data_tintuc_detail['title'])
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">

@@ -790,9 +790,7 @@ input[type=checkbox]:checked + label:before {
     z-index: -999 !important;
 }
 
-.banner .item {
 
-}
 
 .banner .item-100vh {
     height: 100vh;
@@ -1110,7 +1108,6 @@ input[type=checkbox]:checked + label:before {
 .bootstrap-select .open > .dropdown-toggle.btn-default {
     color: #333;
     background-color: transparent;
-!important;
     border-color: #adadad;
 }
 
@@ -2022,7 +2019,6 @@ input[type=checkbox]:checked + label:before {
 
 /** PARTNERS BLOCK AREA START **/
 .partners-block {
-    margin-top: 100px;
     padding-bottom: 20px;
     text-align: center;
 }
@@ -2943,6 +2939,7 @@ footer .footer-item .newsletter {
 
 /** TESTIMONIALS 3 **/
 .testimonials-3 {
+    margin-bottom: 100px;
     padding: 100px 0 130px;
     background: url(../img/background/about.jpg);
     z-index: 0;
@@ -5389,7 +5386,6 @@ mark, .mark {
     width: 12.50%;
     border: none;
     float: left;
-
 }
 
 #carousel-custom .carousel-indicators li img {
@@ -6299,7 +6295,8 @@ table.manage-table .title-container .title span {
     margin-right: 20px;
 }
 .logo1 img{
-    height:45px;
+    height:50px;
+    width: 165px;
 }
 .image img {
     width: 100%;
@@ -6374,7 +6371,7 @@ table.manage-table .title-container .title span {
             
     }
     .logo1 img {
-       height: 40px;    
+       height: 50px;    
     }
 
     .property-2 .facilities-list li {
@@ -6652,7 +6649,13 @@ table.manage-table .title-container .title span {
         min-height:150px;
     }
     .pull-right{
-        width: 50%;
+        width: 30%;
+    }
+    .pull-left{
+        width: 70%;
+    }
+    .sidebar-widget .pull-right h3{
+        text-align:right;
     }
     .counters h3 {
         font-size: 19px;
@@ -7103,7 +7106,6 @@ table.manage-table .title-container .title span {
         margin-left: 65px;
         padding: 15px;
     }
-    ..comment-content
     .option-bar h4 {
         display: block;
         border-radius: 3px;

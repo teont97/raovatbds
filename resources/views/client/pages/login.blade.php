@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title','Đăng Nhập')
 @section('content')
 <!-- Content area start -->
 <div class="content-area">
