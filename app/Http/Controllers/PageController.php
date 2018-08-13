@@ -68,7 +68,8 @@ class PageController extends Controller
         return view('client.pages.faq',compact('data_faq'));
     }
     public function getservices(){
-        return view('client.pages.services');
+        $data_about=about::orderBy('id','DESC')->get();
+        return view('client.pages.services',compact('data_about'));
     }
     public function getproduct($id_type){
         $data_post=post::where('id_theloai',$id_type)->orderBy('id','DESC')->paginate(10);

@@ -24,26 +24,31 @@
         @include('client.block.account')
             
             <div class="col-lg-8 col-md-8 col-sm-7">
+                    @if(session('mesage'))
+		            <p class="alert alert-warning">
+			            {!! session('mesage') !!}
+		             </p>
+                    @endif      
                 <!-- My address start -->
                 <div class="my-address">
                     <div class="main-title-2">
-                        <h1><span>Change</span> Password</h1>
+                        <h1><span>Thay Đổi </span> Mật Khẩu</h1>
                     </div>
-
-                    <form action="index.html" method="GET">
+                <form action="{{ route('personal.post.changepassword',Auth::user()->id)}}" method="POST">
+                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
-                            <label>Current Password</label>
-                            <input type="password" class="input-text" name="current password" placeholder="Current Password">
+                            <label>Mật Khẩu Cũ</label>
+                            <input type="password" class="input-text" name="current" >
                         </div>
                         <div class="form-group">
-                            <label>New Password</label>
-                            <input type="password" class="input-text" name="new-password" placeholder="New Password">
+                            <label>Mật Khẩu Mới </label>
+                            <input type="password" class="input-text" name="new" >
                         </div>
                         <div class="form-group">
-                            <label>Confirm New Password</label>
-                            <input type="password" class="input-text" name="confirm-new-password" placeholder="Confirm New Password">
+                            <label>Xác Nhận Lại Mật Khẩu</label>
+                            <input type="password" class="input-text" name="confirm-new-password" >
                         </div>
-                        <a href="submit-property.html" class="btn button-md button-theme">Save Changes</a>
+                        <button type="submit" class="btn button-md button-theme">Lưu Thay Đổi</button>
                     </form>
                 </div>
                 <!-- My address end -->

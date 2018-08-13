@@ -39,3 +39,19 @@
 .filtr a span:hover{
     color : #Fff;
 }
+.media-img .media-object{
+    width: 100%;
+    height: auto;
+}
+.media-img {
+    margin-bottom: 15px;
+}
+.latest-reviews .media .media-body p{
+    font-size: 14px;
+}
+.text-center{
+    padding-bottom: 20px;
+}
+.latest-reviews .media .text-center a {
+    color: #95c41f;
+}

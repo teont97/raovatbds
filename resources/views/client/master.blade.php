@@ -86,6 +86,7 @@
 <!-- header end -->
 @yield('content')
 <!-- Footer start -->
+@include('client.block.brands')
 @include('client.block.footer')
 <!-- Car Video Modal -->
 <div class="modal property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">

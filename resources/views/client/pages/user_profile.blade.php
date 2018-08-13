@@ -28,28 +28,33 @@
                     <div class="main-title-2">
                         <h1><span>Cập Nhật Lại Thông Tin Cá Nhân </span> </h1>
                     </div>
-                    <form action="index.html" method="GET">
+                <form action="{{ route('personal.update.profile',Auth::user()->id)}}" method="POST">
+                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
                             <label>Họ Và Tên</label>
-                            <input type="text" class="input-text" name="your name" placeholder="John Antony">
+                            <input type="text" class="input-text" name="name" value="{{ $user->name }}">
                         </div>
                         <div class="form-group">
                             <label>Tên Thường Gọi</label>
-                            <input type="text" class="input-text" name="agent" placeholder="Your title">
-                        </div>
-                        <div class="form-group">
-                            <label>Số Điện Thoại</label>
-                            <input type="text" class="input-text" name="phone" placeholder="+55 4XX-634-7071">
+                            <input type="text" class="input-text" name="alias" value="{{ $user->alias }}">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="input-text" name="email" placeholder="johndoe@gmail.com">
+                            <input type="email" class="input-text" name="email" value="{{ $user->email }}" disabled="true"> 
+                        </div>
+                        <div class="form-group">
+                            <label>Số Điện Thoại</label>
+                            <input type="text" class="input-text" name="phone" value="{{ $user->phone }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa Chỉ </label>
+                            <input type="text" class="input-text" name="address" value="{{ $user->address }}">
                         </div>
                         <div class="form-group">
                             <label>Cơ Bản Về Bạn</label>
-                            <textarea class="input-text" name="message" placeholder="Etiam luctus malesuada quam eu aliquet. Donec eget mollis tortor. Donec pellentesque eros a nisl euismod, ut congue orci ultricies. Fusce aliquet metus non arcu varius ullamcorper a sit amet nunc. Donec in lacus neque. Vivamus ullamcorper sed ligula vitae "></textarea>
+                            <textarea class="input-text" name="aboutme"  > {{ $user->aboutme }} </textarea>
                         </div>
-                        <a href="#" class="btn button-md button-theme">Save Changes</a>
+                        <button type="submit" value="Lưu Thay Đổi" class="btn button-md button-theme"> Lưu Thay Đổi </button>
                     </form>
                 </div>
                 <!-- My address end -->
@@ -59,56 +64,5 @@
 </div>
 <!-- My profile end -->
 
-<!-- Partners block start -->
-<div class="partners-block">
-    <div class="container">
-        <h3>Brands & Partners</h3>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel our-partners slide" id="ourPartners">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-2">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-3">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-4">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-5">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#ourPartners" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
-                    <a class="right carousel-control" href="#ourPartners" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Partners block end -->
+
 @endsection

@@ -22,49 +22,49 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>Property</span> Services</h1>
+            <h1><span>Dịch Vụ </span> Dautubds79</h1>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-apartment"></i>
-                    <h5>Apartments Clean</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Tư Vấn Đầu Tư BDS</h5>
+                    <p>Tư vấn đầu tư cho Khách Hàng về bất động sản căn hộ nghỉ dưỡng biển, biệt thự biển, ShopHouse, đất nền dự án, đất xã ...</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-people"></i>
-                    <h5>Support 24/7</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Hỗ Trợ Thông Tin Đầu Tư</h5>
+                    <p>Cung cấp cho khách hàng những thông tin chính xác nhất về tất cả các bất động sản ĐẦU TƯ cũng như hỗ trợ khách hàng ra quyết định đầu tư. </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-air-conditioner"></i>
-                    <h5>Air conditioning</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Cập Nhật Tiến Độ Dự Án</h5>
+                    <p>Cập nhất tiến độ thi công xây dựng của các dự án đầu tư đến những khách hàng ở xa thường xuyên và liên tục để khách hàng nắm được thông tin.  </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-vehicle"></i>
-                    <h5>Garages</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Hỗ Trợ Thủ Tục Pháp Lý</h5>
+                    <p>Hỗ trợ khách hàng đăng ký HDMB, thủ tục sang nhượng, các giấy tờ liên quan và quy trình thủ tục sang tên khi mua bán, san nhượng bất động sản. </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-symbol"></i>
-                    <h5>Commercial</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Tư Vấn Mua Nhà Ở </h5>
+                    <p>Các vấn đề về tìm kiếm bất động sản để ở, biệt thự biển, căn hộ cao cấp, chung cư liền kề hoặc nhà phố.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="services-info">
                     <i class="flaticon-weightlifting"></i>
-                    <h5>Gym</h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+                    <h5>Hỗ Trợ 24/7 </h5>
+                    <p>Hỗ trợ tận tình với các vấn đề liên quan đến thông tin dự án, pháp lý dự án, quy trình chọn và lock căn khi đầu tư.</p>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1><span>Professional</span> Service</h1>
+            <h1><span>Tin Tức Về</span> Dịch Vụ</h1>
         </div>
         <div class="row">
             <div class="carousel our-partners slide" id="ourPartners4">
@@ -209,177 +209,56 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div id="carouse3-example-generic" class="carousel slide" data-ride="carousel">
-                    <h1>Our Testimonial</h1>
+                    <h1>VỀ CHÚNG TÔI </h1>
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item content clearfix active">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-1" class="img-responsive">
+                    <div class="carousel-inner" role="listbox"> 
+                        <?php $data_about_only=$data_about->shift(); ?>
+                            <div class="item content clearfix active">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="avatar">
+                                            <img src="{!! asset('public/admin/dist/img/about/'.$data_about_only['images']) !!}" alt="avatar-1" style="width:100% ; height:160px;" >
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                        <div class="testimonials-info">
+                                            <div class="text">
+                                                <sup>
+                                                    <i class="fa fa-quote-left"></i>
+                                                </sup>
+                                                    {{  $data_about_only['content'] }}
+                                                <sub>
+                                                    <i class="fa fa-quote-right"></i>
+                                                </sub>
+                                            </div>
                                         </div>
-                                        <div class="author-name">
-                                            John Antony
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-2" class="img-responsive">
+                        @foreach($data_about as $iteam_about)
+                             <div class="item content clearfix ">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="avatar">
+                                            <img src="{!! asset('public/admin/dist/img/about/'.$iteam_about->images) !!}" alt="avatar-1" style="width:100% ; height:160px;" >
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                        <div class="testimonials-info">
+                                            <div class="text">
+                                                <sup>
+                                                    <i class="fa fa-quote-left"></i>
+                                                </sup>
+                                                    {{  $iteam_about->content }}
+                                                <sub>
+                                                    <i class="fa fa-quote-right"></i>
+                                                </sub>
+                                            </div>
                                         </div>
-                                        <div class="author-name">
-                                            John Mery
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-4" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sub>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sub>
-                                        </div>
-                                        <div class="author-name">
-                                            John Top
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item content clearfix">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="avatar">
-                                        <img src="http://placehold.it/160x160" alt="avatar-3" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 ">
-                                    <div class="testimonials-info">
-                                        <div class="text">
-                                            <sup>
-                                                <i class="fa fa-quote-left"></i>
-                                            </sup>
-                                            Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.
-                                            <sup>
-                                                <i class="fa fa-quote-right"></i>
-                                            </sup>
-                                        </div>
-                                        <div class="author-name">
-                                            John Pitarshon
-                                        </div>
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star-half-full"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carouse3-example-generic" role="button" data-slide="prev">
@@ -403,55 +282,6 @@
 <div class="clearfix"></div>
 
 <!-- Partners block start -->
-<div class="partners-block content-area-9">
-    <div class="container">
-        <h3>Brands & Partners</h3>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel our-partners slide" id="ourPartners">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-2">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-3">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-4">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="http://placehold.it/135x50" alt="partner-5">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#ourPartners" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
-                    <a class="right carousel-control" href="#ourPartners" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Partners block end -->
 @endsection

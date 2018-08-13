@@ -8,9 +8,9 @@
             <div class="col-lg-12">
                 <!-- Form content box start -->
                 @if(session('mesage'))
-		            <p class="alert alert-warning">
-			            {!! session('mesage') !!}
-		             </p>
+		            <p class="alert alert-warning" style="width: 40%; margin: 0px auto;">
+			            <span>{!! session('mesage') !!}</span>
+		            </p>
                 @endif          
                 <div class="form-content-box">
                     <!-- details -->

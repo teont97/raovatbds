@@ -58,6 +58,9 @@
                     </tbody>
                 </table>
                 <!-- table end -->
+                <nav aria-label="Page navigation">
+                    {{ $data_mypost->links() }}
+                </nav>
             </div>
         </div>
     </div>

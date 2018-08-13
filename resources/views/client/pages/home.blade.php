@@ -7,13 +7,13 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner banner" role="listbox">
             <div class="item banner-max-height active">
-                <img src="{!! asset('public/client/img/01.jpg') !!}" alt="banner-slider-1" class="img-responsive">
+                <img src="{!! asset('public/client/img/banner.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInDown delay-05s"><span>Tìm Thấy Ngôi Nhà Trong Mơ Của Bạn </span></h1>
-                        <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn cần trải nghiệm</p>
+                        <h1 data-animation="animated fadeInDown delay-05s"><span>Nơi An Cư Tốt Cho Gia Đình Bạn  </span></h1>
+                        <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn đáng sống cho gia đình bạn</p>
                         <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
+                        <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -21,10 +21,10 @@
                 <img src="{!! asset('public/client/img/02.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInDown delay-1s"><span>Giải Pháp Đầu Tư Hiệu Quả</span></h1>
+                        <h1 data-animation="animated fadeInDown delay-1s"><span>Giải Pháp Đầu Tư Sinh Lời Hiệu Quả</span></h1>
                         <p data-animation="animated fadeInUp delay-05s">Bạn sẽ tìm thấy cho riêng mình một giải pháp đầu tư cực kỳ hiệu quả mạng lại cho bạn lợi nhuận cũng như chất lượng cuộc sống cao hơn </p>
                         <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
+                        <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -32,10 +32,10 @@
                 <img src="{!! asset('public/client/img/03.jpg') !!}" alt="banner-slider-1" class="img-responsive">
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
-                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Nơi Tốt Nhất Để Tận Hưởng </span></h1>
+                        <h1 data-animation="animated fadeInLeft delay-05s"><span>Nơi Tốt Nhất Để Tận Hưởng Cuộc Sống </span></h1>
                         <p data-animation="animated fadeInLeft delay-1s">Hãy cùng với gia đình bạn, người thân của ban, đối tác của bạn tận hưởng một không gian sống mới đầy tiện nghi và sang trọng </p>
                         <a href="#" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Bắt Đầu Ngay</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Tìm Hiểu Thêm</a>
+                        <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
             </div>
@@ -571,55 +571,7 @@
 <!-- Blog end -->
 
 <!-- Partners block start -->
-<div class="partners-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel our-partners slide" id="ourPartners">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/01.png') !!}" alt="partner" style="width:135px ; height:50px;" >
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/02.png') !!}" alt="partner-2" style="width:135px; height:50px;">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/03.png') !!}" alt="partner-3" style="width:135px ; height:50px;">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/04.png') !!}" alt="partner-4" style="width:135px ; height:50px;" >
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-6 col-md-3 partner-box">
-                                <a href="#">
-                                    <img src="{!! asset('public/client/img/bussiness/06.png') !!}" alt="partner-5" style="width:135px ; height:50px;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#ourPartners" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
-                    <a class="right carousel-control" href="#ourPartners" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Partners block end -->
 <script>
     var engine = new Bloodhound({

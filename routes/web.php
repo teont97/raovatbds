@@ -102,9 +102,11 @@ Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
     Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
     Route::post('post-submit',['as'=>'post.submitpost','uses'=>'PageController@postsubmitpost']);
     Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
+    Route::post('update-profile/{id_user}',['as'=>'personal.update.profile','uses'=>'PersonalController@postUpdateProfile']);
     Route::get('my-post',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
     Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
     Route::get('change-password',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
+    Route::post('post-change-password',['as'=>'personal.post.changepassword','uses'=>'PersonalController@changePostPassword']);
 });
 Route::group(['prefix'=>'ajax'],function(){
     Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);

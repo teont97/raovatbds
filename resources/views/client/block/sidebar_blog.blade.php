@@ -76,7 +76,7 @@
         <div class="social-media sidebar-widget clearfix">
             <!-- Main Title 2 -->
             <div class="main-title-2">
-                <h1><span>Social</span> Media</h1>
+                <h1><span>Theo dõi qua </span> mạng xã hội </h1>
             </div>
             <!-- Social list -->
             <ul class="social-list">
@@ -90,48 +90,19 @@
         <!-- Latest reviews -->
         <div class="sidebar-widget latest-reviews">
             <div class="main-title-2">
-                <h1><span>Latest</span> Reviews</h1>
+                <h1><span>Kênh Youtube</span> dautubds79 </h1>
             </div>
             <div class="media">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object" src="http://placehold.it/50x50" alt="avatar-1">
+                <div class="media-img">
+                    <a href="https://www.youtube.com/channel/UCPH8vD6-mqqthUrv_39OXxw">
+                        <img class="media-object" src="{!! asset('public/client/img/youtube.jpg') !!}" alt="avatar-1">
                     </a>
                 </div>
-                <div class="media-body">
-                    <h3 class="media-heading"><a href="#">John Antony</a></h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Etiamrisus tortor, accumsan at nisi et,
-                    </p>
+                <div class="media-body text-center">
+                    <p>Kênh Youtube chia sẽ về thông tin thị trường Bất Động Sản Nghỉ Dưỡng Nha Trang rất bổ ích.Nhớ <a href="https://www.youtube.com/channel/UCPH8vD6-mqqthUrv_39OXxw">ghé thăm và Subscribe nhé! </a>  </p>
                 </div>
-            </div>
-            <div class="media">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object" src="http://placehold.it/50x50" alt="avatar-2">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h3 class="media-heading"><a href="#">Karen Paran</a></h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Etiamrisus tortor, accumsan at nisi et,
-                    </p>
+                <div class="media-youtube text-center">
+                    <div class="g-ytsubscribe text-center" data-channelid="UCPH8vD6-mqqthUrv_39OXxw" data-layout="full" data-count="default"></div> 
                 </div>
             </div>
         </div>
@@ -141,7 +112,7 @@
                 <h1><span>fanpage</span> của chúng tôi </h1>
             </div>
             <div class="media">
-                <div class="fb-page" data-href="https://www.facebook.com/tintucbatdongsannghiduong" data-tabs="messages" data-width="360" data-height="382" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tintucbatdongsannghiduong" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tintucbatdongsannghiduong">Đoàn Văn Hưng - Bất Động Sản Nghỉ Dưỡng Nha Trang</a></blockquote></div>
+                <div class="fb-page" data-href="https://www.facebook.com/tintucbatdongsannghiduong" data-tabs="messages" data-width="320" data-height="382" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tintucbatdongsannghiduong" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tintucbatdongsannghiduong">Đoàn Văn Hưng - Bất Động Sản Nghỉ Dưỡng Nha Trang</a></blockquote></div>
             </div>
         </div>
     </div>
@@ -155,3 +126,4 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+<script src="https://apis.google.com/js/platform.js"></script>
