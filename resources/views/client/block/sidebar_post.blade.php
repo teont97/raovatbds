@@ -5,9 +5,9 @@
             <h1><span>Công Cụ Tìm Kiếm </span>  </h1>
         </div>
 
-        <form method="GET">
+        <form method="GET" action="{{route('getseacrh.by.select')}}" role="search" >
             <div class="form-group">
-                <select class="selectpicker search-fields" id="slhinhthuc" name="property-status" data-live-search="true" data-live-search-placeholder="Search value">
+                <select class="selectpicker search-fields" id="slhinhthuc" name="status" data-live-search="true" data-live-search-placeholder="Search value">
                     <option>Hình Thức </option>
                         @foreach($hinhthuc as $iteam_hinhthuc)
                             <option value="{{ $iteam_hinhthuc->id }}">{{ $iteam_hinhthuc->name }}</option>
@@ -16,7 +16,7 @@
             </div>
           
             <div class="form-group">
-                <select class="selectpicker search-fields" id="sltheloai" name="property-types" data-live-search="true" data-live-search-placeholder="Search value" >
+                <select class="selectpicker search-fields" id="sltheloai" name="types" data-live-search="true" data-live-search-placeholder="Search value" >
                         <option>Thể Loại  </option>
                 </select>
             </div>
@@ -30,7 +30,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select class="selectpicker search-fields" id="slquan" name="area-from" data-live-search="true" data-live-search-placeholder="Search value" >
+                <select class="selectpicker search-fields" id="slquan" name="sublocation" data-live-search="true" data-live-search-placeholder="Search value" >
                     <option>Quận Huyện</option>
                 </select>
             </div>

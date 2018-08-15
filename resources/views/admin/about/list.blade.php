@@ -34,7 +34,7 @@
                 <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Nội Dung </th>
+                  <th style="width:550px;">Nội Dung </th>
                   <th>Hình Ảnh</th>
                   <th>Role </th>
                   <th>Ngày Tạo </th>
@@ -52,7 +52,7 @@
                     <td>{!! $iteam_about->role !!}</td>
                     <td>{!! $iteam_about->created_at !!}</td>
                     <td>
-                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_about->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                        <a href="{{ route('admin.about.edit',$iteam_about->id)}}" class="Modal edit" data-catalog="{!!$iteam_about->id!!}" > <i class="fa fa-edit" ></i> </a>
                         <button type="button" class="Modal eye" > <i class="fa fa-eye"  ></i> </button>
                         <button type="button" class="Modal trash" data-catalog="{!!$iteam_about->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                     </td>
@@ -82,30 +82,6 @@
       </div>
       <!-- /.row -->
 </section>
-<!-- Modal Update Status -->
-<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Duyệt Bài Viết </h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-        ...
-      </div>
-      <form id="formupdate" role="modal">
-      <input type="hidden" name="id_status" id="id_status" value="" >
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="update">Xác Nhận</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <!-- Modal Delete Post  -->
 <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,14 +101,38 @@
       <input type="hidden" name="id_delete" id="id_delete" value="" >
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="delete">Xác Nhận</button>
+        <button type="button" class="btn btn-primary" id="delete_about">Xác Nhận</button>
       </div>
       </form>
     </div>
   </div>
 </div>
 <script>
-  
+  $('#ListAbout tbody').on( 'click','button.trash', function(){
+   //console.log('ok');   
+    var id_data = $(this).attr('data-catalog');  
+    //alert(id_data);
+    var input = $('#id_delete').val(id_data); 
+    //var input = $('#input_hidden1').val(id_data);     
+});
+$('#delete_about').click(function(){ 
+    var id = $('#id_delete').val();
+    // alert(id);
+    //alert(id);
+    $.ajax({
+            url: "/admin/about/delete",
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {id:id},
+            success:function(data){
+               // $('#exampleModal').modal('hide');
+                location.reload();
+                //$("#dataTables-example").ajax.reload();
+            }   
+        });
+});
 </script>
 
 @endsection

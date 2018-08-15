@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading footer">
-                                    <a href="properties-details.html">{{ $iteam_post->title }}</a>
+                                    <a href="{!! route('getproductdetail',$iteam_post->id) !!}">{{ $iteam_post->title }}</a>
                                     </h3>
                                     <p>{{ $iteam_post->created_at }}</p>
                                     <div class="price">

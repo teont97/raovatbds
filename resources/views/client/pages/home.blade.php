@@ -12,7 +12,7 @@
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Nơi An Cư Tốt Cho Gia Đình Bạn  </span></h1>
                         <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn đáng sống cho gia đình bạn</p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
+                        <a href="" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
                         <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>

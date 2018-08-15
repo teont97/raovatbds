@@ -10,4 +10,7 @@ class huyen extends Model
     public function tinh(){
     	return $this->belongsTo('App\tinh','id_tinh','id');
     }
+    public function xa(){
+    	return $this->hasMany('App\xa','id_huyen','id');
+    }
 }

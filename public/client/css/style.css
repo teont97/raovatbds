@@ -6290,12 +6290,12 @@ table.manage-table .title-container .title span {
     display: none;
 }
 .logo1{
-    padding: 15px 0;
+    padding: 10px 0;
     float: left;
     margin-right: 20px;
 }
 .logo1 img{
-    height:50px;
+    height:55px;
     width: 165px;
 }
 .image img {
@@ -6367,7 +6367,7 @@ table.manage-table .title-container .title span {
     .logo1 {
             margin-right: 30px;
         /*  padding: 22px 0 21px; */
-            padding: 10px 0;
+            padding: 5px 0;
             
     }
     .logo1 img {

@@ -22,19 +22,47 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
        // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
     });
+    Route::group(['prefix'=>'address'],function(){
+        // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+        // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
+         Route::get('list-tinh',['as'=>'admin.address.getlistTinh','uses'=>'AddressController@getListTinh']);
+         Route::get('list-huyen',['as'=>'admin.address.getlistHuyen','uses'=>'AddressController@getListHuyen']);
+         Route::get('list-phuong',['as'=>'admin.address.getlistPhuong','uses'=>'AddressController@getListPhuong']);
+         Route::get('create-tinh',['as'=>'admin.address.getCreateTinh','uses'=>'AddressController@getCreateTinh']);
+         Route::post('post-create-tinh',['as'=>'admin.address.postCreateTinh','uses'=>'AddressController@postCreateTinh']);
+         Route::get('create-huyen',['as'=>'admin.address.getCreateHuyen','uses'=>'AddressController@getCreateHuyen']);
+         Route::post('post-create-huyen',['as'=>'admin.address.postCreateHuyen','uses'=>'AddressController@postCreateHuyen']);
+         Route::get('create-phuong',['as'=>'admin.address.getCreatePhuong','uses'=>'AddressController@getCreatePhuong']);
+         Route::post('post-create-phuong',['as'=>'admin.address.postCreatePhuong','uses'=>'AddressController@postCreatePhuong']);
+         Route::post('delete-tinh',['as'=>'admin.address.delete.tinh','uses'=>'AddressController@deleteTinh']);
+         Route::post('delete-huyen',['as'=>'admin.address.delete.huyen','uses'=>'AddressController@deleteHuyen']);
+         Route::post('delete-phuong',['as'=>'admin.address.delete.phuong','uses'=>'AddressController@deletePhuong']);
+         Route::get('get-edit-tinh/{id}',['as'=>'admin.address.edit.getEditTinh','uses'=>'AddressController@getEditTinh']);
+         Route::get('get-edit-huyen/{id}',['as'=>'admin.address.edit.getEditHuyen','uses'=>'AddressController@getEditHuyen']);
+         Route::get('get-edit-phuong/{id}',['as'=>'admin.address.edit.getEditPhuong','uses'=>'AddressController@getEditPhuong']);
+         Route::post('edit-tinh/{id}',['as'=>'admin.address.edit.posttinh','uses'=>'AddressController@editPostTinh']);
+         Route::post('edit-huyen/{id}',['as'=>'admin.address.edit.posthuyen','uses'=>'AddressController@editPostHuyen']);
+         Route::post('edit-phuong/{id}',['as'=>'admin.address.edit.postphuong','uses'=>'AddressController@editPostPhuong']);
+     });
     Route::group(['prefix'=>'about'],function(){
         // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('get-create',['as'=>'admin.about.create','uses'=>'AboutController@getCreate']);
         Route::get('list',['as'=>'admin.about.getlist','uses'=>'AboutController@getList']);
         Route::post('post-create',['as'=>'admin.about.postcreate','uses'=>'AboutController@postcreate']);
+        Route::post('delete',['as'=>'admin.about.delete','uses'=>'AboutController@postdelete']);
+        Route::get('get-edit/{id}',['as'=>'admin.about.edit','uses'=>'AboutController@getEdit']);
+        Route::post('post-edit/{id}',['as'=>'admin.about.postedit','uses'=>'AboutController@postedit']);
      });
      Route::group(['prefix'=>'faq'],function(){
         // Route::post('update',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         // Route::post('list',['as'=>'admin.customer.getlist','uses'=>'CustomerController@getList']);
         Route::get('get-create',['as'=>'admin.faq.create','uses'=>'FaqController@getCreate']);
         Route::post('post-create',['as'=>'admin.faq.postcreate','uses'=>'FaqController@postcreate']);
+        Route::post('delete',['as'=>'admin.faq.delete','uses'=>'FaqController@postdelete']);
         Route::get('list',['as'=>'admin.faq.getlist','uses'=>'FaqController@getList']);
+        Route::get('get-edit/{id}',['as'=>'admin.faq.edit','uses'=>'FaqController@getEdit']);
+        Route::post('post-edit/{id}',['as'=>'admin.faq.postedit','uses'=>'FaqController@postedit']);
      });
     Route::group(['prefix'=>'newpost'],function(){
         Route::post('update',['as'=>'admin.newpost.update','uses'=>'NewPostController@postupdate']);

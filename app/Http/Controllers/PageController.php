@@ -246,8 +246,22 @@ class PageController extends Controller
         $result_search = blog::where('title', 'like', '%' . $request->key .'%')->orWhere('tomtat', 'like', '%' . $request->key .'%')->get();
         return view('client.pages.search_blog',compact('result_search','data_search'));
     }
-    public function getsearchbyselect(){
-        $data_search=$request->key;
+    public function getsearchbyselect(Request $request){
+        $data_search=$request->all();
+        $minarea=(int)$request->min_area;
+        $maxarea=(int)$request->max_area;
+        $minprice=(int)$request->min_price;
+        $maxprice=(int)$request->max_price;
+        $result_search = post::where('id_theloai', 'like', '%' . $request->types .'%')
+        ->Where('id_tinh', 'like', '%' . $request->location .'%')
+        ->Where('id_huyen', 'like', '%' . $request->sublocation .'%')
+        ->whereBetween('area', [$minarea,$maxarea])
+        ->whereBetween('price', [$minprice,$maxprice])
+        ->paginate(10);
+        //dd($request->sublocation);
+        //dd($request->location);
+        //dd($result_search);
+        return view('client.pages.search_by_select',compact('data_search','result_search'));
     }
     public function PostCommentBlog(Request $request){
         $cmt_blog = new comment_blog();

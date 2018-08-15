@@ -1,4 +1,5 @@
 @extends('client.master')
+@section('title',$data_search['types']  )
 @section('content')
     <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -22,14 +23,24 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <!-- Option bar start -->
+                @if(count($result_search) > 0)
                 <div class="main-title-2">
                 <h1>
                     <span>
-                         Khoảng {!! count($result_search)!!} Tin Bất Động Sản Được Tìm Thấy
+                         <?php  $data_theloai=DB::table('loaitin')->select('id','name')->where('id',$data_search['types'])->first(); echo $data_theloai->name; ?> Tại <?php  $data_huyen=DB::table('huyen')->select('id','name')->where('id',$data_search['sublocation'])->first(); echo $data_huyen->name; ?>
                     </span>
                 </h1>
+                <div class="footer">
+                    Tìm kiếm theo các tiêu chí: <span class="greencolor">
+                    <?php  $data_theloai=DB::table('loaitin')->select('id','name')->where('id',$data_search['types'])->first(); echo $data_theloai->name; ?> 
+                    Tại <?php  $data_huyen=DB::table('huyen')->select('id','name')->where('id',$data_search['sublocation'])->first(); echo $data_huyen->name; ?> </span>.
+                    Quận/Huyện:<span class="greencolor"> <?php  $data_huyen=DB::table('huyen')->select('id','name')->where('id',$data_search['sublocation'])->first(); echo $data_huyen->name; ?> </span>.
+                    Tỉnh/Tp:<span class="greencolor"> <?php  $data_tinh=DB::table('tinh')->select('id','name')->where('id',$data_search['location'])->first(); echo $data_tinh->name; ?> </span>.
+                    Diện tích: <span class="greencolor"> {{ $data_search['min_area']}} - {{ $data_search['max_area']}} m2 </span>. Giá: <span class="greencolor"> {{ $data_search['min_price']}} - {{ $data_search['max_price']}}</span>. Có <span class="greencolor"> {{ COUNT($result_search) }}</span> bất động sản.
+                </div>
                 <!-- Option bar end -->
                  </div>
+                 @endif
                 <div class="clearfix"></div>
             @if(count($result_search) > 0)
                 <div class="row">
@@ -122,7 +133,7 @@
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         <!-- Error404 content start -->
                             <h1>Not Found</h1>
-                            <h2>Không Tìm Thấy Kết Quả  Với Từ Khóa "{!! $data_search !!} "</h2>
+                            <h2>Không Tìm Thấy Kết Quả Phù Hợp</h2>
                             <p> Hãy thử các từ khóa khác nhau hoặc xóa bộ lọc tìm kiếm</p>
                             <a href="{!! route('gethome') !!}">
                                 <button type="submit" class="button-sm out-line-btn">Quay Lại Trang Chủ</button>
@@ -133,28 +144,15 @@
             @endif
                 <!-- Page navigation start -->
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="properties-grid-rightside.html">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="properties-grid-leftside.html">2</a></li>
-                        <li><a href="properties-grid-fullwidth.html">3</a></li>
-                        <li>
-                            <a href="properties-grid-fullwidth.html" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                    {{ $result_search->links() }}
                 </nav>
                 <!-- Page navigation end-->
             </div>
-        </div>
-        <!-- sidebar right start -->
+            <!-- sidebar right start -->
             @include('client.block.sidebar_post')
-        <!-- sidebar right end -->
+            <!-- sidebar right end -->
+        </div>
+        
         </div>
     </div>
 </div>

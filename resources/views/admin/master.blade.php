@@ -474,9 +474,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Tỉnh Thành  </a></li>
-              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Quận Huyện  </a></li>
-              <li><a href="{!! route('admin.newpost.getlist') !!}"><i class="fa fa-circle-o"></i> Phường Xã  </a></li>
+              <li><a href="{!! route('admin.address.getlistTinh') !!}"><i class="fa fa-circle-o"></i> Tỉnh Thành  </a></li>
+              <li><a href="{!! route('admin.address.getlistHuyen') !!}"><i class="fa fa-circle-o"></i> Quận Huyện  </a></li>
+              <li><a href="{!! route('admin.address.getlistPhuong') !!}"><i class="fa fa-circle-o"></i> Phường Xã  </a></li>
             </ul>
         </li>
         <li class="treeview">

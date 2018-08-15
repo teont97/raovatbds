@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\about;
+use File;
 class AboutController extends Controller
 {
     public function getList(){
@@ -12,6 +13,10 @@ class AboutController extends Controller
     }
     public function getCreate(){
         return view('admin.about.create');
+    }
+    public function getEdit($id){
+        $data_edit=about::find($id);
+        return view('admin.about.edit',compact('data_edit'));
     }
     public function postcreate(Request $request){
         $file_name=$request->file('fileupload1')->getClientOriginalName();
@@ -22,5 +27,20 @@ class AboutController extends Controller
         $request->file('fileupload1')->move('public/admin/dist/img/about',$file_name);
         $about->save();
         return redirect()->route('admin.about.getlist');
+    }
+    public function postdelete(Request $request){
+        $delete=about::find($request->id);
+        File::delete('public/admin/dist/img/about/'.$delete['images']);
+        $delete->delete();
+    }
+    public function postedit(Request $request, $id){
+        $file_name=$request->file('fileupload2')->getClientOriginalName();
+        $edit=about::find($id);
+        File::delete('public/admin/dist/img/about/'.$edit['images']);
+        $edit->content= $request->txtdescript;
+        $edit->images=$file_name;
+        $request->file('fileupload2')->move('public/admin/dist/img/about',$file_name);
+        $edit->save();
+        return back();
     }
 }

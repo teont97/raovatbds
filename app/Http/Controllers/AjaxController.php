@@ -27,6 +27,7 @@ class AjaxController extends Controller
             echo '<option value="' .$iteam_huyen->id.'">'.$iteam_huyen->name.'</option>';
          }
     }
+
     public function getphuong($id_huyen){
         $phuong = phuong::where('id_huyen',$id_huyen)->get();
         foreach($phuong as $iteam_phuong ){
