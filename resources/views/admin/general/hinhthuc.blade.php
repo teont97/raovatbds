@@ -45,10 +45,10 @@
                         <?php $stt++ ?>
                         <tr>
                           <td>{!! $stt !!}</td>
-                          <td>{!! $iteam_hinhthuc->name !!}</td>
+                          <td class="tdhinhthuc">{!! $iteam_hinhthuc->name !!}</td>
                           <td>{!! $iteam_hinhthuc->created_at !!}</td>
                           <td>
-                                <button type="button" class="Modal edit" data-catalog="{!!$iteam_hinhthuc->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                                <button type="button" class="Modal edit" data-id="{!!$iteam_hinhthuc->id!!}" data-catalog="{!!$iteam_hinhthuc->name!!}" data-toggle="modal" data-target="#ModalUpdateHinhThuc" > <i class="fa fa-edit" ></i> </button>
                                 <button type="button" class="Modal trash" data-catalog="{!!$iteam_hinhthuc->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                           </td>
                         
@@ -66,6 +66,9 @@
               </table>
             </div>
             <!-- /.box-body -->
+            <div class="box-footer clearfix group-btn-footer">
+                <button data-toggle="modal" data-target="#ModalCreateHinhThuc" class="btn btn-success" value="" > Thêm Mới  </button>
+            </div>
           </div>
           <!-- /.box -->
         </div>
@@ -73,28 +76,58 @@
       </div>
       <!-- /.row -->
 </section>
+<!-- Modal Create  -->
+<div class="modal fade" id="ModalCreateHinhThuc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel"> Thêm Mới Hình Thức</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="formupdate" role="modal">
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Tên Hình Thức  </label>
+              <input type="text" id="namehinhthuc" class="form-control" name="namehinhthuc" >
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
+            <button type="button" class="btn btn-primary" id="create_hinhthuc">Xác Nhận</button>
+          </div>
+          </form>
+          </div>
+    </div>
+  </div>
+  
 <!-- Modal Update Status -->
-<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ModalUpdateHinhThuc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Duyệt Bài Viết </h4>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        
-        ...
-      </div>
       <form id="formupdate" role="modal">
-      <input type="hidden" name="id_status" id="id_status" value="" >
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="update">Xác Nhận</button>
-      </div>
-      </form>
-    </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Tên Hình Thức  </label>
+            <input type="text" id="namehinhthuc1" class="form-control" name="namehinhthuc1" >
+          </div>
+        </div>
+        
+        <input type="hidden" name="name_update" id="name_update" value="" >
+        <input type="hidden" name="id_update" id="id_update" value="" >
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
+          <button type="button" class="btn btn-primary" id="update_hinhthuc">Xác Nhận</button>
+        </div>
+        </form>
+        </div>
   </div>
 </div>
 
@@ -116,14 +149,76 @@
       <input type="hidden" name="id_delete" id="id_delete" value="" >
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="delete">Xác Nhận</button>
+        <button type="button" class="btn btn-primary" id="delete_hinhthuc">Xác Nhận</button>
       </div>
       </form>
     </div>
   </div>
 </div>
 <script>
-  
+  $('#create_hinhthuc').click(function(){ 
+          var string = $('#namehinhthuc').val();
+          $.ajax({
+                url: "/admin/general/post-create-hinhthuc",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {string:string },
+                success:function(data){
+                    $('#ModalCreateHinhThuc').modal('hide');
+                    location.reload();
+                }   
+          });
+    });
+  $('#Listhinhthuc tbody').on( 'click','button.edit', function(){
+    var name_data = $(this).attr('data-catalog');  
+    var id_data = $(this).attr('data-id');  
+    var input = $('#name_update').val(name_data); 
+    var input = $('#id_update').val(id_data);    
+  });
+  $("#ModalUpdateHinhThuc").on("show.bs.modal", function(evt) {
+          var name_data = $('#name_update').val();
+          var string = ""+name_data+"" ;
+          var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
+          $('.modal-body #namehinhthuc1').val(string);
+          $('.modal-header .modal-title').html(title);
+      });
+  $('#update_hinhthuc').click(function(){ 
+        var id = $('#id_update').val();
+        var string = $('#namehinhthuc1').val();
+        var mytbl = $("#Listhinhthuc").dataTable();
+        $.ajax({
+              url: "/admin/general/post-edit-hinhthuc",
+              type: 'POST',
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: {id:id , string:string },
+              success:function(data){
+                  $('#ModalUpdateHinhThuc').modal('hide');
+                  location.reload();
+              }   
+        });
+  });
+  $('#Listhinhthuc tbody').on( 'click','button.trash', function(){ 
+    var id_data = $(this).attr('data-catalog');  
+    var input = $('#id_delete').val(id_data);  
+  });
+  $('#delete_hinhthuc').click(function(){ 
+      var id = $('#id_delete').val();
+      $.ajax({
+        url: "/admin/general/post-delete-hinhthuc",
+        type: 'POST',
+        headers: {  
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {id:id},
+        success:function(data){
+          location.reload();
+        }   
+      });
+  });
 </script>
 
 @endsection

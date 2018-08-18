@@ -81,14 +81,33 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
         Route::get('list-theloai',['as'=>'admin.general.listtheloai','uses'=>'GeneralController@getlisttheloai']);
         Route::get('list-uptin',['as'=>'admin.general.listuptin','uses'=>'GeneralController@getlistuptin']);
         Route::get('list-huongnha',['as'=>'admin.general.listhuongnha','uses'=>'GeneralController@getlisthuongnha']);
+        Route::post('post-edit-hinhthuc',['as'=>'admin.general.edit.hinhthuc','uses'=>'GeneralController@editHinhthuc']);
+        Route::post('post-edit-theloai',['as'=>'admin.general.edit.theloai','uses'=>'GeneralController@editTheloai']);
+        Route::post('post-edit-uptin',['as'=>'admin.general.edit.uptin','uses'=>'GeneralController@editUptin']);
+        Route::post('post-edit-huongnha',['as'=>'admin.general.edit.huongnha','uses'=>'GeneralController@editHuongnha']);
+        Route::post('post-create-hinhthuc',['as'=>'admin.general.create.hinhthuc','uses'=>'GeneralController@createHinhthuc']);
+        Route::post('post-delete-hinhthuc',['as'=>'admin.general.delete.hinhthuc','uses'=>'GeneralController@deleteHinhthuc']);
+        Route::post('post-create-theloai',['as'=>'admin.general.create.theloai','uses'=>'GeneralController@createtheloai']);
+        Route::post('post-delete-theloai',['as'=>'admin.general.delete.theloai','uses'=>'GeneralController@deleteTheloai']);
+        Route::post('post-create-huongnha',['as'=>'admin.general.create.huongnha','uses'=>'GeneralController@createHuongnha']);
+        Route::post('post-delete-huongnha',['as'=>'admin.general.delete.huongnha','uses'=>'GeneralController@deleteHuongnha']);
+        Route::post('post-delete-uptin',['as'=>'admin.general.delete.uptin','uses'=>'GeneralController@deleteUptin']);
+        Route::post('post-create-uptin',['as'=>'admin.general.create.uptin','uses'=>'GeneralController@createUptin']);
     });
     Route::group(['prefix'=>'blog'],function(){
         Route::get('list-type-blog',['as'=>'admin.blog.listTypeBlog','uses'=>'BlogController@getListTypeBlog']);
         Route::get('get-create-Typeblog',['as'=>'admin.blog.getTypeBlog','uses'=>'BlogController@getTypeblog']);
         Route::get('list-blog',['as'=>'admin.blog.listBlog','uses'=>'BlogController@getListBlog']);
         Route::get('get-create-blog',['as'=>'admin.blog.getBlog','uses'=>'BlogController@getBlog']);
-        Route::post('create-blog',['as'=>'admin.blog.postBlog','uses'=>'BlogController@postBlog']);
+        Route::get('get-edit-Typeblog/{id}',['as'=>'admin.blog.edit.getTypeBlog','uses'=>'BlogController@getEditTypeblog']);
+        Route::get('get-edit-blog/{id}',['as'=>'admin.blog.edit.getBlog','uses'=>'BlogController@getEditBlog']);
         Route::post('create-type-blog',['as'=>'admin.blog.postTypeBlog','uses'=>'BlogController@postTypeBlog']);
+        Route::post('delete-type-blog',['as'=>'admin.blog.delete.postTypeBlog','uses'=>'BlogController@deleteTypeBlog']);
+        Route::post('edit-type-blog/{id}',['as'=>'admin.blog.edit.postTypeBlog','uses'=>'BlogController@editTypeBlog']);
+        Route::post('create-blog',['as'=>'admin.blog.postBlog','uses'=>'BlogController@postBlog']);
+        Route::post('delete-blog',['as'=>'admin.blog.delete.postBlog','uses'=>'BlogController@deleteBlog']);
+        Route::post('edit-blog/{id}',['as'=>'admin.blog.edit.postBlog','uses'=>'BlogController@editBlog']);
+        
     });
     Route::group(['prefix'=>'ajax'],function(){
         Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);

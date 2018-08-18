@@ -50,7 +50,7 @@
                     <td>{!! $iteam_typeblog->parent_type['name'] !!}</td>
                     <td>{!! $iteam_typeblog->created_at !!}</td>
                     <td>
-                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                    <a href="{{ route('admin.blog.edit.getTypeBlog',$iteam_typeblog->id) }}" class="Modal edit" data-catalog="{!!$iteam_typeblog->id!!}" > <i class="fa fa-edit" ></i> </a>
                         <button type="button" class="Modal eye" > <i class="fa fa-eye"  ></i> </button>
                         <button type="button" class="Modal trash" data-catalog="{!!$iteam_typeblog->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                     </td>
@@ -122,14 +122,37 @@
       <input type="hidden" name="id_delete" id="id_delete" value="" >
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="delete">Xác Nhận</button>
+        <button type="button" class="btn btn-primary" id="delete_typeblog">Xác Nhận</button>
       </div>
       </form>
     </div>
   </div>
 </div>
 <script>
-  
+  $('#ListBlogType tbody').on( 'click','button.trash', function(){
+   //console.log('ok');   
+    var id_data = $(this).attr('data-catalog');  
+    //alert(id_data);
+    var input = $('#id_delete').val(id_data); 
+    //var input = $('#input_hidden1').val(id_data);     
+});
+$('#delete_typeblog').click(function(){ 
+    var id = $('#id_delete').val();
+    // alert(id);
+    //alert(id);
+    $.ajax({
+            url: "/admin/blog/delete-type-blog",
+            type: 'POST',
+            headers: {  
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {id:id},
+            success:function(data){
+               // $('#exampleModal').modal('hide');
+                location.reload();
+                //$("#dataTables-example").ajax.reload();
+            }   
+        });
+});
 </script>
-
 @endsection

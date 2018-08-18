@@ -113,6 +113,12 @@
     .catch( error => {
         console.error( error );
     } );
+    $("#id_parent").change(function(){
+    var id_parent = $(this).val();
+        $.get("../ajax/theloai/"+id_parent,function(data){
+            $("#typeblog").html(data)
+        });
+    });
 </script>
 @endsection
 

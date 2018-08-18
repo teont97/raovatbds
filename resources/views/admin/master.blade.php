@@ -83,6 +83,7 @@
 <script src="{{ url('public/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ url('public/admin/dist/js/myapp.js') }}"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.19/api/fnReloadAjax.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -439,7 +440,7 @@
         <li class="header">CHỨC NĂNG</li>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-firefox"></i>
+              <i class="fa fa-globe"></i>
               <span>Bài Đăng BDS </span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -454,7 +455,7 @@
         </li>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-cloud"></i>
+              <i class="fa fa-tags"></i>
               <span>Blog </span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -467,7 +468,7 @@
         </li>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-address-card"></i>
+              <i class="fa fa-cube"></i>
               <span>Địa Chỉ </span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -481,7 +482,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-address-card"></i>
+            <i class="fa fa-shield"></i>
             <span>Về Chúng Tôi  </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -494,7 +495,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-address-card"></i>
+            <i class="fa fa-question-circle"></i>
             <span>Hỏi Đáp  </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

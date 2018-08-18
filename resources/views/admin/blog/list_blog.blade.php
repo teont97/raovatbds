@@ -9,8 +9,8 @@
 </script>
 <section class="content-header">
       <h1>
-        Danh Sách Bài Viết Bất Động Sản
-        <small>Người Dùng</small>
+        Danh Sách Bài Viết Tin Tức
+        <small>Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -26,7 +26,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh Sách Bài Viết Bất Động Sản</h3>
+              <h3 class="box-title">Danh Sách Bài Viết Tin Tức </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -56,7 +56,7 @@
                     <td>{!! $iteam_blog->User['name'] !!}</td>
                     <td>{!! $iteam_blog->created_at !!}</td>
                     <td>
-                        <button type="button" class="Modal edit" data-catalog="{!!$iteam_blog->id!!}" data-toggle="modal" data-target="#ModalUpdate" > <i class="fa fa-edit" ></i> </button>
+                      <a href="{{ route('admin.blog.edit.getBlog',$iteam_blog->id) }}" class="Modal edit" > <i class="fa fa-edit" ></i> </a>
                         <button type="button" class="Modal eye" > <i class="fa fa-eye"  ></i> </button>
                         <button type="button" class="Modal trash" data-catalog="{!!$iteam_blog->id!!}" data-toggle="modal"  data-target="#ModalDelete"  > <i class="fa fa-trash" ></i> </button>
                     </td>
@@ -131,14 +131,37 @@
       <input type="hidden" name="id_delete" id="id_delete" value="" >
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát </button>
-        <button type="button" class="btn btn-primary" id="delete">Xác Nhận</button>
+        <button type="button" class="btn btn-primary" id="delete_blog">Xác Nhận</button>
       </div>
       </form>
     </div>
   </div>
 </div>
 <script>
-  
+    $('#ListBlog tbody').on( 'click','button.trash', function(){
+     //console.log('ok');   
+      var id_data = $(this).attr('data-catalog');  
+      //alert(id_data);
+      var input = $('#id_delete').val(id_data); 
+      //var input = $('#input_hidden1').val(id_data);     
+  });
+  $('#delete_blog').click(function(){ 
+      var id = $('#id_delete').val();
+      // alert(id);
+      //alert(id);
+      $.ajax({
+              url: "/admin/blog/delete-blog",
+              type: 'POST',
+              headers: {  
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: {id:id},
+              success:function(data){
+                 // $('#exampleModal').modal('hide');
+                  location.reload();
+                  //$("#dataTables-example").ajax.reload();
+              }   
+          });
+  });
 </script>
-
 @endsection

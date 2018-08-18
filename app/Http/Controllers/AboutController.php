@@ -34,12 +34,14 @@ class AboutController extends Controller
         $delete->delete();
     }
     public function postedit(Request $request, $id){
-        $file_name=$request->file('fileupload2')->getClientOriginalName();
         $edit=about::find($id);
-        File::delete('public/admin/dist/img/about/'.$edit['images']);
+            if ($request->hasFile('fileupload2')) {
+                File::delete('public/admin/dist/img/about/'.$edit['images']);
+                $file_name=$request->file('fileupload2')->getClientOriginalName();
+                $edit->images=$file_name;
+                $request->file('fileupload2')->move('public/admin/dist/img/about',$file_name);
+            }
         $edit->content= $request->txtdescript;
-        $edit->images=$file_name;
-        $request->file('fileupload2')->move('public/admin/dist/img/about',$file_name);
         $edit->save();
         return back();
     }
