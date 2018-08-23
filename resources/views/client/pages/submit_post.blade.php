@@ -1,7 +1,11 @@
 @extends('client.master')
 @section('title','Đăng bài viết mới')
 @section('content')
-
+<style>
+    .ck-editor__editable_inline{
+     min-height: 250px;
+ }
+</style>
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="overlay">
@@ -17,7 +21,6 @@
     </div>
 </div>
 <!-- Sub Banner end -->
-
 <!-- Submit Property start -->
 <div class="content-area-7 submit-property">
     <div class="container">
@@ -257,6 +260,20 @@
     </div>
 </div>
 <script>
-        CKEDITOR.replace( 'editor' );
+
+    var theEditor;
+    ClassicEditor
+    .create( document.querySelector( '#editor' ),{
+        ckfinder: {
+			// eslint-disable-next-line max-len
+            uploadUrl: '/public/admin/bower_components/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+		}
+    } )
+    .then( editor => {
+        theEditor=editor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
 </script>
 @endsection

@@ -51,7 +51,7 @@
             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                 <ul class="nav navbar-nav">
                 @foreach($hinhthuc as $iteam_hinhthuc)        
-                    <li class="dropdown ">
+                    <li class="dropdown parents ">
                         <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
                             {!! $iteam_hinhthuc->name !!} <span class="caret"></span>
                         </a>

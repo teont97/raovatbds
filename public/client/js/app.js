@@ -244,7 +244,7 @@ $(function () {
                 formData.append("sltinh" ,jQuery("#tinh").val());
                 formData.append("slhuyen" ,jQuery("#huyen").val());
                 formData.append("slphuong" ,jQuery("#phuong").val());
-                formData.append("message" ,CKEDITOR.instances["editor"].getData());
+                formData.append("message" ,theEditor.getData());
                 formData.append("txtname" ,jQuery("#txtname").val());
                 formData.append("txtemail" ,jQuery("#txtemail").val());
                 formData.append("txtphone" ,jQuery("#txtphone").val());

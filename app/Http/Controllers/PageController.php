@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use Auth;
-use DB;
+use DB,Mail;
 use App\post;
 use App\post_images;
 use App\lienhe;
@@ -20,6 +20,8 @@ use App\about;
 use App\faq;
 use App\typeblog;
 use App\hinhthuc;
+use App\data_email;
+use Carbon\Carbon;
 class PageController extends Controller
 {
   
@@ -57,7 +59,8 @@ class PageController extends Controller
        // $data_huong=DB::table('huong')->select('id','name')->get();
         $data_tinh=DB::table('tinh')->select('id','name')->get();
         $data_duan=blog::where('id_parent','1')->orderBy('id','DESC')->get();
-        $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->take(3)->get();
+        $data_tintuc=blog::where('id_parent','2')->orderBy('id','DESC')->take(4)->get();
+       //dd($data_tintuc);
         $data_about=about::orderBy('id','DESC')->get();
         //dd($data_post);
         return view('client.pages.home',compact('data_post','data_hinhthuc','data_theloai','data_tinh','data_duan','data_tintuc','data_about'));
@@ -294,5 +297,34 @@ class PageController extends Controller
         $rep_post->id_cmtpost = $request->comment_id;
         $rep_post->save();
         return response()->json(['success'=>'Data is successfully added']);
+    }
+    public function PostContact(Request $request){
+        $input = $request->all();
+        //dd($input);
+        Mail::send('client.mail',array('email'=>$input['email'],'hoten'=>$input['full-name'],'content'=>$input['message'],'subject'=>$input['subject'],'phone'=>$input['phone']), function($msg){
+            $msg->from('nghiduongbatdongsan@gmail.com','Dautubds79.com');
+            $msg->to('nghiduongbatdongsan@gmail.com','Dautubds79.com')->subject('Dautubds79.com Liên Hệ');
+        });
+        return back()->with(['flash_level'=>'success','flash_messages'=>'Bạn Đã Gửi Thành Công.  Chúng Tôi Sẻ Trả Lời Yêu Cầu Bạn Trong Thời Gian Sớm Nhất !!! ']);
+    }
+    public function SaveDataEmail(Request $request){
+        $this->validate($request,[
+            'email'=>'email'
+        ],
+        [
+            "email.email"=>"email không đúng đinh dạng !!!"
+        ]);
+        $save = new data_email();
+        $save->email=$request->email;
+        $save->id_type=1;
+        $save->save();
+    }
+    public function getproductvip(){
+        $data_vip=post::where('id_uptin','>',2)->orderBy('id_uptin','DESC')->orderBy('created_at','DESC')->paginate(10);
+        return view('client.pages.products_by_vip',compact('data_vip'));
+    }
+    public function getproductByday(){
+        $data_day=post::where('created_at','>',Carbon::now()->subDays(7)->startOfDay())->orderBy('created_at','DESC')->paginate(10);
+        return view('client.pages.products_by_day',compact('data_day'));
     }
 }

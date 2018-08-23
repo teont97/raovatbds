@@ -10,14 +10,10 @@
                         <div class="main-title-2">
                             <h1>Liên Hệ Chúng Tôi</h1>
                         </div>
-                        <p>
-                            Tư Vấn Đầu Tư : Đoàn Văn Hưng </br>
-                            Vietinbank Khánh Hòa  : 109868316970
-                        </p>
                         <ul class="personal-info">
                             <li>
                                 <i class="fa fa-map-marker"></i>
-                                Số 48, đường số 4, Lê Hồng Phong 2 Nha Trang
+                                 Lê Hồng Phong 2 Nha Trang
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i>
@@ -45,13 +41,10 @@
                                 <a href="{{ route('gethome') }}">Trang Chủ </a>
                             </li>
                             <li>
-                                <a href="properties-grid-rightside.html">Bất Động Sản </a>
+                            <a href="{{ route('getblog',1)}}">Dự Án </a>
                             </li>
                             <li>
-                                <a href="properties-list-rightside.html">Dự Án </a>
-                            </li>
-                            <li>
-                                <a href="blog-single-sidebar-right.html">Tin Tức </a>
+                                <a href="{{ route('getblog',7)}}">Tin Tức </a>
                             </li>
                             <li>
                                 <a href="{{ route('getabout') }}">Giới Thiệu</a>
@@ -107,17 +100,14 @@
                             <p>
                                 Vui lòng để lại địa chỉ email , chúng tôi sẽ gửi tới quý khách những thông tin quan trọng của các dự án đang được giới đầu tư quan tâm .
                             </p>
-
-                            <form action="#" method="post">
                                 <div class="form-group">
-                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Nhập email của bạn" required="">
+                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text"  name="email" placeholder="Nhập email của bạn" required="">
                                 </div>
                                 <div class="form-group mb-0">
-                                    <button type="submit" class="button-sm button-theme btn-block">
+                                    <button id="submit_data" class="button-sm button-theme btn-block">
                                         Gửi
                                     </button>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -166,4 +156,23 @@
         </div>
     </div>
 </div>
+<script>
+    $("#submit_data").click(function(){
+        var email = $('#nsu-email-0').val();
+        $.ajax({
+                url: "/save-data-email",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {email:email },
+                success:function(data){
+                    alert('Email đã được lưu lại , bạn sẽ sớm nhận được nhưng thông tin dự án mới nhất ');
+                },
+                error: function (xhr, ajaxOptions, thrownError,message) {
+                    alert('Email bạn nhập không đúng định dạng , vui lòng kiểm tra lại !!!');
+                }
+          });
+    });
+</script>
 <!-- Copy end right-->

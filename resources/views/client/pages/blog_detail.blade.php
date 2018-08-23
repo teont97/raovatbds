@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <!-- Blog box end -->
-                     @if(!isset($user))
+                    @if(!isset($user))
                     <div class="contact-1 sidebar-widget">
                         <h4 class="title comment-blog"> Vui Lòng<a href="{{ route('getlogin') }}"> Đăng Nhập </a> Hoặc  <a href="{{ route('getregister') }}"> Tạo Tài Khoản Mới </a>  Để Có Thể Bình Luận </h3>
                     </div>

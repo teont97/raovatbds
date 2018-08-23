@@ -21,19 +21,20 @@
             <div class="box-header">
               <h3 class="box-title">Thêm Mới Tài Khoản</h3>
             </div>
-            <form action="#" method="POST">
+        <form action="{{ route('admin.user.postcreate')}}" method="POST">
+            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <!-- /.box-header -->
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Họ Tên </label>
-                            <input type="text" class="form-control" id="diachi" name="txtdiachi" >
+                            <input type="text" class="form-control" name="txtname">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Chức Vụ</label>
-                            <select class="form-control">
+                            <select class="form-control" name="sllevel">
                                 <option >Chọn Chức Vụ</option>
                                 <option value="0">User</option>
                                 <option value="1">ADMIN</option>
@@ -43,13 +44,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Email </label>
-                            <input type="text" class="form-control" id="diachi" name="txtdiachi" >
+                            <input type="text" class="form-control" name="txtemail" >
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>PassWord </label>
-                            <textarea  class="form-control" id="editor" name="txtdiachi" > </textarea>
+                            <input  class="form-control" type="password" name="txtpassword" > 
                         </div>
                     </div>
                 </div>
@@ -68,21 +69,6 @@
       <!-- /.row -->
     </section>
 
-<script>
-    ClassicEditor
-    .create( document.querySelector( '#editor' ),{
-        ckfinder: {
-			// eslint-disable-next-line max-len
-            uploadUrl: '/public/admin/bower_components/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-		}
-    } )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-</script>
 @endsection
 
 

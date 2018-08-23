@@ -1,5 +1,5 @@
 @extends('client.master')
-@section('title',$data_parent['name'])
+@section('title','Danh sách tin bất động sản mới nhất trong vòng 7 ngày  ')
 @section('content')
     <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -50,7 +50,7 @@
                 <!-- Option bar end -->
                 <div class="clearfix"></div>
                 <div class="row">
-                    @foreach($data_post_parent as $iteam_post)
+                    @foreach($data_day as $iteam_post)
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
                         <!-- Property start -->
                         <div class="property">
@@ -136,7 +136,7 @@
                 </div>
                 <!-- Page navigation start -->
                 <nav aria-label="Page navigation">
-                    {{ $data_post_parent->links() }}
+                    {{ $data_day->links() }}
                 </nav>
                 <!-- Page navigation end-->
             </div>

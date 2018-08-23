@@ -12,7 +12,7 @@
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Nơi An Cư Tốt Cho Gia Đình Bạn  </span></h1>
                         <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn đáng sống cho gia đình bạn</p>
-                        <a href="" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
+                        <a href="{{ route('getblog',1) }}" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
                         <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-1s"><span>Giải Pháp Đầu Tư Sinh Lời Hiệu Quả</span></h1>
                         <p data-animation="animated fadeInUp delay-05s">Bạn sẽ tìm thấy cho riêng mình một giải pháp đầu tư cực kỳ hiệu quả mạng lại cho bạn lợi nhuận cũng như chất lượng cuộc sống cao hơn </p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
+                        <a href="{{ route('getblog',1) }}" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
                         <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInLeft delay-05s"><span>Nơi Tốt Nhất Để Tận Hưởng Cuộc Sống </span></h1>
                         <p data-animation="animated fadeInLeft delay-1s">Hãy cùng với gia đình bạn, người thân của ban, đối tác của bạn tận hưởng một không gian sống mới đầy tiện nghi và sang trọng </p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Bắt Đầu Ngay</a>
+                        <a href="{{ route('getblog',1) }}" class="btn button-md button-theme" data-animation="animated fadeInLeft delay-15s">Bắt Đầu Ngay</a>
                         <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInLeft delay-20s">Tìm Hiểu Thêm</a>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-xs-12 text-center">
-        <a href="#" class="btn button-md button-theme">Xem Thêm</a>
+        <a href="{{ route('getproductvip') }}" class="btn button-md button-theme">Xem Thêm</a>
         </div>
     </div>
     
@@ -201,30 +201,38 @@
         <div class="row mgn-btm wow">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
+                    <a href="{{ route('getproductvip') }}">
                     <i class="flaticon-shape"></i>
                     <h4>Tin Rao Vip</h4>
                     <p>Tổng hợp những bài đăng Vip nhất theo tuần </P>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
                 <div class="content">
+                    <a href="{{ route('getproductByday') }}">
                     <i class="flaticon-internet"></i>
                     <h4>BDS Mới Nhất</h4>
                     <p>Tin rao BDS mới nhất trong vòng 3 ngày </P>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
                 <div class="content">
+                    <a href="{{ route('getblog',1) }}">
                     <i class="flaticon-apartment"></i> 
                     <h4>BDS Đang Hot</h4>
                     <p>Những dự án BDS đang được quý nhà đầu từ quan tâm nhất </P>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
                 <div class="content">
+                    <a href="{{ route('getblog',9) }}">
                     <i class="fa fa-search"></i>
                     <h4>Top View</h4>
                     <p>Tin rao mua bán , cho thuê BDS được truy cập và tìm kiếm nhiều nhất</P>
+                    </a>
                 </div>
             </div>
         </div>
@@ -456,24 +464,17 @@
             </div>
             <div class="row">
                 @foreach($data_tintuc as $iteam_tintuc)
-                <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInLeft delay-04s">
+                <div class="col-lg-3 col-md-3 col-sm-6 wow fadeInLeft delay-04s">
                     <div class="thumbnail blog-box-2 clearfix">
                         <div class="blog-photo">
                             <img src="{!! asset('public/admin/dist/img/'.$iteam_tintuc->images) !!}" alt="blog-1" class="img-responsive">
                         </div>
                         <div class="post-meta">
-                            <ul>
-                                <li class="profile-user">
-                                    <img src={!! asset('public/client/img/avatar/'.$iteam_tintuc->User['avatar']) !!} alt="user-blog">
-                                </li>
-                            <li><span>{{ $iteam_tintuc->User['name'] }}</span></li>
-                                <li><i class="fa fa-calendar"></i></li>
-                                <li><i class="fa fa-comments"></i></li>
-                            </ul>
+                                <h4><a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}">{{ $iteam_tintuc->title }}</a></h4>
                         </div>
                         <!-- Detail -->
                         <div class="caption detail">
-                        <h4><a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}">{{ $iteam_tintuc->title }}</a></h4>
+                        
                             <!-- paragraph -->
                             <p>{{ $iteam_tintuc->tomtat }}</p>
                             <div class="clearfix"></div>

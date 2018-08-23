@@ -64,7 +64,6 @@
     <script src="{{ url('public/client/js/bloodhound.min.js') }}"></script>
     <script src="{{ url('public/client/js/typeahead.bundle.min.js') }}"></script>
     <script src="{{ url('public/client/js/typeahead.jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
@@ -72,7 +71,7 @@
     <script src="{{ url('public/client/js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ url('public/client/js/myapp.js') }}"></script>
     <script src="{{ url('public/client/js/main.js') }}"></script>
-    
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
 
 </head>

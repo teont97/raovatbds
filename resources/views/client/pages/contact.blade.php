@@ -2,6 +2,11 @@
 @section('title','Liên hệ')
 @section('content')
 <!-- Sub banner start -->
+<style>
+       .ck-editor__editable_inline{
+        min-height: 200px;
+    }
+</style>
 <div class="sub-banner overview-bgi">
     <div class="overlay">
         <div class="container">
@@ -19,7 +24,12 @@
 
 <!-- Contact body start -->
 <div class="contact-1 content-area-7">
-    <div class="container">
+    <div class="container">			
+		@if(Session::has('flash_messages'))
+            <div class="alert alert-{!! Session::get('flash_level') !!}">
+                {!! Session::get('flash_messages') !!}
+            </div>
+        @endif
         <div class="main-title">
             <h1>Liên Hệ Chúng Tôi</h1>
         </div>
@@ -27,7 +37,8 @@
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                 <!-- Contact form start -->
                 <div class="contact-form">
-                    <form id="contact_form" action="index.html" method="GET" enctype="multipart/form-data">
+                    <form id="contact_form" action="{{{route('PostContact')}}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group fullname">
@@ -51,7 +62,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
                                 <div class="form-group message">
-                                    <textarea class="input-text" name="message" placeholder="Tin Nhắn"></textarea>
+                                    <textarea class="input-text"  id="messagecontact" name="message" placeholder="Tin Nhắn"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
@@ -86,10 +97,10 @@
                         <div class="media-body">
                             <h4>Số Điện Thoại</h4>
                             <p>
-                                <a href="tel:0477-0477-8556-552">Fax: 0588424097</a>
+                                <a href="tel:0477-0477-8556-552">Fax: 0167 9700 665 </a>
                             </p>
                             <p>
-                                <a href="tel:+55-417-634-7071">Mobile: 0122424097</a>
+                                <a href="tel:+55-417-634-7071">Mobile: 0898 382 090</a>
                             </p>
                         </div>
                     </div>
@@ -100,10 +111,10 @@
                         <div class="media-body">
                             <h4>Địa Chỉ Email </h4>
                             <p>
-                                <a href="mailto:info@themevessel.com">info@raovatbds.com</a>
+                                <a href="mailto:info@themevessel.com">nghiduongbatdongsan@gmail.com</a>
                             </p>
                             <p>
-                                <a href="http://themevessel.com" target="_blank">raovatbds.com</a>
+                                <a href="http://themevessel.com" target="_blank">dautubds79.com</a>
                             </p>
                         </div>
                     </div>
@@ -122,4 +133,19 @@
     </div>
 </div>
 <!-- Google map end -->
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#messagecontact' ),{
+        ckfinder: {
+			// eslint-disable-next-line max-len
+            uploadUrl: '/public/admin/bower_components/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+		}
+    } )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+</script>
 @endsection

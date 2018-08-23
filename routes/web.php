@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('admin/login',['as'=>'admin.login','uses'=>'UserController@GetLogin']);
 Route::get('logout-admin',['as'=>'admin.logout','uses'=>'UserController@AdminLogout']);
 Route::post('admin-login',['as'=>'admin.postlogin','uses'=>'UserController@PostLogin']);
@@ -107,10 +108,12 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
         Route::post('create-blog',['as'=>'admin.blog.postBlog','uses'=>'BlogController@postBlog']);
         Route::post('delete-blog',['as'=>'admin.blog.delete.postBlog','uses'=>'BlogController@deleteBlog']);
         Route::post('edit-blog/{id}',['as'=>'admin.blog.edit.postBlog','uses'=>'BlogController@editBlog']);
-        
     });
     Route::group(['prefix'=>'ajax'],function(){
         Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);
+    });
+    Route::group(['prefix'=>'data'],function(){
+        Route::get('data-email',['as'=>'data.email.list','uses'=>'DataController@getDataEmail']);
     });
 });
 
@@ -118,10 +121,13 @@ Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
 Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getproduct']);
 Route::get('product-parent/{id_parent}',['as'=>'getproduct.parent','uses'=>'PageController@getproductparent']);
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
+Route::get('product-vip',['as'=>'getproductvip','uses'=>'PageController@getproductvip']);
+Route::get('product-by-day',['as'=>'getproductByday','uses'=>'PageController@getproductByday']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
 Route::get('blog/{id_type}',['as'=>'getblog','uses'=>'PageController@getblog']);
 Route::get('blog-detail/{id}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
 Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
+Route::post('post-contact',['as'=>'PostContact','uses'=>'PageController@PostContact']);
 Route::get('about',['as'=>'getabout','uses'=>'PageController@getabout']);
 Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
 Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin']);
@@ -141,7 +147,7 @@ Route::get('search-blog',array('as'=>'getseacrh.blog','uses'=>'PageController@ge
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
 Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));
 Route::get('search-by-select',array('as'=>'getseacrh.by.select','uses'=>'PageController@getsearchbyselect'));
-
+Route::post('save-data-email',['as'=>'post.email.save','uses'=>'PageController@SaveDataEmail']);
 Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
@@ -164,6 +170,7 @@ Route::group(['prefix'=>'ajax'],function(){
     Route::get('comment-blog/{id_blog}',['as'=>'ajax.comment.blog','uses'=>'AjaxController@getcmtblog']);
     Route::get('reply-blog/{id_comment}',['as'=>'ajax.reply.blog','uses'=>'AjaxController@getreplyblog']);
 });
+
 
 
 

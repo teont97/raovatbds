@@ -64,5 +64,15 @@
 }
 .greencolor{
     color: #95c41f;
-    fon
 }
+.post-meta h4 {
+    margin: 0 0 15px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 20px 10px;
+}
+.post-meta h4 a {
+    line-height: 20px;
+    color: #95c41f;
+}
+

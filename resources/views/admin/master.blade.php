@@ -398,6 +398,18 @@
           </ul>
         </li>
         <li class="treeview">
+            <a href="#">
+              <i class="fa fa-database"></i>
+              <span>Data </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{!! route('data.email.list') !!}"><i class="fa fa-circle-o"></i>Email Nhận Dự Án </a></li>
+            </ul>
+          </li>
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-user-plus"></i>
             <span>KHÁCH HÀNG</span>
