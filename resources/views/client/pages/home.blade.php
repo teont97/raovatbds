@@ -11,7 +11,7 @@
                 <div class="carousel-caption banner-slider-inner">
                     <div class="banner-content">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Nơi An Cư Tốt Cho Gia Đình Bạn  </span></h1>
-                        <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi bạn đáng sống cho gia đình bạn</p>
+                        <p data-animation="animated fadeInUp delay-1s">Nếu bạn đang tìm kiếm cho riêng mình một không gian riêng đầy tinh tế và thân thiện thì đây đúng là nơi đáng sống cho gia đình bạn</p>
                         <a href="{{ route('getblog',1) }}" class="btn button-md button-theme" data-animation="animated fadeInUp delay-15s">Bắt Đầu Ngay</a>
                         <a href="{{ route('getcontact') }}" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-15s">Tìm Hiểu Thêm</a>
                     </div>
@@ -109,7 +109,7 @@
                             <div class="property-img">
                                 <div class="property-tag button alt featured">Hot</div>
                                 <div class="property-tag button sale">{{ $iteam_post->hinhthuc['name'] }}</div>
-                                <div class="property-price">{{ $iteam_post->price }} VND </div>
+                                <div class="property-price"></div>
                                 <img src={!! asset('storage\app\public\upload\images/'.$data['images']) !!} alt="fp" class="img-responsive">
                                 <div class="property-overlay">
                                     <a href="{!! route('getproductdetail',$iteam_post->id) !!}" class="overlay-link">
@@ -119,11 +119,11 @@
                                         <i class="fa fa-video-camera"></i>
                                     </a>
                                     <div class="property-magnify-gallery">
-                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                        <a href="#" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
                                     </div>
                                 </div>
                             </div>
@@ -143,27 +143,11 @@
                                 <ul class="facilities-list clearfix">
                                     <li>
                                         <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>{{ $iteam_post->area }}</span>
+                                        <span> Diện tích {{ $iteam_post->area }} m2</span>
                                     </li>
                                     <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>{{ $iteam_post->room }} Beds</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-monitor"></i>
-                                        <span>TV </span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>{{ $iteam_post->bathroom }} Baths</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1 Garage</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-building"></i>
-                                        <span> 3 Balcony</span>
+                                        <i class="glyphicon glyphicon-usd"></i>
+                                    <span>Giá {{ $iteam_post->price }} {{ $iteam_post->Unit['name']}}</span>
                                     </li>
                                 </ul>
                                 <!-- Property footer -->
@@ -268,7 +252,7 @@
                                                 Nổi Bật
                                             </div>
                                             <div class="price-ratings">
-                                                <div class="price">$150,000</div>
+                                            <div class="price">{{$data_first['host']}}</div>
                                                 <div class="ratings">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -286,11 +270,11 @@
                                                     <i class="fa fa-video-camera"></i>
                                                 </a>
                                                 <div class="property-magnify-gallery">
-                                                    <a href="http://placehold.it/750x540" class="overlay-link">
+                                                    <a href="#" class="overlay-link">
                                                         <i class="fa fa-expand"></i>
                                                     </a>
-                                                    <a href="http://placehold.it/750x540" class="hidden"></a>
-                                                    <a href="http://placehold.it/750x540" class="hidden"></a>
+                                                    <a href="#" class="hidden"></a>
+                                                    <a href="#" class="hidden"></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -307,10 +291,7 @@
                                                 </a>
                                             </h3>
                                         </div>
-                                        <!-- Facilities List -->
-                                        <ul class="facilities-list clearfix">
-                                                {{$data_first['host']}}
-                                        </ul>
+
                                     </div>
                                     <!-- Property 2 end -->
                                 </div>
@@ -326,7 +307,7 @@
                                             Nổi Bật
                                         </div>
                                         <div class="price-ratings">
-                                            <div class="price">$150,000</div>
+                                            <div class="price">{{ $iteam_duan['host']}}</div>
                                             <div class="ratings">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -344,11 +325,11 @@
                                                 <i class="fa fa-video-camera"></i>
                                             </a>
                                             <div class="property-magnify-gallery">
-                                                <a href="http://placehold.it/750x540" class="overlay-link">
+                                                <a href="#" class="overlay-link">
                                                     <i class="fa fa-expand"></i>
                                                 </a>
-                                                <a href="http://placehold.it/750x540" class="hidden"></a>
-                                                <a href="http://placehold.it/750x540" class="hidden"></a>
+                                                <a href="#" class="hidden"></a>
+                                                <a href="#" class="hidden"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -365,10 +346,6 @@
                                             </a>
                                         </h3>
                                     </div>
-                                    <!-- Facilities List -->
-                                    <ul class="facilities-list clearfix">
-                                        {!! $iteam_duan->host !!}
-                                    </ul>
                                 </div>
                                 <!-- Property 2 end -->
                             </div>
@@ -467,14 +444,12 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 wow fadeInLeft delay-04s">
                     <div class="thumbnail blog-box-2 clearfix">
                         <div class="blog-photo">
-                            <img src="{!! asset('public/admin/dist/img/'.$iteam_tintuc->images) !!}" alt="blog-1" class="img-responsive">
+                            <img src="{!! asset('public/admin/dist/img/'.$iteam_tintuc->images) !!}" alt="blog-1" style="height:175px; width:100%">
                         </div>
-                        <div class="post-meta">
-                                <h4><a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}">{{ $iteam_tintuc->title }}</a></h4>
-                        </div>
+
                         <!-- Detail -->
                         <div class="caption detail">
-                        
+                            <h3><a href="{!! URL::route('getblog.detail',$iteam_tintuc['id']) !!}">{{ $iteam_tintuc->title }}</a></h3>
                             <!-- paragraph -->
                             <p>{{ $iteam_tintuc->tomtat }}</p>
                             <div class="clearfix"></div>
@@ -568,7 +543,7 @@
 <div class="clearfix"></div>
 
 <!-- Blog start -->
-
+@include('client.block.brands')
 <!-- Blog end -->
 
 <!-- Partners block start -->

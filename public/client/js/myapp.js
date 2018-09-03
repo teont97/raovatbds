@@ -7,20 +7,28 @@ $(document).ready(function(){
             $("#loaitin").html(data).selectpicker('refresh')
         });
     });
-});
-$(document).ready(function(){
-    $("#tinh").change(function(){
-        var tinh = $(this).val();
-        $.get("../ajax/huyen/"+tinh,function(data){
-            $("#huyen").html(data).selectpicker('refresh')
+    $("#hinhthuc").change(function(){
+        var hinhthuc = $(this).val();
+       // console.log(hinhthuc);
+       // return false;
+        $.get("../ajax/unit/"+hinhthuc,function(data){
+            $("#unit").html(data).selectpicker('refresh')
         });
     });
 });
 $(document).ready(function(){
-    $("#huyen").change(function(){
+    $("#submittinh").change(function(){
+        var tinh = $(this).val();
+        $.get("../ajax/huyen/"+tinh,function(data){
+            $("#submithuyen").html(data).selectpicker('refresh')
+        });
+    });
+});
+$(document).ready(function(){
+    $("#submithuyen").change(function(){
         var huyen = $(this).val();
         $.get("../ajax/phuong/"+huyen,function(data){
-            $("#phuong").html(data).selectpicker('refresh')
+            $("#submitphuong").html(data).selectpicker('refresh')
         });
     });
 });

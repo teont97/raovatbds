@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
       <h1>
-        Dashboard
-        <small>Control panel</small>
+        Bảng Thống Kê
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,61 +14,61 @@
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
+          <div class="info-box">
+              <span class="info-box-icon bg-aqua">
+              <i class="fa fa-users"> </i>
+              <span> Users</span>
+              </span>
+            <div class="info-box-content">
+              <span class="info-box-text">Tổng Số User </span>
+              <span class="info-box-number">{{ count(Auth::user()->all()) }} </span>
+            <a href="{{ route('admin.user.getlist')}}" class="info-box-link">Xem Chi Tiết  <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
+          <div class="info-box">
+            <span class="info-box-icon bg-green">
+            <i class="fa fa-external-link"> </i>
+            <span> Bài Post  </span>
+            </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Tổng Bài Viết </span>
+            <span class="info-box-number"> {{ count($data_post) }} </span>
+            <a href="{{ route('admin.newpost.getlist')}}" class="info-box-link">Xem Chi Tiết  <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+           <!-- small box -->
+          <div class="info-box">
+              <span class="info-box-icon bg-yellow">
+              <i class="fa fa-building-o"> </i>
+              <span>Dự Án</span>
+              </span>
+            <div class="info-box-content">
+              <span class="info-box-text">Tổng Số Dự Án </span>
+              <span class="info-box-number">{{ count($data_project) }}</span>
+              <a href="{{ route('admin.blog.listBlog')}}" class="info-box-link">Xem Chi Tiết  <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+           <!-- small box -->
+           <div class="info-box">
+              <span class="info-box-icon bg-red">
+              <i class="fa fa-envelope-o"> </i>
+              <span>Data Email</span>
+              </span>
+          <div class="info-box-content">
+              <span class="info-box-text">Email Dự Án </span>
+              <span class="info-box-number">{{ $data_email }} </span>
+              <a href="{{ route('data.email.list')}}" class="info-box-link">Xem Chi Tiết  <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -83,77 +82,218 @@
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+              <li class="pull-left header"><i class="fa fa-inbox"></i> Biểu Đồ Chính Chủ / Nhà Mô Giới </li>
             </ul>
-            <div class="tab-content no-padding">
+            <div class="tab-content no-padding" style="position: relative" >
               <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+              <canvas id="line-chart" ></canvas>
             </div>
           </div>
           <!-- /.nav-tabs-custom -->
-
-      
-
-      
-
-          <!-- quick email widget -->
-          
-
         </section>
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">
-
-          <!-- Map box -->
-       
-          <!-- /.box -->
-
-          <!-- solid sales graph -->
-          <div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-envelope"></i>
-
-              <h3 class="box-title">Quick Email</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
-                        title="Remove">
-                  <i class="fa fa-times"></i></button>
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="nav-tabs-custom">
+              <!-- Tabs within a box -->
+              <ul class="nav nav-tabs pull-right">
+                <li class="pull-left header"><i class="fa fa-inbox"></i> Dự Án Được Quan Tâm</li>
+              </ul>
+              <div class="tab-content no-padding">
+                <!-- Morris chart - Sales -->
+                <table id="ListProject" class="table table-bordered table-striped" style="width:100%;">
+                  <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th style="max-width:350px;">Tên Dự Án </th>
+                    <th>View </th>             
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <?php $stt=0; ?>
+                  @foreach($data_project as $iteam_project) 
+                  <?php $stt++ ?>
+                    <tr>
+                      <td>{!! $stt !!}</td>
+                      <td>{!! $iteam_project->title !!}</td>
+                      <td>{!! $iteam_project->view !!}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
               </div>
-              <!-- /. tools -->
             </div>
-            <div class="box-body">
-              <form action="#" method="post">
-                <div class="form-group">
-                  <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject">
-                </div>
-                <div>
-                  <textarea class="textarea" placeholder="Message"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                </div>
-              </form>
+            <!-- /.nav-tabs-custom -->
+        </section>
+        <!-- right col -->
+      </div>
+      <div class="row">
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-6 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="nav-tabs-custom">
+              <!-- Tabs within a box -->
+              <ul class="nav nav-tabs pull-right">
+                <li class="pull-left header"><i class="fa fa-inbox"></i> Tin Tức Được Đọc Nhiều </li>
+              </ul>
+              <div class="tab-content no-padding">
+                <!-- Morris chart - Sales -->
+                <table id="ListBlogNew" class="table table-bordered table-striped" style="width:100%;">
+                  <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th style="max-width:350px;">Tiêu Đề </th>
+                    <th>View </th>             
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <?php $stt=0; ?>
+                  @foreach($data_blog as $iteam_blog) 
+                  <?php $stt++ ?>
+                    <tr>
+                      <td>{!! $stt !!}</td>
+                      <td>{!! $iteam_blog->title !!}</td>
+                      <td>{!! $iteam_blog->view !!}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="box-footer clearfix">
-              <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
-                <i class="fa fa-arrow-circle-right"></i></button>
+            <!-- /.nav-tabs-custom -->
+        </section>
+        <!-- right col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-6 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="nav-tabs-custom">
+              <!-- Tabs within a box -->
+              <ul class="nav nav-tabs pull-right">
+                <li class="pull-left header"><i class="fa fa-inbox"></i> Bài BDS Mới Nhất</li>
+              </ul>
+              <div class="tab-content no-padding">
+                <!-- Morris chart - Sales -->
+                <table id="ListPost" class="table table-bordered table-striped" style="width:100%;">
+                  <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th style="width:200px;">Tiêu Đề </th>
+                    <th>Gói Up </th>
+                    <th>User</th>              
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <?php $stt=0; ?>
+                  @foreach($data_post as $iteam_post) 
+                  <?php $stt++ ?>
+                    <tr>
+                      <td>{!! $stt !!}</td>
+                      <td>{!! $iteam_post->title !!}</td>
+                      <td>{!! $iteam_post->loaiuptin['name'] !!}</td>
+                      <td>{!! $iteam_post->User['name'] !!}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <!-- /.box -->
-
-          <!-- Calendar -->
-     
-          <!-- /.box -->
-
+            <!-- /.nav-tabs-custom -->
         </section>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
       
 </section>
+<style>
+  #ListBlogNew_wrapper{
+    padding: 10px 10px;
+  }
+  #ListProject_wrapper{
+    padding: 10px 10px;
+  }
+  #ListPost_wrapper{
+    padding: 10px 10px;
+  }
+</style>
+<script>
+  $(function(){
+    $('#ListProject').DataTable({
+      "scrollY": "160px",
+      "scrollCollapse": true,
+      "paging": false
+    });
+  })
+  $(function(){
+    $('#ListBlogNew').DataTable({
+      "scrollY": "200px",
+      "scrollCollapse": true,
+      "paging": false
+    });
+  })
+  $(function(){
+    $('#ListPost').DataTable({
+      "scrollY": "200px",
+      "scrollCollapse": true,
+      "paging": false
+    });
+  })
+</script>
+<script>
+  window.onload = function () {
+        var Brokers = new Array();
+        var Customers = new Array();
+        $.get("../ajax/chart-line/", function(response){
+            response.forEach(function(data){
+              if(data.level==0){
+                Customers.push(data.total);
+              }
+              if(data.level==2){
+                Brokers.push(data.total);
+              }
+        });
+        //console.log(Customers);
+        //console.log(Brokers);
+        Chart.defaults.global.defaultFontColor = '#000000';
+        Chart.defaults.global.defaultFontFamily = 'Arial';
+        var lineChart = document.getElementById('line-chart');
+        var myChart = new Chart(lineChart, {
+            type: 'line',
+            data: {
+                labels: ["Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11","Tháng 12"],
+                datasets: [
+                    {
+                        label: 'Chính Chủ',
+                        data: Customers,
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                        borderColor: "#dd4b39",
+                        pointHoverBackgroundColor: "#dd4b39",
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Nhà Mô Giới',
+                        data: Brokers,
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                        pointHoverBackgroundColor: "#00a65a",
+                        borderColor: '#00a65a',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                          fontColor: "rgba(0,0,0,0.5)",
+                          fontStyle: "bold",
+                          beginAtZero: true,
+                          responsive:false,
+                        }
+                    }]
+                },
+            }
+        });
+      });
+    };
+</script>
 @endsection

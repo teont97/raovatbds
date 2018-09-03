@@ -75,4 +75,73 @@
     line-height: 20px;
     color: #95c41f;
 }
+.blog-box-2 .detail h3{
+    font-size: 17px;
+font-weight: 600;
+margin: 0 0 10px;
 
+}
+.blog-box-2 .detail h3 a{
+overflow: hidden;
+text-overflow: ellipsis;
+line-height: 25px;
+-webkit-line-clamp:2;
+height: 50px;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+}
+
+.title-1 h1{
+    font-size: 21px;
+    margin: 0 0 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.table-1 {
+    width: 80%;
+    margin: 0px auto;
+    
+}
+.table-2{
+    width: 70%;
+    margin: 0px auto;
+}
+.bank{
+    width: 80%;
+    margin: 0px auto;
+}
+.title-1{
+    margin-bottom: 25px;
+}
+tbody tr td{
+    text-align: center;
+}
+thead tr th {
+    border-right: 1px;
+}
+.table-1 table thead{
+    text-align: center;
+    color: #fff;
+    background-color: #95c41f;
+}
+.bank thead{
+    text-align: center;
+    color: #fff;
+    background-color: #95c41f;
+}
+thead tr th {
+    text-align: center;
+}
+.container-table{
+    width: 100%;
+    height: auto;
+}
+.container-table table{
+    width: 100%;
+}
+.red{
+    color:red;
+}
+.mt-60{
+    margin-top: 60px;
+}

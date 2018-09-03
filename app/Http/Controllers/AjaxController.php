@@ -12,8 +12,18 @@ use App\comment_blog;
 use Auth;
 use App\repliespost;
 use App\repliesblog;
+use Carbon\Carbon;
+use App\User;
+use App\Unit;
 class AjaxController extends Controller
 {
+    public function getChartLine(){
+        $line_chart = User::select(\DB::raw('MONTH(created_at) as month'),\DB::raw('level as level')  , \DB::raw('count(*) as total'))->whereBetween('created_at', array(date('2018-06-01'), date('2018-12-31')))
+        ->groupBy('month')
+        ->groupBy('level')
+        ->get();
+        return response()->json($line_chart);
+    }
     public function getloaitin($id_hinhthuc){
     
         $loaitin = loaitin::where('id_hinhthuc',$id_hinhthuc)->get();
@@ -26,6 +36,13 @@ class AjaxController extends Controller
         foreach($huyen as $iteam_huyen ){
             echo '<option value="' .$iteam_huyen->id.'">'.$iteam_huyen->name.'</option>';
          }
+    }
+    public function getUnit($id_hinhthuc){
+        $Unit = Unit::where('id_hinhthuc',$id_hinhthuc)->get();
+        //dd($Unit);
+        foreach($Unit as $iteam_unit ){
+           echo '<option value="' .$iteam_unit->id.'">'.$iteam_unit->name.'</option>';
+        }
     }
 
     public function getphuong($id_huyen){

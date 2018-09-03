@@ -22,6 +22,7 @@ use App\typeblog;
 use App\hinhthuc;
 use App\data_email;
 use Carbon\Carbon;
+use DateTime;
 class PageController extends Controller
 {
   
@@ -200,11 +201,14 @@ class PageController extends Controller
          $post->id_huyen=$request->slhuyen;
          $post->id_duong=$request->slphuong;
          $post->description=$request->message;
+         $post->id_unit=$request->slunit;
          //dd($request->message);
          $data=$request->message;
          $post->id_uptin=$request->sluptin;
          $post->id_user=Auth::user()->id;
          $post->status=0;
+         $post->date_start=date("Y-m-d", strtotime($request->dateStart));
+         $post->date_end=date("Y-m-d", strtotime($request->dateEnd));
          $post->save(); 
          $post_id=$post->id;
         if ($request->hasFile('file')) {
@@ -316,6 +320,8 @@ class PageController extends Controller
         ]);
         $save = new data_email();
         $save->email=$request->email;
+        $save->fullname=$request->fullname;
+        $save->phone=$request->phone;
         $save->id_type=1;
         $save->save();
     }

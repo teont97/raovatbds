@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Properties Detail</h1>
+                <h1>{{ $post_detail->loaitin->name }}</h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Properties Detail</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ</a></li>
+                <li class="active"> {{ $post_detail->title }}</li>
                 </ul>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <div class="pull-right">
                         <h3><span>{!! $post_detail['price'] !!}</span></h3>
                         <h5>
-                            Per Manth
+                            {{   $post_detail->Unit['name'] }}
                         </h5>
                     </div>
                 </div>
@@ -242,7 +242,6 @@
                                             <div class="main-title-2">
                                                 <h1><span>Video</span></h1>
                                             </div>
-                                            <iframe src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen=""></iframe>
                                         </div>
                                         <!-- Inside properties end -->
                                     </div>
@@ -270,7 +269,7 @@
                             <div class="contact-form">
                                 <!-- Main Title 2 -->
                                 <div class="main-title-2">
-                                    <h1><span>Bình Luận Trao Đổi </span> </h1>
+                                    <h1><span>Bình Luận</span> </h1>
                                 </div>
                                 <form id="contact_form" action="{{ route('post.comment.post') }}" method="POST" enctype="multipart/form-data" style="border-bottom:1px solid #ccc;">
                                     <input type="hidden" name="_token" value="{!! csrf_token() !!}">
@@ -321,7 +320,7 @@
     </div>
 </div>
 <!-- Properties details page end -->
-
+@include('client.block.brands')
 
 <script>
 

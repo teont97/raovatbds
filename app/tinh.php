@@ -10,4 +10,7 @@ class tinh extends Model
     public function huyen(){
     	return $this->hasMany('App\huyen','id_tinh','id');
     }
+    public function post(){
+    	return $this->hasMany('App\post','id_tinh','id');
+    }
 }

@@ -5,7 +5,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="list-inline">
                     <a href="tel:1-8X0-666-8X88"><i class="fa fa-phone"></i>0898 382 090</a>
-                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>nghiduongbatdongsan@gmail.com</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@dautubds79.com</a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">

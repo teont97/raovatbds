@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Faq</h1>
+                <h1>Hỏi Đáp </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Faq</li>
+                    <li><a href="{{ route('gethome')}}">Trang Chủ </a></li>
+                    <li class="active">Hỏi Đáp</li>
                 </ul>
             </div>
         </div>

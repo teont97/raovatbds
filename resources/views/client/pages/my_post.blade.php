@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>My Properties</h1>
+                <h1>Bài viết của tôi </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">My Properties</li>
+                    <li><a href="index.html">Trang chủ </a></li>
+                    <li class="active">Bài viết của tôi </li>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
                             <div class="title">
                                 <h4><a href="{!! route('getproductdetail',$iteam_mypost->id) !!}">{!! $iteam_mypost->title !!} </a></h4>
                                 <span><i class="fa fa-map-marker"></i> {!! $iteam_mypost->address !!} </span>
-                                <span class="table-property-price">{!! $iteam_mypost->price !!} / monthly</span>
+                                <span class="table-property-price">{!! $iteam_mypost->price !!} / {{ $iteam_mypost->Unit['name']}}</span>
                             </div>
                         </td>
                         <td class="expire-date hidden-xs">{!! $iteam_mypost->created_at !!}</td>
@@ -49,9 +49,9 @@
                         <td class="text-success"> Đã Duyệt </td>
                         @endif
                         <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Sửa</a>
+                        <a href="{{route('personal.edit.mypost',$iteam_mypost->id)}}"><i class="fa fa-pencil"></i> Sửa</a>
                             <a href="#"><i class="fa  fa-eye-slash"></i> Ẩn</a>
-                            <a href="#" class="delete"><i class="fa fa-remove"></i> Xóa</a>
+                        <a href="javascript:void(0)"  data-id="{{ $iteam_mypost->id }}" class="delete"><i class="fa fa-remove"></i> Xóa</a>
                         </td>
                     </tr>
                     @endforeach
@@ -104,4 +104,30 @@
     </div>
 </div>
 <!-- Counters end -->
+<script>
+    $(".delete").click(function(){
+        var r = confirm("Bạn có chắc chắn xóa không !");
+      var id_delete=  $(this).attr('data-id')
+      //  console.log(id_delete);
+      if(r==true){
+        $.ajax({
+                type: 'POST',
+                url: '../../personal/delete-mypost',
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: "id="+id_delete,
+                dataType: 'html',
+                success: function(data) {
+                        //$("#msg").html(data);
+                        alert('bạn đã xóa thành công ');
+                        location.reload();
+
+                }
+        });   
+      }
+    });
+
+
+</script>
 @endsection

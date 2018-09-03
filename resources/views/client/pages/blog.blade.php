@@ -4,11 +4,11 @@
 <!-- Banner start -->
 <div class="blog-banner">
     <div class="container">
-        <div class="breadcrumb-area">
-            <h1>Blog Columns 2 Columns</h1>
+        <div class="breadcrumb-area mt-60">
+        <h1>{{ $data_type['name']}}</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Blog Columns 2 Columns</li>
+                <li><a href="{{ route('gethome')}}">Trang chủ</a></li>
+                <li class="active">{{ $data_type['name']}}</li>
             </ul>
         </div>
     </div>
@@ -26,16 +26,6 @@
                             <div class="thumbnail blog-box-2 clearfix">
                                 <div class="blog-photo">
                                     <img src="{!! asset('public/admin/dist/img/'.$iteam_blog->images) !!}" alt="blog-1" class="img-responsive">
-                                </div>
-                                <div class="post-meta">
-                                    <ul>
-                                        <li class="profile-user">
-                                            <img src="{!! asset('public/client/img/avatar/'.$iteam_blog->User['avatar']) !!}" alt="user-blog">
-                                        </li>
-                                        <li><span>{!! $iteam_blog->User['name'] !!}</span></li>
-                                        <li><i class="fa fa-calendar"></i></li>
-                                        <li><i class="fa fa-comments"></i></li>
-                                    </ul>
                                 </div>
                                 <!-- Detail -->
                                 <div class="caption detail">
@@ -65,6 +55,6 @@
     </div>
 </div>
 <!-- Blog body end -->
-
+@include('client.block.brands')
 
 @endsection

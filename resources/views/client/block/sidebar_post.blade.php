@@ -91,13 +91,13 @@
 
             <div class="range-slider">
                 <label>Diện Tích</label>
-                <div data-min="0" data-max="10000" data-unit="Sq ft" data-min-name="min_area" data-max-name="max_area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                <div data-min="0" data-max="1000" data-unit="m2" data-min-name="min_area" data-max-name="max_area" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                 <div class="clearfix"></div>
             </div>
 
             <div class="range-slider">
-                <label>Giá Tiền </label>
-                <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                <label>Giá Tiền/ M2 </label>
+                <div data-min="0" data-max="500" data-unit="Triệu" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                 <div class="clearfix"></div>
             </div>
 
@@ -214,7 +214,7 @@
         <div class="helping-center">
             <div class="icon"><i class="fa fa-phone"></i></div>
             <h4>Số Điện Thoại </h4>
-            <p><a href="tel:+55-417-634-7071">01222424097</a> </p>
+            <p><a href="tel:+55-417-634-7071">0898 382 090 </a> </p>
         </div>
     </div>
 

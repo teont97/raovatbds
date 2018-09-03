@@ -76,7 +76,7 @@
                         <input type="text" class="form-control" value="{{ $data_edit['address']}}"  name="txtaddress" >
                         </div>
                         <div class="form-group">
-                            <label>Chủ Đầu Tư</label>
+                            <label>Giá tiền</label>
                             <input type="text" class="form-control" value="{{ $data_edit['host']}}"  name="txthost" >
                         </div>
                         <div class="form-group">

@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Services</h1>
+                <h1>Dịch Vụ </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Services</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+                    <li class="active">Dịch vụ </li>
                 </ul>
             </div>
         </div>
@@ -282,6 +282,6 @@
 <div class="clearfix"></div>
 
 <!-- Partners block start -->
-
+@include('client.block.brands')
 <!-- Partners block end -->
 @endsection

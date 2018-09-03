@@ -1302,7 +1302,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .property-content .facilities-list li {
-    width: 33%;
+    width: 50%;
     float: left;
     font-size: 13px;
     line-height: 29px;
@@ -3930,7 +3930,7 @@ a:hover {
 }
 
 .blog-box-2 .detail {
-    padding: 25px 20px 20px;
+    padding: 20px 10px 20px;
 }
 
 .blog-box-2 .detail h4 {
@@ -4285,12 +4285,12 @@ a:hover {
     font-weight: 700;
     font-size: 25px;
     text-transform: uppercase;
-    color: #37404d;
+    color: #fff;
 }
 
 .blog-banner .breadcrumbs .active {
     margin-left: 15px;
-    color: #37404d;
+    color: #fff;
 }
 
 .blog-banner .breadcrumbs li {
@@ -4301,7 +4301,7 @@ a:hover {
 }
 
 .blog-banner .breadcrumbs li a {
-    color: #37404d;
+    color: #fff;
 }
 
 .blog-banner h2 {
@@ -4393,7 +4393,7 @@ a:hover {
     float: right;
     font-size: 12px;
     font-weight: 600;
-    margin: 0 0 0 15px;
+    margin: -4px 0 0 15px;
 }
 
 .comment-meta-reply a {
@@ -5544,8 +5544,8 @@ table.manage-table td:first-child {
 }
 
 table.manage-table .title-container img {
-    width: 20% !important;
-    flex: 1.1;
+    width: 23% !important;
+    /** flex: 1.1; **/
     margin-right: 26px;
     height: 85px;
 }
@@ -5813,6 +5813,8 @@ table.manage-table .title-container .title span {
     display: block;
     filter: blur(0px);
     transition: all 0.4s;
+    width: 100%;
+    height: auto;
 }
 
 .dropzone-design .dz-preview.dz-success .dz-success-mark {
@@ -6363,8 +6365,10 @@ table.manage-table .title-container .title span {
     }
 }
 
-@media (max-width: 995px) {
-
+@media (max-width: 1199px) {
+    .open {
+        background:#fff;
+    }
     .logo1 {
             margin-right: 30px;
         /*  padding: 22px 0 21px; */
@@ -6652,7 +6656,7 @@ table.manage-table .title-container .title span {
    
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .navbar-nav .parents{
         display:block;
     }
@@ -7380,4 +7384,18 @@ table.manage-table .title-container .title span {
 .images-random{
     width: 90px;
     height: 63px;
+}
+@media (max-width: 450px) {
+    .table-1{
+        width: 100% !important;
+    }
+}
+@media (max-width: 320px) {
+    .table-1 .title-1 table{
+        max-width: 290px;
+    }
+    .ip5-none{
+        display: none;
+    }
+
 }

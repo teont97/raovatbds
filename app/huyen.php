@@ -13,4 +13,7 @@ class huyen extends Model
     public function xa(){
     	return $this->hasMany('App\xa','id_huyen','id');
     }
+    public function post(){
+    	return $this->hasMany('App\post','id_huyen','id');
+    }
 }

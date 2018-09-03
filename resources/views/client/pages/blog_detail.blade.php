@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Properties Detail</h1>
+            <h1>{{$data_tintuc_detail->typeblog['name']}}</h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Properties Detail</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ</a></li>
+                    <li class="active">{{  $data_tintuc_detail['title'] }}</li>
                 </ul>
             </div>
         </div>
@@ -94,7 +94,7 @@
                      <div class="contact-1 sidebar-widget">
 
                             <div class="main-title-2">
-                                <h1> <span>Bình Luận</span> Trao Đổi</h1>
+                                <h1> <span>Bình Luận</span></h1>
                             </div>
                             <div class="contact-form">
                             <form id="contact_form_blog" action="{{ route('post.comment.blog') }}" method="POST" enctype="multipart/form-data">
@@ -142,7 +142,7 @@
     </div>
 </div>
 <!-- Blog body end -->
-
+@include('client.block.brands')
 
 <script>
     $.ajaxSetup({  

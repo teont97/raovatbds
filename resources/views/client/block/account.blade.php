@@ -60,7 +60,7 @@
                             </li>
                             <li>
                                 <a href="{!!  route('personal.myfavorited') !!}" class="active">
-                                    <i class="fa fa-heart"></i>Bài Viết Yêu Thích
+                                    <i class="fa fa-heart"></i>Bảng Báo Giá Dịch Vụ
                                 </a>
                             </li>
                             <li>

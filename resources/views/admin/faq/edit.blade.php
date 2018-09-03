@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Tiêu Đề </label>
-                        <input type="text" class="form-control" value="{{ $data_edit->title}}" name="txttieude" >
+                        <input type="text" class="form-control" value="{{ $data_edit->name_school}}" name="txttieude" >
                         </div>
                     </div>
                     <div class="col-md-12">

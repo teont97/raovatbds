@@ -583,9 +583,6 @@ ul li span{
         color: #fff! important;
     }
 
-    .main-header .navbar-default .nav > li > a:hover {
-        background: #95c41f;
-    }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
         background-color: #95c41f; !important;

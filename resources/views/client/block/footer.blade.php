@@ -38,15 +38,6 @@
                         </div>
                         <ul class="links">
                             <li>
-                                <a href="{{ route('gethome') }}">Trang Chủ </a>
-                            </li>
-                            <li>
-                            <a href="{{ route('getblog',1)}}">Dự Án </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('getblog',7)}}">Tin Tức </a>
-                            </li>
-                            <li>
                                 <a href="{{ route('getabout') }}">Giới Thiệu</a>
                             </li>
                             <li>
@@ -60,7 +51,15 @@
                             <li>
                                 <a href="{{ route('getfaq') }}">Hỏi Đáp </a>
                             </li>
-                
+                            <li>
+                                <a href="{{ route('personal.profile') }}">Tài Khoản </a>
+                            </li>
+                            <li>
+                            <a href="{{ route('getregister')}}">Đăng Ký  </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('getsubmitpost')}}">Đăng Bài</a>
+                            </li>
                    
                         </ul>
                     </div>
@@ -97,11 +96,14 @@
                             <h1>NHẬN THÔNG TIN DỰ ÁN MỚI  </h1>
                         </div>
                         <div class="newsletter clearfix">
-                            <p>
-                                Vui lòng để lại địa chỉ email , chúng tôi sẽ gửi tới quý khách những thông tin quan trọng của các dự án đang được giới đầu tư quan tâm .
-                            </p>
                                 <div class="form-group">
-                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text"  name="email" placeholder="Nhập email của bạn" required="">
+                                    <input class="nsu-field btn-block" id="nsu-name-0" type="text"  name="fullname" placeholder="Họ tên" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="nsu-field btn-block" id="nsu-phone-0" type="text"  name="phone" placeholder="Số điện thoại" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text"  name="email" placeholder="Email " required="">
                                 </div>
                                 <div class="form-group mb-0">
                                     <button id="submit_data" class="button-sm button-theme btn-block">
@@ -159,15 +161,17 @@
 <script>
     $("#submit_data").click(function(){
         var email = $('#nsu-email-0').val();
+        var fullname = $('#nsu-name-0').val();
+        var phone = $('#nsu-phone-0').val();
         $.ajax({
                 url: "/save-data-email",
                 type: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                data: {email:email },
+                data: {email:email,fullname:fullname,phone:phone },
                 success:function(data){
-                    alert('Email đã được lưu lại , bạn sẽ sớm nhận được nhưng thông tin dự án mới nhất ');
+                    alert('Thông tin bạn của ban đã được lưu lại , bạn sẽ sớm nhận được nhưng thông tin dự án mới nhất ');
                 },
                 error: function (xhr, ajaxOptions, thrownError,message) {
                     alert('Email bạn nhập không đúng định dạng , vui lòng kiểm tra lại !!!');

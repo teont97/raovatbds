@@ -19,3 +19,25 @@
 .modal-header .close{
     margin-top: -25px;
 }
+.info-box .info-box-icon i {
+    display: block;
+    position: relative;
+    top: 17px;
+    font-size: 31px;
+}
+.info-box .info-box-icon span{
+    font-size: 15px;
+    position: relative;
+    top: -22px;
+}
+.info-box-text{
+    text-transform: none;
+}
+.info-box-content{
+    padding: 12px 10px !important;
+}
+.info-box-link {
+    color:#00a65a  !important;
+}
+
+

@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Properties Grid</h1>
+                <h1>Bất Động Sản News</h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Properties Grid</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+                    <li class="active">Danh sách tin bất động sản mới nhất trong vòng 7 ngày</li>
                 </ul>
             </div>
         </div>
@@ -72,11 +72,11 @@
                                         <i class="fa fa-video-camera"></i>
                                     </a>
                                     <div class="property-magnify-gallery">
-                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                        <a href="#" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
                                     </div>
                                 </div>
                             </div>
@@ -96,27 +96,11 @@
                                 <ul class="facilities-list clearfix">
                                     <li>
                                         <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>{!! $iteam_post->area !!}</span>
+                                        <span> Diện tích {{ $iteam_post->area }} m2</span>
                                     </li>
                                     <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>{!! $iteam_post->room !!} Beds</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-monitor"></i>
-                                        <span>TV </span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>{!! $iteam_post->bathroom !!} Baths</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1 Garage</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-building"></i>
-                                        <span> 3 Balcony</span>
+                                        <i class="glyphicon glyphicon-usd"></i>
+                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_mypost->Unit['name']}}</span>
                                     </li>
                                 </ul>
                                 <!-- Property footer -->
@@ -124,8 +108,9 @@
                                     <span class="left">
                                         <a href="#"><i class="fa fa-user"></i>{!! $iteam_post->User['name']; !!}</a>
                                     </span>
+                                    <?php $datalh=$iteam_post->lienhe->shift(); ?>
                                     <span class="right">
-                                        <i class="fa fa-calendar"></i>{!! $iteam_post->created_at !!}
+                                        <i class="fa fa-phone" ></i>{!! $datalh['sodienthoai']  !!}
                                     </span>
                                 </div>
                             </div>
@@ -148,5 +133,5 @@
 </div>
 <!-- properties section end -->
 
-
+@include('client.block.brands')
 @endsection

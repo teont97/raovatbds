@@ -241,14 +241,20 @@ $(function () {
                 formData.append("txtphongngu",jQuery("#txtphongngu") .val());
                 formData.append("txtphongtam" ,jQuery("#phongtam").val());
                 formData.append("txtdiachi" ,jQuery("#diachi").val());
-                formData.append("sltinh" ,jQuery("#tinh").val());
-                formData.append("slhuyen" ,jQuery("#huyen").val());
-                formData.append("slphuong" ,jQuery("#phuong").val());
+                formData.append("sltinh" ,jQuery("#submittinh").val());
+                formData.append("slhuyen" ,jQuery("#submithuyen").val());
+                formData.append("slphuong" ,jQuery("#submitphuong").val());
+                formData.append("slunit" ,jQuery("#unit").val());
+               // console.log(jQuery("#unit").val());
                 formData.append("message" ,theEditor.getData());
                 formData.append("txtname" ,jQuery("#txtname").val());
                 formData.append("txtemail" ,jQuery("#txtemail").val());
                 formData.append("txtphone" ,jQuery("#txtphone").val());
                 formData.append("sluptin" ,jQuery("#sluptin").val());
+                formData.append("dateEnd" ,jQuery("#dateEnd").val());
+                formData.append("dateStart" ,jQuery("#dateStart").val());
+                console.log(jQuery("#dateEnd").val());
+                console.log(jQuery("#dateStart").val());
             });
             this.on("successmultiple", function(files, response) {
                 //myDropzone.options.autoProcessQueue = true; 
@@ -264,6 +270,8 @@ $(function () {
                 });
              }
          });
+
+       
     
          $( function() {
             $( ".datepicker" ).datepicker({
@@ -300,7 +308,7 @@ $(function () {
         $('#propertyModal').modal('show');
     });
 
-
+ 
     resizeModalsContent();
     function resizeModalsContent() {
         var winWidth = $(window).width();

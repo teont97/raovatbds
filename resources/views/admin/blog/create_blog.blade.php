@@ -70,7 +70,7 @@
                             <input type="text" class="form-control"  name="txtaddress" >
                         </div>
                         <div class="form-group">
-                            <label>Chủ Đầu Tư</label>
+                            <label>Giá Tiền </label>
                             <input type="text" class="form-control"  name="txthost" >
                         </div>
                         <div class="form-group">

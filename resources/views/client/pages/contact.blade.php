@@ -11,10 +11,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Contact Us</h1>
+                <h1>Liên Hệ </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Contact Us</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+                    <li class="active">Liên Hệ </li>
                 </ul>
             </div>
         </div>

@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>My Profile</h1>
+                <h1>Thông tin cá nhân </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">My Profile</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+                    <li class="active">Thông tin cá nhân</li>
                 </ul>
             </div>
         </div>
@@ -63,6 +63,6 @@
     </div>
 </div>
 <!-- My profile end -->
-
+@include('client.block.brands')
 
 @endsection

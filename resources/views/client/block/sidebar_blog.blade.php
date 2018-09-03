@@ -19,7 +19,7 @@
             </div>
             <ul class="list-unstyled list-cat">
                 @foreach($typeblog_random as $iteam_typeblog)
-                    <li><a href="#">{{$iteam_typeblog->name }}</a> <span> {{ count($iteam_typeblog->blog) }}  </span></li>
+            <li><a href="{{ route('getblog',$iteam_typeblog->id)}}">{{$iteam_typeblog->name }}</a> <span> {{ count($iteam_typeblog->blog) }}  </span></li>
                 @endforeach
             </ul>
         </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="media-body">
                         <h3 class="media-heading">
-                            <a href="properties-details.html">{{ $iteam_blog->title }}</a>
+                        <a href="{{ route('getblog.detail',$iteam_blog->id)}}">{{ $iteam_blog->title }}</a>
                         </h3>
                         <p>{{ $iteam_blog->created_at }}</p>
                     </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">
-                                <a href="properties-details.html">{{ $iteam_duan->title }}</a>
+                                <a href="{{ route('getblog.detail',$iteam_duan->id)}}">{{ $iteam_duan->title }}</a>
                             </h3>
                             <p>{{ $iteam_duan->created_at }}</p>
                         </div>

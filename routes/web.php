@@ -111,6 +111,7 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     });
     Route::group(['prefix'=>'ajax'],function(){
         Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);
+        
     });
     Route::group(['prefix'=>'data'],function(){
         Route::get('data-email',['as'=>'data.email.list','uses'=>'DataController@getDataEmail']);
@@ -160,15 +161,22 @@ Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
     Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
     Route::get('change-password',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
     Route::post('post-change-password',['as'=>'personal.post.changepassword','uses'=>'PersonalController@changePostPassword']);
+    Route::get('edit-my-post/{id}',['as'=>'personal.edit.mypost','uses'=>'PersonalController@GetEditMyPost']);
+    Route::post('post-edit-my-post/{id}',['as'=>'personal.edit.post.mypost','uses'=>'PersonalController@PostEditMyPost']);
+    Route::get('get-images/{id}',['as'=>'personal.post.getimages','uses'=>'PersonalController@GetImages']);
+    Route::post('delete-images-dropzone',['as'=>'personal.post.delete.images','uses'=>'PersonalController@PostDeleteImages']);
+    Route::post('delete-mypost',['as'=>'personal.post.delete.mypost','uses'=>'PersonalController@PostDeleteMypost']);
 });
 Route::group(['prefix'=>'ajax'],function(){
     Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);
+    Route::get('unit/{id_hinhthuc}',['as'=>'ajax.unit','uses'=>'AjaxController@getUnit']);
     Route::get('huyen/{id_tinh}',['as'=>'ajax.huyen','uses'=>'AjaxController@gethuyen']);
     Route::get('phuong/{id_huyen}',['as'=>'ajax.phuong','uses'=>'AjaxController@getphuong']);
     Route::get('comment-post/{id_post}',['as'=>'ajax.comment.post','uses'=>'AjaxController@getcmtpost']);
     Route::get('reply-post/{id_comment}',['as'=>'ajax.reply.post','uses'=>'AjaxController@getreplypost']);
     Route::get('comment-blog/{id_blog}',['as'=>'ajax.comment.blog','uses'=>'AjaxController@getcmtblog']);
     Route::get('reply-blog/{id_comment}',['as'=>'ajax.reply.blog','uses'=>'AjaxController@getreplyblog']);
+    Route::get('chart-line',['as'=>'ajax.chart.line','uses'=>'AjaxController@getChartLine']);
 });
 
 

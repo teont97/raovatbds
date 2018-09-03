@@ -10,4 +10,7 @@ class phuong extends Model
     public function huyen(){
     	return $this->belongsTo('App\huyen','id_huyen','id');
     }
+      public function post(){
+    	return $this->hasMany('App\post','id_duong','id');
+    }
 }

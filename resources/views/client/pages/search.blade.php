@@ -6,10 +6,10 @@
     <div class="overlay">
         <div class="container">
             <div class="breadcrumb-area">
-                <h1>Properties Grid</h1>
+                <h1>Tìm kiếm </h1>
                 <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Properties Grid</li>
+                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+                <li class="active">{{ $data_search }}</li>
                 </ul>
             </div>
         </div>
@@ -80,27 +80,11 @@
                                 <ul class="facilities-list clearfix">
                                     <li>
                                         <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                        <span>{!! $iteam_post->area !!}</span>
+                                        <span> Diện tích {{ $iteam_post->area }} m2</span>
                                     </li>
                                     <li>
-                                        <i class="flaticon-bed"></i>
-                                        <span>{!! $iteam_post->room !!} Beds</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-monitor"></i>
-                                        <span>TV </span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-holidays"></i>
-                                        <span>{!! $iteam_post->bathroom !!} Baths</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-vehicle"></i>
-                                        <span>1 Garage</span>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-building"></i>
-                                        <span> 3 Balcony</span>
+                                        <i class="glyphicon glyphicon-usd"></i>
+                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_mypost->Unit['name']}}</span>
                                     </li>
                                 </ul>
                                 <!-- Property footer -->
@@ -108,8 +92,9 @@
                                     <span class="left">
                                         <a href="#"><i class="fa fa-user"></i>{!! $iteam_post->User['name']; !!}</a>
                                     </span>
+                                    <?php $datalh=$iteam_post->lienhe->shift(); ?>
                                     <span class="right">
-                                        <i class="fa fa-calendar"></i>{!! $iteam_post->created_at !!}
+                                        <i class="fa fa-phone" ></i>{!! $datalh['sodienthoai']  !!}
                                     </span>
                                 </div>
                             </div>
@@ -143,6 +128,6 @@
     </div>
 </div>
 <!-- properties section end -->
-
+@include('client.block.brands')
 
 @endsection
