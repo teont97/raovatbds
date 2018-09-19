@@ -548,6 +548,8 @@
 
 <!-- Partners block start -->
 
+@endsection
+@section('javascript')
 <!-- Partners block end -->
 <script>
     var engine = new Bloodhound({
@@ -582,4 +584,4 @@ $(".search").typeahead({
     }
 });
 </script>
-@endsection
+@stop

@@ -1,5 +1,6 @@
 @extends('client.master')
 @section('title',$data_type['name'])
+@section('description',$data_type['name'])
 @section('content')
 <!-- Banner start -->
 <div class="blog-banner">

@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vn">
 <head>
     <title> @yield('title')  - Dautubds79.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:locale"        content="vi_VN" >
+    <meta property="og:url"           content="{{ url()->full() }}" >
+    <meta property="og:type"          content="website" >
+    <meta property="og:title"         content=" @yield('title') - Dautubds79.com" >
+    <meta property="og:description"   content=" @yield('description')" >
+    <meta property="og:image"         content="{{ asset('public/client/img/03.jpg')}}" />
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- External CSS libraries -->
@@ -36,13 +42,31 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{ url('public/client/js/ie-emulation-modes-warning.js') }}"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <script type="text/javascript" src="js/respond.min.js"></script>
     <![endif]-->
+
+
+
+
+</head>
+<body>
+
+    <div class="page_loader"></div>
+    <!-- header start -->
+
+    @include('client.block.header')
+
+    <!-- header end -->
+    @yield('content')
+    <!-- Footer start -->
+
+    @include('client.block.footer')
+
     <script src="{{ url('public/client/js/jquery-2.2.0.min.js') }}"></script>
     <script src="{{ url('public/client/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('public/client/js/bootstrap-submenu.js') }}"></script>
@@ -72,130 +96,34 @@
     <script src="{{ url('public/client/js/myapp.js') }}"></script>
     <script src="{{ url('public/client/js/main.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    
+    <script src="{{ url('public/client/js/ie-emulation-modes-warning.js') }}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125823495-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-125823495-1');
+        </script>
+    
+    
+    <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5ba10858c666d426648adf50/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+    @yield('javascript')
 
-
-</head>
-<body>
-
-<div class="page_loader"></div>
-<!-- header start -->
-
-@include('client.block.header')
-
-<!-- header end -->
-@yield('content')
-<!-- Footer start -->
-
-@include('client.block.footer')
-<!-- Car Video Modal -->
-<div class="modal property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="carModalLabel">
-                    Find Your Dream House
-                </h5>
-                <p>
-                    123 Kathal St. Tampa City,
-                </p>
-                <span class="ratings">
-                    <i class="fa fa-star s1 active" data-score="1"></i>
-                    <i class="fa fa-star s2 active" data-score="2"></i>
-                    <i class="fa fa-star s3 active" data-score="3"></i>
-                    <i class="fa fa-star s4 active" data-score="4"></i>
-                    <i class="fa fa-star s5 active" data-score="5"></i>
-                </span>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row modal-raw">
-                    <div class="col-lg-5 modal-left">
-                        <div class="modal-left-content">
-                            <div class="bs-example" data-example-id="carousel-with-captions">
-                                <div class="carousel slide" id="properties-carousel" data-ride="carousel">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="item">
-                                            <img src="http://placehold.it/450x300 " alt="best-properties">
-                                        </div>
-                                        <div class="item">
-                                            <img src="http://placehold.it/450x300 " alt="best-properties">
-                                        </div>
-                                        <div class="item active">
-                                            <iframe class="modalIframe" src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-
-                                    <a class="control control-prev" href="#properties-carousel" role="button" data-slide="prev">
-                                        <i class="fa fa-angle-left"></i>
-                                    </a>
-                                    <a class="control control-next" href="#properties-carousel" role="button" data-slide="next">
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="description">
-                                <h3>Description</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.But also the leap into electronic typesetting, remaining,</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 modal-right">
-                        <div class="modal-right-content bg-white">
-                            <strong class="price">
-                                $178,000
-                            </strong>
-                            <section>
-                                <h3>Features</h3>
-                                <div class="features">
-                                    <ul class="bullets">
-                                        <li><i class="flaticon-air-conditioner"></i>Air conditioning</li>
-                                        <li><i class="flaticon-wifi"></i>Wifi</li>
-                                        <li><i class="flaticon-transport"></i>Parking</li>
-                                        <li><i class="flaticon-people-2"></i>Pool</li>
-                                        <li><i class="flaticon-weightlifting"></i>Gym</li>
-                                        <li><i class="flaticon-building"></i>Alarm</li>
-                                        <li><i class="flaticon-old-telephone-ringing"></i>Balcony</li>
-                                        <li><i class="flaticon-monitor"></i>TV</li>
-                                    </ul>
-                                </div>
-                            </section>
-                            <section>
-                                <h3>Overview</h3>
-                                <dl>
-                                    <dt>Model</dt>
-                                    <dd>Maxima</dd>
-                                    <dt>Condition</dt>
-                                    <dd>Brand New</dd>
-                                    <dt>Year</dt>
-                                    <dd>2018</dd>
-                                    <dt>Price</dt>
-                                    <dd>$178,000</dd>
-                                </dl>
-                            </section>
-                            <section>
-                                <h3>Last Review</h3>
-                                <div class="ratings" data-rating="5">
-                                    <span>
-                                        <i class="fa fa-star s1 active" data-score="1"></i>
-                                        <i class="fa fa-star s2 active" data-score="2"></i>
-                                        <i class="fa fa-star s3 active" data-score="3"></i>
-                                        <i class="fa fa-star s4 active" data-score="4"></i>
-                                        <i class="fa fa-star s5 active" data-score="5"></i>
-                                    </span>
-                                </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                            </section>
-                            <a href="properties-details.html" class="btn button-sm button-theme">Show Detail</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </body>

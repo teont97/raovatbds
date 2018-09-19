@@ -260,6 +260,9 @@
     </div>
 </div>
 @include('client.block.brands')
+
+@endsection
+@section('javascript')
 <script>
 
     var theEditor;

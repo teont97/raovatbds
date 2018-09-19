@@ -101,7 +101,7 @@
                                     </li>
                                     <li>
                                         <i class="glyphicon glyphicon-usd"></i>
-                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_mypost->Unit['name']}}</span>
+                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_post->Unit['name']}}</span>
                                     </li>
                                 </ul>
                                 <!-- Property footer -->

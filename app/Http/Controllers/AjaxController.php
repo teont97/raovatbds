@@ -105,20 +105,20 @@ class AjaxController extends Controller
             echo '<div class="comment">
             <div class="comment-author">
                 <a href="#">
-                    <img src="http://placehold.it/60x60" alt="avatar-5">
+                    <img src="/public/client/img/avatar/'.$iteam_reply->User['avatar'].'" alt="avatar-5" >
                 </a>
             </div>
 
             <div class="comment-content">
                 <div class="comment-meta">
                     <div class="comment-meta-author">
-                        Jane Doe
+                        '. $iteam_reply->User['name'] .'
                     </div>
 
               
 
                     <div class="comment-meta-date">
-                        <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                        <span class="hidden-xs">'. $iteam_reply->created_at .'</span>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -149,7 +149,7 @@ class AjaxController extends Controller
              echo '<div class="comment">
              <div class="comment-author">
                  <a href="#">
-                     <img src="http://placehold.it/60x60" alt="avatar-5">
+                    <img src="/public/client/img/avatar/'.Auth::user()->avatar.'" alt="avatar-5" >
                  </a>
              </div>
  
@@ -162,7 +162,7 @@ class AjaxController extends Controller
                
  
                      <div class="comment-meta-date">
-                         <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                         <span class="hidden-xs">'. $iteam_reply->created_at .'</span>
                      </div>
                  </div>
                  <div class="clearfix"></div>

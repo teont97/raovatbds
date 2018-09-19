@@ -145,3 +145,13 @@ thead tr th {
 .mt-60{
     margin-top: 60px;
 }
+.button-theme-footer{
+    background: #95c41f;
+    color: #fff;
+}
+.button-theme-footer:hover{
+    background: #84ad1d;
+    border: 2px solid #84ad1d;
+    color: #fff !important;
+    outline: none;
+}

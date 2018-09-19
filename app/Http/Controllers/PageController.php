@@ -97,10 +97,11 @@ class PageController extends Controller
         $loaitin_random=loaitin::orderByRaw("RAND()")->take(6)->get();
         //dd($post_random);
         //dd($post_random);
+        $data_cmtpost = comment_post::where('id_post',$id_product)->orderBy('id','DESC')->get();
         {
             $user=Auth::user();
         }
-        return view('client.pages.product_detail',compact('post_detail','user'));
+        return view('client.pages.product_detail',compact('post_detail','user','data_cmtpost'));
     }
     public function getcustomer(){
         return view('client.pages.customer');
@@ -116,7 +117,8 @@ class PageController extends Controller
         {
             $user=Auth::user();
         }
-        return view('client.pages.blog_detail',compact('data_tintuc_detail','user'));
+        $data_cmtblog = comment_blog::where('id_blog',$id_blog)->orderBy('id','DESC')->get();
+        return view('client.pages.blog_detail',compact('data_tintuc_detail','user','data_cmtblog'));
     }
     public function getcontact(){
         return view('client.pages.contact');

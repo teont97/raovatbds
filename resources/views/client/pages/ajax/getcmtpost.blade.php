@@ -6,20 +6,20 @@
             <div class="comment">
                 <div class="comment-author">
                     <a href="#">
-                        <img src="http://placehold.it/60x60" alt="avatar-5">
+                        <img src="{!! asset('public\client\img\avatar/'.Auth::user()->avatar) !!}" alt="avatar-5">
                     </a>
                 </div>
                 <div class="comment-content">
                     <div class="comment-meta">
                         <div class="comment-meta-author">
-                            Jane Doe
+                            {{ Auth::user()->name }}
                         </div>
                         
                         <div class="comment-meta-reply">
                             <a href="javascript:void(0)"  cid="{{ $iteam_cmt->id }}" token="{{ csrf_token() }}" class="reply">Reply</a>
                         </div>
                         <div class="comment-meta-date">
-                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                        <span class="hidden-xs">{{ $iteam_cmt->created_at }}</span>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -43,7 +43,7 @@
                             <div class="comment">
                                 <div class="comment-author">
                                     <a href="#">
-                                        <img src="http://placehold.it/60x60" alt="avatar-5">
+                                        <img src="{!! asset('public\client\img\avatar/'.Auth::user()->avatar) !!}" alt="avatar-5">
                                     </a>
                                     
                                 </div>
@@ -51,13 +51,13 @@
                                 <div class="comment-content">
                                     <div class="comment-meta">
                                         <div class="comment-meta-author">
-                                            Jane Doe
+                                           {{  Auth::user()->name }}
                                         </div>
                                         
                                         
                     
                                         <div class="comment-meta-date">
-                                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                                            <span class="hidden-xs">{{ $iteam_rep->created_at }}</span>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -90,7 +90,8 @@
         </li>
         @endforeach
 <script>
-     function checkuser(){
+
+            function checkuser(){
             var id_user = $('#id_user').val(); 
             if(id_user==0){
                 $('.reply').css('display','none');
@@ -100,52 +101,39 @@
             }
         }
         checkuser();
-        $('.reply').click(function(){
+
+    $('.reply').click(function(){
             var cid = $(this).attr("cid");
             $('.reply-form'+cid).toggle();
             $('.reply-form'+cid).focus();
-        });
+    });
 
-        $('.sub-btn').click(function (e) {
+    
+    $('.sub-btn').click(function (e) {
         e.preventDefault();
-        // 1 dong cmt id thi no lay caui id dau tien phai  chắc vậy đó bác . bác 
-        // debug em nhìn thấy chỗ sai rồi
-
-      //  var comment_id = $(this).closest("form").find('input#comment_id').val();
         var comment_id =$(this).closest("form").find('input#comment_id').val();
-
-        //var mesreply = $('#mesreply'+comment_id).val();
         var mesreply = $('#mesreply'+comment_id).val(); 
-        //console.log(comment_id); 
-        //return false;
-        
-        $.ajax({
+         $.ajax({
             type: "POST",
             url: '{{url("/reply-post")}}',
             dataType: 'JSON',
             data: {comment_id: comment_id, mesreply: mesreply},
             success: function(data) {
                 if(data.error != '')
-            {   
+                {   
                 $('#sub-menu'+comment_id)[0].reset();
                 $(".iteam-reply"+comment_id).empty();
                 load_repcmt(comment_id);
-                console.log(data);
-            }
-        }  
-        });
-    
-    });
-    //getcmtpost.blade.php load_repcmt();
-function load_repcmt(id_cmt)
-    { 
-        //var cid = $(this).attr("comment_id");
-        //console.log(cid);
-       // return false;
-        $.get("../ajax/reply-post/"+id_cmt, function(data){
-            //muon k bi lap phai empty truoc khi append 
-			$(".iteam-reply"+id_cmt).append(data);
-    });
-}
+                console.log('Data page reply: ', data);
+                }
+            }  
+        }); 
 
+    function load_repcmt(id_cmt)
+        { 
+            $.get("../ajax/reply-post/"+id_cmt, function(data){ 
+                $(".iteam-reply"+id_cmt).append(data);
+            });
+        }
+    });
 </script>

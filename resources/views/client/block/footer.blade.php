@@ -106,7 +106,7 @@
                                     <input class="nsu-field btn-block" id="nsu-email-0" type="text"  name="email" placeholder="Email " required="">
                                 </div>
                                 <div class="form-group mb-0">
-                                    <button id="submit_data" class="button-sm button-theme btn-block">
+                                    <button id="submit_data" class="button-sm button-theme-footer btn-block">
                                         Gửi
                                     </button>
                                 </div>
@@ -158,25 +158,5 @@
         </div>
     </div>
 </div>
-<script>
-    $("#submit_data").click(function(){
-        var email = $('#nsu-email-0').val();
-        var fullname = $('#nsu-name-0').val();
-        var phone = $('#nsu-phone-0').val();
-        $.ajax({
-                url: "/save-data-email",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {email:email,fullname:fullname,phone:phone },
-                success:function(data){
-                    alert('Thông tin bạn của ban đã được lưu lại , bạn sẽ sớm nhận được nhưng thông tin dự án mới nhất ');
-                },
-                error: function (xhr, ajaxOptions, thrownError,message) {
-                    alert('Email bạn nhập không đúng định dạng , vui lòng kiểm tra lại !!!');
-                }
-          });
-    });
-</script>
+
 <!-- Copy end right-->

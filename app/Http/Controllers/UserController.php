@@ -34,8 +34,8 @@ class UserController extends Controller
         
     }
     public function getList(){
-        $data_user=User::orderBy('id','DESC')->get();
-        return view('admin.users.list',compact('data_user'));
+        $data_user=User::where('level',1)->orderBy('id','DESC')->get();
+        return view('admin.users.list_system',compact('data_user'));
     }
     public function postcreate(Request $request){
         $User= new User();
@@ -48,5 +48,13 @@ class UserController extends Controller
     }
     public function getcreate(){
         return view('admin.users.create');
+    }
+    public function getListCustomer(){
+        $data_customer = User::where('level',0)->orderBy('id','DESC')->get();
+        return view('admin.users.list_customer',compact('data_customer'));
+    }
+    public function getListBorker(){
+        $data_borker = User::where('level',2)->orderBy('id','DESC')->get();
+        return view('admin.users.list_borker',compact('data_borker'));
     }
 }

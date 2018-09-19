@@ -1,5 +1,6 @@
 @extends('client.master')
 @section('title',$post_detail->title)
+@section('description', str_limit($post_detail->description,100))
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -231,7 +232,7 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <img src="http://placehold.it/708x359" alt="floor-plans" class="img-responsive">
+                                            <img src="" alt="floor-plans" class="img-responsive">
                                         </div>
                                         <!-- Floor Plans end -->
                                     </div>
@@ -250,6 +251,30 @@
                         </div>
                     </div>
                     <!-- Property description end -->
+                    <div class="row clearfix t-s">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <!-- Tags box start -->
+                            <div class="tags-box">
+                                <h2>Tags</h2>
+                                <ul class="tags">
+                                </ul>
+                            </div>
+                            <!-- Tags box end -->
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <!-- Blog Share start -->
+                            <div class="social-media clearfix blog-share">
+                                <h2>Chia Sẽ</h2>
+                                <!-- Social list -->
+                                <ul class="social-list">
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}" target="_blank" class="facebook-bg"><i class="fa fa-facebook" style="margin-top:10px;"></i></a></li>
+                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text={{$post_detail['tomtat']}} &url={{ url()->full() }}" class="twitter-bg"><i class="fa fa-twitter" style="margin-top:10px;"></i></a></li>
+                                    <li><a target="_blank" href="https://plus.google.com/share?url={{ url()->full() }}" class="google-bg"><i class="fa fa-google-plus" style="margin-top:10px;"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Blog Share end -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Properties details section end -->
 
@@ -303,6 +328,88 @@
                              -->
                             <ul class="comments">
                              <!-- Noi Chua Ajax Load Comment -->
+                             @foreach($data_cmtpost as $iteam_cmt)
+                             <li>
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        <a href="#">
+                                             <img src="{!! asset('public\client\img\avatar/'.$iteam_cmt->User['avatar']) !!}" alt="avatar-5">
+                                         </a>
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-meta">
+                                            <div class="comment-meta-author">
+                                                 {{ $iteam_cmt->User['name'] }}
+                                            </div>
+                                             
+                                            <div class="comment-meta-reply">
+                                                 <a href="javascript:void(0)"  cid="{{ $iteam_cmt->id }}" token="{{ csrf_token() }}" class="reply">Reply</a>
+                                            </div>
+                                            <div class="comment-meta-date">
+                                                <span class="hidden-xs">{{ $iteam_cmt->created_at }}</span>
+                                            </div>
+                                         </div>
+                                         <div class="clearfix"></div>
+                                         <div class="comment-body">
+                                             <input type="hidden" id="datalog" value="{{$iteam_cmt->id}}">
+                                             <div class="comment-rating">
+                                                 <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star"></i>
+                                                 <i class="fa fa-star-o"></i>
+                                             </div>
+                                             <p>{!! $iteam_cmt->content !!}</p>
+                                         </div>
+                                     </div>
+                                </div>
+                                    <ul>
+                                        <!-- Noi Chua Comment reply  -->
+                                        <li class="iteam-reply{{$iteam_cmt->id}}">
+                                            @foreach($iteam_cmt->repliespost  as $iteam_rep)
+                                                <div class="comment">
+                                                    <div class="comment-author">
+                                                        <a href="#">
+                                                            <img src="{!! asset('public\client\img\avatar/'.$iteam_rep->User['avatar']) !!}" alt="avatar-5">
+                                                        </a>     
+                                                    </div>
+                                                    <div class="comment-content">
+                                                        <div class="comment-meta">
+                                                            <div class="comment-meta-author">
+                                                                {{  $iteam_rep->User['name'] }}
+                                                            </div>
+                                                            <div class="comment-meta-date">
+                                                                <span class="hidden-xs">{{ $iteam_rep->created_at }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="comment-body">
+                                                        <div class="comment-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                        <p style="word-wrap: break-word;">{{ $iteam_rep->rely }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </li>
+                                    </ul>
+                                 <div class="reply-form reply-form{{$iteam_cmt->id}} " style="display:none">
+                                     <form method="post" id="sub-menu{{$iteam_cmt->id}}" >
+                                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">    
+                                         <input type="hidden" id="comment_id"  name="comment_id" value="{{$iteam_cmt->id}}">
+                                         <input type="hidden" name="name" value="{{$iteam_cmt->id}}">
+                                     <div class="form-group"><textarea class="form-control" id="mesreply{{$iteam_cmt->id}}" name="mesreply" placeholder="nhap vao day" > </textarea> </div>
+                                         <div class="form-group"> <input class="btn btn-primary sub-btn" catalog="{{$iteam_cmt->id}}"  type="button" value="Gửi"> </div>
+                                     </form>
+                                         
+                                 </div>
+                             </li>
+                             @endforeach
                             </ul>
                         </div>
                         <!-- Comments section end -->
@@ -322,15 +429,16 @@
 <!-- Properties details page end -->
 @include('client.block.brands')
 
+@endsection
+@section('javascript')
+
 <script>
-
-
-$.ajaxSetup({  
-   headers: {  
-           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
-    } 
-});  
-$('.button-theme').click(function (e) {
+    $.ajaxSetup({  
+       headers: {  
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
+        } 
+    });  
+    $('.button-theme').click(function (e) {
         e.preventDefault();
         var IdPost = $('#IdPost').val();
         var message = $('#message').val();
@@ -341,30 +449,65 @@ $('.button-theme').click(function (e) {
             data: {IdPost: IdPost, message: message},
             success: function(data) {
                 if(data.error != '')
-            {   
-                $('#contact_form')[0].reset();
-                $(".comments ").empty();
-                //sua gi nua nhi
-                // ok chua bác 
-                //empty cho nay cung dc
-                load_comment(); // còn đây là khi submit thành công thì nó load lại danh sach
+                {   
+                    $('#contact_form')[0].reset();
+                    $(".comments ").empty();
+                    load_comment(); 
+                }
+            } 
+        });
+    });
+
+    function load_comment()
+     {
+        var	id_post =$('#id_post').val();
+        $.get("../ajax/comment-post/"+id_post, function(data){
+            $(".comments ").append(data);
+        });
+    }
+    $('.reply').click(function(){
+            var cid = $(this).attr("cid");
+            $('.reply-form'+cid).toggle();
+            $('.reply-form'+cid).focus();
+    });
+
+    function checkuser(){
+            var id_user = $('#id_user').val(); 
+            if(id_user==0){
+                $('.reply').css('display','none');
+            }
+            else {
+                $('.reply').css('display','block');
             }
         }
-            
+        checkuser();
+
+    $('.sub-btn').click(function (e) {
+        e.preventDefault();
+        var comment_id =$(this).closest("form").find('input#comment_id').val();
+        var mesreply = $('#mesreply'+comment_id).val(); 
+         $.ajax({
+            type: "POST",
+            url: '{{url("/reply-post")}}',
+            dataType: 'JSON',
+            data: {comment_id: comment_id, mesreply: mesreply},
+            success: function(data) {
+                if(data.error != '')
+            {   
+                $('#sub-menu'+comment_id)[0].reset();
+                $(".iteam-reply"+comment_id).empty();
+                load_repcmt(comment_id);
+                console.log('Data page reply: ', data);
+            }
+        }  
+        }); 
+    
+    });
+
+    function load_repcmt(id_cmt){ 
+        $.get("../ajax/reply-post/"+id_cmt, function(data){
+        $(".iteam-reply"+id_cmt).append(data);
         });
-});
-load_comment(); //nay de lam gi v
-// để load danh sách cmt khi chưa submit đó bác
-
-function load_comment()
- {
-        var	id_post =$('#id_post').val();
-        //console.log(id_post);
-        $.get("../ajax/comment-post/"+id_post, function(data){
-            //muon k bi lap phai empty truoc khi append 
-			$(".comments ").append(data);
-		});
-}
-
-</script>
+    } 
+    </script>
 @endsection

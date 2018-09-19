@@ -104,6 +104,9 @@
     </div>
 </div>
 <!-- Counters end -->
+
+@endsection
+@section('javascript')
 <script>
     $(".delete").click(function(){
         var r = confirm("Bạn có chắc chắn xóa không !");

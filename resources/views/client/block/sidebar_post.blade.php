@@ -229,21 +229,6 @@
  
     </div>
 </div>
-<script>
-    $("#slhinhthuc").change(function(){
-        var slhinhthuc = $(this).val();
-        $.get("../ajax/loaitin/"+slhinhthuc,function(data){
-            $("#sltheloai").html(data).selectpicker('refresh')
-        });
-    });
-    $("#location").change(function(){
-        var location = $(this).val();
-        $.get("../ajax/huyen/"+location,function(data){
-            $("#slquan").html(data).selectpicker('refresh')
-        });
-    });
-    
-</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

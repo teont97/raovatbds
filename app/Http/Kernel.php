@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checklogin' => \App\Http\Middleware\checklogin::class,
         'CheckAdmin' => \App\Http\Middleware\CheckAdmin::class,
+        'CheckAjax' => \App\Http\Middleware\CheckAjax::class,
     ];
 }
