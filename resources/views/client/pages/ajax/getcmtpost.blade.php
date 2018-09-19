@@ -6,20 +6,20 @@
             <div class="comment">
                 <div class="comment-author">
                     <a href="#">
-                        <img src="http://placehold.it/60x60" alt="avatar-5">
+                        <img src="{!! asset('public\client\img\avatar/'.Auth::user()->avatar) !!}" alt="avatar-5">
                     </a>
                 </div>
                 <div class="comment-content">
                     <div class="comment-meta">
                         <div class="comment-meta-author">
-                            Jane Doe
+                            {{ Auth::user()->name }}
                         </div>
                         
                         <div class="comment-meta-reply">
                             <a href="javascript:void(0)"  cid="{{ $iteam_cmt->id }}" token="{{ csrf_token() }}" class="reply">Reply</a>
                         </div>
                         <div class="comment-meta-date">
-                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                        <span class="hidden-xs">{{ $iteam_cmt->created_at }}</span>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -43,7 +43,7 @@
                             <div class="comment">
                                 <div class="comment-author">
                                     <a href="#">
-                                        <img src="http://placehold.it/60x60" alt="avatar-5">
+                                        <img src="{!! asset('public\client\img\avatar/'.Auth::user()->avatar) !!}" alt="avatar-5">
                                     </a>
                                     
                                 </div>
@@ -51,13 +51,13 @@
                                 <div class="comment-content">
                                     <div class="comment-meta">
                                         <div class="comment-meta-author">
-                                            Jane Doe
+                                           {{  Auth::user()->name }}
                                         </div>
                                         
                                         
                     
                                         <div class="comment-meta-date">
-                                            <span class="hidden-xs">8:42 PM 3/3/2017</span>
+                                            <span class="hidden-xs">{{ $iteam_rep->created_at }}</span>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>

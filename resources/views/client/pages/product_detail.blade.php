@@ -1,5 +1,6 @@
 @extends('client.master')
 @section('title',$post_detail->title)
+@section('description', str_limit($post_detail->description,100))
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -231,7 +232,7 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <img src="http://placehold.it/708x359" alt="floor-plans" class="img-responsive">
+                                            <img src="" alt="floor-plans" class="img-responsive">
                                         </div>
                                         <!-- Floor Plans end -->
                                     </div>
@@ -250,6 +251,30 @@
                         </div>
                     </div>
                     <!-- Property description end -->
+                    <div class="row clearfix t-s">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <!-- Tags box start -->
+                            <div class="tags-box">
+                                <h2>Tags</h2>
+                                <ul class="tags">
+                                </ul>
+                            </div>
+                            <!-- Tags box end -->
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <!-- Blog Share start -->
+                            <div class="social-media clearfix blog-share">
+                                <h2>Chia Sẽ</h2>
+                                <!-- Social list -->
+                                <ul class="social-list">
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}" target="_blank" class="facebook-bg"><i class="fa fa-facebook" style="margin-top:10px;"></i></a></li>
+                                    <li><a target="_blank" href="https://twitter.com/intent/tweet?text={{$post_detail['tomtat']}} &url={{ url()->full() }}" class="twitter-bg"><i class="fa fa-twitter" style="margin-top:10px;"></i></a></li>
+                                    <li><a target="_blank" href="https://plus.google.com/share?url={{ url()->full() }}" class="google-bg"><i class="fa fa-google-plus" style="margin-top:10px;"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Blog Share end -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Properties details section end -->
 
@@ -322,49 +347,52 @@
 <!-- Properties details page end -->
 @include('client.block.brands')
 
+@endsection
+@section('javascript')
+
 <script>
 
 
-$.ajaxSetup({  
-   headers: {  
-           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
-    } 
-});  
-$('.button-theme').click(function (e) {
-        e.preventDefault();
-        var IdPost = $('#IdPost').val();
-        var message = $('#message').val();
-        $.ajax({
-            type: "POST",
-            url: '{{url("/comment-post")}}',
-            dataType: 'JSON',
-            data: {IdPost: IdPost, message: message},
-            success: function(data) {
-                if(data.error != '')
-            {   
-                $('#contact_form')[0].reset();
-                $(".comments ").empty();
-                //sua gi nua nhi
-                // ok chua bác 
-                //empty cho nay cung dc
-                load_comment(); // còn đây là khi submit thành công thì nó load lại danh sach
+    $.ajaxSetup({  
+       headers: {  
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
+        } 
+    });  
+    $('.button-theme').click(function (e) {
+            e.preventDefault();
+            var IdPost = $('#IdPost').val();
+            var message = $('#message').val();
+            $.ajax({
+                type: "POST",
+                url: '{{url("/comment-post")}}',
+                dataType: 'JSON',
+                data: {IdPost: IdPost, message: message},
+                success: function(data) {
+                    if(data.error != '')
+                {   
+                    $('#contact_form')[0].reset();
+                    $(".comments ").empty();
+                    //sua gi nua nhi
+                    // ok chua bác 
+                    //empty cho nay cung dc
+                    load_comment(); // còn đây là khi submit thành công thì nó load lại danh sach
+                }
             }
-        }
-            
-        });
-});
-load_comment(); //nay de lam gi v
-// để load danh sách cmt khi chưa submit đó bác
-
-function load_comment()
- {
-        var	id_post =$('#id_post').val();
-        //console.log(id_post);
-        $.get("../ajax/comment-post/"+id_post, function(data){
-            //muon k bi lap phai empty truoc khi append 
-			$(".comments ").append(data);
-		});
-}
-
-</script>
+                
+            });
+    });
+    load_comment(); //nay de lam gi v
+    // để load danh sách cmt khi chưa submit đó bác
+    
+    function load_comment()
+     {
+            var	id_post =$('#id_post').val();
+            //console.log(id_post);
+            $.get("../ajax/comment-post/"+id_post, function(data){
+                //muon k bi lap phai empty truoc khi append 
+                $(".comments ").append(data);
+            });
+    }
+    
+    </script>
 @endsection

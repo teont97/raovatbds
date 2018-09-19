@@ -1,5 +1,6 @@
 @extends('client.master')
 @section('title',$data_tintuc_detail['title'])
+@section('description',$data_tintuc_detail['tomtat'])
 @section('content')
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -69,14 +70,12 @@
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                 <!-- Blog Share start -->
                                 <div class="social-media clearfix blog-share">
-                                    <h2>Share</h2>
+                                    <h2>Chia Sẽ</h2>
                                     <!-- Social list -->
                                     <ul class="social-list">
-                                        <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a target="_blank" href="https://twitter.com/intent/tweet?text={{$data_tintuc_detail['tomtat']}} &url={{ url()->full() }}" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a target="_blank" href="https://plus.google.com/share?url={{ url()->full() }}" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
                                     </ul>
                                 </div>
                                 <!-- Blog Share end -->
@@ -144,6 +143,9 @@
 <!-- Blog body end -->
 @include('client.block.brands')
 
+
+@endsection
+@section('javascript')
 <script>
     $.ajaxSetup({  
         headers: {  
@@ -194,4 +196,6 @@
     }
     
 </script>
+<div id="fb-root"></div>
+
 @endsection

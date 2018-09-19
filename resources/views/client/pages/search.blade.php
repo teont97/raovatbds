@@ -56,11 +56,11 @@
                                         <i class="fa fa-video-camera"></i>
                                     </a>
                                     <div class="property-magnify-gallery">
-                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                        <a href="#" class="overlay-link">
                                             <i class="fa fa-expand"></i>
                                         </a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
-                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
+                                        <a href="#" class="hidden"></a>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                     </li>
                                     <li>
                                         <i class="glyphicon glyphicon-usd"></i>
-                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_mypost->Unit['name']}}</span>
+                                        <span>Giá {{ $iteam_post->price }} {{ $iteam_post->Unit['name']}}</span>
                                     </li>
                                 </ul>
                                 <!-- Property footer -->

@@ -223,9 +223,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Mô Giới</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Khách Hàng Chính Chủ </a></li>
-            <li><a href="{!! Route('admin.user.getlist')!!}"><i class="fa fa-circle-o"></i> Tài Khoản </a></li>
+          <li><a href="{{ route('admin.user.get_list_broker')}}"><i class="fa fa-circle-o"></i> Mô Giới</a></li>
+            <li><a href="{{ route('admin.user.get_list_customer')}}"><i class="fa fa-circle-o"></i> Khách Hàng Chính Chủ </a></li>
+            <li><a href="{!! Route('admin.user.getlist')!!}"><i class="fa fa-circle-o"></i> Quản Trị </a></li>
           </ul>
         </li>
         <li class="header">CHỨC NĂNG</li>

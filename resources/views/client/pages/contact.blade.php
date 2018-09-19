@@ -133,6 +133,9 @@
     </div>
 </div>
 <!-- Google map end -->
+
+@endsection
+@section('javascript')
 <script>
     ClassicEditor
     .create( document.querySelector( '#messagecontact' ),{

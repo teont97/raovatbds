@@ -75,7 +75,9 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
         Route::post('delete',['as'=>'admin.user.delete','uses'=>'UserController@postdelete']);
         Route::post('create',['as'=>'admin.user.postcreate','uses'=>'UserController@postcreate']);
         Route::get('get-create',['as'=>'admin.user.getcreate','uses'=>'UserController@getcreate']);
-        Route::get('list',['as'=>'admin.user.getlist','uses'=>'UserController@getList']);
+        Route::get('list-system',['as'=>'admin.user.getlist','uses'=>'UserController@getList']);
+        Route::get('list-customer',['as'=>'admin.user.get_list_customer','uses'=>'UserController@getListCustomer']);
+        Route::get('list-brokers',['as'=>'admin.user.get_list_broker','uses'=>'UserController@getListBorker']);
     });
     Route::group(['prefix'=>'general'],function(){
         Route::get('list-hinhthuc',['as'=>'admin.general.listhinhthuc','uses'=>'GeneralController@getListHinhThuc']);
@@ -167,7 +169,7 @@ Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
     Route::post('delete-images-dropzone',['as'=>'personal.post.delete.images','uses'=>'PersonalController@PostDeleteImages']);
     Route::post('delete-mypost',['as'=>'personal.post.delete.mypost','uses'=>'PersonalController@PostDeleteMypost']);
 });
-Route::group(['prefix'=>'ajax'],function(){
+Route::group(['prefix'=>'ajax','middleware'=>'CheckAjax'],function(){
     Route::get('loaitin/{id_hinhthuc}',['as'=>'ajax.loaitin','uses'=>'AjaxController@getloaitin']);
     Route::get('unit/{id_hinhthuc}',['as'=>'ajax.unit','uses'=>'AjaxController@getUnit']);
     Route::get('huyen/{id_tinh}',['as'=>'ajax.huyen','uses'=>'AjaxController@gethuyen']);
