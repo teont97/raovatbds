@@ -413,8 +413,5 @@ $(function () {
             $("#slquan").html(data).selectpicker('refresh')
         });
     });
-
-
-    
 })(jQuery);
 

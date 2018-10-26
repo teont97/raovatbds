@@ -96,7 +96,6 @@
     <script src="{{ url('public/client/js/myapp.js') }}"></script>
     <script src="{{ url('public/client/js/main.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
-    
     <script src="{{ url('public/client/js/ie-emulation-modes-warning.js') }}"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125823495-1"></script>
@@ -122,9 +121,7 @@
         })();
         </script>
         <!--End of Tawk.to Script-->
-    @yield('javascript')
-
-
+        @yield('javascript')
 
 </body>
 </html>
