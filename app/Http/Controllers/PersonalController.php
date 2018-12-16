@@ -84,6 +84,7 @@ class PersonalController extends Controller
     }
     public function PostEditMyPost(Request $request){
         $data=$request->all();
+
         //dd($data);
         $post=post::find($request->id);
         $post->title=$request->txttitle;

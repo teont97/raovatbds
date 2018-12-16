@@ -23,10 +23,11 @@ use App\hinhthuc;
 use App\data_email;
 use Carbon\Carbon;
 use DateTime;
+use App\Http\Requests\RegisterRequest;
 class PageController extends Controller
 {
   
-    public function postregister(Request $request){
+    public function postregister(RegisterRequest $request){
             $User = new User();
             $User->name = $request->fullname;
             $User->email=$request->email;

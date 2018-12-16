@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use Hash;
+use App\Http\Requests\RegisterRequest;
 class UserController extends Controller
 {
     public function GetLogin(){

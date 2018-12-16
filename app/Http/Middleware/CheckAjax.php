@@ -16,12 +16,7 @@ class CheckAjax
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-
-            $user= Auth::user();
-            if($user->level==1)
-            return $next($request);
-        else
-           return back();
+        return $next($request);
        }
        else{
            return back();
