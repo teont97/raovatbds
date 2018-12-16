@@ -1,12 +1,6 @@
 @extends('admin.master')
 @section('content')
-<script>
-  $(function(){
-    $('#Listhinhthuc').DataTable({
-     // "scrollX": true
-    });
-  });
-</script>
+
 <section class="content-header">
       <h1>
         Danh Sách Bài Viết Bất Động Sản
@@ -155,70 +149,80 @@
     </div>
   </div>
 </div>
+
+
+@endsection
+@section('javascript')
 <script>
-  $('#create_hinhthuc').click(function(){ 
-          var string = $('#namehinhthuc').val();
+    $(function(){
+      $('#Listhinhthuc').DataTable({
+       // "scrollX": true
+      });
+    });
+</script>
+<script>
+    $('#create_hinhthuc').click(function(){ 
+      var string = $('#namehinhthuc').val();
+      $.ajax({
+        url: "{{ route('admin.general.create.hinhthuc') }}",
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {string:string },
+        success:function(data){
+            $('#ModalCreateHinhThuc').modal('hide');
+            location.reload();
+        }   
+      });
+    });
+    $('#Listhinhthuc tbody').on( 'click','button.edit', function(){
+      var name_data = $(this).attr('data-catalog');  
+      var id_data = $(this).attr('data-id');  
+      var input = $('#name_update').val(name_data); 
+      var input = $('#id_update').val(id_data);    
+    });
+    $("#ModalUpdateHinhThuc").on("show.bs.modal", function(evt) {
+            var name_data = $('#name_update').val();
+            var string = ""+name_data+"" ;
+            var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
+            $('.modal-body #namehinhthuc1').val(string);
+            $('.modal-header .modal-title').html(title);
+        });
+    $('#update_hinhthuc').click(function(){ 
+          var id = $('#id_update').val();
+          var string = $('#namehinhthuc1').val();
+          var mytbl = $("#Listhinhthuc").dataTable();
           $.ajax({
-                url: "/admin/general/post-create-hinhthuc",
+                url: "{{ route('admin.general.edit.hinhthuc') }}",
                 type: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                data: {string:string },
+                data: {id:id , string:string },
                 success:function(data){
-                    $('#ModalCreateHinhThuc').modal('hide');
+                    $('#ModalUpdateHinhThuc').modal('hide');
                     location.reload();
                 }   
           });
     });
-  $('#Listhinhthuc tbody').on( 'click','button.edit', function(){
-    var name_data = $(this).attr('data-catalog');  
-    var id_data = $(this).attr('data-id');  
-    var input = $('#name_update').val(name_data); 
-    var input = $('#id_update').val(id_data);    
-  });
-  $("#ModalUpdateHinhThuc").on("show.bs.modal", function(evt) {
-          var name_data = $('#name_update').val();
-          var string = ""+name_data+"" ;
-          var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
-          $('.modal-body #namehinhthuc1').val(string);
-          $('.modal-header .modal-title').html(title);
-      });
-  $('#update_hinhthuc').click(function(){ 
-        var id = $('#id_update').val();
-        var string = $('#namehinhthuc1').val();
-        var mytbl = $("#Listhinhthuc").dataTable();
+    $('#Listhinhthuc tbody').on( 'click','button.trash', function(){ 
+      var id_data = $(this).attr('data-catalog');  
+      var input = $('#id_delete').val(id_data);  
+    });
+    $('#delete_hinhthuc').click(function(){ 
+        var id = $('#id_delete').val();
         $.ajax({
-              url: "/admin/general/post-edit-hinhthuc",
-              type: 'POST',
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              },
-              data: {id:id , string:string },
-              success:function(data){
-                  $('#ModalUpdateHinhThuc').modal('hide');
-                  location.reload();
-              }   
+          url: "{{ route('admin.general.delete.hinhthuc') }}",
+          type: 'POST',
+          headers: {  
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {id:id},
+          success:function(data){
+            location.reload();
+          }   
         });
-  });
-  $('#Listhinhthuc tbody').on( 'click','button.trash', function(){ 
-    var id_data = $(this).attr('data-catalog');  
-    var input = $('#id_delete').val(id_data);  
-  });
-  $('#delete_hinhthuc').click(function(){ 
-      var id = $('#id_delete').val();
-      $.ajax({
-        url: "/admin/general/post-delete-hinhthuc",
-        type: 'POST',
-        headers: {  
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {id:id},
-        success:function(data){
-          location.reload();
-        }   
-      });
-  });
-</script>
-
+    });
+  </script>
 @endsection

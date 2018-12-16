@@ -250,7 +250,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <input class="btn button-md button-theme" id="submit-edit" type="submit" value="submit">
+                                <input class="btn button-md button-theme" id="submit-edit" value="submit">
                             </div>
                         </div>
                     </form>
@@ -289,7 +289,7 @@ $( "#submit-edit" ).click(function() {
      // edit my post with dropzone 
      var myDropZone = new Dropzone("#myDropZoneEditMyPost",{
          
-        url: '/personal/post-edit-my-post/'+id_post,
+        url: '{{ route('personal.edit.post.mypost',$EditMyPost['id'] ) }}',
         headers:{
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -373,7 +373,7 @@ $( "#submit-edit" ).click(function() {
             this.on("successmultiple", function(files, response) {
                 //myDropzone.options.autoProcessQueue = true; 
                 //hat.processQueue();
-               //location.href ="/personal/my-post";
+               location.href ="/personal/my-post";
               });
             this.on("errormultiple", function(files, response, errors) {
                 // Gets triggered when there was an error sending the files.

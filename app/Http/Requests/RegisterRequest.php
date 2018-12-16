@@ -25,8 +25,8 @@ class RegisterRequest extends FormRequest
     {
 			return [
 					'fullname' => 'required',
-					'content' => 'unique:users|required',
-					'file-upload' => 'required',
+					'email' => 'unique:users|required',
+					'password' => 'required',
 					'confirm_Password'=>'required',
 			];
 		}

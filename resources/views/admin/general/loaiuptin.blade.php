@@ -1,12 +1,6 @@
 @extends('admin.master')
 @section('content')
-<script>
-  $(function(){
-    $('#ListUptin').DataTable({
-     // "scrollX": true
-    });
-  });
-</script>
+
 <section class="content-header">
       <h1>
         Danh Sách Bài Viết Bất Động Sản
@@ -159,24 +153,34 @@
     </div>
   </div>
 </div>
+
+@endsection
+@section('javascript')
 <script>
-    $('#create_uptin').click(function(){ 
-          var string = $('#LoaiUptin_create').val();
-          var value = $('#Value_create').val();
-          //var id_hinhthuc = $('#id_hinhthuc').val(); 
-          $.ajax({
-                url: "/admin/general/post-create-uptin",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {string:string , value:value},
-                success:function(data){
-                    $('#ModalCreateTheLoai').modal('hide');
-                    location.reload();
-                }   
-          });
+    $(function(){
+      $('#ListUptin').DataTable({
+       // "scrollX": true
+      });
     });
+</script>
+<script>
+  $('#create_uptin').click(function(){ 
+    var string = $('#LoaiUptin_create').val();
+    var value = $('#Value_create').val();
+    //var id_hinhthuc = $('#id_hinhthuc').val(); 
+    $.ajax({
+      url: "/admin/general/post-create-uptin",
+      type: 'POST',
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {string:string , value:value},
+      success:function(data){
+          $('#ModalCreateTheLoai').modal('hide');
+          location.reload();
+      }   
+    });
+  });
     $('#ListUptin tbody').on( 'click','button.edit', function(){
       var name_data = $(this).attr('data-name');  
       var id_data = $(this).attr('data-catalog'); 
@@ -186,48 +190,48 @@
       var input = $('#Value').val(value);    
     });
     $("#ModalUpdateUptin").on("show.bs.modal", function(evt) {
-            var name_data = $('#LoaiUptinUpdate').val();
-            var value_data = $('#Value').val();
-            var string = ""+name_data+"" ;
-            var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
-            $('.modal-body #LoaiUptinUpdate').val(string);
-            $('.modal-body #Value').val(value_data);
-            $('.modal-header .modal-title').html(title);
+        var name_data = $('#LoaiUptinUpdate').val();
+        var value_data = $('#Value').val();
+        var string = ""+name_data+"" ;
+        var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
+        $('.modal-body #LoaiUptinUpdate').val(string);
+        $('.modal-body #Value').val(value_data);
+        $('.modal-header .modal-title').html(title);
         });
     $('#update_loaiuptin').click(function(){ 
-          var id = $('#id_update_loaiuptin').val();
-          var string = $('#LoaiUptinUpdate').val();
-          var value = $('#Value').val();
-          $.ajax({
-                url: "/admin/general/post-edit-uptin",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {id:id , string:string ,value:value},
-                success:function(data){
-                    $('#ModalUpdateUptin').modal('hide');
-                    location.reload();
-                }   
-          });
+      var id = $('#id_update_loaiuptin').val();
+      var string = $('#LoaiUptinUpdate').val();
+      var value = $('#Value').val();
+      $.ajax({
+            url: "/admin/general/post-edit-uptin",
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {id:id , string:string ,value:value},
+            success:function(data){
+                $('#ModalUpdateUptin').modal('hide');
+                location.reload();
+            }   
+      });
     });
     $('#ListUptin tbody').on( 'click','button.trash', function(){ 
       var id_data = $(this).attr('data-catalog');  
       var input = $('#id_delete').val(id_data);  
     });
     $('#delete_uptin').click(function(){ 
-        var id = $('#id_delete').val();
-        $.ajax({
-          url: "/admin/general/post-delete-uptin",
-          type: 'POST',
-          headers: {  
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: {id:id},
-          success:function(data){
-            location.reload();
-          }   
-        });
+      var id = $('#id_delete').val();
+      $.ajax({
+        url: "/admin/general/post-delete-uptin",
+        type: 'POST',
+        headers: {  
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {id:id},
+        success:function(data){
+          location.reload();
+        }   
+      });
     });
-  </script>
+`</script>
 @endsection

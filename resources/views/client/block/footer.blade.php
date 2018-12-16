@@ -67,27 +67,27 @@
                 <!-- Recent cars -->
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="footer-item popular-posts">
-                        <div class="main-title-2">
-                            <h1>Bài Viết Phổ Biến </h1>
-                        </div>
-                        @foreach($post as $iteam_post )
-                        <?php $data=$iteam_post->post_images->shift(); ?>
-                            <div class="media">
-                                <div class="media-left">
-                                    <img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="media-heading footer">
-                                    <a href="{!! route('getproductdetail',$iteam_post->id) !!}">{{ $iteam_post->title }}</a>
-                                    </h3>
-                                    <p>{{ $iteam_post->created_at }}</p>
-                                    <div class="price">
-                                        {{ $iteam_post->price }}
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+											<div class="main-title-2">
+													<h1>Bài Viết Phổ Biến </h1>
+											</div>
+											@foreach($post as $iteam_post )
+											<?php $data=$iteam_post->post_images->shift(); ?>
+												<div class="media">
+														<div class="media-left">
+																<img class="images-random" src="{!! asset('storage\app\public\upload\images/'.$data['images']) !!}" alt="small-properties-1">
+														</div>
+														<div class="media-body">
+																<h3 class="media-heading footer">
+																<a href="{!! route('getproductdetail',$iteam_post->id) !!}">{{ $iteam_post->title }}</a>
+																</h3>
+																<p>{{ $iteam_post->created_at }}</p>
+																<div class="price">
+																		{{ $iteam_post->price }}  {{ $iteam_post->Unit['name'] }} 
+																</div>
+														</div>
+												</div>
+											@endforeach
+									</div>
                 </div>
                 <!-- Subscribe -->
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">

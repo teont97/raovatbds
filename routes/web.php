@@ -113,7 +113,6 @@ Route::group(['prefix'=>'admin','middleware'=>'CheckAdmin'],function(){
     });
     Route::group(['prefix'=>'ajax'],function(){
         Route::get('theloai/{id_parent}',['as'=>'ajax.parent','uses'=>'AjaxController@gettheloai']);
-        
     });
     Route::group(['prefix'=>'data'],function(){
         Route::get('data-email',['as'=>'data.email.list','uses'=>'DataController@getDataEmail']);
@@ -124,21 +123,21 @@ Route::get('/',['as'=>'gethome','uses'=>'PageController@gethome']);
 Route::get('product/{id_type}',['as'=>'getproduct','uses'=>'PageController@getproduct']);
 Route::get('product-parent/{id_parent}',['as'=>'getproduct.parent','uses'=>'PageController@getproductparent']);
 Route::get('product-detail/{id_product}',['as'=>'getproductdetail','uses'=>'PageController@getproductdetail']);
-Route::get('product-vip',['as'=>'getproductvip','uses'=>'PageController@getproductvip']);
-Route::get('product-by-day',['as'=>'getproductByday','uses'=>'PageController@getproductByday']);
+Route::get('bai-dang-noi-bat',['as'=>'getproductvip','uses'=>'PageController@getproductvip']);
+Route::get('bai-dang-trong-ngay',['as'=>'getproductByday','uses'=>'PageController@getproductByday']);
 Route::get('customer',['as'=>'getcustomer','uses'=>'PageController@getcustomer']);
-Route::get('blog/{id_type}',['as'=>'getblog','uses'=>'PageController@getblog']);
-Route::get('blog-detail/{id}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
-Route::get('contact',['as'=>'getcontact','uses'=>'PageController@getcontact']);
+Route::get('tin-tuc/{id_type}',['as'=>'getblog','uses'=>'PageController@getblog']);
+Route::get('chi-tiet-tin-tuc/{id}',['as'=>'getblog.detail','uses'=>'PageController@getblogdetail']);
+Route::get('lien-he',['as'=>'getcontact','uses'=>'PageController@getcontact']);
 Route::post('post-contact',['as'=>'PostContact','uses'=>'PageController@PostContact']);
-Route::get('about',['as'=>'getabout','uses'=>'PageController@getabout']);
-Route::get('login',['as'=>'getlogin','uses'=>'PageController@getlogin']);
+Route::get('ve-chung-toi',['as'=>'getabout','uses'=>'PageController@getabout']);
+Route::get('dang-nhap',['as'=>'getlogin','uses'=>'PageController@getlogin']);
 Route::post('post-login',['as'=>'postlogin','uses'=>'PageController@postlogin']);
-Route::get('register',['as'=>'getregister','uses'=>'PageController@getregister']);
-Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postregister']);
+Route::get('dang-ky',['as'=>'getregister','uses'=>'PageController@getregister']);
+Route::post('post-register',['as'=>'postregister','uses'=>'PageController@postRegister']);
 Route::get('404',['as'=>'get404','uses'=>'PageController@get404']);
-Route::get('faq',['as'=>'getfaq','uses'=>'PageController@getfaq']);
-Route::get('services',['as'=>'getservices','uses'=>'PageController@getservices']);
+Route::get('thac-mac',['as'=>'getfaq','uses'=>'PageController@getfaq']);
+Route::get('dich-vu',['as'=>'getservices','uses'=>'PageController@getservices']);
 Route::post('delete_file_upload',['as'=>'post.deletefile','uses'=>'PageController@deletefile']);
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PageController@autocomplete'));
 Route::get('search',array('as'=>'getseacrh','uses'=>'PageController@getsearch'));
@@ -155,13 +154,13 @@ Route::get('logout-user','PageController@logoutUser')->name('logoutUser');
 
 Route::group(['prefix'=>'personal','middleware'=>'checklogin'],function(){
     Route::post('upload-avatar', ['as'=>'post.upload.avatar','uses'=>'PersonalController@postuploadavatar']);
-    Route::get('submit-post',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
+    Route::get('dang-bai',['as'=>'getsubmitpost','uses'=>'PageController@getsubmitpost']);
     Route::post('post-submit',['as'=>'post.submitpost','uses'=>'PageController@postsubmitpost']);
-    Route::get('profile',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
+    Route::get('trang-ca-nhan',['as'=>'personal.profile','uses'=>'PersonalController@getprofile']);
     Route::post('update-profile/{id_user}',['as'=>'personal.update.profile','uses'=>'PersonalController@postUpdateProfile']);
-    Route::get('my-post',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
-    Route::get('my-favorited',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
-    Route::get('change-password',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
+    Route::get('bai-viet-cua-toi',['as'=>'personal.mypost','uses'=>'PersonalController@getmypost']);
+    Route::get('bang-bao-gia-dich-vu',['as'=>'personal.myfavorited','uses'=>'PersonalController@getmyfavorited']);
+    Route::get('thay-doi-mat-khau',['as'=>'personal.changepassword','uses'=>'PersonalController@changepassword']);
     Route::post('post-change-password',['as'=>'personal.post.changepassword','uses'=>'PersonalController@changePostPassword']);
     Route::get('edit-my-post/{id}',['as'=>'personal.edit.mypost','uses'=>'PersonalController@GetEditMyPost']);
     Route::post('post-edit-my-post/{id}',['as'=>'personal.edit.post.mypost','uses'=>'PersonalController@PostEditMyPost']);

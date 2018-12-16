@@ -3,17 +3,17 @@
 @section('content')
     <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
-    <div class="overlay">
-        <div class="container">
-            <div class="breadcrumb-area">
-                <h1>Bất Động Sản News</h1>
-                <ul class="breadcrumbs">
-                    <li><a href="{{ route('gethome')}}">Trang chủ </a></li>
-                    <li class="active">Danh sách tin bất động sản mới nhất trong vòng 7 ngày</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	<div class="overlay">
+		<div class="container">
+			<div class="breadcrumb-area">
+				<h1>Bất Động Sản News</h1>
+				<ul class="breadcrumbs">
+						<li><a href="{{ route('gethome')}}">Trang chủ </a></li>
+						<li class="active">Danh sách tin bất động sản mới nhất trong vòng 7 ngày</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- Sub Banner end -->
 

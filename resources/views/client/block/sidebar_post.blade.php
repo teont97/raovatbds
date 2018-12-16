@@ -100,61 +100,6 @@
                 <div data-min="0" data-max="500" data-unit="Triệu" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                 <div class="clearfix"></div>
             </div>
-
-            <a class="show-more-options" data-toggle="collapse" data-target="#options-content">
-                <i class="fa fa-plus-circle"></i> Hiển Thị Thêm Tùy Chọn 
-            </a>
-            <div id="options-content" class="collapse">
-                <label class="margin-t-10">Features</label>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox1" type="checkbox">
-                    <label for="checkbox1">
-                        Free Parking
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox2" type="checkbox">
-                    <label for="checkbox2">
-                        Air Condition
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox3" type="checkbox">
-                    <label for="checkbox3">
-                        Places to seat
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox4" type="checkbox">
-                    <label for="checkbox4">
-                        Swimming Pool
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox5" type="checkbox">
-                    <label for="checkbox5">
-                        Laundry Room
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox6" type="checkbox">
-                    <label for="checkbox6">
-                        Window Covering
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox7" type="checkbox">
-                    <label for="checkbox7">
-                        Central Heating
-                    </label>
-                </div>
-                <div class="checkbox checkbox-theme checkbox-circle">
-                    <input id="checkbox8" type="checkbox">
-                    <label for="checkbox8">
-                        Alarm
-                    </label>
-                </div>
-            </div>
             <div class="form-group mb-0">
                 <button class="search-button">Tìm Kiếm </button>
             </div>
@@ -170,7 +115,6 @@
             @foreach($loaitin_random as $iteam_loaitin)
                 <?php $data_loaitin=DB::table('post')->where('id_theloai',$iteam_loaitin->id)->get();
                        $sl=count($data_loaitin);
-                      // dd($sl);
                  ?>
                 <li><a href="{!!  route('getproduct',$iteam_loaitin->id) !!}">{!! $iteam_loaitin->name !!} </a> <span>({!! $sl !!})  </span></li>
             @endforeach
@@ -194,7 +138,7 @@
                 </h3>
                 <p>{!! $iteam_random->created_at !!}</p>
                 <div class="price">
-                    {!!$iteam_random->price!!} VND
+                    {!!$iteam_random->price!!} {!! $iteam_random->Unit['name'] !!}
                 </div>
             </div>
         </div>

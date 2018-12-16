@@ -245,7 +245,6 @@ $(function () {
                 formData.append("slhuyen" ,jQuery("#submithuyen").val());
                 formData.append("slphuong" ,jQuery("#submitphuong").val());
                 formData.append("slunit" ,jQuery("#unit").val());
-               // console.log(jQuery("#unit").val());
                 formData.append("message" ,theEditor.getData());
                 formData.append("txtname" ,jQuery("#txtname").val());
                 formData.append("txtemail" ,jQuery("#txtemail").val());
@@ -253,20 +252,13 @@ $(function () {
                 formData.append("sluptin" ,jQuery("#sluptin").val());
                 formData.append("dateEnd" ,jQuery("#dateEnd").val());
                 formData.append("dateStart" ,jQuery("#dateStart").val());
-                console.log(jQuery("#dateEnd").val());
-                console.log(jQuery("#dateStart").val());
             });
             this.on("successmultiple", function(files, response) {
-                //myDropzone.options.autoProcessQueue = true; 
-                //hat.processQueue();
                location.href ="/personal/my-post";
               });
             this.on("errormultiple", function(files, response, errors) {
-                // Gets triggered when there was an error sending the files.
-                // Maybe show form again, and notify user of error
-                //location.reload();
-                //alert(files);
                 alert('bạn nhập còn thiếu dữ liệu , vui lòng nhập lại đầy đủ thông tin ');
+                this.removeAllFiles(true); 
                 });
              }
          });

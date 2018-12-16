@@ -570,9 +570,7 @@ table.manage-table td.action a:hover{
 .banner .item img{
     height: 600px;
 }
-ul li span{
 
-}
 @media (max-width: 768px) {
     .navbar-default .navbar-toggle .icon-bar {
         background: #95c41f;

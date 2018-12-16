@@ -2,9 +2,9 @@
                 <!-- User account box start -->
                 <div class="user-account-box">
                     <div class="header clearfix">
-                        <form enctype="multipart/form-data" action="/personal/upload-avatar" method="POST">
+                        <form enctype="multipart/form-data" action="{{ route('post.upload.avatar') }}" method="POST">
                             <div class="edit-profile-photo">
-                                <img src="/public/client/img/avatar/{{ Auth::user()->avatar }}" alt="agent-1" class="img-avatar">
+                                <img src="{!! asset('public/client/img/avatar/'.Auth::user()->avatar) !!}" alt="agent-1" class="img-avatar">
                                 <div class="change-photo-btn">
                                     <div class="photoUpload">
                                         <span><i class="fa fa-upload"></i> Upload Photo</span>

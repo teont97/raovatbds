@@ -8,17 +8,17 @@
 </style>
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
-    <div class="overlay">
-        <div class="container">
-            <div class="breadcrumb-area">
-                <h1>Đăng tin bất động sản </h1>
-                <ul class="breadcrumbs">
-                    <li><a href="{{ route('gethome')}}">Trang Chủ </a></li>
-                    <li class="active">Đăng tin bất động sản</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	<div class="overlay">
+		<div class="container">
+				<div class="breadcrumb-area">
+						<h1>Đăng tin bất động sản </h1>
+						<ul class="breadcrumbs">
+								<li><a href="{{ route('gethome')}}">Trang Chủ </a></li>
+								<li class="active">Đăng tin bất động sản</li>
+						</ul>
+				</div>
+		</div>
+	</div>
 </div>
 <!-- Sub Banner end -->
 <!-- Submit Property start -->

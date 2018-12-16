@@ -1,12 +1,6 @@
 @extends('admin.master')
 @section('content')
-<script>
-  $(function(){
-    $('#ListHuongNha').DataTable({
-     // "scrollX": true
-    });
-  });
-</script>
+
 <section class="content-header">
       <h1>
         Danh Sách Bài Viết Bất Động Sản
@@ -153,61 +147,71 @@
     </div>
   </div>
 </div>
+
+@endsection
+@section('javascript')
 <script>
+    $(function(){
+      $('#ListHuongNha').DataTable({
+       // "scrollX": true
+      });
+    });
+  </script>
+  <script>
     $('#create_huongnha').click(function(){ 
-          var string = $('#namehuongnha').val();
-          //var id_hinhthuc = $('#id_hinhthuc').val(); 
-          $.ajax({
-                url: "/admin/general/post-create-huongnha",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {string:string },
-                success:function(data){
-                    $('#ModalCreateTheLoai').modal('hide');
-                    location.reload();
-                }   
+      var string = $('#namehuongnha').val();
+      //var id_hinhthuc = $('#id_hinhthuc').val(); 
+      $.ajax({
+        url: "{{ route('admin.general.create.huongnha')  }}",
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {string:string },
+        success:function(data){
+            $('#ModalCreateTheLoai').modal('hide');
+            location.reload();
+        }   
+      });
+    });
+      $('#ListHuongNha tbody').on( 'click','button.edit', function(){
+        var name_data = $(this).attr('data-name');  
+        var id_data = $(this).attr('data-catalog');  
+        var input = $('#namehinhthuc1').val(name_data); 
+        var input = $('#id_huongnha_update').val(id_data);    
+      });
+      $("#ModalUpdateHuongNha").on("show.bs.modal", function(evt) {
+              var name_data = $('#namehinhthuc1').val();
+              var string = ""+name_data+"" ;
+              var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
+              $('.modal-body #namehinhthuc1').val(string);
+              $('.modal-header .modal-title').html(title);
           });
-    });
-    $('#ListHuongNha tbody').on( 'click','button.edit', function(){
-      var name_data = $(this).attr('data-name');  
-      var id_data = $(this).attr('data-catalog');  
-      var input = $('#namehinhthuc1').val(name_data); 
-      var input = $('#id_huongnha_update').val(id_data);    
-    });
-    $("#ModalUpdateHuongNha").on("show.bs.modal", function(evt) {
-            var name_data = $('#namehinhthuc1').val();
-            var string = ""+name_data+"" ;
-            var title = "Chỉnh sửa tên hình thức: "+name_data+"" ;
-            $('.modal-body #namehinhthuc1').val(string);
-            $('.modal-header .modal-title').html(title);
+      $('#update_huongnha').click(function(){ 
+        var id = $('#id_huongnha_update').val();
+        var string = $('#namehinhthuc1').val();
+        var mytbl = $("#Listtheloai").dataTable();
+        $.ajax({
+              url: "{{ route('admin.general.edit.huongnha') }}",
+              type: 'POST',
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              data: {id:id , string:string },
+              success:function(data){
+                  $('#ModalUpdateTheLoai').modal('hide');
+                  location.reload();
+              }   
         });
-    $('#update_huongnha').click(function(){ 
-          var id = $('#id_huongnha_update').val();
-          var string = $('#namehinhthuc1').val();
-          var mytbl = $("#Listtheloai").dataTable();
-          $.ajax({
-                url: "/admin/general/post-edit-huongnha",
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {id:id , string:string },
-                success:function(data){
-                    $('#ModalUpdateTheLoai').modal('hide');
-                    location.reload();
-                }   
-          });
-    });
-    $('#ListHuongNha tbody').on( 'click','button.trash', function(){ 
-      var id_data = $(this).attr('data-catalog');  
-      var input = $('#id_delete').val(id_data);  
-    });
-    $('#delete_huongnha').click(function(){ 
+      });
+      $('#ListHuongNha tbody').on( 'click','button.trash', function(){ 
+        var id_data = $(this).attr('data-catalog');  
+        var input = $('#id_delete').val(id_data);  
+      });
+      $('#delete_huongnha').click(function(){ 
         var id = $('#id_delete').val();
         $.ajax({
-          url: "/admin/general/post-delete-huongnha",
+          url: "{{ route('admin.general.delete.huongnha') }}",
           type: 'POST',
           headers: {  
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
